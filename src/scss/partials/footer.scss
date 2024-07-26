@@ -1,0 +1,19 @@
+@import "../global_styles/reset";
+@import "../global_styles/variables";
+@import "../global_styles/mixins";
+@import "../global_styles/fonts";
+@import "../global_styles/animations";
+
+
+/////// STYLES ///////
+
+.footer-wrapper {
+  width: 100%;
+  border: 1px dashed green;
+
+  @include flex-box($flex-box-row-center-wrap...);
+
+  @media screen and (max-width: 1024px) {
+    border: 2px solid blue;
+  }
+}

@@ -1,0 +1,63 @@
+@import "../global_styles/reset";
+@import "../global_styles/variables";
+@import "../global_styles/mixins";
+@import "../global_styles/fonts";
+@import "../global_styles/animations";
+
+/////// STYLES ///////
+
+.header-wrapper {
+  width: 100%;
+  border: 1px solid red;
+  background: linear-gradient(to right, $color_3 37%, $white 70%);
+  padding: 0 5em;
+
+  @include flex-box($flex-box-row-center-wrap...);
+  gap: 0 3.125em;
+}
+
+.header__banner-wrapper {
+  flex-grow: 1;
+
+  @include flex-box($flex-box-row-center-wrap...);
+}
+
+.image-wrapper {
+  padding: 10px 0;
+
+  img, picture {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.logo {
+  width: 190px;
+}
+
+.phone-icon {
+  width: 24px;
+}
+
+.social {
+  width: 32px;
+}
+
+.header__contacts-wrapper {
+  flex-grow: 1;
+  padding: 10px 0;
+
+  @include flex-box($flex-box-row-right-nowrap...);
+  gap: 0.625em;
+}
+
+.header__contacts-wrapper__phone-wrapper {
+  @include flex-box($flex-box-row-center-nowrap...);
+  gap: 0.625em;
+}
+
+.phone-wrapper__number {
+  text-decoration: none;
+  color: $color_1;
+  @include init-font(1.375em, 700);
+}

@@ -1,0 +1,48 @@
+@import "../global_styles/reset";
+@import "../global_styles/variables";
+@import "../global_styles/mixins";
+@import "../global_styles/fonts";
+@import "../global_styles/animations";
+
+/////// STYLES ///////
+
+body {
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /**** user-select: none; *****/
+}
+/*************TOP BORDER BODY****************/
+body:before {
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  z-index: 100;
+  @include box-shadow(0, 10px);
+}
+/*****************END TOP BORDER BODY************/
+
+.total-wrapper {
+  font-size: 1rem;
+  position: relative; //for the alert block in absolute position
+  max-width: $maxWidth;
+  min-width: $minWidth;
+  margin: 0 auto;
+
+  border: 1px dotted red;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 0.9rem;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 0.75rem;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Ubuntu", sans-serif;
+  }
+}
