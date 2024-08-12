@@ -30,7 +30,17 @@ export const pathData = {
         ],
         styles: `${ srcPath }/scss/*.scss`,   //root *.scss, connected to html (for build tasks)
         js: `${ srcPath }/js/*.js`,
-        img: `${ srcPath }/assets/img/**/*.{jpg,jpeg,png,svg,gif,webp,avif}`,
+        img: [
+            `${ srcPath }/assets/img/**/*.{jpg,jpeg,png,svg,gif,webp,avif}`,
+            `!${ srcPath }/assets/img/svgIcons/mono/**/*`,
+            `!${ srcPath }/assets/img/svgIcons/multi/**/*`
+        ],
+        svgIconsMono: [
+            `${ srcPath }/assets/img/svgIcons/mono/**/*.svg`
+        ],
+        svgIconsMulti: [
+            `${ srcPath }/assets/img/svgIcons/multi/**/*.svg`
+        ],
         fonts: `${ srcPath }/assets/fonts/**/*.{eot,woff,woff2,ttf,otf}`,
         data: `${ srcPath }/assets/data/**/*.{json, pdf, xml}`,
         zipDist: `${ distPath }/**/*.*`,
@@ -45,6 +55,7 @@ export const pathData = {
         styles: `${ distPath }/css`,
         js: `${ distPath }/js`,
         img: `${ distPath }/assets/img`,
+        svgIcons: `${ distPath }/assets/img/svgIcons`,
         fonts: `${ distPath }/assets/fonts`,
         data: `${ distPath }/assets/data`,
         zipProject: distPath,
@@ -59,7 +70,17 @@ export const pathData = {
             `${ srcPath }/js/**/*.js`,
             `${ srcPath }/modules/**/*.js`,
         ],
-        img: `${ srcPath }/assets/img/**/*.{jpg,jpeg,png,svg,gif,webp,avif}`,
+        img: [
+            `${ srcPath }/assets/img/**/*.{jpg,jpeg,png,svg,gif,webp,avif}`,
+            `!${ srcPath }/assets/img/svgIcons/mono/**/*`,
+            `!${ srcPath }/assets/img/svgIcons/multi/**/*`
+        ],
+        svgIconsMono: [
+            `${ srcPath }/assets/img/svgIcons/mono/**/*.svg`
+        ],
+        svgIconsMulti: [
+            `${ srcPath }/assets/img/svgIcons/multi/**/*.svg`
+        ],
         fonts: `${ srcPath }/assets/fonts/**/*.{eot,woff,woff2,ttf,otf}`,
         data: `${ srcPath }/assets/data/**/*.{json, pdf, xml}`,
     },

@@ -84,10 +84,9 @@ export async function cleanDist(targetPaths) {
 }
 
 export function handleError(taskTypeError) {
-    return (err) => {
+    return function(err) {
         console.error(taskTypeError, err.message);
-        //console.error(err);
-        //this.emit('end'); // halt the pipe
+        this.emit('end'); // halt the pipe gracefully
     }
 }
 
@@ -100,6 +99,32 @@ export const combinePaths = (...paths) => {
     return paths.reduce((acc, path) => {
         return acc.concat(Array.isArray(path) ? path : [path]);
     }, []);
+}
+
+/**
+ * Processes file to ensure its contents are in buffer format, handles null and stream files.
+ * @param {object} file - The file object from the stream.
+ * @throws {Error} - Throws an error if file is a stream or has null contents.
+ * @returns {object} - The processed file object with its contents in buffer format.
+ */
+export function processFile(file) {
+    // Check if file.contents is a buffer; if not, convert it to buffer
+    if (!(Buffer.isBuffer(file.contents))) {
+        file.contents = Buffer.from(file.contents);
+    }
+
+    // Handle null file
+    if (file.isNull()) {
+        console.error("file is null...", file.baseName);
+        return null;
+    }
+
+    // Handle stream file
+    if (file.isStream()) {
+        throw new Error("Streaming is not supported...");
+    }
+
+    return file;
 }
 
 

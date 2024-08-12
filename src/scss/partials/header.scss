@@ -1,63 +1,66 @@
 @import "../global_styles/reset";
 @import "../global_styles/variables";
 @import "../global_styles/mixins";
+@import "../global_styles/extends";
 @import "../global_styles/fonts";
 @import "../global_styles/animations";
+@import "../global_styles/media";
 
 /////// STYLES ///////
 
-.header-wrapper {
+.header {
   width: 100%;
-  border: 1px solid red;
-  background: linear-gradient(to right, $color_3 37%, $white 70%);
-  padding: 0 5em;
+  padding: 0.625em 5em;
+  background: linear-gradient(to right, $color_03 37%, $white 70%);
 
   @include flex-box($flex-box-row-center-wrap...);
-  gap: 0 3.125em;
+  gap: 1em;
 }
 
-.header__banner-wrapper {
+.header__logo {
+  width: 11.875em;
+
+  @extend %image-wrapper;
+}
+
+.header__social-icon {
+  width: 2em;
+  @extend %image-wrapper;
+}
+
+.header__contacts {
   flex-grow: 1;
 
-  @include flex-box($flex-box-row-center-wrap...);
+  @include flex-box($flex-box-row-right-nowrap...);
+  gap: 0.5em;
 }
 
-.image-wrapper {
-  padding: 10px 0;
+.header__contacts__contacts-block {
 
-  img, picture {
-    width: 100%;
-    height: auto;
+  @include inline-flex-box($flex-box-row-center-nowrap...);
+  gap: 2em;
+}
+
+.header__phone-icon {
+  width: 1.375em;
+  @extend %image-wrapper;
+}
+
+.header__contacts__contacts-block__phone-link {
+  text-decoration: none;
+
+  @include inline-flex-box($flex-box-row-center-nowrap...);
+  gap: 0.625em;
+
+  span {
+    font-family: "Jost", sans-serif;
+    color: $color_01;
+
+    @include init-font(22px, 700);
   }
 }
 
-.logo {
-  width: 190px;
-}
-
-.phone-icon {
-  width: 24px;
-}
-
-.social {
-  width: 32px;
-}
-
-.header__contacts-wrapper {
-  flex-grow: 1;
-  padding: 10px 0;
-
-  @include flex-box($flex-box-row-right-nowrap...);
-  gap: 0.625em;
-}
-
-.header__contacts-wrapper__phone-wrapper {
-  @include flex-box($flex-box-row-center-nowrap...);
-  gap: 0.625em;
-}
-
-.phone-wrapper__number {
-  text-decoration: none;
-  color: $color_1;
-  @include init-font(1.375em, 700);
+.header__contacts__contacts-block__social-icons {
+  @include inline-flex-box($flex-box-row-center-nowrap...);
+  gap: 1em;
 }

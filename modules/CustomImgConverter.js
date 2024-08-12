@@ -4,6 +4,7 @@ import { Transform } from 'stream';
 import PluginError from 'plugin-error';
 import path from 'path';
 import sharp from 'sharp';
+import { processFile } from "../gulp/utilFuncs.js";
 
 //////////// END OF IMPORTS
 function canConvert(formatInput, formatOutput) {
@@ -12,32 +13,38 @@ function canConvert(formatInput, formatOutput) {
         "jpeg": ["webp", "avif"],
         "png": ["webp", "avif"],
         "gif": ["webp"],
-        "avif": [],
-        "webp": [],
+        "avif": ["jpeg", "png"],
+        "webp": ["jpeg", "png", "gif"],
         "svg": [],
         // Add other conversions as needed
     };
 
-    if (formatInput in convertibleFormats) {
-        return convertibleFormats[formatInput].includes(formatOutput);
-    }
-    return false;
+    return convertibleFormats[formatInput]?.includes(formatOutput) || false;
 }
 
 const PLUGIN_NAME = 'customImgConverter';
 
 export default class CustomImgConverter extends Transform {
     /**
-     * @param {string | string[]} formatInput - what format of the file is to be converted ("jpg", "jpeg", "png", "gif")
-     * @param {string} formatOutput - to what format the file is to be converted("webp", "avif")
+     * @param {string | string[]} formatInput - what format of the file is to be converted ({@link #formatMap})
+     * @param {string} formatOutput - to what format the file is to be converted ({@link canConvert} see const convertibleFormats
      * @param {Object} [options={}] - options of the image to be converted. It may be empty to use the default settings...
-     * @param {Object} [options.params] - params of the image format to be converted. It may be empty to use the default settings...
-     * @param {Object} [options.resize] - possible property for resizing the image
-     * @param {boolean} [options.toSkipOthers] - to skip files with other formats (true) or to pass through with no touch
+     * @param {Object} [options.resize] - possible property for resizing the image.
+     * @param {boolean} [options.toOptimize] - possible property to disable optimisation of the converted image (default: false)
+     * @param {Object} [options.params] - options for params of the image format to be converted. It may be omitted to use the default settings...
+     * @param {boolean} [options.toSkipOthers] - to skip the files with other formats or to stream through with no touch (default: false)
      * @example {
-     *     params: { quality: 80, compressionLevel: 5 },
-     *     resize: {  width: 1000 },
-     *     toSkipOthers: true,
+     *     new CustomImgConverter({
+     *         ["jpg", "jpeg", "png"],
+     *         "webp",
+     *         resize: {  width: 400 },
+     *         toSkipOthers: true,
+     *         toOptimize: true,
+     *         params: {  //it is redundant if toOptimize === false and will be skipped. It also can be omitted for defaults
+     *             quality: 75,
+     *             alphaQuality: 50,
+     *         }
+     *     });
      * }
      */
     constructor(formatInput, formatOutput, options = {}) {
@@ -55,13 +62,10 @@ export default class CustomImgConverter extends Transform {
         this.formatInArr = [].concat(formatInput);
         this.formatOutput = formatOutput;
         this.formatOut = this.formatMap[this.formatOutput] || null;
-        this.targetFormatArr = this.formatInArr.filter((acc, format) => {
+        this.targetFormatArr = this.formatInArr.filter(format => {
             const formatIn = this.formatMap[format] || null;
-            if (formatIn && this.formatOut && canConvert(formatIn, this.formatOut)) {
-                return acc.concat(formatIn);
-            }
-            return acc;
-        }, []);
+            return formatIn && this.formatOut && canConvert(formatIn, this.formatOut);
+        });
 
         /**
          * sharp output options: https://sharp.pixelplumbing.com/api-output
@@ -225,9 +229,11 @@ export default class CustomImgConverter extends Transform {
                 reductionEffort: 4,
             },
             avif: {
-                quality: 60,
+                quality: 75,
+                alphaQuality: 50,
                 speed: 3,
-                lossless: false
+                lossless: false,
+                effort: 4
             },
             gif: {
                 quality: 75,
@@ -257,33 +263,67 @@ export default class CustomImgConverter extends Transform {
                 ],
             }
         };
+
+        //it used for converting the images without its optimisation or with the minimum optimisation
+        this.formatOptionsMapMin = {
+            jpeg: {
+                quality: 100,                // Maximum quality
+                progressive: false,          // Disable progressive loading for minimal impact on the image
+                chromaSubsampling: '4:4:4',  // Minimal color compression to maintain quality
+                trellisQuantisation: false,  // Disable trellis quantization for minimal impact on the image
+                overshootDeringing: false,   // Disable artifact processing for minimal image changes
+            },
+            png: {
+                compressionLevel: 0,         // Minimum compression level
+                adaptiveFiltering: false,    // Disable adaptive filtering for minimal image changes
+                quality: 100,                // Maximum quality
+                palette: false,              // We do not use palette compression
+                dither: 0.0,                 // Disable deactivation to avoid artifacts
+            },
+            webp: {
+                quality: 100,                // Maximum quality
+                alphaQuality: 100,           // Maximum alpha channel quality
+                lossless: false,             // Use lossy compression for minimal impact
+                nearLossless: false,         // Disable near-lossless compression
+                reductionEffort: 0,          // Minimal effort for optimization
+            },
+            avif: {
+                quality: 100,                // Maximum quality
+                alphaQuality: 100,           // Maximum alpha channel quality
+                speed: 0,                    // Minimum speed to maintain quality
+                lossless: false,             // We use lossy compression
+                effort: 0,                   // Minimal effort for optimization
+            },
+            gif: {
+                quality: 100,                // Maximum quality
+                optimizationLevel: 0,        // Minimum level of optimization
+                colors: 256,                 // Maximum number of colors to maintain original quality
+                dither: false,               // Disable deactivation for minimal image change
+                threshold: 0.0,              // Minimum threshold for minimal impact on image
+            },
+        };
     }
 
-    async _transform(file, encoding, callback) {
+    async _transform(_file, encoding, callback) {
         try {
             if (!this.targetFormatArr.length) {
                 throw new Error(`The given formatInput ${ this.formatInArr.join(",") } is not supported or not convertible to ${ this.formatOutput }...`);
             }
 
-            // Ensure file.contents is a buffer
-            if (!(Buffer.isBuffer(file.contents))) {
-                file.contents = Buffer.from(file.contents);
-            }
-
-            if (file.isNull()) {
-                console.error("file is null...", file.baseName);
-                return callback(null, file);
-            }
-
-            if (file.isStream()) {
-                throw new Error("Streaming is not supported...");
+            const file = processFile(_file);
+            if (file === null) {
+                console.error("file is null...", _file.baseName);
+                return callback(null, _file);
             }
 
             const fileExt = path.extname(file.path).toLowerCase().slice(1);
             const fileFormat = this.formatMap[fileExt] || null;
 
             if (fileFormat && this.targetFormatArr.includes(fileFormat)) {
-                const formatOptions = Object.assign({}, this.formatOptionsMap[this.formatOut], this.options.params || {});
+                const formatOptions = this.options?.toOptimize
+                    ? Object.assign({}, this.formatOptionsMap[this.formatOut], this.options.params || {})
+                    : this.formatOptionsMapMin[this.formatOut];
+
                 file.contents = await sharp(file.contents)
                     .resize(this.options.resize || {})  // Optional: Resize options if needed
                     .toFormat(this.formatOut, formatOptions)  // Adjust quality as needed
@@ -291,7 +331,6 @@ export default class CustomImgConverter extends Transform {
 
                 // Change file extension to the target extension
                 file.path = file.path.replace(path.extname(file.path), `.${ this.formatOut }`);
-
                 return callback(null, file);
             }
             else {
@@ -304,7 +343,7 @@ export default class CustomImgConverter extends Transform {
                 return callback(null, file);
             }
         } catch (err) {
-            return callback(new PluginError(PLUGIN_NAME, err.message, { fileName: file.path }));
+            return callback(new PluginError(PLUGIN_NAME, err.message, { fileName: _file.path }));
         }
     }
 }

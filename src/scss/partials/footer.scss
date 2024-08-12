@@ -9,11 +9,16 @@
 
 .footer-wrapper {
   width: 100%;
-  border: 1px dashed green;
+
 
   @include flex-box($flex-box-row-center-wrap...);
 
-  @media screen and (max-width: 1024px) {
-    border: 2px solid blue;
+  .footer-image-wrapper {
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
