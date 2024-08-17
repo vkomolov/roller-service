@@ -17,15 +17,29 @@
   gap: 1em;
 }
 
+.icon-wrapper {
+  @extend %image-wrapper;
+  @include transition();
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
 .header__logo {
   width: 11.875em;
-
-  @extend %image-wrapper;
 }
 
 .header__social-icon {
   width: 2em;
-  @extend %image-wrapper;
+}
+
+.header__phone-icon {
+  width: 1.375em;
+  fill: $color-01;
+  stroke: $color-03;
+  stroke-width: 0.1em;
+  stroke-opacity: 0.8;
 }
 
 .header__contacts {
@@ -37,20 +51,23 @@
 
 .header__contacts__contacts-block {
 
-  @include flex-box($flex-box-row-center-nowrap...);
+  @include flex-box($flex-box-row-center-wrap...);
   gap: 2em;
 }
 
-.header__phone-icon {
-  width: 1.375em;
-  @extend %image-wrapper;
-}
+
 
 .header__contacts__contacts-block__phone-link {
   text-decoration: none;
+  @include text-shadow(0.08em, 0.1em);
 
   @include flex-box($flex-box-row-center-nowrap...);
+  @include transition();
   gap: 0.625em;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   span {
     font-family: "Jost", sans-serif;

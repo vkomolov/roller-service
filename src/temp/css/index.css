@@ -1121,7 +1121,7 @@ legend {
   display: none;
 }
 
-.header__phone-icon img, .header__social-icon img, .header__logo img, .header__phone-icon svg, .header__social-icon svg, .header__logo svg, .header__phone-icon picture, .header__social-icon picture, .header__logo picture {
+.icon-wrapper img, .icon-wrapper svg, .icon-wrapper picture {
   width: 100%;
   height: auto;
 }
@@ -1232,12 +1232,27 @@ legend {
   gap: 1em;
 }
 
+.icon-wrapper {
+  transition: all 0.15s ease-in-out;
+}
+.icon-wrapper:hover {
+  transform: scale(1.2);
+}
+
 .header__logo {
   width: 11.875em;
 }
 
 .header__social-icon {
   width: 2em;
+}
+
+.header__phone-icon {
+  width: 1.375em;
+  fill: #ff8502;
+  stroke: #413930;
+  stroke-width: 0.1em;
+  stroke-opacity: 0.8;
 }
 
 .header__contacts {
@@ -1251,23 +1266,24 @@ legend {
 
 .header__contacts__contacts-block {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   gap: 2em;
 }
 
-.header__phone-icon {
-  width: 1.375em;
-}
-
 .header__contacts__contacts-block__phone-link {
   text-decoration: none;
+  text-shadow: 0.08em 0.08em 0.1em rgba(0, 0, 0, 0.8);
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  transition: all 0.15s ease-in-out;
   gap: 0.625em;
+}
+.header__contacts__contacts-block__phone-link:hover {
+  transform: scale(1.1);
 }
 .header__contacts__contacts-block__phone-link span {
   font-family: "Jost", sans-serif;
