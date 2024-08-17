@@ -37,7 +37,7 @@
 
 .header__contacts__contacts-block {
 
-  @include inline-flex-box($flex-box-row-center-nowrap...);
+  @include flex-box($flex-box-row-center-nowrap...);
   gap: 2em;
 }
 
@@ -49,7 +49,7 @@
 .header__contacts__contacts-block__phone-link {
   text-decoration: none;
 
-  @include inline-flex-box($flex-box-row-center-nowrap...);
+  @include flex-box($flex-box-row-center-nowrap...);
   gap: 0.625em;
 
   span {
@@ -61,6 +61,6 @@
 }
 
 .header__contacts__contacts-block__social-icons {
-  @include inline-flex-box($flex-box-row-center-nowrap...);
+  @include flex-box($flex-box-row-center-nowrap...);
   gap: 1em;
 }
