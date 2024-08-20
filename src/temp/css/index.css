@@ -1,7 +1,21 @@
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  line-height: 1;
+}
+
+/* Universal reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
+del, dfn, em, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
@@ -10,39 +24,13 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, img, audio, svg, picture, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   box-sizing: border-box;
-  /*font: inherit;*/
   vertical-align: baseline;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-/**
- * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
- *    `em` units.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
-html {
-  font-size: 100%; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -ms-text-size-adjust: 100%; /* 2 */
-}
-
-body {
-  line-height: 1;
-}
-
-/* make sure to set some focus _styles for accessibility */
-:focus {
-  outline: 0;
+  font: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -51,121 +39,71 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-a {
-  display: inline-block; /*restricts width and gives ability to be operated as block el*/
+/* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3 */
+img, audio, svg, picture, canvas, video, object, iframe, embed {
+  display: inline-block;
+  box-sizing: border-box; /* Ensures consistent box-sizing */
 }
 
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
+/* Improve image quality when scaled in IE 7 */
+img, object, video, canvas {
+  -ms-interpolation-mode: bicubic;
+  image-rendering: auto;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Links styling */
+a {
+  display: inline-block;
+}
+
 a:focus {
   outline: thin dotted;
 }
 
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
 a:active,
 a:hover {
   outline: 0;
 }
 
-/**
- * Correct margin displayed oddly in IE 6/7.
- */
-form {
-  margin: 0;
-}
-
+/* Input and textarea styling */
 input, textarea {
   outline: none;
   box-shadow: none;
   resize: none;
   padding: 0;
+  line-height: normal;
 }
 
-input:active {
-  outline: none;
-  box-shadow: none;
-}
-
-/**
- * 1. Correct font size not being inherited in all browsers.
- * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
- *    and Chrome.
- * 3. Improve appearance and consistency in all browsers.
- */
 button,
 input,
 select,
 textarea {
-  font-size: 100%; /* 1 */
-  margin: 0; /* 2 */
-  vertical-align: baseline; /* 3 */
-  *vertical-align: middle; /* 3 */
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  -webkit-appearance: button;
+  cursor: pointer;
 }
 
-/**
- * Address Firefox 3+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
+/* Reset button styles */
 button,
-input {
-  line-height: normal;
+button:active,
+button:focus {
+  outline: none;
+  text-transform: none;
 }
 
-/**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
- * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
- *    Known issue: inner spacing remains in IE 6.
- */
-button,
-html input[type=button],
-input[type=reset],
-input[type=submit] {
-  -webkit-appearance: button; /* 2 */
-  cursor: pointer; /* 3 */
-  *overflow: visible; /* 4 */
-}
-
-/**
- * Re-set default cursor for disabled elements.
- */
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-/**
- * Remove inner padding and border in Firefox 3+.
- */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-/**
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof).
- */
+/* Search input styles */
 input[type=search] {
-  -webkit-appearance: textfield; /* 1 */
+  -webkit-appearance: textfield;
   -moz-appearance: none;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box; /* 2 */
   box-sizing: content-box;
 }
 
-/**
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X.
- */
 input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-decoration,
 input[type=search]::-webkit-search-results-button,
@@ -174,61 +112,34 @@ input[type=search]::-webkit-search-results-decoration {
   -moz-appearance: none;
 }
 
-/**
- * 1. Address box sizing set to content-box in IE 8/9.
- * 2. Remove excess padding in IE 8/9.
- * 3. Remove excess padding in IE 7.
- *    Known issue: excess padding remains in IE 6.
- */
+/* Checkbox and radio button sizing */
 input[type=checkbox],
 input[type=radio] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-  height: 13px; /* 3 */
-  width: 13px; /* 3 */
+  box-sizing: border-box;
+  padding: 0;
+  height: 13px;
+  width: 13px;
 }
 
-/**
- * 1. Remove default vertical scrollbar in IE 6/7/8/9.
- * 2. Improve readability and alignment in all browsers.
- */
-textarea {
-  overflow: auto; /* 1 */
-  vertical-align: top; /* 2 */
-  resize: vertical;
+/* Remove default spacing between table cells */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
- * Correct `select` style inheritance in Firefox 4+ and Opera.
- */
-button,
-select {
-  text-transform: none;
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
-button,
-button:active,
-button:focus {
-  outline: none;
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
 }
 
-ol, ul {
-  list-style: none;
-}
-
-/**
- * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
- * 2. Improve image quality when scaled in IE 7.
- */
-img {
-  border: 0; /* 1 */
-  -ms-interpolation-mode: bicubic; /* 2 */
-  vertical-align: middle;
-}
-
+/* Remove most spacing between blockquotes and quotes */
 blockquote, q {
   quotes: none;
 }
@@ -238,60 +149,12 @@ q:before, q:after {
   content: "";
 }
 
-/**
- * Remove most spacing between table cells.
- */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+/* Remove list-style for ordered and unordered lists */
+ul {
+  list-style: none;
 }
 
-/**
- * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
- */
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  max-width: 100%;
-}
-
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/**
- * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
- */
-figure {
-  margin: 0;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/**
- * 1. Correct color not being inherited in IE 6/7/8/9.
- * 2. Correct text not wrapping in Firefox 3.
- * 3. Correct alignment displayed oddly in IE 6/7.
- */
-legend {
-  border: 0; /* 1 */
-  padding: 0;
-  white-space: normal; /* 2 */
-  *margin-left: -7px; /* 3 */
-}
-
+/* Selection styles */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -302,20 +165,7 @@ legend {
   text-shadow: none;
 }
 
-/**
- * Chrome integrated into the Internet Explorer
- */
-.chromeframe {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/**
- * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
- * Known issue: no IE 6 support.
- */
+/* Hidden elements */
 [hidden] {
   display: none;
 }
@@ -332,6 +182,13 @@ legend {
   font-style: normal;
   src: url("../assets/fonts/Ubuntu/Ubuntu-Regular.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Regular.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu.ttf") format("truetype");
 }
+/* mobile (portrait) */
+/* mobile (landscape) */
+/* tablet (portrait) */
+/* tablet (landscape) */
+/* laptop */
+/* desktop */
+/* large desktop */
 @keyframes popup {
   0% {
     transform: scale(1);
@@ -373,10 +230,24 @@ legend {
     transform: rotate(360deg);
   }
 }
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  line-height: 1;
+}
+
+/* Universal reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
+del, dfn, em, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
@@ -385,39 +256,13 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, img, audio, svg, picture, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   box-sizing: border-box;
-  /*font: inherit;*/
   vertical-align: baseline;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-/**
- * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
- *    `em` units.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
-html {
-  font-size: 100%; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -ms-text-size-adjust: 100%; /* 2 */
-}
-
-body {
-  line-height: 1;
-}
-
-/* make sure to set some focus _styles for accessibility */
-:focus {
-  outline: 0;
+  font: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -426,121 +271,71 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-a {
-  display: inline-block; /*restricts width and gives ability to be operated as block el*/
+/* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3 */
+img, audio, svg, picture, canvas, video, object, iframe, embed {
+  display: inline-block;
+  box-sizing: border-box; /* Ensures consistent box-sizing */
 }
 
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
+/* Improve image quality when scaled in IE 7 */
+img, object, video, canvas {
+  -ms-interpolation-mode: bicubic;
+  image-rendering: auto;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Links styling */
+a {
+  display: inline-block;
+}
+
 a:focus {
   outline: thin dotted;
 }
 
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
 a:active,
 a:hover {
   outline: 0;
 }
 
-/**
- * Correct margin displayed oddly in IE 6/7.
- */
-form {
-  margin: 0;
-}
-
+/* Input and textarea styling */
 input, textarea {
   outline: none;
   box-shadow: none;
   resize: none;
   padding: 0;
+  line-height: normal;
 }
 
-input:active {
-  outline: none;
-  box-shadow: none;
-}
-
-/**
- * 1. Correct font size not being inherited in all browsers.
- * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
- *    and Chrome.
- * 3. Improve appearance and consistency in all browsers.
- */
 button,
 input,
 select,
 textarea {
-  font-size: 100%; /* 1 */
-  margin: 0; /* 2 */
-  vertical-align: baseline; /* 3 */
-  *vertical-align: middle; /* 3 */
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  -webkit-appearance: button;
+  cursor: pointer;
 }
 
-/**
- * Address Firefox 3+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
+/* Reset button styles */
 button,
-input {
-  line-height: normal;
+button:active,
+button:focus {
+  outline: none;
+  text-transform: none;
 }
 
-/**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
- * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
- *    Known issue: inner spacing remains in IE 6.
- */
-button,
-html input[type=button],
-input[type=reset],
-input[type=submit] {
-  -webkit-appearance: button; /* 2 */
-  cursor: pointer; /* 3 */
-  *overflow: visible; /* 4 */
-}
-
-/**
- * Re-set default cursor for disabled elements.
- */
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-/**
- * Remove inner padding and border in Firefox 3+.
- */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-/**
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof).
- */
+/* Search input styles */
 input[type=search] {
-  -webkit-appearance: textfield; /* 1 */
+  -webkit-appearance: textfield;
   -moz-appearance: none;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box; /* 2 */
   box-sizing: content-box;
 }
 
-/**
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X.
- */
 input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-decoration,
 input[type=search]::-webkit-search-results-button,
@@ -549,61 +344,34 @@ input[type=search]::-webkit-search-results-decoration {
   -moz-appearance: none;
 }
 
-/**
- * 1. Address box sizing set to content-box in IE 8/9.
- * 2. Remove excess padding in IE 8/9.
- * 3. Remove excess padding in IE 7.
- *    Known issue: excess padding remains in IE 6.
- */
+/* Checkbox and radio button sizing */
 input[type=checkbox],
 input[type=radio] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-  height: 13px; /* 3 */
-  width: 13px; /* 3 */
+  box-sizing: border-box;
+  padding: 0;
+  height: 13px;
+  width: 13px;
 }
 
-/**
- * 1. Remove default vertical scrollbar in IE 6/7/8/9.
- * 2. Improve readability and alignment in all browsers.
- */
-textarea {
-  overflow: auto; /* 1 */
-  vertical-align: top; /* 2 */
-  resize: vertical;
+/* Remove default spacing between table cells */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
- * Correct `select` style inheritance in Firefox 4+ and Opera.
- */
-button,
-select {
-  text-transform: none;
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
-button,
-button:active,
-button:focus {
-  outline: none;
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
 }
 
-ol, ul {
-  list-style: none;
-}
-
-/**
- * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
- * 2. Improve image quality when scaled in IE 7.
- */
-img {
-  border: 0; /* 1 */
-  -ms-interpolation-mode: bicubic; /* 2 */
-  vertical-align: middle;
-}
-
+/* Remove most spacing between blockquotes and quotes */
 blockquote, q {
   quotes: none;
 }
@@ -613,60 +381,12 @@ q:before, q:after {
   content: "";
 }
 
-/**
- * Remove most spacing between table cells.
- */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+/* Remove list-style for ordered and unordered lists */
+ul {
+  list-style: none;
 }
 
-/**
- * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
- */
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  max-width: 100%;
-}
-
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/**
- * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
- */
-figure {
-  margin: 0;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/**
- * 1. Correct color not being inherited in IE 6/7/8/9.
- * 2. Correct text not wrapping in Firefox 3.
- * 3. Correct alignment displayed oddly in IE 6/7.
- */
-legend {
-  border: 0; /* 1 */
-  padding: 0;
-  white-space: normal; /* 2 */
-  *margin-left: -7px; /* 3 */
-}
-
+/* Selection styles */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -677,20 +397,7 @@ legend {
   text-shadow: none;
 }
 
-/**
- * Chrome integrated into the Internet Explorer
- */
-.chromeframe {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/**
- * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
- * Known issue: no IE 6 support.
- */
+/* Hidden elements */
 [hidden] {
   display: none;
 }
@@ -779,50 +486,30 @@ body:before {
 }
 
 /*****************END TOP BORDER BODY************/
-.total-wrapper {
-  font-size: 1rem;
-  max-width: 1920px;
-  min-width: 480px;
-  margin: 0 auto;
-  background-color: #fff;
-}
-.total-wrapper h1, .total-wrapper h2 {
+h1, h2, h3, h4, h5 {
   font-family: "Ubuntu", sans-serif;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
 }
-.total-wrapper h1 {
+
+h1 {
   line-height: 125%;
 }
-.total-wrapper h2 {
+
+h2, h3, h4, h5 {
   line-height: 120%;
 }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  box-sizing: border-box;
-  /*font: inherit;*/
-  vertical-align: baseline;
+p + p {
+  margin-top: 0.5em;
+  overflow-wrap: break-word;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+img, svg, picture, video {
+  width: 100%;
+  height: auto;
 }
 
 /**
@@ -832,18 +519,32 @@ time, mark, audio, video {
  *    user zoom.
  */
 html {
-  font-size: 100%; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -ms-text-size-adjust: 100%; /* 2 */
-}
-
-body {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   line-height: 1;
 }
 
-/* make sure to set some focus _styles for accessibility */
-:focus {
-  outline: 0;
+/* Universal reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, img, audio, svg, picture, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  font: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -852,121 +553,71 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-a {
-  display: inline-block; /*restricts width and gives ability to be operated as block el*/
+/* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3 */
+img, audio, svg, picture, canvas, video, object, iframe, embed {
+  display: inline-block;
+  box-sizing: border-box; /* Ensures consistent box-sizing */
 }
 
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
+/* Improve image quality when scaled in IE 7 */
+img, object, video, canvas {
+  -ms-interpolation-mode: bicubic;
+  image-rendering: auto;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Links styling */
+a {
+  display: inline-block;
+}
+
 a:focus {
   outline: thin dotted;
 }
 
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
 a:active,
 a:hover {
   outline: 0;
 }
 
-/**
- * Correct margin displayed oddly in IE 6/7.
- */
-form {
-  margin: 0;
-}
-
+/* Input and textarea styling */
 input, textarea {
   outline: none;
   box-shadow: none;
   resize: none;
   padding: 0;
+  line-height: normal;
 }
 
-input:active {
-  outline: none;
-  box-shadow: none;
-}
-
-/**
- * 1. Correct font size not being inherited in all browsers.
- * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
- *    and Chrome.
- * 3. Improve appearance and consistency in all browsers.
- */
 button,
 input,
 select,
 textarea {
-  font-size: 100%; /* 1 */
-  margin: 0; /* 2 */
-  vertical-align: baseline; /* 3 */
-  *vertical-align: middle; /* 3 */
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  -webkit-appearance: button;
+  cursor: pointer;
 }
 
-/**
- * Address Firefox 3+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
+/* Reset button styles */
 button,
-input {
-  line-height: normal;
+button:active,
+button:focus {
+  outline: none;
+  text-transform: none;
 }
 
-/**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
- * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
- *    Known issue: inner spacing remains in IE 6.
- */
-button,
-html input[type=button],
-input[type=reset],
-input[type=submit] {
-  -webkit-appearance: button; /* 2 */
-  cursor: pointer; /* 3 */
-  *overflow: visible; /* 4 */
-}
-
-/**
- * Re-set default cursor for disabled elements.
- */
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-/**
- * Remove inner padding and border in Firefox 3+.
- */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-/**
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof).
- */
+/* Search input styles */
 input[type=search] {
-  -webkit-appearance: textfield; /* 1 */
+  -webkit-appearance: textfield;
   -moz-appearance: none;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box; /* 2 */
   box-sizing: content-box;
 }
 
-/**
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X.
- */
 input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-decoration,
 input[type=search]::-webkit-search-results-button,
@@ -975,61 +626,34 @@ input[type=search]::-webkit-search-results-decoration {
   -moz-appearance: none;
 }
 
-/**
- * 1. Address box sizing set to content-box in IE 8/9.
- * 2. Remove excess padding in IE 8/9.
- * 3. Remove excess padding in IE 7.
- *    Known issue: excess padding remains in IE 6.
- */
+/* Checkbox and radio button sizing */
 input[type=checkbox],
 input[type=radio] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-  height: 13px; /* 3 */
-  width: 13px; /* 3 */
+  box-sizing: border-box;
+  padding: 0;
+  height: 13px;
+  width: 13px;
 }
 
-/**
- * 1. Remove default vertical scrollbar in IE 6/7/8/9.
- * 2. Improve readability and alignment in all browsers.
- */
-textarea {
-  overflow: auto; /* 1 */
-  vertical-align: top; /* 2 */
-  resize: vertical;
+/* Remove default spacing between table cells */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
- * Correct `select` style inheritance in Firefox 4+ and Opera.
- */
-button,
-select {
-  text-transform: none;
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
-button,
-button:active,
-button:focus {
-  outline: none;
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
 }
 
-ol, ul {
-  list-style: none;
-}
-
-/**
- * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
- * 2. Improve image quality when scaled in IE 7.
- */
-img {
-  border: 0; /* 1 */
-  -ms-interpolation-mode: bicubic; /* 2 */
-  vertical-align: middle;
-}
-
+/* Remove most spacing between blockquotes and quotes */
 blockquote, q {
   quotes: none;
 }
@@ -1039,60 +663,12 @@ q:before, q:after {
   content: "";
 }
 
-/**
- * Remove most spacing between table cells.
- */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+/* Remove list-style for ordered and unordered lists */
+ul {
+  list-style: none;
 }
 
-/**
- * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
- */
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  max-width: 100%;
-}
-
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/**
- * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
- */
-figure {
-  margin: 0;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/**
- * 1. Correct color not being inherited in IE 6/7/8/9.
- * 2. Correct text not wrapping in Firefox 3.
- * 3. Correct alignment displayed oddly in IE 6/7.
- */
-legend {
-  border: 0; /* 1 */
-  padding: 0;
-  white-space: normal; /* 2 */
-  *margin-left: -7px; /* 3 */
-}
-
+/* Selection styles */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -1103,64 +679,11 @@ legend {
   text-shadow: none;
 }
 
-/**
- * Chrome integrated into the Internet Explorer
- */
-.chromeframe {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/**
- * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
- * Known issue: no IE 6 support.
- */
+/* Hidden elements */
 [hidden] {
   display: none;
 }
 
-.icon-wrapper img, .icon-wrapper svg, .icon-wrapper picture {
-  width: 100%;
-  height: auto;
-}
-
-/*%button {
-  position: relative;
-  outline: none;
-  min-width: 5em;
-  min-height: 2.5em;
-  border: 0.15em solid $white;
-  border-radius: 0.5em;
-  color: $white;
-  background-color: $color-03;
-  letter-spacing: 0.03em;
-  transition: all .08s ease-in-out;
-
-  @include init-font(1em, 500);
-  @include text-shadow(0.03em, 0.1em);
-  @include box-shadow(0.12em, 0.2em);
-
-  &:hover {
-    transform: scale(1.03);
-    @include box-shadow(0.13em, 0.22em);
-  }
-
-  &:active {
-    background-color: $foxy;
-    box-shadow: none;
-  }
-}*/
-/*%icon {
-  @include text-shadow(0.03em, 0.1em);
-  @include transition();
-
-  &:hover {
-    cursor: pointer;
-    @include text-shadow(0.05em, 0.15em);
-  }
-}*/
 @font-face {
   font-family: "Open Sans";
   font-weight: normal;
@@ -1221,15 +744,42 @@ legend {
 /* laptop */
 /* desktop */
 /* large desktop */
-.header {
+.header-layer {
   width: 100%;
-  padding: 0.625em 5em;
   background: linear-gradient(to right, #413930 37%, #fff 70%);
+}
+
+.header {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.893em 7.143em;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   gap: 1em;
+  border: 1px dotted red;
+}
+
+.header__logo {
+  width: 11.875em;
+}
+
+.header__contacts {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5em;
+}
+@media (max-width: 768px) {
+  .header__contacts {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .icon-wrapper {
@@ -1237,10 +787,6 @@ legend {
 }
 .icon-wrapper:hover {
   transform: scale(1.2);
-}
-
-.header__logo {
-  width: 11.875em;
 }
 
 .header__social-icon {
@@ -1255,21 +801,12 @@ legend {
   stroke-opacity: 0.8;
 }
 
-.header__contacts {
-  flex-grow: 1;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 0.5em;
-}
-
 .header__contacts__contacts-block {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  gap: 2em;
+  gap: 1em 2em;
 }
 
 .header__contacts__contacts-block__phone-link {
@@ -1288,7 +825,7 @@ legend {
 .header__contacts__contacts-block__phone-link span {
   font-family: "Jost", sans-serif;
   color: #ff8502;
-  font-size: 22px;
+  font-size: 1.375em;
   font-weight: 700;
 }
 
@@ -1300,10 +837,24 @@ legend {
   gap: 1em;
 }
 
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  line-height: 1;
+}
+
+/* Universal reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
+del, dfn, em, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
@@ -1312,39 +863,13 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, img, audio, svg, picture, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   box-sizing: border-box;
-  /*font: inherit;*/
   vertical-align: baseline;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-/**
- * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
- *    `em` units.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
-html {
-  font-size: 100%; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -ms-text-size-adjust: 100%; /* 2 */
-}
-
-body {
-  line-height: 1;
-}
-
-/* make sure to set some focus _styles for accessibility */
-:focus {
-  outline: 0;
+  font: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -1353,121 +878,71 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-a {
-  display: inline-block; /*restricts width and gives ability to be operated as block el*/
+/* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3 */
+img, audio, svg, picture, canvas, video, object, iframe, embed {
+  display: inline-block;
+  box-sizing: border-box; /* Ensures consistent box-sizing */
 }
 
-/**
- * Address `outline` inconsistency between Chrome and other browsers.
- */
+/* Improve image quality when scaled in IE 7 */
+img, object, video, canvas {
+  -ms-interpolation-mode: bicubic;
+  image-rendering: auto;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Links styling */
+a {
+  display: inline-block;
+}
+
 a:focus {
   outline: thin dotted;
 }
 
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
 a:active,
 a:hover {
   outline: 0;
 }
 
-/**
- * Correct margin displayed oddly in IE 6/7.
- */
-form {
-  margin: 0;
-}
-
+/* Input and textarea styling */
 input, textarea {
   outline: none;
   box-shadow: none;
   resize: none;
   padding: 0;
+  line-height: normal;
 }
 
-input:active {
-  outline: none;
-  box-shadow: none;
-}
-
-/**
- * 1. Correct font size not being inherited in all browsers.
- * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,
- *    and Chrome.
- * 3. Improve appearance and consistency in all browsers.
- */
 button,
 input,
 select,
 textarea {
-  font-size: 100%; /* 1 */
-  margin: 0; /* 2 */
-  vertical-align: baseline; /* 3 */
-  *vertical-align: middle; /* 3 */
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  -webkit-appearance: button;
+  cursor: pointer;
 }
 
-/**
- * Address Firefox 3+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
+/* Reset button styles */
 button,
-input {
-  line-height: normal;
+button:active,
+button:focus {
+  outline: none;
+  text-transform: none;
 }
 
-/**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
- * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
- *    Known issue: inner spacing remains in IE 6.
- */
-button,
-html input[type=button],
-input[type=reset],
-input[type=submit] {
-  -webkit-appearance: button; /* 2 */
-  cursor: pointer; /* 3 */
-  *overflow: visible; /* 4 */
-}
-
-/**
- * Re-set default cursor for disabled elements.
- */
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-/**
- * Remove inner padding and border in Firefox 3+.
- */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-/**
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof).
- */
+/* Search input styles */
 input[type=search] {
-  -webkit-appearance: textfield; /* 1 */
+  -webkit-appearance: textfield;
   -moz-appearance: none;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box; /* 2 */
   box-sizing: content-box;
 }
 
-/**
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X.
- */
 input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-decoration,
 input[type=search]::-webkit-search-results-button,
@@ -1476,61 +951,34 @@ input[type=search]::-webkit-search-results-decoration {
   -moz-appearance: none;
 }
 
-/**
- * 1. Address box sizing set to content-box in IE 8/9.
- * 2. Remove excess padding in IE 8/9.
- * 3. Remove excess padding in IE 7.
- *    Known issue: excess padding remains in IE 6.
- */
+/* Checkbox and radio button sizing */
 input[type=checkbox],
 input[type=radio] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-  height: 13px; /* 3 */
-  width: 13px; /* 3 */
+  box-sizing: border-box;
+  padding: 0;
+  height: 13px;
+  width: 13px;
 }
 
-/**
- * 1. Remove default vertical scrollbar in IE 6/7/8/9.
- * 2. Improve readability and alignment in all browsers.
- */
-textarea {
-  overflow: auto; /* 1 */
-  vertical-align: top; /* 2 */
-  resize: vertical;
+/* Remove default spacing between table cells */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
- * Correct `select` style inheritance in Firefox 4+ and Opera.
- */
-button,
-select {
-  text-transform: none;
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
-button,
-button:active,
-button:focus {
-  outline: none;
+legend {
+  border: 0;
+  padding: 0;
+  white-space: normal;
 }
 
-ol, ul {
-  list-style: none;
-}
-
-/**
- * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.
- * 2. Improve image quality when scaled in IE 7.
- */
-img {
-  border: 0; /* 1 */
-  -ms-interpolation-mode: bicubic; /* 2 */
-  vertical-align: middle;
-}
-
+/* Remove most spacing between blockquotes and quotes */
 blockquote, q {
   quotes: none;
 }
@@ -1540,60 +988,12 @@ q:before, q:after {
   content: "";
 }
 
-/**
- * Remove most spacing between table cells.
- */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+/* Remove list-style for ordered and unordered lists */
+ul {
+  list-style: none;
 }
 
-/**
- * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
- */
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  max-width: 100%;
-}
-
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/**
- * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.
- */
-figure {
-  margin: 0;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/**
- * 1. Correct color not being inherited in IE 6/7/8/9.
- * 2. Correct text not wrapping in Firefox 3.
- * 3. Correct alignment displayed oddly in IE 6/7.
- */
-legend {
-  border: 0; /* 1 */
-  padding: 0;
-  white-space: normal; /* 2 */
-  *margin-left: -7px; /* 3 */
-}
-
+/* Selection styles */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -1604,20 +1004,7 @@ legend {
   text-shadow: none;
 }
 
-/**
- * Chrome integrated into the Internet Explorer
- */
-.chromeframe {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/**
- * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
- * Known issue: no IE 6 support.
- */
+/* Hidden elements */
 [hidden] {
   display: none;
 }
@@ -1688,4 +1075,17 @@ legend {
 .footer-wrapper .footer-image-wrapper img {
   width: 100%;
   height: auto;
+}
+
+.total-wrapper {
+  font-size: 1rem;
+  max-width: 1440px;
+  min-width: 480px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+@media (max-width: 1024px) {
+  .total-wrapper {
+    font-size: 0.9rem;
+  }
 }

@@ -8,26 +8,43 @@
 
 /////// STYLES ///////
 
-.header {
+.header-layer {
   width: 100%;
-  padding: 0.625em 5em;
   background: linear-gradient(to right, $color_03 37%, $white 70%);
+}
+
+.header {
+  max-width: $maxContentWidth;
+  margin: 0 auto;
+  padding: 0.893em 7.143em;
 
   @include flex-box($flex-box-row-center-wrap...);
   gap: 1em;
+
+  border: 1px dotted red;
+}
+
+.header__logo {
+  width: 11.875em;
+}
+
+.header__contacts {
+  flex-grow: 1;
+
+  @include flex-box($flex-box-row-right-wrap...);
+  gap: 0.5em;
+
+  @include mobileLandscape {
+    @include flex-box($flex-box-row-center-wrap...);
+  }
 }
 
 .icon-wrapper {
-  @extend %image-wrapper;
   @include transition();
 
   &:hover {
     transform: scale(1.2);
   }
-}
-
-.header__logo {
-  width: 11.875em;
 }
 
 .header__social-icon {
@@ -42,20 +59,13 @@
   stroke-opacity: 0.8;
 }
 
-.header__contacts {
-  flex-grow: 1;
 
-  @include flex-box($flex-box-row-right-nowrap...);
-  gap: 0.5em;
-}
 
 .header__contacts__contacts-block {
 
   @include flex-box($flex-box-row-center-wrap...);
-  gap: 2em;
+  gap: 1em 2em;
 }
-
-
 
 .header__contacts__contacts-block__phone-link {
   text-decoration: none;
@@ -73,7 +83,7 @@
     font-family: "Jost", sans-serif;
     color: $color_01;
 
-    @include init-font(22px, 700);
+    @include init-font(1.375em, 700);
   }
 }
 
