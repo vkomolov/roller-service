@@ -42,7 +42,6 @@ footer, header, hgroup, menu, nav, section {
 /* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3 */
 img, audio, svg, picture, canvas, video, object, iframe, embed {
   display: inline-block;
-  box-sizing: border-box; /* Ensures consistent box-sizing */
 }
 
 /* Improve image quality when scaled in IE 7 */
@@ -69,32 +68,34 @@ a:hover {
   outline: 0;
 }
 
-/* Input and textarea styling */
-input, textarea {
-  outline: none;
-  box-shadow: none;
-  resize: none;
-  padding: 0;
-  line-height: normal;
-}
-
 button,
 input,
 select,
 textarea {
+  display: inline-block;
   font-size: 100%;
+  text-transform: none;
+  background-color: transparent;
   margin: 0;
+  padding: 0;
+  box-shadow: none;
+  outline: none;
+  resize: none;
+  line-height: normal;
   vertical-align: baseline;
   -webkit-appearance: button;
   cursor: pointer;
 }
 
 /* Reset button styles */
-button,
 button:active,
 button:focus {
   outline: none;
-  text-transform: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: none;
 }
 
 /* Search input styles */
@@ -134,9 +135,14 @@ fieldset {
 }
 
 legend {
+  display: block;
   border: 0;
   padding: 0;
   white-space: normal;
+}
+
+label {
+  cursor: pointer;
 }
 
 /* Remove most spacing between blockquotes and quotes */
@@ -170,25 +176,68 @@ ul {
   display: none;
 }
 
-@font-face {
-  font-family: "Open Sans";
-  font-weight: normal;
-  font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ubuntu";
-  font-weight: normal;
-  font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Regular.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Regular.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu.ttf") format("truetype");
-}
-/* mobile (portrait) */
+/* mobile (small) */
+/* mobile (medium) */
+/* mobile (portrait narrow) */
+/* mobile (portrait wide) */
 /* mobile (landscape) */
 /* tablet (portrait) */
 /* tablet (landscape) */
 /* laptop */
 /* desktop */
 /* large desktop */
+/* retina display (2x) */
+.header {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-right: 80px;
+  padding-left: 80px;
+  /* max-width: 1280px */
+  /* max-width: 768px */
+}
+@media (max-width: 1280px) {
+  .header {
+    padding-right: 6.25vw;
+    padding-left: 6.25vw;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+}
 @keyframes popup {
   0% {
     transform: scale(1);
@@ -230,6 +279,17 @@ ul {
     transform: rotate(360deg);
   }
 }
+/* mobile (small) */
+/* mobile (medium) */
+/* mobile (portrait narrow) */
+/* mobile (portrait wide) */
+/* mobile (landscape) */
+/* tablet (portrait) */
+/* tablet (landscape) */
+/* laptop */
+/* desktop */
+/* large desktop */
+/* retina display (2x) */
 /**
  * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
  *    `em` units.
@@ -274,7 +334,6 @@ footer, header, hgroup, menu, nav, section {
 /* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3 */
 img, audio, svg, picture, canvas, video, object, iframe, embed {
   display: inline-block;
-  box-sizing: border-box; /* Ensures consistent box-sizing */
 }
 
 /* Improve image quality when scaled in IE 7 */
@@ -301,32 +360,34 @@ a:hover {
   outline: 0;
 }
 
-/* Input and textarea styling */
-input, textarea {
-  outline: none;
-  box-shadow: none;
-  resize: none;
-  padding: 0;
-  line-height: normal;
-}
-
 button,
 input,
 select,
 textarea {
+  display: inline-block;
   font-size: 100%;
+  text-transform: none;
+  background-color: transparent;
   margin: 0;
+  padding: 0;
+  box-shadow: none;
+  outline: none;
+  resize: none;
+  line-height: normal;
   vertical-align: baseline;
   -webkit-appearance: button;
   cursor: pointer;
 }
 
 /* Reset button styles */
-button,
 button:active,
 button:focus {
   outline: none;
-  text-transform: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: none;
 }
 
 /* Search input styles */
@@ -366,9 +427,14 @@ fieldset {
 }
 
 legend {
+  display: block;
   border: 0;
   padding: 0;
   white-space: normal;
+}
+
+label {
+  cursor: pointer;
 }
 
 /* Remove most spacing between blockquotes and quotes */
@@ -404,23 +470,45 @@ ul {
 
 @font-face {
   font-family: "Open Sans";
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans.ttf") format("truetype");
+  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Regular.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Regular.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu.ttf") format("truetype");
+  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
 }
-/* mobile (portrait) */
+@font-face {
+  font-family: "Jost";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+}
+/* mobile (small) */
+/* mobile (medium) */
+/* mobile (portrait narrow) */
+/* mobile (portrait wide) */
 /* mobile (landscape) */
 /* tablet (portrait) */
 /* tablet (landscape) */
 /* laptop */
 /* desktop */
 /* large desktop */
+/* retina display (2x) */
 @keyframes popup {
   0% {
     transform: scale(1);
@@ -508,8 +596,10 @@ p + p {
 }
 
 img, svg, picture, video {
-  width: 100%;
+  max-width: 100%;
   height: auto;
+  object-fit: cover;
+  vertical-align: top;
 }
 
 /**
@@ -556,7 +646,6 @@ footer, header, hgroup, menu, nav, section {
 /* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3 */
 img, audio, svg, picture, canvas, video, object, iframe, embed {
   display: inline-block;
-  box-sizing: border-box; /* Ensures consistent box-sizing */
 }
 
 /* Improve image quality when scaled in IE 7 */
@@ -583,32 +672,34 @@ a:hover {
   outline: 0;
 }
 
-/* Input and textarea styling */
-input, textarea {
-  outline: none;
-  box-shadow: none;
-  resize: none;
-  padding: 0;
-  line-height: normal;
-}
-
 button,
 input,
 select,
 textarea {
+  display: inline-block;
   font-size: 100%;
+  text-transform: none;
+  background-color: transparent;
   margin: 0;
+  padding: 0;
+  box-shadow: none;
+  outline: none;
+  resize: none;
+  line-height: normal;
   vertical-align: baseline;
   -webkit-appearance: button;
   cursor: pointer;
 }
 
 /* Reset button styles */
-button,
 button:active,
 button:focus {
   outline: none;
-  text-transform: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: none;
 }
 
 /* Search input styles */
@@ -648,9 +739,14 @@ fieldset {
 }
 
 legend {
+  display: block;
   border: 0;
   padding: 0;
   white-space: normal;
+}
+
+label {
+  cursor: pointer;
 }
 
 /* Remove most spacing between blockquotes and quotes */
@@ -684,17 +780,67 @@ ul {
   display: none;
 }
 
+/* mobile (small) */
+/* mobile (medium) */
+/* mobile (portrait narrow) */
+/* mobile (portrait wide) */
+/* mobile (landscape) */
+/* tablet (portrait) */
+/* tablet (landscape) */
+/* laptop */
+/* desktop */
+/* large desktop */
+/* retina display (2x) */
+.header {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-right: 80px;
+  padding-left: 80px;
+  /* max-width: 1280px */
+  /* max-width: 768px */
+}
+@media (max-width: 1280px) {
+  .header {
+    padding-right: 6.25vw;
+    padding-left: 6.25vw;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+}
+
 @font-face {
   font-family: "Open Sans";
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans.ttf") format("truetype");
+  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Regular.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Regular.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu.ttf") format("truetype");
+  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
 @keyframes popup {
   0% {
@@ -737,35 +883,44 @@ ul {
     transform: rotate(360deg);
   }
 }
-/* mobile (portrait) */
+/* mobile (small) */
+/* mobile (medium) */
+/* mobile (portrait narrow) */
+/* mobile (portrait wide) */
 /* mobile (landscape) */
 /* tablet (portrait) */
 /* tablet (landscape) */
 /* laptop */
 /* desktop */
 /* large desktop */
+/* retina display (2x) */
 .header-layer {
   width: 100%;
   background: linear-gradient(to right, #413930 37%, #fff 70%);
 }
 
 .header {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0.893em 7.143em;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 0.5em 1em;
+  padding-top: 0.625em;
+  padding-bottom: 0.625em;
   border: 1px dotted red;
+  /* max-width: 640px */
+}
+@media (max-width: 640px) {
+  .header {
+    flex-flow: column wrap;
+  }
 }
 
-.header__logo {
+.header__logo-wrapper {
   width: 11.875em;
 }
 
-.header__contacts {
+.header__contacts-wrapper {
   flex-grow: 1;
   display: flex;
   flex-flow: row wrap;
@@ -773,68 +928,63 @@ ul {
   align-items: center;
   gap: 0.5em;
 }
-@media (max-width: 768px) {
-  .header__contacts {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-  }
-}
 
-.icon-wrapper {
-  transition: all 0.15s ease-in-out;
-}
-.icon-wrapper:hover {
-  transform: scale(1.2);
-}
-
-.header__social-icon {
-  width: 2em;
-}
-
-.header__phone-icon {
-  width: 1.375em;
-  fill: #ff8502;
-  stroke: #413930;
-  stroke-width: 0.1em;
-  stroke-opacity: 0.8;
-}
-
-.header__contacts__contacts-block {
+.header__contacts-wrapper__contacts-block {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  gap: 1em 2em;
+  gap: 1em;
 }
-
-.header__contacts__contacts-block__phone-link {
+.header__contacts-wrapper__contacts-block .phone-link {
   text-decoration: none;
-  text-shadow: 0.08em 0.08em 0.1em rgba(0, 0, 0, 0.8);
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   transition: all 0.15s ease-in-out;
   gap: 0.625em;
+  /* max-width: 640px */
 }
-.header__contacts__contacts-block__phone-link:hover {
-  transform: scale(1.1);
+.header__contacts-wrapper__contacts-block .phone-link:hover {
+  transform: scale(1.05);
 }
-.header__contacts__contacts-block__phone-link span {
+@media (max-width: 640px) {
+  .header__contacts-wrapper__contacts-block .phone-link {
+    font-size: 0.9em;
+  }
+}
+.header__contacts-wrapper__contacts-block .phone-link__phone-icon {
+  width: 1.375em;
+  fill: #ff8502;
+}
+.header__contacts-wrapper__contacts-block .phone-link span {
   font-family: "Jost", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: #ff8502;
   font-size: 1.375em;
   font-weight: 700;
+  /*max-width: 1024px*/
 }
-
-.header__contacts__contacts-block__social-icons {
+@media (max-width: 1024px) {
+  .header__contacts-wrapper__contacts-block .phone-link span {
+    font-size: 1.25em;
+  }
+}
+.header__contacts-wrapper__contacts-block .social-icons-wrapper {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 0.625em;
+}
+.header__contacts-wrapper__contacts-block .social-icons-wrapper__social-icon {
+  width: 2em;
+  transition: all 0.15s ease-in-out;
+}
+.header__contacts-wrapper__contacts-block .social-icons-wrapper__social-icon:hover {
+  transform: scale(1.1);
 }
 
 /**
@@ -881,7 +1031,6 @@ footer, header, hgroup, menu, nav, section {
 /* Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3 */
 img, audio, svg, picture, canvas, video, object, iframe, embed {
   display: inline-block;
-  box-sizing: border-box; /* Ensures consistent box-sizing */
 }
 
 /* Improve image quality when scaled in IE 7 */
@@ -908,32 +1057,34 @@ a:hover {
   outline: 0;
 }
 
-/* Input and textarea styling */
-input, textarea {
-  outline: none;
-  box-shadow: none;
-  resize: none;
-  padding: 0;
-  line-height: normal;
-}
-
 button,
 input,
 select,
 textarea {
+  display: inline-block;
   font-size: 100%;
+  text-transform: none;
+  background-color: transparent;
   margin: 0;
+  padding: 0;
+  box-shadow: none;
+  outline: none;
+  resize: none;
+  line-height: normal;
   vertical-align: baseline;
   -webkit-appearance: button;
   cursor: pointer;
 }
 
 /* Reset button styles */
-button,
 button:active,
 button:focus {
   outline: none;
-  text-transform: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: none;
 }
 
 /* Search input styles */
@@ -973,9 +1124,14 @@ fieldset {
 }
 
 legend {
+  display: block;
   border: 0;
   padding: 0;
   white-space: normal;
+}
+
+label {
+  cursor: pointer;
 }
 
 /* Remove most spacing between blockquotes and quotes */
@@ -1011,15 +1167,33 @@ ul {
 
 @font-face {
   font-family: "Open Sans";
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans.ttf") format("truetype");
+  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Regular.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Regular.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu.ttf") format("truetype");
+  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
 @keyframes popup {
   0% {
@@ -1080,12 +1254,14 @@ ul {
 .total-wrapper {
   font-size: 1rem;
   max-width: 1440px;
-  min-width: 480px;
+  min-width: 320px;
   margin: 0 auto;
   background-color: #fff;
+  /* max-width: 768px */
+  /* max-width: 375px */
 }
-@media (max-width: 1024px) {
+@media (max-width: 375px) {
   .total-wrapper {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
   }
 }

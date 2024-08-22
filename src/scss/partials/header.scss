@@ -14,80 +14,85 @@
 }
 
 .header {
-  max-width: $maxContentWidth;
-  margin: 0 auto;
-  padding: 0.893em 7.143em;
-
+  @extend %contentWrapper;
   @include flex-box($flex-box-row-center-wrap...);
-  gap: 1em;
+  gap: 0.5em 1em;
+  padding-top: 0.625em;
+  padding-bottom: 0.625em;
 
   border: 1px dotted red;
+
+  /* max-width: 640px */
+  @include mobilePortraitWide {
+    flex-flow: column wrap;
+  }
 }
 
-.header__logo {
+.header__logo-wrapper {
   width: 11.875em;
 }
 
-.header__contacts {
+.header__contacts-wrapper {
   flex-grow: 1;
+
 
   @include flex-box($flex-box-row-right-wrap...);
   gap: 0.5em;
-
-  @include mobileLandscape {
-    @include flex-box($flex-box-row-center-wrap...);
-  }
 }
 
-.icon-wrapper {
-  @include transition();
-
-  &:hover {
-    transform: scale(1.2);
-  }
-}
-
-.header__social-icon {
-  width: 2em;
-}
-
-.header__phone-icon {
-  width: 1.375em;
-  fill: $color-01;
-  stroke: $color-03;
-  stroke-width: 0.1em;
-  stroke-opacity: 0.8;
-}
-
-
-
-.header__contacts__contacts-block {
-
+.header__contacts-wrapper__contacts-block {
   @include flex-box($flex-box-row-center-wrap...);
-  gap: 1em 2em;
-}
-
-.header__contacts__contacts-block__phone-link {
-  text-decoration: none;
-  @include text-shadow(0.08em, 0.1em);
-
-  @include flex-box($flex-box-row-center-nowrap...);
-  @include transition();
-  gap: 0.625em;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  span {
-    font-family: "Jost", sans-serif;
-    color: $color_01;
-
-    @include init-font(1.375em, 700);
-  }
-}
-
-.header__contacts__contacts-block__social-icons {
-  @include flex-box($flex-box-row-center-nowrap...);
   gap: 1em;
+
+  .phone-link {
+    text-decoration: none;
+
+    @include flex-box($flex-box-row-bottom-nowrap...);
+    @include transition();
+
+    gap: 0.625em;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    /* max-width: 640px */
+    @include mobilePortraitWide {
+      font-size: 0.9em;
+    }
+
+    &__phone-icon {
+      width: 1.375em;
+      fill: $color-01;
+    }
+
+    span {
+      font-family: "Jost", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: $color_01;
+
+      @include init-font(1.375em, 700);
+
+      /*max-width: 1024px*/
+      @include tabletPortrait {
+        font-size: 1.25em;
+      }
+    }
+  }
+
+  .social-icons-wrapper {
+    @include flex-box($flex-box-row-center-nowrap...);
+    gap: 0.625em;
+
+    &__social-icon {
+      width: 2em;
+
+      @include transition();
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 }

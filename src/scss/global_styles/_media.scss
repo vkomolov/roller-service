@@ -1,10 +1,31 @@
 @import './_variables.scss';
 @import './_mixins.scss';
 
-/* mobile (portrait) */
-@mixin mobilePortrait() {
+/* mobile (small) */
+@mixin mobileSmall() {
+  @media (max-width: 325px) {
+    @content
+  }
+}
+
+/* mobile (medium) */
+@mixin mobileMedium() {
+  @media (max-width: 375px) {
+    @content
+  }
+}
+
+/* mobile (portrait narrow) */
+@mixin mobilePortraitNarrow() {
   @media (max-width: 480px) {
     @content
+  }
+}
+
+/* mobile (portrait wide) */
+@mixin mobilePortraitWide() {
+  @media (max-width: 640px) {
+    @content;
   }
 }
 
@@ -50,6 +71,7 @@
   }
 }
 
+/* retina display (2x) */
 @mixin mediaRetina2x() {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     @content;

@@ -1,9 +1,10 @@
 @import "./global_styles/reset";
 @import "./global_styles/variables";
 @import "./global_styles/mixins";
+@import "./global_styles/extends";
 @import "./global_styles/fonts";
-@import "./global_styles/media";
 @import "./global_styles/animations";
+@import "./global_styles/media";
 
 @import "partials/root";
 @import "./partials/header";
@@ -19,7 +20,14 @@
   margin: 0 auto;
   background-color: $white;
 
-  @include tabletPortrait {
-    font-size: 0.9rem;
+  /* max-width: 768px */
+  @include mobileLandscape {
+    //font-size: 0.938rem;
+  }
+
+  /* max-width: 375px */
+  @include mobileMedium {
+    font-size: 0.875rem;
   }
 }
+
