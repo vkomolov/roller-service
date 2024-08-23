@@ -25,8 +25,8 @@
     //font-size: 0.938rem;
   }
 
-  /* max-width: 375px */
-  @include mobileMedium {
+  /* max-width: 480px */
+  @include mobilePortraitNarrow {
     font-size: 0.875rem;
   }
 }

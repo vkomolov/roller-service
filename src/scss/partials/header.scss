@@ -14,9 +14,12 @@
 }
 
 .header {
+  position: relative;
+
   @extend %contentWrapper;
   @include flex-box($flex-box-row-center-wrap...);
   gap: 0.5em 1em;
+
   padding-top: 0.625em;
   padding-bottom: 0.625em;
 
@@ -24,7 +27,7 @@
 
   /* max-width: 640px */
   @include mobilePortraitWide {
-    flex-flow: column wrap;
+    flex-direction: column;
   }
 }
 
@@ -34,7 +37,6 @@
 
 .header__contacts-wrapper {
   flex-grow: 1;
-
 
   @include flex-box($flex-box-row-right-wrap...);
   gap: 0.5em;
@@ -96,3 +98,55 @@
     }
   }
 }
+
+.header__nav {
+  border: 1px dotted blue;
+
+  width: 100%;
+  @include flex-box($flex-box-row-right-wrap...);
+
+  /* max-width: 768px */
+  @include mobileLandscape {
+    position: absolute;
+    display: none;
+  }
+}
+
+#button_nav {
+  width: 2em;
+  height: 2em;
+  background-color: #413930;
+  display: none;
+
+  /* max-width: 768px */
+  @include mobileLandscape {
+    display: inline-block;
+  }
+}
+
+.header__nav__list {
+  border: 1px dotted red;
+
+  @include flex-box($flex-box-row-center-wrap...);
+  gap: 0.5em 1em;
+
+  /* max-width: 1024px */
+  @include tabletPortrait {
+    font-size: 0.9em;
+  }
+
+  .link {
+    text-decoration: none;
+    color: $color-01;
+    @include init-font(1.125em, 700);
+    @include text-shadow(0.04em, 0.04em);
+    @include transition();
+
+    &:hover {
+      color: $color-08;
+      @include text-shadow(0.07em, 0.07em);
+      transform: translateY(-0.1em);
+    }
+  }
+}
+
