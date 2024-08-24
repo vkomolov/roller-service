@@ -30,7 +30,6 @@ time, mark, img, audio, svg, picture, video {
   border: 0;
   box-sizing: border-box;
   vertical-align: baseline;
-  font: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -187,7 +186,7 @@ ul {
 /* desktop */
 /* large desktop */
 /* retina display (2x) */
-.header {
+.hero-section, .header {
   max-width: 1280px;
   margin: 0 auto;
   padding-right: 80px;
@@ -196,13 +195,13 @@ ul {
   /* max-width: 768px */
 }
 @media (max-width: 1280px) {
-  .header {
+  .hero-section, .header {
     padding-right: 6.25vw;
     padding-left: 6.25vw;
   }
 }
 @media (max-width: 768px) {
-  .header {
+  .hero-section, .header {
     padding-right: 5vw;
     padding-left: 5vw;
   }
@@ -322,7 +321,6 @@ time, mark, img, audio, svg, picture, video {
   border: 0;
   box-sizing: border-box;
   vertical-align: baseline;
-  font: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -638,7 +636,6 @@ time, mark, img, audio, svg, picture, video {
   border: 0;
   box-sizing: border-box;
   vertical-align: baseline;
-  font: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -795,7 +792,7 @@ ul {
 /* desktop */
 /* large desktop */
 /* retina display (2x) */
-.header {
+.hero-section, .header {
   max-width: 1280px;
   margin: 0 auto;
   padding-right: 80px;
@@ -804,13 +801,13 @@ ul {
   /* max-width: 768px */
 }
 @media (max-width: 1280px) {
-  .header {
+  .hero-section, .header {
     padding-right: 6.25vw;
     padding-left: 6.25vw;
   }
 }
 @media (max-width: 768px) {
-  .header {
+  .hero-section, .header {
     padding-right: 5vw;
     padding-left: 5vw;
   }
@@ -912,7 +909,6 @@ ul {
   gap: 0.5em 1em;
   padding-top: 0.625em;
   padding-bottom: 0.625em;
-  border: 1px dotted red;
   /* max-width: 640px */
 }
 @media (max-width: 640px) {
@@ -946,7 +942,7 @@ ul {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   transition: all 0.15s ease-in-out;
   gap: 0.625em;
   /* max-width: 640px */
@@ -993,7 +989,6 @@ ul {
 }
 
 .header__nav {
-  border: 1px dotted blue;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -1022,7 +1017,11 @@ ul {
 }
 
 .header__nav__list {
-  border: 1px dotted red;
+  font-family: "Ubuntu", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.125em;
+  font-weight: 700;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -1032,15 +1031,13 @@ ul {
 }
 @media (max-width: 1024px) {
   .header__nav__list {
-    font-size: 0.9em;
+    font-size: 0.938em;
   }
 }
 .header__nav__list .link {
   text-decoration: none;
   color: #ff8502;
-  font-size: 1.125em;
-  font-weight: 700;
-  text-shadow: 0.04em 0.04em 0.04em rgba(0, 0, 0, 0.8);
+  text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.8);
   transition: all 0.15s ease-in-out;
 }
 .header__nav__list .link:hover {
@@ -1081,7 +1078,6 @@ time, mark, img, audio, svg, picture, video {
   border: 0;
   box-sizing: border-box;
   vertical-align: baseline;
-  font: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -1320,10 +1316,76 @@ ul {
   margin: 0 auto;
   background-color: #fff;
   /* max-width: 768px */
+  /* max-width: 640px */
   /* max-width: 480px */
+}
+@media (max-width: 768px) {
+  .total-wrapper {
+    font-size: 0.938rem;
+  }
 }
 @media (max-width: 480px) {
   .total-wrapper {
     font-size: 0.875rem;
   }
+}
+
+.hero-section {
+  border: 1px dotted blue;
+}
+
+.hero-section__wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hero-section__wrapper__heading {
+  text-transform: uppercase;
+  font-size: 36px;
+  /* max-width: 1280px */
+  /* max-width: 768px */
+  /* max-width: 640px */
+  /* max-width: 480px */
+}
+@media (max-width: 1280px) {
+  .hero-section__wrapper__heading {
+    font-size: 2.813vw;
+  }
+}
+@media (max-width: 768px) {
+  .hero-section__wrapper__heading {
+    font-size: 1.44em;
+  }
+}
+@media (max-width: 640px) {
+  .hero-section__wrapper__heading {
+    font-size: 1.25em;
+  }
+}
+@media (max-width: 480px) {
+  .hero-section__wrapper__heading {
+    font-size: 1.1em;
+  }
+}
+.hero-section__wrapper__heading .accent {
+  font-size: 1.61em;
+}
+
+.hero-section__wrapper__content {
+  margin-top: 2.5em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2em 3em;
+}
+.hero-section__wrapper__content .msg {
+  font-size: 24px;
+  max-width: 490px;
+  line-height: 140%;
+}
+.hero-section__wrapper__content .img-wrapper {
+  width: 15.625em;
 }

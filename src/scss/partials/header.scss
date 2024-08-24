@@ -19,11 +19,8 @@
   @extend %contentWrapper;
   @include flex-box($flex-box-row-center-wrap...);
   gap: 0.5em 1em;
-
   padding-top: 0.625em;
   padding-bottom: 0.625em;
-
-  border: 1px dotted red;
 
   /* max-width: 640px */
   @include mobilePortraitWide {
@@ -49,7 +46,7 @@
   .phone-link {
     text-decoration: none;
 
-    @include flex-box($flex-box-row-bottom-nowrap...);
+    @include flex-box($flex-box-row-center-nowrap...);
     @include transition();
 
     gap: 0.625em;
@@ -100,8 +97,6 @@
 }
 
 .header__nav {
-  border: 1px dotted blue;
-
   width: 100%;
   @include flex-box($flex-box-row-right-wrap...);
 
@@ -125,21 +120,24 @@
 }
 
 .header__nav__list {
-  border: 1px dotted red;
+  font-family: "Ubuntu", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
+  @include init-font(1.125em, 700);
   @include flex-box($flex-box-row-center-wrap...);
   gap: 0.5em 1em;
 
   /* max-width: 1024px */
   @include tabletPortrait {
-    font-size: 0.9em;
+    font-size: 0.938em;
   }
 
   .link {
     text-decoration: none;
     color: $color-01;
-    @include init-font(1.125em, 700);
-    @include text-shadow(0.04em, 0.04em);
+
+    @include text-shadow(0.05em, 0.05em);
     @include transition();
 
     &:hover {

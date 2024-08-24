@@ -22,7 +22,11 @@
 
   /* max-width: 768px */
   @include mobileLandscape {
-    //font-size: 0.938rem;
+    font-size: 0.938rem;
+  }
+
+  /* max-width: 640px */
+  @include mobilePortraitWide {
   }
 
   /* max-width: 480px */
@@ -31,3 +35,66 @@
   }
 }
 
+.hero-section {
+  @extend %contentWrapper;
+  border: 1px dotted blue;
+
+}
+
+.hero-section__wrapper {
+  @include flex-box($flex-box-col-left-wrap...);
+}
+
+.hero-section__wrapper__heading {
+  text-transform: uppercase;
+  font-size: 36px;
+
+  /* max-width: 1280px */
+  @include tabletLandscape {
+    font-size: 2.813vw;
+  }
+
+  /* max-width: 768px */
+  @include mobileLandscape {
+    font-size: 1.44em;
+  }
+
+  /* max-width: 640px */
+  @include mobilePortraitWide {
+    font-size: 1.25em;
+  }
+
+  /* max-width: 480px */
+  @include mobilePortraitNarrow {
+    font-size: 1.1em;
+  }
+
+  .accent {
+    font-size: 1.61em;
+  }
+}
+
+.hero-section__wrapper__content {
+  margin-top: 2.5em;
+  @include flex-box(row, flex-start, flex-start, wrap);
+  gap: 2em 3em;
+
+  .msg {
+    font-size: 24px;
+    max-width: 490px;
+    line-height: 140%;
+  }
+
+  .img-wrapper {
+    width: 15.625em;
+  }
+}
+
+.hero-section__content-wrapper__msg {
+}
+
+.hero-section__content-wrapper__img {
+}
+
+.hero-section__wrapper__button-bidding {
+}
