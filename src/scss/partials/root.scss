@@ -15,7 +15,7 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 140%;
+  line-height: 1.4;
   background-color: $color-07;
 
   /**** user-select: none; *****/
@@ -45,11 +45,11 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-  line-height: 125%;
+  line-height: 1.25;
 }
 
 h2, h3, h4, h5 {
-  line-height: 120%;
+  line-height: 1.2;
 }
 
 p + p {

@@ -107,7 +107,7 @@
   }
 }
 
-#button_nav {
+#burger_nav {
   width: 2em;
   height: 2em;
   background-color: #413930;
@@ -141,7 +141,7 @@
     @include transition();
 
     &:hover {
-      color: $color-08;
+      color: $color-08_darker;
       @include text-shadow(0.07em, 0.07em);
       transform: translateY(-0.1em);
     }

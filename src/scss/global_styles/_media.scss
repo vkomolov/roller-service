@@ -10,56 +10,56 @@
 
 /* mobile (medium) */
 @mixin mobileMedium() {
-  @media (max-width: 375px) {
+  @media (max-width: 375px) and (min-width: 326px) {
     @content
   }
 }
 
 /* mobile (portrait narrow) */
 @mixin mobilePortraitNarrow() {
-  @media (max-width: 480px) {
+  @media (max-width: 480px) and (min-width: 376px) {
     @content
   }
 }
 
 /* mobile (portrait wide) */
 @mixin mobilePortraitWide() {
-  @media (max-width: 640px) {
+  @media (max-width: 640px) and (min-width: 481px) {
     @content;
   }
 }
 
 /* mobile (landscape) */
 @mixin mobileLandscape() {
-  @media (max-width: 768px) {
+  @media (max-width: 768px) and (min-width: 641px) {
     @content
   }
 }
 
 /* tablet (portrait) */
 @mixin tabletPortrait() {
-  @media (max-width: 1024px) {
+  @media (max-width: 1024px) and (min-width: 769px) {
     @content
   }
 }
 
 /* tablet (landscape) */
 @mixin tabletLandscape() {
-  @media (max-width: 1280px) {
+  @media (max-width: 1280px) and (min-width: 1025px) {
     @content
   }
 }
 
 /* laptop */
 @mixin laptop() {
-  @media (max-width: 1440px) {
+  @media (max-width: 1440px) and (min-width: 1281px) {
     @content
   }
 }
 
 /* desktop */
 @mixin desktop() {
-  @media (max-width: 1920px) {
+  @media (max-width: 1920px) and (min-width: 1441px) {
     @content
   }
 }

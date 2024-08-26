@@ -19,14 +19,11 @@
   min-width: $minWidth;
   margin: 0 auto;
   background-color: $white;
+  color: $color-03;
 
   /* max-width: 768px */
   @include mobileLandscape {
     font-size: 0.938rem;
-  }
-
-  /* max-width: 640px */
-  @include mobilePortraitWide {
   }
 
   /* max-width: 480px */
@@ -37,8 +34,49 @@
 
 .hero-section {
   @extend %contentWrapper;
-  border: 1px dotted blue;
 
+  padding-top: 80px;
+  padding-bottom: 120px;
+  background-image: image-set(
+      url("./assets/img/heroSection/hero_professional_1440.webp") 1x,
+      url("./assets/img/heroSection/hero_professional_1440.jpg") 1x
+  );
+
+  @include mediaRetina2x {
+    background-image: image-set(
+        url("./assets/img/heroSection/hero_professional_1440@2x.webp") 2x,
+        url("./assets/img/heroSection/hero_professional_1440@2x.jpg") 2x
+    );
+  }
+
+  /* max-width: 1280px */
+  @include tabletLandscape {
+    padding-top: 6.25vw;
+    padding-bottom: 9.375vw;
+  }
+
+  /* max-width: 768px */
+  @include mobileLandscape {
+    padding-top: 3.333em;
+    padding-bottom: 3.333em;
+
+    background-image: image-set(
+        url("./assets/img/heroSection/hero_professional_1080.webp") 1x,
+        url("./assets/img/heroSection/hero_professional_1080.jpg") 1x
+    );
+  }
+
+  /* max-width: 640px */
+  @include mobilePortraitWide {
+    //padding-top: 80px;
+    //padding-bottom: 120px;
+  }
+
+  /* max-width: 480px */
+  @include mobilePortraitNarrow {
+    //padding-top: 80px;
+    //padding-bottom: 120px;
+  }
 }
 
 .hero-section__wrapper {
@@ -48,45 +86,145 @@
 .hero-section__wrapper__heading {
   text-transform: uppercase;
   font-size: 36px;
+  text-shadow: 2px 4px 4px $shadow;
 
   /* max-width: 1280px */
   @include tabletLandscape {
     font-size: 2.813vw;
   }
 
+  /* max-width: 1024px */
+  @include tabletPortrait {
+    font-size: 1.75em;
+  }
+
   /* max-width: 768px */
   @include mobileLandscape {
-    font-size: 1.44em;
+    font-size: 1.65em;
   }
 
   /* max-width: 640px */
   @include mobilePortraitWide {
-    font-size: 1.25em;
+    //font-size: 1.25em;
   }
 
   /* max-width: 480px */
   @include mobilePortraitNarrow {
-    font-size: 1.1em;
+    //font-size: 1.25em;
+  }
+
+  /* max-width: 375px */
+  @include mobileMedium {
+    font-size: 1.25em;
   }
 
   .accent {
-    font-size: 1.61em;
+    display: inline-block;
+    font-size: 1.5em;
+    line-height: 1;
+
+    /* max-width: 480px */
+    @include mobilePortraitNarrow {
+      //font-size: 1.899em;
+      //margin-bottom: 0.2em;
+    }
+
+    /* max-width: 375px */
+    @include mobileMedium {
+      font-size: 1.8em;
+      margin-bottom: 0.2em;
+    }
   }
 }
 
 .hero-section__wrapper__content {
-  margin-top: 2.5em;
+  margin-top: 40px;
   @include flex-box(row, flex-start, flex-start, wrap);
-  gap: 2em 3em;
+  gap: 50px;
+
+  /* max-width: 1280px */
+  @include tabletLandscape {
+    margin-top: 3.125vw;
+    gap: 3.9vw;
+  }
+
+  /* max-width: 768px */
+  @include mobileLandscape {
+    //gap: 3.9vw;
+  }
+
+  /* max-width: 640px */
+  @include mobilePortraitWide {
+    //font-size: 1.25em;
+  }
+
+  /* max-width: 480px */
+  @include mobilePortraitNarrow {
+    //font-size: 1.25em;
+  }
+
+  /* max-width: 375px */
+  @include mobileMedium {
+    //gap: 3.9vw;
+  }
 
   .msg {
     font-size: 24px;
     max-width: 490px;
-    line-height: 140%;
+
+    /* max-width: 1280px */
+    @include tabletLandscape {
+      font-size: 1.875vw;
+      max-width: 38.28vw;
+    }
+
+    /* max-width: 1024px */
+    @include tabletPortrait {
+      font-size: 1.125em;
+      max-width: 20.5em;
+    }
+
+    /* max-width: 768px */
+    @include mobileLandscape {
+      //font-size: 1.5em;
+      //gap: 3.9vw;
+    }
+
+    /* max-width: 640px */
+    @include mobilePortraitWide {
+      //font-size: 1.25em;
+    }
+
+    /* max-width: 480px */
+    @include mobilePortraitNarrow {
+      //font-size: 1.25em;
+    }
+
+    /* max-width: 375px */
+    @include mobileMedium {
+      //gap: 3.9vw;
+    }
   }
 
   .img-wrapper {
     width: 15.625em;
+
+    /* max-width: 1280px */
+    @include tabletLandscape {
+      width: 19.531vw;
+    }
+
+    /* max-width: 768px */
+    @include mobileLandscape {
+    }
+
+    /* max-width: 640px */
+    @include mobilePortraitWide {
+    }
+
+    /* max-width: 480px */
+    @include mobilePortraitNarrow {
+    }
   }
 }
 
@@ -97,4 +235,38 @@
 }
 
 .hero-section__wrapper__button-bidding {
+  max-width: 350px;
+  margin-top: -40px;
+  margin-bottom: 40px;
+
+  @include init-font(24px, 600);
+}
+
+.button-request {
+  width: 300px;
+  height: 70px;
+  padding: 20px 32px;
+  background-color: $color-01;
+  border: none;
+  color: $white;
+  border-radius: 10px;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-shadow: 1px 2px 2px $shadow;
+
+  @include init-font(20px, 600);
+  @include transition();
+
+  &:hover {
+    transform: translateY(-3px);
+    background-color: $color-08;
+    box-shadow: 3px 4px 3px $shadow;
+  }
+
+  &:active {
+    background-color: $color-08_darker;
+    box-shadow: 1px 2px 2px $shadow;
+    transform: translateY(0);
+  }
 }
