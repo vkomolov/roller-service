@@ -20,3 +20,9 @@ $color-02-lightest: #fff2e4;
 $color-08: #fc4f4f;
 $color-08_darker: #d30303;
 $shadow: rgba(0, 0, 0, 0.6);
+$dimming-color-03: rgba(65, 57, 48, 0.85);
+$dimming-opacity-0: rgba(65, 57, 48, 0);
+
+//GRADIENTS
+$gradient-color-03-transparent: linear-gradient(to right, $color_03 20%, $dimming-opacity-0 60%);
+$gradient-dimming-transparent: linear-gradient(to right, $dimming-color-03 35%, $dimming-opacity-0 85%);

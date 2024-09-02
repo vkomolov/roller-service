@@ -20,231 +20,167 @@
   margin: 0 auto;
   background-color: $white;
   color: $color-03;
-
-  /* max-width: 768px */
-  @include mobileLandscape {
-    font-size: 0.938rem;
-  }
-
-  /* max-width: 480px */
-  @include mobilePortraitNarrow {
-    font-size: 0.875rem;
-  }
 }
 
 .hero-section {
-  @extend %contentWrapper;
+  width: 100%;
+  padding-top: 3.33em;
+  padding-bottom: 5em;
+  background-position: 75%;
+  background-size: cover;
+  font-size: 1.5em;
 
-  padding-top: 80px;
-  padding-bottom: 120px;
-  background-image: image-set(
-      url("./assets/img/heroSection/hero_professional_1440.webp") 1x,
-      url("./assets/img/heroSection/hero_professional_1440.jpg") 1x
-  );
+  /* tablet (portrait): (min-width: 1025px) */
+  @include minTabletPortrait {
+    background-image:
+      $gradient-dimming-transparent,
+      image-set(
+          url("../assets/img/heroSection/hero_professional_1440.webp") 1x,
+          url("../assets/img/heroSection/hero_professional_1440.jpg") 1x
+      );
 
-  @include mediaRetina2x {
-    background-image: image-set(
-        url("./assets/img/heroSection/hero_professional_1440@2x.webp") 2x,
-        url("./assets/img/heroSection/hero_professional_1440@2x.jpg") 2x
+    @include mediaRetina2x {
+      background-image:
+        $gradient-dimming-transparent,
+        image-set(
+            url("../assets/img/heroSection/hero_professional_1440@2x.webp") 2x,
+            url("../assets/img/heroSection/hero_professional_1440@2x.jpg") 2x
+        );
+    }
+  }
+
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    font-size: calculate-dimension(1280, 639, 24, 18);
+    padding-top: calculate-dimension(1280, 639, 80, 64);
+    padding-bottom: calculate-dimension(1280, 639, 120, 64);
+  }
+
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    background-image:
+      $gradient-dimming-transparent,
+      image-set(
+        url("../assets/img/heroSection/hero_professional_1024.webp") 1x,
+        url("../assets/img/heroSection/hero_professional_1024.jpg") 1x
     );
+
+    @include mediaRetina2x {
+      background-image:
+        $gradient-dimming-transparent,
+        image-set(
+          url("../assets/img/heroSection/hero_professional_1024@2x.webp") 2x,
+          url("../assets/img/heroSection/hero_professional_1024@2x.jpg") 2x
+      );
+    }
   }
 
-  /* max-width: 1280px */
-  @include tabletLandscape {
-    padding-top: 6.25vw;
-    padding-bottom: 9.375vw;
-  }
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    padding-top: 3.5em;
+    padding-bottom: 3.56em;
+    font-size: 18px;
 
-  /* max-width: 768px */
-  @include mobileLandscape {
-    padding-top: 3.333em;
-    padding-bottom: 3.333em;
-
-    background-image: image-set(
-        url("./assets/img/heroSection/hero_professional_1080.webp") 1x,
-        url("./assets/img/heroSection/hero_professional_1080.jpg") 1x
+    background-image:
+      $gradient-dimming-transparent,
+      image-set(
+        url("../assets/img/heroSection/hero_professional_640.webp") 1x,
+        url("../assets/img/heroSection/hero_professional_640.jpg") 1x
     );
-  }
 
-  /* max-width: 640px */
-  @include mobilePortraitWide {
-    //padding-top: 80px;
-    //padding-bottom: 120px;
-  }
-
-  /* max-width: 480px */
-  @include mobilePortraitNarrow {
-    //padding-top: 80px;
-    //padding-bottom: 120px;
+    @include mediaRetina2x {
+      background-image:
+        $gradient-dimming-transparent,
+        image-set(
+          url("../assets/img/heroSection/hero_professional_640@2x.webp") 2x,
+          url("../assets/img/heroSection/hero_professional_640@2x.jpg") 2x
+      );
+    }
   }
 }
 
 .hero-section__wrapper {
+  color: $white;
+  @extend %contentWrapper;
   @include flex-box($flex-box-col-left-wrap...);
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    align-items: center;
+  }
 }
 
 .hero-section__wrapper__heading {
+  font-size: 1.5em;
+  max-width: 18.2em;
   text-transform: uppercase;
-  font-size: 36px;
-  text-shadow: 2px 4px 4px $shadow;
+  text-shadow: 0.05em 0.1em 0.1em $shadow;
+  margin-bottom: 1em;
 
-  /* max-width: 1280px */
-  @include tabletLandscape {
-    font-size: 2.813vw;
-  }
-
-  /* max-width: 1024px */
-  @include tabletPortrait {
-    font-size: 1.75em;
-  }
-
-  /* max-width: 768px */
-  @include mobileLandscape {
-    font-size: 1.65em;
-  }
-
-  /* max-width: 640px */
-  @include mobilePortraitWide {
-    //font-size: 1.25em;
-  }
-
-  /* max-width: 480px */
-  @include mobilePortraitNarrow {
-    //font-size: 1.25em;
-  }
-
-  /* max-width: 375px */
-  @include mobileMedium {
-    font-size: 1.25em;
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    font-size: 27px;
+    text-align: center;
   }
 
   .accent {
     display: inline-block;
-    font-size: 1.5em;
+    font-size: 1.611em;
     line-height: 1;
 
-    /* max-width: 480px */
-    @include mobilePortraitNarrow {
-      //font-size: 1.899em;
-      //margin-bottom: 0.2em;
+    /* mobile (portrait wide): (max-width: 640px) */
+    @include maxMobilePortraitWide {
+      font-size: 42px;
     }
 
-    /* max-width: 375px */
-    @include mobileMedium {
-      font-size: 1.8em;
-      margin-bottom: 0.2em;
+    /* mobile (portrait narrow): (max-width: 480px)*/
+    @include maxMobilePortraitNarrow {
+      margin-bottom: 0.25em;
     }
   }
 }
 
 .hero-section__wrapper__content {
-  margin-top: 40px;
+  width: 100%;
   @include flex-box(row, flex-start, flex-start, wrap);
-  gap: 50px;
+  gap: 2em;
 
-  /* max-width: 1280px */
-  @include tabletLandscape {
-    margin-top: 3.125vw;
-    gap: 3.9vw;
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    justify-content: center;
   }
 
-  /* max-width: 768px */
-  @include mobileLandscape {
-    //gap: 3.9vw;
-  }
-
-  /* max-width: 640px */
-  @include mobilePortraitWide {
-    //font-size: 1.25em;
-  }
-
-  /* max-width: 480px */
-  @include mobilePortraitNarrow {
-    //font-size: 1.25em;
-  }
-
-  /* max-width: 375px */
-  @include mobileMedium {
-    //gap: 3.9vw;
-  }
-
-  .msg {
-    font-size: 24px;
-    max-width: 490px;
-
-    /* max-width: 1280px */
-    @include tabletLandscape {
-      font-size: 1.875vw;
-      max-width: 38.28vw;
-    }
-
-    /* max-width: 1024px */
-    @include tabletPortrait {
-      font-size: 1.125em;
-      max-width: 20.5em;
-    }
-
-    /* max-width: 768px */
-    @include mobileLandscape {
-      //font-size: 1.5em;
-      //gap: 3.9vw;
-    }
-
-    /* max-width: 640px */
-    @include mobilePortraitWide {
-      //font-size: 1.25em;
-    }
-
-    /* max-width: 480px */
-    @include mobilePortraitNarrow {
-      //font-size: 1.25em;
-    }
-
-    /* max-width: 375px */
-    @include mobileMedium {
-      //gap: 3.9vw;
-    }
+  .appeal {
+    max-width: 20em;
   }
 
   .img-wrapper {
-    width: 15.625em;
+    width: 19.53vw;
 
-    /* max-width: 1280px */
-    @include tabletLandscape {
-      width: 19.531vw;
-    }
-
-    /* max-width: 768px */
-    @include mobileLandscape {
-    }
-
-    /* max-width: 640px */
-    @include mobilePortraitWide {
-    }
-
-    /* max-width: 480px */
-    @include mobilePortraitNarrow {
+    /* mobile (portrait wide): (max-width: 640px) */
+    @include maxMobilePortraitWide {
+      width: 7em;
     }
   }
 }
 
-.hero-section__content-wrapper__msg {
-}
+.hero-section__wrapper__bidding {
+  margin-top: -1.67em;
+  margin-bottom: 1.2em;
 
-.hero-section__content-wrapper__img {
-}
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    margin-top: 0;
+  }
 
-.hero-section__wrapper__button-bidding {
-  max-width: 350px;
-  margin-top: -40px;
-  margin-bottom: 40px;
-
-  @include init-font(24px, 600);
+  /* mobile (landscape): (max-width: 768px)*/
+  @include maxMobileLandscape {
+    margin-top: 1.4em;
+  }
 }
 
 .button-request {
-  width: 300px;
-  height: 70px;
+  width: 275px;
   padding: 20px 32px;
   background-color: $color-01;
   border: none;
@@ -257,6 +193,12 @@
 
   @include init-font(20px, 600);
   @include transition();
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    width: 15em;
+    font-size: 18px;
+  }
 
   &:hover {
     transform: translateY(-3px);

@@ -43,8 +43,6 @@ $flex-box-col-center-wrap: column, center, center;
   box-shadow: $dim $dim $shadow $color;
 }
 
-
-
 @mixin scroll-init($width, $thumbColor, $trackColor) {
   overflow-x: hidden;
   overflow-y: auto;
@@ -66,5 +64,13 @@ $flex-box-col-center-wrap: column, center, center;
   }
 }
 
+////////////// FUNCTIONS ////////////////
+//!!! the arguments must be integers, default measure unit is "px" (1280, 640, 80, 32, px)
+@function calculate-dimension($max-width, $min-width, $max-value, $min-value, $measure:px) {
+  $width-range: $max-width - $min-width;
+  $value-diff: $max-value - $min-value;
 
-
+  //ensure that the viewport width value always stays between $min-width and $max-width
+  //@return calc($value-diff * (min(max(100vw, #{$min-width}px), #{$max-width}px) - #{$min-width}px) / $width-range + #{$min-value}px);
+  @return calc($value-diff * (min(max(100vw, #{$min-width}#{$measure}), #{$max-width}#{$measure}) - #{$min-width}#{$measure}) / $width-range + #{$min-value}#{$measure});
+}

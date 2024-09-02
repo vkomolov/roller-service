@@ -6,20 +6,18 @@
 %contentWrapper {
   max-width: $maxContentWidth;
   margin: 0 auto;
-  padding-right: 80px;
-  padding-left: 80px;
+  padding-right: 3.33em;
+  padding-left: 3.33em;
 
-  /* max-width: 1280px */
-  @include tabletLandscape {
-    padding-right: 6.25vw;
-    padding-left: 6.25vw;
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    padding-right: calculate-dimension(1280, 639, 80, 32);
+    padding-left: calculate-dimension(1280, 639, 80, 32);
   }
 
-  /* max-width: 768px */
-  @include mobileLandscape {
-    padding-right: 5vw;
-    padding-left: 5vw;
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    padding-right: calculate-dimension(640, 320, 32, 24);
+    padding-left: calculate-dimension(640, 320, 32, 24);
   }
-
 }
-

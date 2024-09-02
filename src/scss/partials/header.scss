@@ -10,7 +10,7 @@
 
 .header-layer {
   width: 100%;
-  background: linear-gradient(to right, $color_03 37%, $white 70%);
+  background: $gradient-color-03-transparent;
 }
 
 .header {
@@ -22,8 +22,8 @@
   padding-top: 0.625em;
   padding-bottom: 0.625em;
 
-  /* max-width: 640px */
-  @include mobilePortraitWide {
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
     flex-direction: column;
   }
 }
@@ -55,8 +55,8 @@
       transform: scale(1.05);
     }
 
-    /* max-width: 640px */
-    @include mobilePortraitWide {
+    /* mobile (portrait narrow): (max-width: 480px)*/
+    @include maxMobilePortraitNarrow {
       font-size: 0.9em;
     }
 
@@ -73,9 +73,9 @@
 
       @include init-font(1.375em, 700);
 
-      /*max-width: 1024px*/
-      @include tabletPortrait {
-        font-size: 1.25em;
+      /* mobile (landscape): (max-width: 768px)*/
+      @include maxMobileLandscape {
+        font-size: 1.13em;
       }
     }
   }
@@ -100,8 +100,8 @@
   width: 100%;
   @include flex-box($flex-box-row-right-wrap...);
 
-  /* max-width: 768px */
-  @include mobileLandscape {
+  /* mobile (landscape): (max-width: 768px)*/
+  @include maxMobileLandscape {
     position: absolute;
     display: none;
   }
@@ -113,8 +113,8 @@
   background-color: #413930;
   display: none;
 
-  /* max-width: 768px */
-  @include mobileLandscape {
+  /* mobile (landscape): (max-width: 768px)*/
+  @include maxMobileLandscape {
     display: inline-block;
   }
 }
@@ -128,8 +128,8 @@
   @include flex-box($flex-box-row-center-wrap...);
   gap: 0.5em 1em;
 
-  /* max-width: 1024px */
-  @include tabletPortrait {
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
     font-size: 0.938em;
   }
 
