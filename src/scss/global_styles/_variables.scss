@@ -5,7 +5,7 @@ $maxContentWidth: 1280px;
 
 ///colors
 $white: #fff;
-$color-01: #ff8502;
+$color-01: rgba(255, 133, 2, 1);//#ff8502
 $color-02: #ffc98f;
 $color-03: #413930;
 $color-04: #655c52;
@@ -21,8 +21,10 @@ $color-08: #fc4f4f;
 $color-08_darker: #d30303;
 $shadow: rgba(0, 0, 0, 0.6);
 $dimming-color-03: rgba(65, 57, 48, 0.85);
+$dimming-color-01: rgba(255, 133, 2, 1);
 $dimming-opacity-0: rgba(65, 57, 48, 0);
 
 //GRADIENTS
 $gradient-color-03-transparent: linear-gradient(to right, $color_03 20%, $dimming-opacity-0 60%);
 $gradient-dimming-transparent: linear-gradient(to right, $dimming-color-03 35%, $dimming-opacity-0 85%);
+$gradient-color-01-transparent: linear-gradient(to right, $color_01 0%, $dimming-opacity-0 90%);

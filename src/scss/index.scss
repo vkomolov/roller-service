@@ -19,16 +19,18 @@
   min-width: $minWidth;
   margin: 0 auto;
   background-color: $white;
-  color: $color-03;
+  color: $color-04;
 }
 
 .hero-section {
   width: 100%;
-  padding-top: 3.33em;
-  padding-bottom: 5em;
+  //padding-top: 3.33em;
+  //padding-bottom: 5em;
   background-position: 75%;
   background-size: cover;
   font-size: 1.5em;
+
+  @extend %sectionWrapper;
 
   /* tablet (portrait): (min-width: 1025px) */
   @include minTabletPortrait {
@@ -52,8 +54,6 @@
   /* tablet (landscape) max-width: 1280px */
   @include maxTabletLandscape {
     font-size: calculate-dimension(1280, 639, 24, 18);
-    padding-top: calculate-dimension(1280, 639, 80, 64);
-    padding-bottom: calculate-dimension(1280, 639, 120, 64);
   }
 
   /* tablet (portrait): (max-width: 1024px) */
@@ -77,9 +77,7 @@
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
-    padding-top: 3.5em;
-    padding-bottom: 3.56em;
-    font-size: 18px;
+    font-size: 1.125em;
 
     background-image:
       $gradient-dimming-transparent,
@@ -101,6 +99,7 @@
 
 .hero-section__wrapper {
   color: $white;
+
   @extend %contentWrapper;
   @include flex-box($flex-box-col-left-wrap...);
 
@@ -142,12 +141,15 @@
 
 .hero-section__wrapper__content {
   width: 100%;
+
   @include flex-box(row, flex-start, flex-start, wrap);
   gap: 2em;
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
-    justify-content: center;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .appeal {
@@ -155,11 +157,21 @@
   }
 
   .img-wrapper {
-    width: 19.53vw;
+    width: 10.4em;
+
+    /* tablet (portrait): (max-width: 1024px) */
+    @include maxTabletPortrait {
+      width: 9.28em;
+    }
+
+    /* mobile (landscape): (max-width: 768px)*/
+    @include maxMobileLandscape {
+      width: 8em;
+    }
 
     /* mobile (portrait wide): (max-width: 640px) */
     @include maxMobilePortraitWide {
-      width: 7em;
+      //width: 7em;
     }
   }
 }
@@ -210,5 +222,129 @@
     background-color: $color-08_darker;
     box-shadow: 1px 2px 2px $shadow;
     transform: translateY(0);
+  }
+}
+
+//////////  about-section  //////////
+.about-section {
+  width: 100%;
+  @extend %sectionWrapper;
+  @include init-font(1.125em, 400);
+
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    font-size: calculate-dimension(1280, 321, 18, 15);
+  }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    font-size: 0.83em;
+  }
+}
+
+.about-section__wrapper {
+  position: relative;
+  z-index: 5;
+  @extend %contentWrapper;
+  @include transition();
+  @include flex-box(row, space-between, flex-start, wrap);
+  //gap: 5.5vw;
+
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    justify-content: flex-end;
+  }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+  }
+
+  .img-wrapper {
+    //width: 27.7vw;
+    width: 22.23em;
+
+    /* tablet (landscape) max-width: 1280px */
+    @include maxTabletLandscape {
+      //width: calculate-dimension(1280, 641, 445, 130);
+      width: 31.25vw;
+    }
+
+    /* tablet (portrait): (max-width: 1024px) */
+    @include maxTabletPortrait {
+      position: absolute;
+      top: 0;
+      //left: calculate-dimension(1280, 321, 80, 24);
+      left: 3.4em;
+      z-index: 0;
+      width: 18em;
+    }
+
+    /* mobile (portrait wide): (max-width: 640px) */
+    @include maxMobilePortraitWide {
+      position: relative;
+      left: 0;
+      width: 15.5em;
+    }
+  }
+
+  .textBlock {
+    position: relative;
+    width: 100%;
+    //max-width: 36vw;
+    max-width: 30em;
+
+    /* tablet (portrait): (max-width: 1024px) */
+    @include maxTabletPortrait {
+      &:before {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        content: "";
+        transform: scale(1.1);
+        background-color: $white;
+        opacity: 0.7;
+      }
+    }
+
+    /* mobile (landscape): (max-width: 768px)*/
+    @include maxMobileLandscape {
+      max-width: 28em;
+    }
+
+    .boldy {
+      font-weight: 600;
+      margin-top: 0.89em;
+    }
+
+  }
+
+  .textBlock__heading-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 1.78em;
+
+    .textBlock__heading {
+      font-size: 2.67em;
+      text-transform: uppercase;
+    }
+
+    .separation-line {
+      width: 100%;
+      height: 0.56em;
+      margin-top: 0.25em;
+      background: $gradient-color-01-transparent;
+
+    }
+  }
+
+  .textBlock__content-wrapper {
+    position: relative;
+    z-index: 10;
   }
 }
