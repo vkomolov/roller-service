@@ -18,6 +18,7 @@
 
   @extend %contentWrapper;
   @include flex-box($flex-box-row-center-wrap...);
+
   gap: 0.5em 1em;
   padding-top: 0.625em;
   padding-bottom: 0.625em;
