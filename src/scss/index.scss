@@ -6,20 +6,31 @@
 @import "./global_styles/animations";
 @import "./global_styles/media";
 
-@import "partials/root";
+@import "./partials/root";
 @import "./partials/header";
 @import "./partials/footer";
 
 
 /////// STYLES ///////
 
+
 .total-wrapper {
-  font-size: 1rem;  //16px
+  font-size: 1.125rem;  //18px
   max-width: $maxWidth; //1440px;
   min-width: $minWidth; //320px;
   margin: 0 auto;
   background-color: $white;
   color: $color-04;
+
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    font-size: var(--range_18-16_max-1280px);  //in root.scss
+  }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    font-size: 0.938rem;  //15px
+  }
 }
 
 .section {
@@ -62,38 +73,19 @@
   }
 }
 
-.section__heading-block {
-  margin-bottom: 1.78em;
-
-  h2 {
-    font-size: 2.67em;
-    text-transform: uppercase;
-
-    /* mobile (portrait wide): (max-width: 640px) */
-    @include maxMobilePortraitWide {
-      font-size: 1.778em;
-    }
-  }
-
-  hr {
-    width: 100%;
-    height: 0.56em;
-    margin-top: 0.25em;
-    background: $gradient-color-01-transparent;
-
-  }
-}
-
 .bg-darker {
   background-color: $color-07-light;
 }
 
+
+
 ////////////// hero section /////////////
+
 
 .section_hero {
   background-position: 75%;
   background-size: cover;
-  font-size: 24px;
+  font-size: 1em; //font-size inherits from total-wrapper
 
   /* tablet (portrait): (min-width: 1025px) */
   @include minTabletPortrait {
@@ -115,10 +107,10 @@
     }*/
   }
 
-  /* tablet (landscape) max-width: 1280px */
+/*  !* tablet (landscape) max-width: 1280px *!
   @include maxTabletLandscape {
     font-size: calculate-dimension(1280, 641, 24, 18);
-  }
+  }*/
 
   /* tablet (portrait): (max-width: 1024px) */
   @include maxTabletPortrait {
@@ -142,7 +134,7 @@
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
-    font-size: 18px;
+    //font-size: 18px;
 
     background-image:
       $gradient-dimming-transparent,
@@ -163,7 +155,7 @@
   }
 }
 
-.section_hero__content-layer {
+.section_hero__content_hero {
   color: $white;
 
   @extend %contentWrapper;  //padding calculations
@@ -175,12 +167,17 @@
   }
 }
 
-.section_hero__content-layer__heading {
-  font-size: 1.5em;
+.section_hero__content_hero__heading {
+  font-size: 36px;
   max-width: 18.2em;
   text-transform: uppercase;
   text-shadow: 0.05em 0.1em 0.1em $shadow;
   margin-bottom: 1em;
+
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    font-size: calc(var(--range_24-18_max-1280px) * 1.5);
+  }
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
@@ -195,7 +192,7 @@
 
     /* mobile (portrait wide): (max-width: 640px) */
     @include maxMobilePortraitWide {
-      font-size: 42px;
+      //font-size: 42px;
     }
 
     /* mobile (portrait narrow): (max-width: 480px)*/
@@ -205,7 +202,7 @@
   }
 }
 
-.section_hero__content-layer__content-box {
+.section_hero__content_hero__content-box {
   width: 100%;
 
   @include flex-box(row, flex-start, flex-start, wrap);
@@ -217,34 +214,57 @@
     justify-content: flex-start;
     align-items: center;
   }
+}
 
-  .appeal {
-    max-width: 20em;
+.content_hero__content-box__appeal {
+  font-size: 24px;
+  max-width: 20em;
+
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    font-size: var(--range_24-18_max-1280px);
   }
 
-  .img-wrapper {
-    width: 10.4em;
-
-    /* tablet (portrait): (max-width: 1024px) */
-    @include maxTabletPortrait {
-      width: 9.28em;
-    }
-
-    /* mobile (landscape): (max-width: 768px)*/
-    @include maxMobileLandscape {
-      width: 8em;
-    }
-
-    /* mobile (portrait wide): (max-width: 640px) */
-    @include maxMobilePortraitWide {
-      //width: 7em;
-    }
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    font-size: 18px;
   }
 }
 
-.section_hero__content-layer__bidding {
-  margin-top: -1.67em;
+.content_hero__content-box__img-wrapper {
+  width: 12.3em;
+
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    width: 17.57vw;
+  }
+
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    width: 10.5em;
+  }
+
+  /* mobile (landscape): (max-width: 768px)*/
+  @include maxMobileLandscape {
+    //width: 8em;
+  }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    //width: 7em;
+  }
+}
+
+.section_hero__content_hero__bidding {
+  font-size: 24px;
+  margin-top: -1em;
   margin-bottom: 1.2em;
+  max-width: 14.1em;
+
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    font-size: var(--range_24-18_max-1280px);
+  }
 
   /* tablet (portrait): (max-width: 1024px) */
   @include maxTabletPortrait {
@@ -255,24 +275,58 @@
   @include maxMobileLandscape {
     margin-top: 1.4em;
   }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    font-size: 18px;
+  }
 }
 
 //////////  section_it  //////////
 
 .section_it {
-  @include init-font(18px, 400);
+  font-size: 1em; // it inherits from total-wrapper
+  //@include init-font(18px, 400);
 
   /* tablet (landscape) max-width: 1280px */
-  @include maxTabletLandscape {
+/*  @include maxTabletLandscape {
     font-size: calculate-dimension(1280, 641, 18, 15);
-  }
+  }*/
 
   /* mobile (portrait wide): (max-width: 640px) */
-  @include maxMobilePortraitWide {
+/*  @include maxMobilePortraitWide {
     font-size: 15px;
+  }*/
+}
+
+.section_it__heading-block {
+  margin-bottom: 1.78em;
+
+  h2 {
+    font-size: 48px;
+    text-transform: uppercase;
+    margin-bottom: 0.33em;
+
+    /* tablet (landscape) max-width: 1280px */
+    @include maxTabletLandscape {
+      font-size: var(--range_48-32_max-1280px);
+    }
+
+    /* mobile (portrait wide): (max-width: 640px) */
+    @include maxMobilePortraitWide {
+      font-size: var(--range_32-24_max-640px);
+      text-align: center;
+    }
+  }
+
+  hr {
+    width: 100%;
+    height: 0.56em;
+    background: $gradient-color-01-transparent;
   }
 }
 
+/// pair-between  ///////////
 .section_it__content_pair-between {
   position: relative;
   z-index: 5;
@@ -295,86 +349,138 @@
     gap: 3em;
   }
 
-  .img-wrapper {
-    //width: 27.7vw;
-    width: 22.23em;
+}
 
-    /* tablet (landscape) max-width: 1280px */
-    @include maxTabletLandscape {
-      width: 31.25vw;
-    }
+.section_it__content_pair-between__img-wrapper {
+  //width: 27.7vw;
+  width: 22.23em;
 
-    /* tablet (portrait): (max-width: 1024px) */
-    @include maxTabletPortrait {
-      position: absolute;
-      top: 0;
-      //left: calculate-dimension(1280, 321, 80, 24);
-      left: 3.4em;
-      z-index: 0;
-      width: 18em;
-    }
-
-    /* mobile (portrait wide): (max-width: 640px) */
-    @include maxMobilePortraitWide {
-      position: relative;
-      left: 0;
-      width: 15.5em;
-    }
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    width: 31.25vw;
   }
 
-  .textBlock {
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    position: absolute;
+    top: 0;
+    //left: calculate-dimension(1280, 321, 80, 24);
+    left: 3.4em;
+    z-index: 0;
+    width: 18em;
+  }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
     position: relative;
-    width: 100%;
-    //max-width: 36vw;
-    max-width: 30em;
-
-    /* tablet (portrait): (max-width: 1024px) */
-    @include maxTabletPortrait {
-      &:before {
-        display: block;
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        content: "";
-        transform: scale(1.1);
-        background-color: $white;
-        opacity: 0.7;
-      }
-    }
-
-    /* mobile (landscape): (max-width: 768px)*/
-    @include maxMobileLandscape {
-      max-width: 28em;
-    }
-
-    .heading-block {
-      position: relative;
-      z-index: 10;
-    }
-
-    .content-block {
-      position: relative;
-      z-index: 10;
-    }
-
-    .boldy {
-      font-weight: 600;
-      margin-top: 0.89em;
-    }
+    left: 0;
+    width: 15.5em;
   }
 }
 
+.section_it__content_pair-between__textBlock {
+  position: relative;
+  width: 100%;
+  //max-width: 36vw;
+  max-width: 30em;
 
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    &:before {
+      display: block;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      content: "";
+      transform: scale(1.1);
+      background-color: $white;
+      opacity: 0.7;
+    }
+  }
+
+  /* mobile (landscape): (max-width: 768px)*/
+  @include maxMobileLandscape {
+    max-width: 28em;
+  }
+
+  .boldy {
+    font-weight: 600;
+    margin-top: 0.89em;
+  }
+}
+
+.heading-block_pair-between {
+  position: relative;
+  z-index: 10;
+}
+
+.content-block_pair-between {
+  position: relative;
+  z-index: 10;
+}
 
 //////// section_benefits /////////
+
 .section_it__content_benefits {
   @extend %contentWrapper;
   @include transition();
+}
+
+.section_it__content_benefits__img-wrapper {
+  width: 100%;
+}
+
+.section_it__content_benefits__content-block {
+  margin-top: 2em;
+  //width: 100%;
+
+  //@include flex-box($flex-box-row-top-wrap...);
+}
+
+.section_it__content_benefits__content-block__layer {
+  width: 100%;
+
+  @include flex-box($flex-box-row-top-wrap...);
+  gap: 1em;
+}
+
+.section_it__content-block__item_smaller {
+  font-size: 1em; //from the parent
+  max-width: 22.2em;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 15.5em;
+  padding: 1em;
+
+  @include flex-box(column, flex-start, center);
+
 
   .img-wrapper {
-    width: 100%;
+    width: 4.72em;
+    margin-bottom: 1.125em;
   }
 
+  .heading {
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 0.889em;
+    word-wrap: break-word;
+    max-width: 12em;
 
+    /* mobile (landscape): (max-width: 768px)*/
+    @include maxMobileLandscape {
+      font-size: 16px;
+    }
+  }
+
+  .text-block {
+    font-size: 16px;
+    max-width: 21em;
+
+    /* mobile (landscape): (max-width: 768px)*/
+    @include maxMobileLandscape {
+      font-size: 15px;
+    }
+  }
 }
