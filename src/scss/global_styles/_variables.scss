@@ -1,32 +1,21 @@
 
-///dimensions
+///DIMENSIONS
 $maxWidth: 1440px;
 $minWidth: 320px;
 $maxContentWidth: 1280px;
 
-///colors
+///COLORS
 $white: #fff;
+$black: #000;
 $color-01: rgba(255, 133, 2, 1);//#ff8502
-$color-02: #ffc98f;
-$color-03: #413930;
-$color-04: #655c52;
-$color-05: #a99b8c;
-$color-06: #5f5e5e;
-$color-07: #dcdcdc;
-$color-02-darker: #b6660f;
-$color-02-l: #ffe4c7;
-$color-02-darkest: #805221;
-$color-07-light: #f1f1f1;
-$color-02-lightest: #fff2e4;
-$color-08: #fc4f4f;
-$color-08_darker: #d30303;
-$shadow: rgba(0, 0, 0, 0.6);
-$dimming-color-03: rgba(65, 57, 48, 0.7);
-$dimming-color-01: rgba(255, 133, 2, 1);
-$dimming-opacity-0: rgba(65, 57, 48, 0);
+$color-02: rgba(40, 32, 23, 1); //#282017;
+$color-03: rgba(65, 57, 48, 1); //#413930;
+$color-04: rgba(101, 92, 82, 1); //#655c52;
+$color-07: rgba(220, 220, 220, 1); //#dcdcdc;
+$color-08: rgba(252, 79, 79, 1); //#fc4f4f;
+$color-09: rgba(211, 3, 3, 1); //#d30303;
+$color-13: rgba(241, 241, 241, 1); //#f1f1f1;
 
-//GRADIENTS
-$gradient-color-03-transparent: linear-gradient(to right, $color_03 20%, $dimming-opacity-0 60%);
-$gradient-dimming-transparent: linear-gradient(to right, $dimming-color-03 35%, $dimming-opacity-0 85%);
-$gradient-color-01-transparent: linear-gradient(to right, $color_01 0%, $dimming-opacity-0 90%);
-
+/// SHADERS
+$color-02_opacity-07: rgba(40, 32, 23, .7);
+$rgba_opacity-0: rgba(65, 57, 48, 0);

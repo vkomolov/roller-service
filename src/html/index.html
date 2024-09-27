@@ -4,35 +4,41 @@
   <body>
     <div class="total-wrapper">
       @@include("templates/header.html", {"page": "index"})
-      <section class="section section_hero">
-        <div class="section_hero__content_hero">
-          <h1 class="section_hero__content_hero__heading">
-            <span class="accent">аварійне відкриття</span>
-            ролет, воріт, маркізів та шлагбаумів
-          </h1>
-          <div class="section_hero__content_hero__content-box">
-            <p class="content_hero__content-box__appeal">Досвідчені фахівці виконують роботу будь-якої складності
-              з екстреного відкриття, ремонту та обслуговування всіх видів ролетних систем, шлагбаумів та маркізів.
-            </p>
-            <div class="content_hero__content-box__img-wrapper">
+      <section class="section section--hero">
+        <div class="section__content-layer section__content-layer--hero">
+          <div class="section__heading-block section__heading-block--hero">
+            <h1>
+              <span class="accent">аварійне відкриття</span>
+              ролет, воріт, маркізів та шлагбаумів
+            </h1>
+          </div>
+          <div class="section__content-block section__content-block--row-left flex-gap-02-02">
+            <div class="section__text-block section__text-block--hero">
+              <p>Досвідчені фахівці виконують роботу будь-якої складності
+                з екстреного відкриття, ремонту та обслуговування всіх видів ролетних систем, шлагбаумів та маркізів.
+              </p>
+            </div>
+            <div class="section__img-wrapper section__img-wrapper--hero">
               <img src="./assets/img/heroSection/24_7.png" alt="24x7 working hours">
             </div>
           </div>
-          <p class="section_hero__content_hero__bidding">Терміновий виїзд по Київу та Київській області</p>
-          <button class="button-request" data-type="general">Зв’язок з фахівцем</button>
+          <div class="section__bidding-block section__bidding-block--hero">
+            <p class="section__text-bidding--hero">Терміновий виїзд по Київу та Київській області</p>
+            <button class="button-request" data-type="general">Зв’язок з фахівцем</button>
+          </div>
         </div>
       </section>
-      <section class="section section_it">
-        <div class="section_it__content_pair-between">
-          <div class="section_it__content_pair-between__img-wrapper">
-            <img src="./assets/img/aboutSection/roller_shutter_maintenance.png" alt="roller shutters maintenance">
-          </div>
-          <div class="section_it__content_pair-between__textBlock">
-            <div class="section_it__heading-block heading-block_pair-between">
-              <h2>Досвід має значення</h2>
-              <hr>
+      <section class="section">
+        <div class="section__content-layer">
+          <div class="section__content-block section__content-block--row-between section__content-block--pair">
+            <div class="section__img-wrapper section__img-wrapper--pair">
+              <img src="./assets/img/aboutSection/roller_shutter_maintenance.png" alt="roller shutters maintenance">
             </div>
-            <div class="content-block_pair-between">
+            <div class="section__text-block section__text-block--pair">
+              <div class="section__heading-block section__heading-block--separation">
+                <h2>Досвід має значення</h2>
+                <hr>
+              </div>
               <p>Наші досвідчені майстри з багаторічним стажем оперативно та якісно виправлять будь-які поломки, замінять деталі та механізми, проведуть профілактику, регулярне технічне обслуговування чи регламентні роботи.</p>
               <p>Понад десять років ми виконуємо завдання будь-якої складності щодо встановлення, ремонту та обслуговування ворітних, ролетних та контрольно-пропускних систем.</p>
               <p class="boldy">Рішення має бути оптимальним та не вимагати додаткових, зайвих витрат.</p>
@@ -41,13 +47,13 @@
           </div>
         </div>
       </section>
-      <section class="section section_it bg-darker">
-        <div class="section_it__content_benefits">
-          <div class="section_it__heading-block">
+      <section class="section bg-darker">
+        <div class="section__content-layer">
+          <div class="section__heading-block section__heading-block--separation">
             <h2>Наші Переваги</h2>
             <hr>
           </div>
-          <div class="section_it__content_benefits__img-wrapper">
+          <div class="section__img-wrapper section__img-wrapper--benefits">
             <picture>
               <source srcset="/assets/img/benefitsSection/equipment_maintenance_640.webp 640w,
                     /assets/img/benefitsSection/equipment_maintenance_640@2x.webp 1280w,
@@ -64,63 +70,118 @@
               <img src="/assets/img/benefitsSection/equipment_maintenance_1120.jpg" alt="equipment maintenance" loading="lazy">
             </picture>
           </div>
-          <div class="section_it__content_benefits__content-block">
-            <div class="section_it__content_benefits__content-block__layer">
-              <div class="section_it__content-block__item_smaller">
-                <div class="img-wrapper">
+          <div class="section__benefits">
+            <div class="section__content-block section__content-block--row-center flex-gap-02-01">
+              <div class="content-block-item content-block-item--benefits">
+                <div class="content-block-item__img-wrapper content-block-item__img-wrapper--benefits">
                   <svg viewBox="0 0 85 98">
                     <title>24/7 working hours</title>
                     <use xlink:href="assets/img/svgIcons/sprite.multi.svg#24_7_icon"></use>
                   </svg>
                 </div>
-                <h5 class="heading">Екстрений виїзд без вихідних</h5>
-                <div class="text-block">
+                <h5 class="content-block-item__heading content-block-item__heading--benefits">
+                  Екстрений виїзд без вихідних
+                </h5>
+                <div class="content-block-item__text-block">
                   <p>Ми розуміємо, що деякі ситуації можуть виникнути будь-коли та вимагають негайного втручання.</p>
                   <p>Тому наші фахівці готові прийти на допомогу у найкоротші терміни, коли це необхідно.</p>
                 </div>
               </div>
-              <div class="section_it__content-block__item_smaller">
-                <div class="img-wrapper">
+              <div class="content-block-item content-block-item--benefits">
+                <div class="content-block-item__img-wrapper content-block-item__img-wrapper--benefits">
                   <svg viewBox="0 0 85 98">
                     <title>professional</title>
                     <use xlink:href="assets/img/svgIcons/sprite.multi.svg#proff_icon"></use>
                   </svg>
                 </div>
-                <h5 class="heading">Кваліфіковані майстри з великим досвідом</h5>
-                <div class="text-block">
+                <h5 class="content-block-item__heading content-block-item__heading--benefits">
+                  Кваліфіковані майстри з великим досвідом
+                </h5>
+                <div class="content-block-item__text-block">
                   <p>Майстри регулярно проходять атестацію та мають багаторічний досвід у виконанні аналогічних завдань.</p>
                   <p>Перед виїздом на об'єкт майстра проходять перевірку наявності та стану необхідного інструменту і матеріалів.</p>
                 </div>
               </div>
             </div>
-            <div class="section_it__content_benefits__content-block__layer">
-              <div class="section_it__content-block__item_smaller">
-                <div class="img-wrapper">
+            <div class="section__content-block section__content-block--row-center flex-gap-02-01">
+              <div class="content-block-item content-block-item--benefits">
+                <div class="content-block-item__img-wrapper content-block-item__img-wrapper--benefits">
                   <svg viewBox="0 0 85 98">
                     <title>spare parts</title>
                     <use xlink:href="assets/img/svgIcons/sprite.multi.svg#spare_parts_icon"></use>
                   </svg>
                 </div>
-                <h5 class="heading">Наявність оригінальних запчастин</h5>
-                <div class="text-block">
+                <h5 class="content-block-item__heading content-block-item__heading--benefits">
+                  Наявність оригінальних запчастин
+                </h5>
+                <div class="content-block-item__text-block">
                   <p>Для ремонту автоматичних воріт, ролет або шлагбаумів ми використовуємо оригінальні запчастини та комплектуючі від виробника.</p>
                   <p>На базі власного виробництва ми виготовляємо необхідні деталі та обладнання, що надають широкі додаткові можливості в реалізації Ваших потреб.</p>
                 </div>
               </div>
-              <div class="section_it__content-block__item_smaller">
-                <div class="img-wrapper">
+              <div class="content-block-item content-block-item--benefits">
+                <div class="content-block-item__img-wrapper content-block-item__img-wrapper--benefits">
                   <svg viewBox="0 0 85 98">
                     <title>warranty</title>
                     <use xlink:href="assets/img/svgIcons/sprite.multi.svg#warranty_icon"></use>
                   </svg>
                 </div>
-                <h5 class="heading">Гарантійне  обслуговування</h5>
-                <div class="text-block">
+                <h5 class="content-block-item__heading content-block-item__heading--benefits">
+                  Гарантійне  обслуговування
+                </h5>
+                <div class="content-block-item__text-block">
                   <p>Ми цінуємо довіру наших клієнтів та надаємо гарантійне та післягарантійне обслуговування на всі виконані роботи та встановлені деталі.</p>
                   <p>На встановлену нову автоматику воріт, захисних ролет чи шлагбаумів додатково додається гарантія виробника.</p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section__content-layer">
+          <div class="section__heading-block section__heading-block--separation">
+            <h2>Наші Послуги</h2>
+            <hr>
+          </div>
+          <div class="section__content-block section__content-block--row-left flex-gap-02-01">
+            <div class="section_it__content_services__textBlock">
+              <div class="content-block_services">
+                <p>Широкий спектр послуг дозволяє нам формувати комплексне рішення щодо забезпечення безпеки та комфорту у Вашому будинку, офісі чи комерційному об'єкті.</p>
+                <p>Ми гарантуємо якісне виконання всіх робіт, оперативний виїзд спеціалістів та індивідуальний підхід до кожного клієнта.</p>
+              </div>
+            </div>
+          </div>
+          <div class="section__content-block section__content-block--row-right flex-gap-02-01">
+            <nav class="hexagon-comb-block" aria-label="navigation menu of the services">
+              <div class="hexagon-comb-block__layer">
+                <a href="#" class="hexagon-comb-block__layer__cell shutters">
+                  <span class="hexagon-comb-block__cell__title">Монтаж та ремонт захісних ролет</span>
+                </a>
+                <a href="#" class="hexagon-comb-block__layer__cell gates">
+                  <span class="hexagon-comb-block__cell__title">Виготовлення та ремонт воріт</span>
+                </a>
+              </div>
+              <div class="hexagon-comb-block__layer">
+                <a href="#" class="hexagon-comb-block__layer__cell surveillance">
+                  <span class="hexagon-comb-block__cell__title">Встановлення систем охорони та відеонагляду</span>
+                </a>
+                <a href="#" class="hexagon-comb-block__layer__cell automation">
+                  <span class="hexagon-comb-block__cell__title">Автоматизація воріт та захисних ролет</span>
+                </a>
+                <a href="#" class="hexagon-comb-block__layer__cell barriers">
+                  <span class="hexagon-comb-block__cell__title">Встановлення та ремонт шлагбаумів</span>
+                </a>
+              </div>
+              <div class="hexagon-comb-block__layer">
+                <a href="#" class="hexagon-comb-block__layer__cell windows">
+                  <span class="hexagon-comb-block__cell__title">Бронювання та ремонт вікон і дверей</span>
+                </a>
+                <a href="#" class="hexagon-comb-block__layer__cell awnings">
+                  <span class="hexagon-comb-block__cell__title">Виготовлення, монтаж та ремонт маркіз</span>
+                </a>
+              </div>
+            </nav>
           </div>
         </div>
       </section>

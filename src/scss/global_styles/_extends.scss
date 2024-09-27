@@ -5,9 +5,8 @@
 
 ///////EXTENDS///////
 
+//padding-top, padding-bottom of the total layer
 %sectionWrapper {
-  border: 1px dotted red;
-
   padding-top: 80px;
   padding-bottom: 120px;
 
@@ -24,6 +23,7 @@
   }
 }
 
+//padding-left, padding-right of the total layer
 %contentWrapper {
   max-width: $maxContentWidth;
   margin: 0 auto;

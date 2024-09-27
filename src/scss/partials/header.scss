@@ -12,7 +12,7 @@
 
 .header-layer {
   width: 100%;
-  background: $gradient-color-03-transparent;
+  background: linear-gradient(to right, $color_02 20%, $rgba_opacity-0 80%);
 }
 
 .header {
@@ -42,59 +42,59 @@
   gap: 0.5em;
 }
 
-.header__contacts-wrapper__contacts-block {
+.header__contacts-block {
   @include flex-box($flex-box-row-center-wrap...);
   gap: 1em;
+}
 
-  .phone-link {
-    text-decoration: none;
+.phone-link {
+  text-decoration: none;
 
-    @include flex-box($flex-box-row-center-nowrap...);
-    @include transition();
+  @include flex-box($flex-box-row-center-nowrap...);
+  @include transition();
 
-    gap: 0.625em;
+  gap: 0.625em;
 
-    &:hover {
-      transform: scale(1.05);
-    }
-
-    /* mobile (portrait narrow): (max-width: 480px)*/
-    @include maxMobilePortraitNarrow {
-      font-size: 0.9em;
-    }
-
-    &__phone-icon {
-      width: 1.375em;
-      fill: $color-01;
-    }
-
-    span {
-      font-family: "Jost", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      color: $color_01;
-
-      @include init-font(1.375em, 700);
-
-      /* mobile (landscape): (max-width: 768px)*/
-      @include maxMobileLandscape {
-        font-size: 1.13em;
-      }
-    }
+  &:hover {
+    transform: scale(1.05);
   }
 
-  .social-icons-wrapper {
-    @include flex-box($flex-box-row-center-nowrap...);
-    gap: 0.625em;
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    font-size: 0.9em;
+  }
 
-    &__social-icon {
-      width: 2em;
+  &__phone-icon {
+    width: 1.375em;
+    fill: $color-01;
+  }
 
-      @include transition();
+  span {
+    font-family: "Jost", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $color_01;
 
-      &:hover {
-        transform: scale(1.1);
-      }
+    @include init-font(1.375em, 700);
+
+    /* mobile (landscape): (max-width: 768px)*/
+    @include maxMobileLandscape {
+      font-size: 1.13em;
+    }
+  }
+}
+
+.social-icons-wrapper {
+  @include flex-box($flex-box-row-center-nowrap...);
+  gap: 0.625em;
+
+  &__social-icon {
+    width: 2em;
+
+    @include transition();
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }
@@ -122,7 +122,7 @@
   }
 }
 
-.header__nav__list {
+.header__nav-list {
   font-family: "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -135,19 +135,19 @@
   @include maxTabletPortrait {
     font-size: 0.938em;
   }
+}
 
-  .link {
-    text-decoration: none;
-    color: $color-01;
+.header__nav-link {
+  text-decoration: none;
+  color: $color-01;
 
-    @include text-shadow(0.05em, 0.05em);
-    @include transition();
+  @include text-shadow(0.05em, 0.05em);
+  @include transition();
 
-    &:hover {
-      color: $color-08_darker;
-      @include text-shadow(0.07em, 0.07em);
-      transform: translateY(-0.1em);
-    }
+  &:hover {
+    color: $color-09;
+    @include text-shadow(0.07em, 0.07em);
+    transform: translateY(-0.1em);
   }
 }
 
