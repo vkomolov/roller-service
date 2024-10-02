@@ -184,7 +184,7 @@
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
     font-size: var(--range_32-24_max-640px);
-    text-align: center;
+    //text-align: center;
   }
 
   h2 {
@@ -234,7 +234,7 @@
   /* tablet (portrait): (min-width: 1025px) */
   @include minTabletPortrait {
     background-image:
-      linear-gradient(to right, $color-02_opacity-07 35%, $rgba_opacity-0 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
       image-set(
           url("../assets/img/heroSection/hero_professional_1440.webp") 1x,
           url("../assets/img/heroSection/hero_professional_1440.jpg") 1x
@@ -243,7 +243,7 @@
     //retina can be included
     /*    @include mediaRetina2x {
           background-image:
-            linear-gradient(to right, $color-02_opacity-07 35%, $rgba_opacity-0 85%),
+            linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
                 url("../assets/img/heroSection/hero_professional_1440@2x.webp") 2x,
                 url("../assets/img/heroSection/hero_professional_1440@2x.jpg") 2x
@@ -254,7 +254,7 @@
   /* tablet (portrait): (max-width: 1024px) */
   @include maxTabletPortrait {
     background-image:
-      linear-gradient(to right, $color-02_opacity-07 35%, $rgba_opacity-0 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
       image-set(
           url("../assets/img/heroSection/hero_professional_1024.webp") 1x,
           url("../assets/img/heroSection/hero_professional_1024.jpg") 1x
@@ -263,7 +263,7 @@
     //retina can be included
     /*    @include mediaRetina2x {
           background-image:
-            linear-gradient(to right, $color-02_opacity-07 35%, $rgba_opacity-0 85%),
+            linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
               url("../assets/img/heroSection/hero_professional_1024@2x.webp") 2x,
               url("../assets/img/heroSection/hero_professional_1024@2x.jpg") 2x
@@ -274,8 +274,7 @@
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
     background-image:
-      linear-gradient(to right, $color-02_opacity-07, $color-02_opacity-07),
-      //linear-gradient(to right, $color-02_opacity-07 35%, $rgba_opacity-0 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
       image-set(
           url("../assets/img/heroSection/hero_professional_1024.webp") 1x,
           url("../assets/img/heroSection/hero_professional_1024.jpg") 1x
@@ -284,7 +283,7 @@
     //retina can be included
     /*    @include mediaRetina2x {
           background-image:
-            linear-gradient(to right, $color-02_opacity-07 35%, $rgba_opacity-0 85%),
+            linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
               url("../assets/img/heroSection/hero_professional_1024@2x.webp") 2x,
               url("../assets/img/heroSection/hero_professional_1024@2x.jpg") 2x
@@ -481,6 +480,11 @@
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 17.4em;
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    max-width: 24em;
+  }
 }
 
 .content-block-item__img-wrapper--benefits {
@@ -493,142 +497,213 @@
   margin-bottom: 0.889em;
 }
 
-/////////// section services hexagon////////////
+//////// section services ///////////
+.section--services {
+  font-size: 1em;
+  background-position: 70%;
+  background-size: cover;
+  color: $white;
 
-.section_it__content_services__textBlock {
-  max-width: 27em;
+  /* tablet (portrait): (min-width: 1025px) */
+  @include minTabletPortrait {
+    background-image:
+      //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+      image-set(
+          url("../assets/img/servicesSection/window_roller_shutters_1280.webp") 1x,
+          url("../assets/img/servicesSection/window_roller_shutters_1280.jpg") 1x
+      );
 
-  .content-block_services {
-    //font-size: 1.33em;
+    //retina can be included
+/*        @include mediaRetina2x {
+          background-image:
+            linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+            //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+            image-set(
+                url("../assets/img/servicesSection/window_roller_shutters_1280@2x.webp") 2x,
+                url("../assets/img/servicesSection/window_roller_shutters_1280@2x.jpg") 2x
+            );
+        }*/
+  }
+
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    background-image:
+      //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+      image-set(
+          url("../assets/img/servicesSection/window_roller_shutters_1024.webp") 1x,
+          url("../assets/img/servicesSection/window_roller_shutters_1024.jpg") 1x
+      );
+
+    //retina can be included
+/*        @include mediaRetina2x {
+          background-image:
+            linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+            //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+            image-set(
+              url("../assets/img/servicesSection/window_roller_shutters_1024@2x.webp") 2x,
+              url("../assets/img/servicesSection/window_roller_shutters_1024@2x.jpg") 2x
+          );
+        }*/
+  }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    background-image:
+      linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+      //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+      image-set(
+          url("../assets/img/servicesSection/window_roller_shutters_640.webp") 1x,
+          url("../assets/img/servicesSection/window_roller_shutters_640.jpg") 1x
+      );
+
+    //retina can be included
+/*        @include mediaRetina2x {
+          background-image:
+            linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+            //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+            image-set(
+              url("../assets/img/servicesSection/window_roller_shutters_640@2x.webp") 2x,
+              url("../assets/img/servicesSection/window_roller_shutters_640@2x.jpg") 2x
+          );
+        }*/
   }
 }
 
-//////// HONEYCOMB LINKS ///////////
+.section__text-block--services {
+  max-width: 20em;
+}
 
+///////////////////// honeycomb hexagon /////////////////////////
 .hexagon-comb-block {
-  font-size: 1em; //font-size of the parent...
-  width: 100%;
-  max-width: 37.78em;
+  font-size: 1em; //parent font-size
+  --cell-width: 12.22em;  /* cell width of the honeycomb 220px at font-size: 18px */
+  --cell-padding: 0.2em;
 
-  @include flex-box($flex-box-col-top-wrap...);
-}
+  display: grid;
+  padding: calc(var(--cell-width) + var(--cell-padding));
+  margin-top: -10em;
 
-.hexagon-comb-block__layer {
-  width: 100%;
-  margin-bottom: 0.5em;
-
-  @include flex-box($flex-box-row-center-wrap...);
-  gap: 0.25em;
-
-  &:nth-child(2) {
-    transform: translateY(-3.7em);
-  }
-
-  &:nth-child(3) {
-    transform: translateY(-7.4em);
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    margin-top: 0;
   }
 }
 
-.hexagon-comb-block__layer__cell {
+.hexagon-comb-block__cell-link {
   position: relative;
-  text-decoration: none;
-  flex: 0 1 220px;
-  //min-width: 200px;  //flex-shrink: 1
-  text-align: center;
-  /*
-  as all inner elements are in absolute, the container has zero height...
-  padding gives the height with account to the percentage from the given width (flex-basis: 12.22em)
-  */
-  padding-bottom: 37.5%;
-  //background-color: $color-01;
+  width: var(--cell-width);
+  grid-area: 1/1; //all cells in one row, in one column
+  aspect-ratio: 0.87;  //224px / 257px = 0.8716 original picture size
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transform: translate(var(--_x, 0), var(--_y, 0)) scale(var(--_s, 1));
 
-  &.shutters {
-    background-image: image-set(
-        url("../assets/img/servicesSection/shutters_installation/shutters_installation.webp") type('image/webp'),
-        url("../assets/img/servicesSection/shutters_installation/shutters_installation.png") type('image/png')
-    );
-    background-size: cover;
-    background-position: center;
+  @include transition();
+
+  &:before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(150deg, rgba(255, 133, 2, .8) 40%, rgba(255, 255, 255, 1) 100%);
+
+    //@include transition(transform, 0.2s);
+    @include transition(top, 0.2s);
+  }
+}
+
+.hexagon-comb-block__cell-link:hover {
+  --_s: 1.1;
+  z-index: 1;
+
+  &:before {
+    top: -100%;
   }
 
-  &.gates {
-    background-image: image-set(
-        url("../assets/img/servicesSection/gates_installation/gates_installation.webp") type('image/webp'),
-        url("../assets/img/servicesSection/gates_installation/gates_installation.png") type('image/png'),
-    );
-    background-size: cover;
-    background-position: center;
+  .hexagon-comb-block__cell-title {
+    opacity: 0;
   }
+}
 
-  &.surveillance {
-    background-image: image-set(
-        url("../assets/img/servicesSection/surveillance_installation/surveillance_installation.webp") type('image/webp'),
-        url("../assets/img/servicesSection/surveillance_installation/surveillance_installation.png") type('image/png'),
-    );
-    background-size: cover;
-    background-position: center;
-  }
+.hexagon-comb-block__cell-link:nth-child(1) {
+  --_x: calc(-50% - var(--cell-padding)*.5);
+  --_y: calc(-77%);
 
-  &.automation {
-    background-image: image-set(
-        url("../assets/img/servicesSection/roller_automation/roller_automation.webp") type('image/webp'),
-        url("../assets/img/servicesSection/roller_automation/roller_automation.png") type('image/png'),
-    );
-    background-size: cover;
-    background-position: center;
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    --_x: calc(-25% - var(--cell-padding)*.5);
+    --_y: calc(-77%);
   }
+}
 
-  &.barriers {
-    background-image: image-set(
-        url("../assets/img/servicesSection/barrier_installation/barrier.webp") type('image/webp'),
-        url("../assets/img/servicesSection/barrier_installation/barrier.png") type('image/png'),
-    );
-    background-size: cover;
-    background-position: center;
-  }
+.hexagon-comb-block__cell-link:nth-child(2) {
+  --_x: calc(50% + var(--cell-padding)*.5);
+  --_y: calc(-77%);
 
-  &.windows {
-    background-image: image-set(
-        url("../assets/img/servicesSection/window_hardenning/window_hardenning.webp") type('image/webp'),
-        url("../assets/img/servicesSection/window_hardenning/window_hardenning.png") type('image/png'),
-    );
-    background-size: cover;
-    background-position: center;
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    --_x: calc(25%);
+    --_y: 0;
   }
+}
 
-  &.awnings {
-    background-image: image-set(
-        url("../assets/img/servicesSection/awnings_installation/awnings.webp") type('image/webp'),
-        url("../assets/img/servicesSection/awnings_installation/awnings.png") type('image/png'),
-    );
-    background-size: cover;
-    background-position: center;
+.hexagon-comb-block__cell-link:nth-child(3) {
+  --_x: calc(-100% - var(--cell-padding));
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    --_x: calc(-25% - var(--cell-padding)* 0.5);
+    --_y: calc(77%);
   }
+}
+
+.hexagon-comb-block__cell-link:nth-child(4) {
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    --_x: calc(25%);
+    --_y: calc(154%);
+  }
+}
+
+.hexagon-comb-block__cell-link:nth-child(5) {
+  --_x: calc(100% + var(--cell-padding));
 
 }
 
-.hexagon-comb-block__cell__title {
-  //font-size: 1.11em;  //1.11em from 18px = 20px
+.hexagon-comb-block__cell-link:nth-child(6) {
+  --_x: calc(-50% - var(--cell-padding)*.5);
+  --_y: calc(77%);
+}
+
+.hexagon-comb-block__cell-link:nth-child(7) {
+  --_x: calc(50% + var(--cell-padding)*.5);
+  --_y: calc(77%);
+}
+
+.hexagon-comb-block__cell-title {
   position: absolute;
+  font-size: 1.11em;
+  display: block;
+  width: 9em;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
- /* as the parent has flex-shrink: 1, the font-size and the max-width of the text must be
-  as the percentage of the parent`s width...*/
-  font-size: 9%; /* percent from the width of the parent: 20px / 220px = 0.09 */
-  max-width: 68.18%; /* percent from the width of the parent 150px / 220px = 0.6818*/
   font-family: "Jost", sans-serif;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.35;
-  hyphens: auto;
-  word-break: break-word;
-  color: red;
+  text-align: center;
+  color: $color-02;
+
+  @include transition(opacity, 0.4s);
 }
 
+//////////////////// ver 3 //////////////////////////
 /*
 .hexagon-comb-block {
   font-size: 1em; //font-size of the parent...

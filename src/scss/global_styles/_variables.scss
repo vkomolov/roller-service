@@ -5,8 +5,8 @@ $minWidth: 320px;
 $maxContentWidth: 1280px;
 
 ///COLORS
-$white: #fff;
-$black: #000;
+$white: rgba(255, 255, 255, 1); //#fff;
+$black: rgba(0, 0, 0, 1); //#000;
 $color-01: rgba(255, 133, 2, 1);//#ff8502
 $color-02: rgba(40, 32, 23, 1); //#282017;
 $color-03: rgba(65, 57, 48, 1); //#413930;
@@ -17,5 +17,4 @@ $color-09: rgba(211, 3, 3, 1); //#d30303;
 $color-13: rgba(241, 241, 241, 1); //#f1f1f1;
 
 /// SHADERS
-$color-02_opacity-07: rgba(40, 32, 23, .7);
 $rgba_opacity-0: rgba(65, 57, 48, 0);

@@ -25,8 +25,13 @@ $element-shadow: 0.15em, 0.3em, rgba(0, 0, 0, .8);
   align-items: $align;
 }
 
-@mixin transition($property: all, $time: 0.15s) {
-  transition: $property $time ease-in-out;
+@mixin transition($property: null, $time: 0.15s) {
+  @if $property != null {
+    transition: $property $time ease-in-out;
+  }
+  @else {
+    transition: $time ease-in-out;
+  }
 }
 
 @mixin init-font ($font-size, $font-weight) {
