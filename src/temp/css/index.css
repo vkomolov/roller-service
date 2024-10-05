@@ -2982,6 +2982,37 @@ ul {
   max-width: 20em;
 }
 
+.section__bidding-block--services {
+  align-items: center;
+  margin-top: -10em;
+  /* tablet (portrait): (max-width: 1024px) */
+  /* mobile (landscape): (max-width: 768px)*/
+}
+@media (max-width: 1024px) {
+  .section__bidding-block--services {
+    margin-top: 0;
+  }
+}
+@media (max-width: 768px) {
+  .section__bidding-block--services {
+    margin-top: 2em;
+  }
+}
+.section__bidding-block--services p {
+  font-size: 1.4em;
+  font-weight: 600;
+  display: none;
+  /* mobile (portrait wide): (max-width: 640px) */
+}
+@media (max-width: 640px) {
+  .section__bidding-block--services p {
+    display: inline;
+  }
+  .section__bidding-block--services p:last-of-type {
+    margin-bottom: 0.5em;
+  }
+}
+
 .hexagon-comb-block {
   font-size: 0.95em;
   --cell-width: 12.22em; /* cell width of the honeycomb 220px at font-size: 18px */
@@ -2989,15 +3020,8 @@ ul {
   --p: calc(var(--cell-width) + var(--cell-padding));
   display: grid;
   padding: var(--p);
-  margin-top: -10em;
-  /* tablet (portrait): (max-width: 1024px) */
   /* mobile (portrait wide): (max-width: 640px) */
   /* mobile (portrait narrow): (max-width: 480px)*/
-}
-@media (max-width: 1024px) {
-  .hexagon-comb-block {
-    margin-top: 0;
-  }
 }
 @media (max-width: 640px) {
   .hexagon-comb-block {

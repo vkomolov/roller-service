@@ -627,6 +627,36 @@
   max-width: 20em;
 }
 
+.section__bidding-block--services {
+  align-items: center;
+  margin-top: -10em;
+
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    margin-top: 0;
+  }
+
+  /* mobile (landscape): (max-width: 768px)*/
+  @include maxMobileLandscape {
+    margin-top: 2em;
+  }
+
+  p {
+    font-size: 1.4em;
+    font-weight: 600;
+    display: none;
+
+    /* mobile (portrait wide): (max-width: 640px) */
+    @include maxMobilePortraitWide {
+      display: inline;
+
+      &:last-of-type {
+        margin-bottom: .5em;
+      }
+    }
+  }
+}
+
 ///////////////////// honeycomb hexagon /////////////////////////
 .hexagon-comb-block {
   font-size: .95em; //parent font-size
@@ -636,12 +666,6 @@
 
   display: grid;
   padding: var(--p);
-  margin-top: -10em;
-
-  /* tablet (portrait): (max-width: 1024px) */
-  @include maxTabletPortrait {
-    margin-top: 0;
-  }
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
