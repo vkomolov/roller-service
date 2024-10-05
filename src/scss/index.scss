@@ -167,7 +167,9 @@
 
 .section__bidding-block {
 
-  p {
+  @include flex-box($flex-box-col-left-wrap...);
+
+  p:last-of-type {
     margin-bottom: 1.2em; //margin from the request button, placed lower...
   }
 }
@@ -274,10 +276,10 @@
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
     background-image:
-      linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
+      linear-gradient(to right, rgba(40, 32, 23, .6), rgba(40, 32, 23, .5)),
       image-set(
-          url("../assets/img/heroSection/hero_professional_1024.webp") 1x,
-          url("../assets/img/heroSection/hero_professional_1024.jpg") 1x
+          url("../assets/img/heroSection/hero_professional_640.webp") 1x,
+          url("../assets/img/heroSection/hero_professional_640.jpg") 1x
       );
 
     //retina can be included
@@ -285,8 +287,8 @@
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/hero_professional_1024@2x.webp") 2x,
-              url("../assets/img/heroSection/hero_professional_1024@2x.jpg") 2x
+              url("../assets/img/heroSection/hero_professional_640@2x.webp") 2x,
+              url("../assets/img/heroSection/hero_professional_640@2x.jpg") 2x
           );
         }*/
   }
@@ -352,7 +354,7 @@
 
 .section__bidding-block--hero {
   font-size: 24px;
-  max-width: 14.1em;
+  //max-width: 14.1em;
 
   /* tablet (landscape) max-width: 1280px */
   @include maxTabletLandscape {
@@ -363,6 +365,12 @@
   @include maxMobilePortraitWide {
     font-size: 18px;
     margin-top: 1.4em;
+    align-items: center;
+    text-align: center;
+  }
+
+  p {
+    max-width: 14em;
   }
 }
 
@@ -504,8 +512,30 @@
   background-size: cover;
   color: $white;
 
-  /* tablet (portrait): (min-width: 1025px) */
-  @include minTabletPortrait {
+  /* tablet (landscape) min-width: 1281px */
+  @include minTabletLandscape {
+    background-image:
+      //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+      image-set(
+          url("../assets/img/servicesSection/window_roller_shutters_1440.webp") 1x,
+          url("../assets/img/servicesSection/window_roller_shutters_1440.jpg") 1x
+      );
+
+    //retina can be included
+/*        @include mediaRetina2x {
+          background-image:
+            linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+            //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+            image-set(
+                url("../assets/img/servicesSection/window_roller_shutters_1440@2x.webp") 2x,
+                url("../assets/img/servicesSection/window_roller_shutters_1440@2x.jpg") 2x
+            );
+        }*/
+  }
+
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
     background-image:
       //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
@@ -515,15 +545,15 @@
       );
 
     //retina can be included
-/*        @include mediaRetina2x {
-          background-image:
-            linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
-            //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
-            image-set(
-                url("../assets/img/servicesSection/window_roller_shutters_1280@2x.webp") 2x,
-                url("../assets/img/servicesSection/window_roller_shutters_1280@2x.jpg") 2x
-            );
-        }*/
+    /*        @include mediaRetina2x {
+              background-image:
+                linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+                //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+                image-set(
+                  url("../assets/img/servicesSection/window_roller_shutters_1280@2x.webp") 2x,
+                  url("../assets/img/servicesSection/window_roller_shutters_1280@2x.jpg") 2x
+              );
+            }*/
   }
 
   /* tablet (portrait): (max-width: 1024px) */
@@ -569,6 +599,28 @@
           );
         }*/
   }
+
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    background-image:
+      linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+        //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+      image-set(
+          url("../assets/img/servicesSection/window_roller_shutters_480.webp") 1x,
+          url("../assets/img/servicesSection/window_roller_shutters_480.jpg") 1x
+      );
+
+    //retina can be included
+    /*        @include mediaRetina2x {
+              background-image:
+                linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+                //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+                image-set(
+                  url("../assets/img/servicesSection/window_roller_shutters_480@2x.webp") 2x,
+                  url("../assets/img/servicesSection/window_roller_shutters_480@2x.jpg") 2x
+              );
+            }*/
+  }
 }
 
 .section__text-block--services {
@@ -577,17 +629,54 @@
 
 ///////////////////// honeycomb hexagon /////////////////////////
 .hexagon-comb-block {
-  font-size: 1em; //parent font-size
+  font-size: .95em; //parent font-size
   --cell-width: 12.22em;  /* cell width of the honeycomb 220px at font-size: 18px */
   --cell-padding: 0.2em;
+  --p: calc(var(--cell-width) + var(--cell-padding));
 
   display: grid;
-  padding: calc(var(--cell-width) + var(--cell-padding));
+  padding: var(--p);
   margin-top: -10em;
 
   /* tablet (portrait): (max-width: 1024px) */
   @include maxTabletPortrait {
     margin-top: 0;
+  }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    font-size: 0.8em;
+  }
+
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    padding-bottom: calc(var(--p) * 2.8); //for hexagon-comb-block__cell-link transformations
+    padding-left: calc(var(--p) * 0.6);
+    padding-right: calc(var(--p) * 0.6);
+  }
+}
+
+.hexagon-comb-block__cell-title {
+  position: absolute;
+  font-size: 1em;
+  display: block;
+  width: 9em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Jost", sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.35;
+  text-align: center;
+  color: $color-02;
+
+  @include transition(opacity, 0.4s);
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    font-size: 1.15em;
   }
 }
 
@@ -609,7 +698,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(150deg, rgba(255, 133, 2, .8) 40%, rgba(255, 255, 255, 1) 100%);
+    //background: linear-gradient(150deg, rgba(255, 133, 2, .8) 40%, rgba(255, 255, 255, .9) 90%);
+    //background: linear-gradient(150deg, rgba(255, 133, 2, .8) 40%, rgba(220, 220, 220, .8) 90%);
+    background: rgba(220, 220, 220, .8);
+    //background: rgba(241, 241, 241, .7);
 
     //@include transition(transform, 0.2s);
     @include transition(top, 0.2s);
@@ -631,22 +723,21 @@
 
 .hexagon-comb-block__cell-link:nth-child(1) {
   --_x: calc(-50% - var(--cell-padding)*.5);
-  --_y: calc(-77%);
+  --_y: -76.5%;
 
-  /* mobile (portrait wide): (max-width: 640px) */
-  @include maxMobilePortraitWide {
-    --_x: calc(-25% - var(--cell-padding)*.5);
-    --_y: calc(-77%);
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    --_x: 0;
   }
 }
 
 .hexagon-comb-block__cell-link:nth-child(2) {
   --_x: calc(50% + var(--cell-padding)*.5);
-  --_y: calc(-77%);
+  --_y: -76.5%;
 
-  /* mobile (portrait wide): (max-width: 640px) */
-  @include maxMobilePortraitWide {
-    --_x: calc(25%);
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    --_x: calc(-50% - var(--cell-padding)*.5);
     --_y: 0;
   }
 }
@@ -654,54 +745,53 @@
 .hexagon-comb-block__cell-link:nth-child(3) {
   --_x: calc(-100% - var(--cell-padding));
 
-  /* mobile (portrait wide): (max-width: 640px) */
-  @include maxMobilePortraitWide {
-    --_x: calc(-25% - var(--cell-padding)* 0.5);
-    --_y: calc(77%);
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    --_x: calc(50% + var(--cell-padding)*.5);
   }
 }
 
 .hexagon-comb-block__cell-link:nth-child(4) {
-  /* mobile (portrait wide): (max-width: 640px) */
-  @include maxMobilePortraitWide {
-    --_x: calc(25%);
-    --_y: calc(154%);
+
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    --_y: 76.5%;
   }
 }
 
 .hexagon-comb-block__cell-link:nth-child(5) {
   --_x: calc(100% + var(--cell-padding));
 
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    --_x: calc(-50% - var(--cell-padding)*.5);
+    --_y: 153%;
+  }
 }
 
 .hexagon-comb-block__cell-link:nth-child(6) {
   --_x: calc(-50% - var(--cell-padding)*.5);
-  --_y: calc(77%);
+  --_y: calc(76.5%);
+
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    --_x: calc(50% + var(--cell-padding)*.5);
+    --_y: 153%;
+  }
 }
 
 .hexagon-comb-block__cell-link:nth-child(7) {
   --_x: calc(50% + var(--cell-padding)*.5);
-  --_y: calc(77%);
+  --_y: calc(76.5%);
+
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    --_x: 0;
+    --_y: 229.5%
+  }
 }
 
-.hexagon-comb-block__cell-title {
-  position: absolute;
-  font-size: 1.11em;
-  display: block;
-  width: 9em;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: "Jost", sans-serif;
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.35;
-  text-align: center;
-  color: $color-02;
 
-  @include transition(opacity, 0.4s);
-}
 
 //////////////////// ver 3 //////////////////////////
 /*

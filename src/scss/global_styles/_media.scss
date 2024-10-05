@@ -50,6 +50,13 @@
   }
 }
 
+/* tablet (landscape) min-width: 1281px */
+@mixin minTabletLandscape() {
+  @media (min-width: 1281px) {
+    @content
+  }
+}
+
 /* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
 @mixin rangeTabletLandscape() {
   @media (max-width: 1280px) and (min-width: 1025px) {

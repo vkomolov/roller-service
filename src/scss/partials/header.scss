@@ -12,10 +12,11 @@
 
 .header-layer {
   width: 100%;
-  background: linear-gradient(to right, $color_02 20%, $rgba_opacity-0 80%);
+  //background: linear-gradient(to right, rgba(40, 32, 23, 1) 25%, $rgba_opacity-0 80%);
 }
 
 .header {
+  font-size: 1em; //parent font-size
   position: relative;
 
   @extend %contentWrapper;
@@ -56,7 +57,7 @@
   gap: 0.625em;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   /* mobile (portrait narrow): (max-width: 480px)*/
@@ -101,6 +102,7 @@
 
 .header__nav {
   width: 100%;
+  padding-top: .56em;
   @include flex-box($flex-box-row-right-wrap...);
 
   /* mobile (landscape): (max-width: 768px)*/
@@ -126,14 +128,15 @@
   font-family: "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 1em; //parent font-size: 18px;
+  font-weight: 700;
 
-  @include init-font(1.125em, 700);
   @include flex-box($flex-box-row-center-wrap...);
   gap: 0.5em 1em;
 
   /* tablet (portrait): (max-width: 1024px) */
   @include maxTabletPortrait {
-    font-size: 0.938em;
+    font-size: 0.889em; //16px from font-size: 18px;
   }
 }
 
