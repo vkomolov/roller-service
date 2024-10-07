@@ -148,7 +148,7 @@
   @include transition();
 
   &:hover {
-    color: $color-09;
+    color: $color-01-darken;
     @include text-shadow(0.07em, 0.07em);
     transform: translateY(-0.1em);
   }

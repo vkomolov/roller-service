@@ -38,35 +38,43 @@
 }
 
 .button-request {
-  width: 275px;
-  padding: 20px 32px;
-  background-color: $color-01;
-  border: none;
-  color: $white;
-  border-radius: 10px;
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 1.25rem;
+  font-weight: 600;
+  width: 275px;
+  padding: 1em 1.6em;
+  background-color: $color-01;
+  border: none;
+  color: $white;
+  border-radius: 0.5em;
+  margin-top: 40px; //constant margin
+  box-shadow: 0.1em 0.15em 0.2em rgba(0, 0, 0, 0.8);
 
-  @include box-shadow($element-shadow...);
-  @include init-font(20px, 600);
   @include transition();
 
-  /* mobile (portrait wide): (max-width: 640px) */
-  @include maxMobilePortraitWide {
-    font-size: 18px;
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    font-size: 1.185rem;
     width: 270px;
   }
 
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    font-size: 1rem;
+    width: 250px;
+  }
+
   &:hover {
-    transform: translateY(-3px);
-    background-color: $color-08;
-    box-shadow: 3px 4px 3px rgba(0, 0, 0, 0.8);
+    transform: translateY(-0.18em);
+    background-color: $color-01-darken;
+    box-shadow: 0.12em 0.25em 0.3em rgba(0, 0, 0, 0.8);
   }
 
   &:active {
-    background-color: $color-09;
-    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.8);
+    background-color: $color-01-darkest;
+    box-shadow: 0.06em 0.125em 0.125em rgba(0, 0, 0, 0.8);
     transform: translateY(0);
   }
 }
@@ -77,9 +85,17 @@
 
 .section__content-layer {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   @extend %contentWrapper;  //padding calculations
   @include transition();  //transition all
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    align-items: center;
+  }
 }
 
 .section__heading-block {
@@ -158,6 +174,11 @@
   .boldy {
     font-weight: 600;
     margin-top: 0.89em;
+
+    &:first-of-type {
+      margin-top: 0;
+      margin-bottom: 0.89em;
+    }
   }
 }
 
@@ -166,17 +187,13 @@
 }
 
 .section__bidding-block {
-
   @include flex-box($flex-box-col-left-wrap...);
-
-  p:last-of-type {
-    margin-bottom: 1.2em; //margin from the request button, placed lower...
-  }
 }
 
 .section__heading-block--separation {
   font-size: 48px;
-  margin-bottom: 0.67em;
+  margin-bottom: 0.77em;
+  max-width: 15em;
 
   /* tablet (landscape) max-width: 1280px */
   @include maxTabletLandscape {
@@ -185,8 +202,7 @@
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
-    font-size: var(--range_32-24_max-640px);
-    //text-align: center;
+    font-size: var(--range_32-23_max-640px);
   }
 
   h2 {
@@ -197,7 +213,7 @@
 .content-block-item {
   font-size: 1em; //from the parent
   width: 100%;
-  padding: 1em 1.8em;
+  padding: 1em 1.25em 0;
 
   @include flex-box(column, flex-start, center);
 }
@@ -296,13 +312,6 @@
 
 .section__content-layer--hero {
   color: $white;
-
-  @include flex-box($flex-box-col-left-wrap...);
-
-  /* mobile (portrait wide): (max-width: 640px) */
-  @include maxMobilePortraitWide {
-    align-items: center;
-  }
 }
 
 .section__heading-block--hero {
@@ -383,11 +392,19 @@
   /* tablet (portrait): (max-width: 1024px) */
   @include maxTabletPortrait {
     justify-content: flex-end;
+
+    &.img-right {
+      justify-content: flex-start;
+    }
   }
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
     gap: 3em;
+  }
+
+  &.margin-top {
+    margin-top: 4.44em;
   }
 }
 
@@ -403,17 +420,24 @@
   @include maxTabletPortrait {
     position: absolute;
     top: 0;
-    //left: calculate-dimension(1280, 321, 80, 24);
-    left: 3.4em;
+    left: 0;  /* section image/text */
     z-index: 0;
     width: 18em;
+
+    &:not(:first-of-type) {
+      right: 0; /* section text/image */
+      left: auto;
+    }
   }
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
-    position: relative;
-    left: 0;
+    position: initial;
     width: 15.5em;
+
+    &.order-02 {
+      order: 2;
+    }
   }
 }
 
@@ -434,7 +458,7 @@
       width: 100%;
       height: 100%;
       content: "";
-      transform: scale(1.1);
+      transform: scaleX(1.1) scaleY(1.05);
       background-color: $white;
       opacity: 0.7;
     }
@@ -448,23 +472,23 @@
 
 //////// section benefits /////////
 
-.section__img-wrapper--benefits {
-  width: 100%;
-  margin-top: 4.44em;
-}
-
 .section__benefits {
-  position: relative;
-  padding-top: 6.25vw;
+  padding-top: 5.5vw;
 
   @include flex-box(column, center, center);
   gap: 2em;
+}
+
+.section__img-wrapper--benefits {
+  position: relative;
+  width: 100%;
+  margin-top: 2.44em;
 
   &:before {
     display: block;
     content: "";
     position: absolute;
-    top: -6.25vw;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 6.25vw;
@@ -475,7 +499,7 @@
     display: block;
     content: "";
     position: absolute;
-    top: -6.25vw;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 6.25vw;
@@ -484,15 +508,10 @@
 }
 
 .content-block-item--benefits {
-  max-width: 23.2em;
+  max-width: 20em;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 17.4em;
-
-  /* mobile (portrait wide): (max-width: 640px) */
-  @include maxMobilePortraitWide {
-    max-width: 24em;
-  }
 }
 
 .content-block-item__img-wrapper--benefits {
@@ -507,7 +526,7 @@
 
 //////// section services ///////////
 .section--services {
-  font-size: 1em;
+  font-size: 1em; //parent font-size (18px at max 1280px)
   background-position: 70%;
   background-size: cover;
   color: $white;
@@ -815,99 +834,136 @@
   }
 }
 
+///////////////////// single text-block /////////////////////////
+.section__text-block--single {
+  width: 100%;
+  max-width: 30em;
 
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    max-width: 28em;
+  }
 
-//////////////////// ver 3 //////////////////////////
-/*
-.hexagon-comb-block {
-  font-size: 1em; //font-size of the parent...
-  max-width: 66.7em;
-  margin: 0 auto;
-  padding: 0;
-  transform: translateY(4.44em);
-
-  @include flex-box($flex-box-col-top-wrap...);
-}
-
-.hexagon-comb-block__layer {
-  @include flex-box($flex-box-row-center-wrap...);
-
-  a {
-    text-decoration: none;
+  /* mobile (landscape): (max-width: 768px)*/
+  @include maxMobileLandscape {
+    max-width: 27em;
   }
 }
 
-.hexagon-comb-block__layer__cell {
-  flex: 0 1 13.89em;
-  max-width: 13.89em;
-  height: 7.64em;
-  margin: 3.63em 0.69em 1.38em;
-  position: relative;
-  padding: 0.5em;
-  text-align: center;
-  z-index: 1;
-  box-shadow: 0 0 15px 0 $color-03_opacity-07;
-}
+//////////////////// section--roller-automation //////////////////
+.section--roller-automation {
+  font-size: 1em; //parent font-size (18px at max 1280px)
+  background-position: 0;
+  background-size: cover;
+  color: $white;
 
-.hexagon-comb-block__cell__title {
-  font-size: 1.11em;
-  font-family: "Jost", sans-serif;
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.35;
+  /* tablet (landscape) min-width: 1281px */
+  @include minTabletLandscape {
+    background-image:
+      //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+      image-set(
+          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.webp") 1x,
+          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.jpg") 1x
+      );
 
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  hyphens: auto;
-  word-break: break-word;
-  color: #fff;
+    //retina can be included
+    /*        @include mediaRetina2x {
+              background-image:
+                linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+                //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+                image-set(
+                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440@2x.webp") 2x,
+                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440@2x.jpg") 2x
+                );
+            }*/
+  }
 
-  transition: opacity 350ms;
-}
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    background-image:
+      //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+      image-set(
+          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.webp") 1x,
+          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.jpg") 1x
+      );
 
-.hexagon-comb-block__cell__img {
-  object-fit: cover;
-  object-position: center;
-  ///filter: grayscale(100%);
-}
-.hexagon-comb-block__cell:before, .hexagon-comb-block__cell:after {
-  content: "";
-}
+    //retina can be included
+    /*        @include mediaRetina2x {
+              background-image:
+                linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+                //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+                image-set(
+                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280@2x.webp") 2x,
+                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280@2x.jpg") 2x
+                );
+            }*/
+  }
 
-.hexagon-comb-block__cell:before,.hexagon-comb-block__cell:after, .hexagon-comb-block__cell__img {
-  top: -50%;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  display: block;
-  position: absolute;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  z-index: -1;
-}
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    background-image:
+      //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+      image-set(
+          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.webp") 1x,
+          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.jpg") 1x
+      );
 
-.hexagon-comb-block__cell:before {
-  background: #fff;
-  transform: scale(1.055);
-}
+    //retina can be included
+    /*        @include mediaRetina2x {
+              background-image:
+                linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+                //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+                image-set(
+                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024@2x.webp") 2x,
+                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024@2x.jpg") 2x
+                );
+            }*/
+  }
 
-.hexagon-comb-block__cell:after {
-  background: #111111;
-  opacity: 0.7;
-  transition: opacity 350ms;
-}
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    background-image:
+      //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+      image-set(
+          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640.webp") 1x,
+          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640.jpg") 1x
+      );
 
-.hexagon-comb-block__cell:hover.hexagon-comb-block__cell__img {
-  filter: grayscale(0%);
-}
+    //retina can be included
+    /*        @include mediaRetina2x {
+              background-image:
+                linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+                //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+                image-set(
+                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640@2x.webp") 2x,
+                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640@2x.jpg") 2x
+                );
+            }*/
+  }
 
-.hexagon-comb-block__cell:hover:before {
-  background: #fc5130;
-}
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    background-image:
+      //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+      linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+      image-set(
+          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x,
+          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x
+      );
 
-.hexagon-comb-block__cell:hover:after {
-  opacity: 0;
+    //retina can be included
+    /*        @include mediaRetina2x {
+              background-image:
+                linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
+                //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
+                image-set(
+                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.webp") 2x,
+                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.jpg") 2x
+                );
+            }*/
+  }
 }
-*/

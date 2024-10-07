@@ -12,7 +12,7 @@
   --range_80-64_max-1280px: #{calculate-dimension(1280, 641, 80, 64)};
   --range_80-32_max-1280px: #{calculate-dimension(1280, 641, 80, 32)};
   --range_48-32_max-1280px: #{calculate-dimension(1280, 641, 48, 32)};
-  --range_32-24_max-640px: #{calculate-dimension(640, 320, 32, 24)};
+  --range_32-23_max-640px: #{calculate-dimension(640, 320, 32, 23)};
   --range_24-18_max-1280px: #{calculate-dimension(1280, 641, 24, 18)};
   --range_18-16_max-1280px: #{calculate-dimension(1280, 641, 18, 16)};
 }
