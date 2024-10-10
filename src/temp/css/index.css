@@ -517,11 +517,6 @@ h2, h3, h4, h5 {
   line-height: 1.2;
 }
 
-p + p {
-  margin-top: 0.5em;
-  overflow-wrap: break-word;
-}
-
 img, svg, picture, video {
   width: 100%;
   max-width: 100%;
@@ -985,11 +980,6 @@ h2, h3, h4, h5 {
   line-height: 1.2;
 }
 
-p + p {
-  margin-top: 0.5em;
-  overflow-wrap: break-word;
-}
-
 img, svg, picture, video {
   width: 100%;
   max-width: 100%;
@@ -1516,11 +1506,6 @@ h1 {
 
 h2, h3, h4, h5 {
   line-height: 1.2;
-}
-
-p + p {
-  margin-top: 0.5em;
-  overflow-wrap: break-word;
 }
 
 img, svg, picture, video {
@@ -1984,11 +1969,6 @@ h1 {
 
 h2, h3, h4, h5 {
   line-height: 1.2;
-}
-
-p + p {
-  margin-top: 0.5em;
-  overflow-wrap: break-word;
 }
 
 img, svg, picture, video {
@@ -2571,13 +2551,29 @@ ul {
   gap: 2em;
 }
 
-.section__text-block .boldy {
-  font-weight: 600;
-  margin-top: 0.89em;
+.section__text-block p + p {
+  margin-top: 0.5em;
+  overflow-wrap: break-word;
 }
-.section__text-block .boldy:first-of-type {
+
+.section__text-separ {
+  font-weight: 600;
+  margin-top: 0.5em;
+}
+.section__text-separ:first-of-type {
   margin-top: 0;
   margin-bottom: 0.89em;
+}
+.section__text-separ.section__text-separ--subheading {
+  margin-top: 0.89em;
+}
+.section__text-separ.section__text-separ--subheading:first-of-type {
+  margin-top: 0;
+}
+
+.section__text-list {
+  list-style: inside;
+  margin-bottom: 0.5em;
 }
 
 .section__bidding-block {
@@ -2821,7 +2817,7 @@ ul {
 }
 @media (max-width: 640px) {
   .section__img-wrapper--pair {
-    position: initial;
+    position: static;
     width: 15.5em;
   }
   .section__img-wrapper--pair.order-02 {

@@ -171,15 +171,33 @@
 
 .section__text-block {
 
-  .boldy {
-    font-weight: 600;
+  p + p {
+    margin-top: 0.5em;
+    overflow-wrap: break-word;
+  }
+}
+
+.section__text-separ {
+  font-weight: 600;
+  margin-top: 0.5em;
+
+  &:first-of-type {
+    margin-top: 0;
+    margin-bottom: 0.89em;
+  }
+
+  &.section__text-separ--subheading {
     margin-top: 0.89em;
 
     &:first-of-type {
       margin-top: 0;
-      margin-bottom: 0.89em;
     }
   }
+}
+
+.section__text-list {
+  list-style: inside;
+  margin-bottom: 0.5em;
 }
 
 .section__img-wrapper {
@@ -432,7 +450,7 @@
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
-    position: initial;
+    position: static;
     width: 15.5em;
 
     &.order-02 {
