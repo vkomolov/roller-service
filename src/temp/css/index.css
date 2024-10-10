@@ -1982,6 +1982,7 @@ img, svg, picture, video {
 
 .header-layer {
   width: 100%;
+  background: linear-gradient(to right, rgb(40, 32, 23) 25%, rgba(65, 57, 48, 0) 80%);
 }
 
 .header {
@@ -2832,6 +2833,7 @@ ul {
   max-width: 30em;
   /* tablet (portrait): (max-width: 1024px) */
   /* mobile (landscape): (max-width: 768px)*/
+  /* mobile (portrait wide): (max-width: 640px) */
 }
 @media (max-width: 1024px) {
   .section__text-block--pair {
@@ -2852,6 +2854,11 @@ ul {
 @media (max-width: 768px) {
   .section__text-block--pair {
     max-width: 27em;
+  }
+}
+@media (max-width: 640px) {
+  .section__text-block--pair:before {
+    display: none;
   }
 }
 
@@ -3062,7 +3069,7 @@ ul {
   line-height: 1.35;
   text-align: center;
   color: rgb(40, 32, 23);
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   /* mobile (portrait wide): (max-width: 640px) */
 }
 @media (max-width: 640px) {

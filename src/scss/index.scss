@@ -486,6 +486,13 @@
   @include maxMobileLandscape {
     max-width: 27em;
   }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    &:before {
+      display: none;
+    }
+  }
 }
 
 //////// section benefits /////////
@@ -733,7 +740,7 @@
   text-align: center;
   color: $color-02;
 
-  @include transition(opacity, 0.4s);
+  @include transition(opacity, 0.2s);
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
