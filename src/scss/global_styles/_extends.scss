@@ -38,7 +38,7 @@
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
-    padding-right: var(--range_32-23_max-640px);
-    padding-left: var(--range_32-23_max-640px);
+    padding-right: var(--range_32-20_max-640px);
+    padding-left: var(--range_32-20_max-640px);
   }
 }
