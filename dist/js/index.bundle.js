@@ -9759,9 +9759,9 @@ function getScrollTimeLinePairLeftRight(elem, position) {
       scrollTrigger: {
         trigger: elem,
         start: "top 90%",
-        end: "bottom 10%",
-        toggleActions: "play reverse play reverse"
-        //markers: true,
+        //end: "bottom 10%",
+        toggleActions: "play reverse restart reverse",
+        markers: true
       }
     });
     tl.to(elem, {
