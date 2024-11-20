@@ -1,8 +1,10 @@
 'use strict';
 
 import { animatePage } from "./partials/animations.js";
-document.addEventListener("DOMContentLoaded", async () => {
-  animatePage();
+document.addEventListener("DOMContentLoaded", () => {
+  const totalTl = animatePage();
+
+  log(totalTl, "totalTl: ");
 });
 
 /////// DEV

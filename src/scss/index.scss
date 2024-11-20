@@ -211,7 +211,6 @@
 }
 
 .section__img-wrapper {
-
 }
 
 .section__bidding-block {
@@ -230,7 +229,7 @@
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
-    font-size: var(--range_32-20_max-640px);
+    font-size: var(--range_32-23_max-640px);
   }
 
   h2 {
@@ -270,6 +269,15 @@
   @include maxMobileLandscape {
     font-size: 15px;
   }
+}
+
+//// GSAP:
+[data-type=pair-left] {
+  opacity: 0;
+}
+
+[data-type=pair-right] {
+  opacity: 0;
 }
 
 /////////// section "hero" //////////
@@ -344,7 +352,7 @@
 
 .section__heading-block--hero {
   font-size: 36px;
-  max-width: 18.2em;
+  max-width: 18.6em;
   margin-bottom: 1em;
   text-shadow: 0.05em 0.1em 0.1em rgba(0, 0, 0, 0.8);
 
@@ -355,7 +363,7 @@
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
-    font-size: 27px;
+    font-size: 26px;
     text-align: center;
   }
 }
@@ -526,7 +534,12 @@
 .section__img-wrapper--benefits {
   position: relative;
   width: 100%;
-  margin-top: 2.44em;
+  margin-top: 2em;
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    margin-top: 1em;
+  }
 
   &:before {
     display: block;

@@ -15,175 +15,173 @@ const i = {
     textBlockHero: ".section__text-block--hero",
     biddingBlockHero: ".section__bidding-block--hero",
     iconWrapperHero: ".section__img-wrapper--hero",
-    imageWrapperAbout: ".section__img-wrapper--pair[data-type=about]",
-    textBlockAbout: ".section__text-block--pair[data-type=about]"
+    pairLeft: "[data-type=pair-left]",
+    pairRight: "[data-type=pair-right]",
+    sectionBenefits: ".section[data-type=benefits]"
 }
 
 /// ANIMATION PARAMS
-export const pageAnimations = {
-    index: [
-        {
-            //params: {},   //params optional for timeline
-            /*      condition: {
-                    trigger: ".trigger-element",  //trigger element if necessary
-                    event: "mouseenter",  //trigger event if necessary
-                    action: "play", //action for the timeline
-                  },*/
-            children: [
-                {
-                    selector: i.headingAccentHero,
-                    method: "to",
-                    params: {
-                        opacity: 1,
-                        duration: 2,
-                    },
-                },
-                {
-                    selector: i.headingAccentHero,
-                    method: "from",
-                    params: {
-                        x: 50,
-                        duration: 0.8,
-                        ease: "circ.out"
-                    },
-                    position: "<"
-                },
-                {
-                    selector: i.headingHeroRest,
-                    method: "to",
-                    params: {
-                        opacity: 1,
-                        duration: 2,
-                    },
-                    position: "<"
-                },
-                {
-                    selector: i.headingHeroRest,
-                    method: "from",
-                    params: {
-                        x: -50,
-                        duration: 0.8,
-                        ease: "circ.out"
-                    },
-                    position: "<"
-                },
-                {
-                    selector: i.textBlockHero,
-                    method: "to",
-                    params: {
-                        opacity: 1,
-                        duration: 2,
-                    },
-                    position: "-=1.5"
-                },
-                {
-                    selector: i.textBlockHero,
-                    method: "from",
-                    params: {
-                        y: 80,
-                        duration: 0.5,
-                        ease: "back.out"
-                    },
-                    position: "<"
-                },
-                {
-                    selector: i.biddingBlockHero,
-                    method: "to",
-                    params: {
-                        opacity: 1,
-                        duration: 2,
-                    },
-                    position: "<+0.2"
-                },
-                {
-                    selector: i.biddingBlockHero,
-                    method: "from",
-                    params: {
-                        y: 80,
-                        duration: 0.5,
-                        ease: "back.out"
-                    },
-                    position: "<"
-                },
-                {
-                    selector: i.iconWrapperHero,
-                    method: "to",
-                    params: {
-                        scale: 1,
-                        duration: 1.5,
-                        ease: "elastic.out"
-                    },
-                    position: "-=1"
-                },
-            ]
-        },
-    ]
+const pageAnimations = {
+    index: () => {
+        const tlData = {};
+
+        ///////////// SECTION ABOUT ANIMATION /////////////////
+        //const tlAbout = gsap.timeline();
+
+
+        return tlData;
+    },
+    common: () => {
+        const tlData = {};
+
+        ///////////// SECTION HERO ANIMATION /////////////////
+        const tlHero = gsap.timeline();
+
+        tlHero.to(i.headingAccentHero, {
+            opacity: 1,
+            duration: 2,
+            delay: 0.3,
+        });
+        tlHero.from(i.headingAccentHero, {
+            x: 80,
+            duration: 0.8,
+            ease: "circ.out"
+        }, "<");
+        tlHero.to(i.headingHeroRest, {
+            opacity: 1,
+            duration: 2,
+        }, "<");
+        tlHero.from(i.headingHeroRest, {
+            x: -80,
+            duration: 0.8,
+            ease: "circ.out"
+        }, "<");
+        tlHero.to(i.textBlockHero, {
+            opacity: 1,
+            duration: 2,
+        }, "-=1.5");
+        tlHero.from(i.textBlockHero, {
+            y: 80,
+            duration: 0.8,
+            ease: "circ.out"
+        }, "<");
+        tlHero.to(i.biddingBlockHero, {
+            opacity: 1,
+            duration: 2,
+        }, "<+0.3");
+        tlHero.from(i.biddingBlockHero, {
+            y: 40,
+            duration: 0.8,
+            ease: "circ.out"
+        }, "<");
+        tlHero.to(i.iconWrapperHero, {
+            scale: 1,
+            duration: 1.5,
+            ease: "elastic.out"
+        }, "<+0.5");
+
+        if (hasRealAnimations(tlHero)) {
+            Object.assign(tlData, { tlHero });
+        }
+
+        ///////////// PAIR-LEFT ANIMATION /////////////////
+
+        const pairLeftElems = gsap.utils.toArray(i.pairLeft);
+        pairLeftElems.forEach((elem, index) => {
+            const tlKey = `pairLeft_${index}`;
+            const tl = getScrollTimeLinePairLeftRight(elem, "left");
+
+            if (tl && hasRealAnimations(tl)) {
+                Object.assign(tlData, { [tlKey]: tl });
+            }
+        });
+
+        ///////////// PAIR-RIGHT ANIMATION /////////////////
+        const pairRightElems = gsap.utils.toArray(i.pairRight);
+        pairRightElems.forEach((elem, index) => {
+            const tlKey = `pairRight_${index}`;
+            const tl = getScrollTimeLinePairLeftRight(elem, "right");
+
+            if (tl && hasRealAnimations(tl)) {
+                Object.assign(tlData, { [tlKey]: tl });
+            }
+        });
+
+
+        return tlData;
+    }
 }
 
 
 ////////////////  ANIMATION FUNCTION ////////////////
 
-//if the site is dynamic or uses SPA, then to add the flag
+//for the dynamic and SPA site without reloading, using the flag to avoid multiple listeners
 let listenerAdded = false;
-export function animatePage () {
+
+export function animatePage() {
     if (document.readyState === "loading" && !listenerAdded) {
         document.addEventListener("DOMContentLoaded", onPageLoaded);
         listenerAdded = true;  // Set a flag so that the listener is added only once
     }
     else {
-        onPageLoaded();
+        return onPageLoaded();
     }
+
     function onPageLoaded() {
         const pageName = document.body.dataset.type;
+        const totalTl = pageAnimations.common();
+
         if (pageName in pageAnimations) {
-            const animations = pageAnimations[pageName];
-
-            animations.forEach((tLine, i) => {
-                const id = `${pageName}_${i}`;
-                const tlParams = tLine.params || {};
-
-
-                //setting params to the timeline
-                const tl = gsap.timeline({
-                    id,
-                    ...tlParams,
-                });
-
-
-                const { trigger, event, action } = tLine?.condition || {};
-                //if timeline runs on the event:
-                if (trigger && event && action) {
-                    const triggerElement = document.querySelector(trigger);
-                    if (triggerElement) {
-                        if (typeof tl[action] === "function") {
-                            triggerElement.addEventListener(event, () => {
-                                tl[action]();  // running timeline on the given event
-                            });
-                        }
-                        else {
-                            console.error(`at animations.js: the given action: ${action} is not the method of the timeline: ${id}...`);
-                        }
-                    }
-                    else {
-                        console.error(`at animations.js: no trigger: ${trigger} in DOM, or event: ${event}, or action: ${action}...`);
-                    }
-                }
-
-                /// adding tweens to the timeline
-                tLine.children.forEach(tween => {
-                    const { selector, method, params, position } = tween;
-                    if (position === undefined) {
-                        tl[method](selector, params);
-                    }
-                    else {
-                        tl[method](selector, params, position);
-                    }
-                });
-            });
+            const tlPage = pageAnimations[pageName]();
+            return Object.assign(totalTl, tlPage);
         }
         else {
             console.warn(`no such page name ${pageName} found in "pageAnimations"...`);
+            return totalTl;
         }
+    }
+}
+
+function hasRealAnimations(timeline) {
+    // Getting all child tweens of the timeline
+    const children = timeline.getChildren();
+
+    // Checking if there is at least one tween with a duration greater than zero
+    return children.some(child => child.duration() > 0);
+}
+
+/**
+ * It creates the Timeline scroll animations for the elements at "--pair" sections
+ * @param {HTMLElement} elem  - the HTMLElement
+ * @param {("left", "right")} position - for left and right elements in sections "--pair"
+ * @return {gsap.core.Timeline | false} - returns the object with the special key of the timeline or false
+ */
+function getScrollTimeLinePairLeftRight(elem, position) {
+    if (elem instanceof HTMLElement) {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: elem,
+                start: "top 90%",
+                toggleActions: "play reset play reset",
+            }
+        });
+
+        tl.to(elem, {
+            opacity: 1,
+            duration: 1,
+        });
+        tl.from(elem, {
+            x: position === "left" ? -80 : 80,
+            y: 80,
+            duration: 1,
+            ease: "circ.out"
+        }, "<");
+
+        return tl;
+    }
+    else {
+        console.warn(`at pageAnimations: the given selector ${i.pairLeft} is not HTMLElement at index: ${index}...`);
+        return false;
     }
 }
 
