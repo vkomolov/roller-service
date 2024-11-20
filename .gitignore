@@ -13,7 +13,7 @@ dist/css/*.map
 /coverage
 
 # production
-/dist
+#/dist
 /build
 
 # misc
