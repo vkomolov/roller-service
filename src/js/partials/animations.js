@@ -163,8 +163,10 @@ function getScrollTimeLinePairLeftRight(elem, position) {
                 trigger: elem,
                 start: "top 90%",
                 //end: "bottom 10%",
-                toggleActions: "play reverse restart reverse",
-                markers: true,
+                toggleActions: "play reset restart reset",
+                markers: false,
+                preventOverlaps: true,
+                fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
             }
         });
 
