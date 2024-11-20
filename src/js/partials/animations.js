@@ -15,9 +15,9 @@ const i = {
     textBlockHero: ".section__text-block--hero",
     biddingBlockHero: ".section__bidding-block--hero",
     iconWrapperHero: ".section__img-wrapper--hero",
-    pairLeft: "[data-type=pair-left]",
-    pairRight: "[data-type=pair-right]",
-    sectionBenefits: ".section[data-type=benefits]"
+    fadeInLeft: "[data-type=fade-in-left]",
+    fadeInRight: "[data-type=fade-in-right]",
+    scaleIn: "[data-type=scale-in]",
 }
 
 /// ANIMATION PARAMS
@@ -84,29 +84,43 @@ const pageAnimations = {
             Object.assign(tlData, { tlHero });
         }
 
-        ///////////// PAIR-LEFT ANIMATION /////////////////
+        ///////////// FADE-IN-LEFT ANIMATIONS /////////////////
 
-        const pairLeftElems = gsap.utils.toArray(i.pairLeft);
-        pairLeftElems.forEach((elem, index) => {
-            const tlKey = `pairLeft_${index}`;
-            const tl = getScrollTimeLinePairLeftRight(elem, "left");
-
-            if (tl && hasRealAnimations(tl)) {
-                Object.assign(tlData, { [tlKey]: tl });
-            }
-        });
-
-        ///////////// PAIR-RIGHT ANIMATION /////////////////
-        const pairRightElems = gsap.utils.toArray(i.pairRight);
-        pairRightElems.forEach((elem, index) => {
-            const tlKey = `pairRight_${index}`;
-            const tl = getScrollTimeLinePairLeftRight(elem, "right");
+        const fadeInLeftElems = gsap.utils.toArray(i.fadeInLeft);
+        fadeInLeftElems.forEach((elem, index) => {
+            const tlKey = `fadeInLeft_${index}`;
+            const tl = getScrollTimeLineFadeLeftRight(elem, "left");
 
             if (tl && hasRealAnimations(tl)) {
                 Object.assign(tlData, { [tlKey]: tl });
             }
         });
 
+        ///////////// FADE-IN-RIGHT ANIMATIONS /////////////////
+
+        const fadeInRightElems = gsap.utils.toArray(i.fadeInRight);
+        fadeInRightElems.forEach((elem, index) => {
+            const tlKey = `fadeInRight_${index}`;
+            const tl = getScrollTimeLineFadeLeftRight(elem, "right");
+
+            if (tl && hasRealAnimations(tl)) {
+                Object.assign(tlData, { [tlKey]: tl });
+            }
+        });
+
+        ///////////// SCALE-IN ANIMATIONS ///////////
+        const scaleInElems = gsap.utils.toArray(i.scaleIn);
+        scaleInElems.forEach((elem, index) => {
+            const tlKey = `scaleIn_${index}`;
+            const tl = getScrollTimeLineScaleIn(elem);
+
+            if (tl && hasRealAnimations(tl)) {
+                Object.assign(tlData, { [tlKey]: tl });
+            }
+        });
+
+
+        ////////////
 
         return tlData;
     }
@@ -151,21 +165,61 @@ function hasRealAnimations(timeline) {
 }
 
 /**
- * It creates the Timeline scroll animations for the elements at "--pair" sections
+ * It creates the Timeline scroll animations with fading from left or right
  * @param {HTMLElement} elem  - the HTMLElement
  * @param {("left", "right")} position - for left and right elements in sections "--pair"
  * @return {gsap.core.Timeline | false} - returns the object with the special key of the timeline or false
  */
-function getScrollTimeLinePairLeftRight(elem, position) {
+function getScrollTimeLineFadeLeftRight(elem, position) {
     if (elem instanceof HTMLElement) {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: elem,
-                start: "top 90%",
-                //end: "bottom 10%",
-                toggleActions: "play reset restart reset",
-                markers: false,
-                preventOverlaps: true,
+                start: "top 100%",
+                //end: "bottom 85%",
+                toggleActions: "play reverse restart reverse",
+                //markers: true,
+                /**
+                 * preventOverlaps vs fastScrollEnd - should be chosen on of them
+                 */
+                //preventOverlaps: true, //prevent overlapping animations at several trigger animations
+                fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
+            }
+        });
+
+        tl.to(elem, {
+            opacity: 1,
+            duration: 0.7,
+            delay: 0.2,
+        });
+        tl.from(elem, {
+            x: position === "left" ? -80 : 80,
+            y: 80,
+            duration: 1,
+            ease: "circ.out",
+        }, "<");
+
+        return tl;
+    }
+    else {
+        console.warn(`at getScrollTimeLinePairLeftRight: the given selector ${elem} is not HTMLElement...`);
+        return false;
+    }
+}
+
+function getScrollTimeLineScaleIn(elem) {
+    if (elem instanceof HTMLElement) {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: elem,
+                start: "top 100%",
+                //end: "bottom 85%",
+                toggleActions: "play reverse restart reverse",
+                //markers: true,
+                /**
+                 * preventOverlaps vs fastScrollEnd - should be chosen on of them
+                 */
+                //preventOverlaps: true, //prevent overlapping animations at several trigger animations
                 fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
             }
         });
@@ -173,21 +227,22 @@ function getScrollTimeLinePairLeftRight(elem, position) {
         tl.to(elem, {
             opacity: 1,
             duration: 1,
+            delay: 0.2,
         });
         tl.from(elem, {
-            x: position === "left" ? -80 : 80,
-            y: 80,
-            duration: 1,
-            ease: "circ.out"
+            scale: 0.7,
+            duration: 1.2,
+            ease: "back.out(1)",
         }, "<");
 
         return tl;
     }
     else {
-        console.warn(`at pageAnimations: the given selector ${i.pairLeft} is not HTMLElement at index: ${index}...`);
+        console.warn(`at getScrollTimeLineScaleIn: the given selector ${elem} is not HTMLElement...`);
         return false;
     }
 }
+
 
 /////// DEV
 function log(it, text="value: ") {

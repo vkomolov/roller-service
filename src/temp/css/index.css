@@ -2652,11 +2652,15 @@ ul {
   }
 }
 
-[data-type=pair-left] {
+[data-type=fade-in-left] {
   opacity: 0;
 }
 
-[data-type=pair-right] {
+[data-type=fade-in-right] {
+  opacity: 0;
+}
+
+[data-type=scale-in] {
   opacity: 0;
 }
 

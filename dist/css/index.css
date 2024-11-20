@@ -534,7 +534,7 @@ ul{
   font-size:16px;
 }
 
-[data-type=pair-left],[data-type=pair-right]{
+[data-type=fade-in-left],[data-type=fade-in-right],[data-type=scale-in]{
   opacity:0;
 }
 
