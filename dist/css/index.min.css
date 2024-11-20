@@ -359,7 +359,6 @@ ul{
   font-size:1.125rem;
   margin:0 auto;
   max-width:1440px;
-  min-width:320px;
 }
 
 .section{
@@ -396,6 +395,10 @@ ul{
 
 .bg-darker{
   background-color:#f1f1f1;
+}
+
+.overflow-hidden{
+  overflow:hidden;
 }
 
 .section__content-layer{

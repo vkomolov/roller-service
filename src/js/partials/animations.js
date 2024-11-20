@@ -162,7 +162,9 @@ function getScrollTimeLinePairLeftRight(elem, position) {
             scrollTrigger: {
                 trigger: elem,
                 start: "top 90%",
-                toggleActions: "play reset play reset",
+                end: "bottom 10%",
+                toggleActions: "play reverse play reverse",
+                //markers: true,
             }
         });
 

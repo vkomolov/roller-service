@@ -14,7 +14,7 @@
 .total-wrapper {
   font-size: 1.125rem;  //18px
   max-width: $maxWidth; //1440px;
-  min-width: $minWidth; //320px;
+  //min-width: $minWidth; //320px;
   margin: 0 auto;
   background-color: $white;
   color: $color-04;
@@ -81,6 +81,10 @@
 
 .bg-darker {
   background-color: $color-13;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .section__content-layer {

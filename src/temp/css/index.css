@@ -2402,7 +2402,6 @@ ul {
 .total-wrapper {
   font-size: 1.125rem;
   max-width: 1440px;
-  min-width: 320px;
   margin: 0 auto;
   background-color: rgb(255, 255, 255);
   color: rgb(101, 92, 82);
@@ -2468,6 +2467,10 @@ ul {
 
 .bg-darker {
   background-color: rgb(241, 241, 241);
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .section__content-layer {
