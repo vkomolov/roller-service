@@ -363,6 +363,7 @@ ul{
 
 .section{
   font-size:1em;
+  overflow:hidden;
   width:100%;
 }
 
@@ -395,10 +396,6 @@ ul{
 
 .bg-darker{
   background-color:#f1f1f1;
-}
-
-.overflow-hidden{
-  overflow:hidden;
 }
 
 .section__content-layer{
@@ -534,8 +531,13 @@ ul{
   font-size:16px;
 }
 
-[data-type=fade-in-left],[data-type=fade-in-right],[data-type=scale-in]{
+[data-type=fade-in-left],[data-type=fade-in-right],[data-type=fade-in-up]{
   opacity:0;
+}
+
+[data-type=scale-in]{
+  opacity:0;
+  transform-origin:50% 100%;
 }
 
 .section--hero{

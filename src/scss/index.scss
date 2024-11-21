@@ -31,6 +31,8 @@
 }
 
 .section {
+  //FOR GSAP:
+  overflow: hidden; //for transformed, not absolute elements
   font-size: 1em; //font-size inherits from total-wrapper
   width: 100%;
 
@@ -81,10 +83,6 @@
 
 .bg-darker {
   background-color: $color-13;
-}
-
-.overflow-hidden {
-  overflow: hidden;
 }
 
 .section__content-layer {
@@ -284,8 +282,13 @@
   opacity: 0;
 }
 
+[data-type=fade-in-up] {
+  opacity: 0;
+}
+
 [data-type=scale-in] {
   opacity: 0;
+  transform-origin: 50% 100%;
 }
 
 /////////// section "hero" //////////
