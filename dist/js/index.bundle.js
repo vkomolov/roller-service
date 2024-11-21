@@ -9819,7 +9819,7 @@ function getScrollTimelineTwoTweens(elem, gsapToParams = {}, gsapFromParams = {}
     const tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
       scrollTrigger: {
         trigger: elem,
-        start: "top 100%",
+        start: "top 100%+100px",
         //end: "bottom 85%",
         toggleActions: "restart none none none",
         //markers: true,
