@@ -103,7 +103,7 @@ img,picture,svg,video{
 }
 
 .header__contacts-block{
-  gap:1em;
+  gap:.5em 1em;
   justify-content:center;
 }
 
@@ -111,7 +111,7 @@ img,picture,svg,video{
   align-items:center;
   display:flex;
   flex-flow:row nowrap;
-  gap:.625em;
+  gap:.3em;
   justify-content:center;
   text-decoration:none;
   transform-origin:100% 50%;
@@ -157,11 +157,13 @@ img,picture,svg,video{
   width:100%;
 }
 
-#burger_nav{
+.burger_nav{
   background-color:#413930;
-  display:none;
   height:2em;
   width:2em;
+}
+.burger_nav.hidden{
+  display:none;
 }
 
 .header__nav-list{
@@ -361,6 +363,26 @@ ul{
   max-width:1440px;
 }
 
+#scrolledNav{
+  -webkit-backdrop-filter:blur(.2em);
+          backdrop-filter:blur(.2em);
+  background-color:hsla(0,0%,100%,.2);
+  max-width:1440px;
+  position:fixed;
+  top:-50px;
+  width:100%;
+  z-index:100;
+}
+
+.scrolledNav__contacts-block{
+  align-items:center;
+  display:flex;
+  flex-flow:row wrap;
+  gap:.5em 1em;
+  justify-content:flex-end;
+  padding:.4em 2em;
+}
+
 .section{
   font-size:1em;
   overflow:hidden;
@@ -402,7 +424,6 @@ ul{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
-  transition:.15s ease-in-out;
   width:100%;
 }
 
@@ -880,13 +901,13 @@ ul{
 
 @media (max-width:768px){
   .phone-link span{
-    font-size:1.13em;
+    font-size:1.2em;
   }
   .header__nav{
     display:none;
     position:absolute;
   }
-  #burger_nav{
+  .burger_nav.hidden{
     display:inline-block;
   }
   .content-block-item__heading{
@@ -990,8 +1011,9 @@ ul{
   }}
 
 @media (max-width:480px){
-  .phone-link{
-    font-size:.9em;
+  .scrolledNav__contacts-block{
+    justify-content:center;
+    padding:.4em .7em;
   }
   .section__heading-block .accent{
     margin-bottom:.25em;
@@ -1033,4 +1055,19 @@ ul{
   .section--roller-automation{
     background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x);
     background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x);
+  }}
+
+@media (max-width:375px){
+  .scrolledNav__contacts-block .phone-link span{
+    font-size:1.12em;
+  }
+  .scrolledNav__contacts-block .phone-link__phone-icon{
+    width:1.1em;
+  }
+  .scrolledNav__contacts-block .social-icons-wrapper__social-icon{
+    width:1.5em;
+  }
+  .scrolledNav__contacts-block .burger_nav{
+    height:1.5em;
+    width:1.5em;
   }}/*# sourceMappingURL=index.min.css.map */

@@ -63,7 +63,7 @@
                             <use xlink:href="assets/img/svgIcons/sprite.multi.svg#telegram"></use>
                         </svg>
                     </a>
-                    <button id="burger_nav">X</button>
+                    <button class="burger_nav hidden">X</button>
                 </div>
             </div>
         </div>
@@ -81,6 +81,45 @@
     </header>
 </div>
 
+      <div id="scrolledNav">
+        <div class="scrolledNav__contacts-block">
+          <a href="tel:380991019368"
+             aria-label="Mobile call to Master"
+             class="phone-link"
+          >
+            <div class="phone-link__phone-icon">
+              <svg viewBox="0 0 24 25">
+                <title>phone icon</title>
+                <use xlink:href="assets/img/svgIcons/sprite.mono.svg#phone"></use>
+              </svg>
+            </div>
+            <span>+38 (099) 101 93 68</span>
+          </a>
+          <div class="social-icons-wrapper">
+            <a href="viber://chat?number=+380991019368"
+               aria-label="Viber Chat with Master"
+               class="social-icons-wrapper__social-icon"
+            >
+              <svg viewBox="0 0 48 48">
+                <title>viber icon</title>
+                <use xlink:href="assets/img/svgIcons/sprite.multi.svg#viber"></use>
+              </svg>
+            </a>
+            <a href="https://t.me/username"
+               target="_blank"
+               aria-label="Telegram Chat with Master"
+               rel="noopener noreferrer nofollow"
+               class="social-icons-wrapper__social-icon"
+            >
+              <svg viewBox="0 0 240 240">
+                <title>telegram icon</title>
+                <use xlink:href="assets/img/svgIcons/sprite.multi.svg#telegram"></use>
+              </svg>
+            </a>
+          </div>
+          <button class="burger_nav">X</button>
+        </div>
+      </div>
       <section class="section section--hero">
         <div class="section__content-layer section__content-layer--hero">
           <div class="section__heading-block section__heading-block--hero">
@@ -298,10 +337,10 @@
           </div>
         </div>
       </section>
-      <section class="section">
+      <section class="section" id="gatesSection">
         <div class="section__content-layer">
           <div class="section__heading-block section__heading-block--separation" data-type="fade-in-left">
-            <h2 id="gatesSection">Виготовлення та ремонт автоматичних воріт</h2>
+            <h2>Виготовлення та ремонт автоматичних воріт</h2>
             <hr>
           </div>
           <div class="section__content-block section__content-block--row-between section__content-block--pair img-right">
@@ -364,10 +403,10 @@
           </div>
         </div>
       </section>
-      <section class="section bg-darker">
+      <section class="section bg-darker" id="securityShuttersSection">
         <div class="section__content-layer">
           <div class="section__heading-block section__heading-block--separation" data-type="fade-in-left">
-            <h2 id="securityShuttersSection">Встановлення та ремонт захісних ролет</h2>
+            <h2>Встановлення та ремонт захісних ролет</h2>
             <hr>
           </div>
           <div class="section__content-block section__content-block--row-between section__content-block--pair img-right">
@@ -434,12 +473,12 @@
           </div>
         </div>
       </section>
-      <section class="section section--roller-automation">
+      <section class="section section--roller-automation" id="rollerShuttersAutomation">
         <div class="section__content-layer">
           <div class="section__content-block section__content-block--row-right">
             <div class="section__text-block section__text-block--single" data-type="fade-in-right">
               <div class="section__heading-block section__heading-block--separation" >
-                <h2 id="rollerShuttersAutomation">Автоматизація воріт та ролет</h2>
+                <h2>Автоматизація воріт та ролет</h2>
                 <hr>
               </div>
               <p class="section__text-separ">
@@ -465,10 +504,10 @@
           </div>
         </div>
       </section>
-      <section class="section">
+      <section class="section" id="barrierSection">
         <div class="section__content-layer">
           <div class="section__heading-block section__heading-block--separation" data-type="fade-in-left">
-            <h2 id="barrierSection">Встановлення та ремонт шлагбаумів</h2>
+            <h2>Встановлення та ремонт шлагбаумів</h2>
             <hr>
           </div>
           <div class="section__content-block section__content-block--row-between section__content-block--pair img-right">
@@ -502,10 +541,10 @@
           </div>
         </div>
       </section>
-      <section class="section bg-darker">
+      <section class="section bg-darker" id="awningsSection">
         <div class="section__content-layer">
           <div class="section__heading-block section__heading-block--separation" data-type="fade-in-left">
-            <h2 id="awningsSection">Виготовлення, монтаж та ремонт маркіз</h2>
+            <h2>Виготовлення, монтаж та ремонт маркіз</h2>
             <hr>
           </div>
           <div class="section__content-block section__content-block--row-between section__content-block--pair img-right">
@@ -580,10 +619,10 @@
           </div>
         </div>
       </section>
-      <section class="section">
+      <section class="section" id="securitySurveillanceSection">
         <div class="section__content-layer">
           <div class="section__heading-block section__heading-block--separation" data-type="fade-in-left">
-            <h2 id="securitySurveillanceSection">Встановлення систем охорони та відеонагляду</h2>
+            <h2>Встановлення систем охорони та відеонагляду</h2>
             <hr>
           </div>
           <div class="section__content-block section__content-block--row-between section__content-block--pair img-right">
@@ -664,10 +703,10 @@
           </div>
         </div>
       </section>
-      <section class="section bg-darker">
+      <section class="section bg-darker" id="windowSection">
         <div class="section__content-layer">
           <div class="section__heading-block section__heading-block--separation" data-type="fade-in-left">
-            <h2 id="windowSection">Регулювання та ремонт вікон і дверей</h2>
+            <h2>Регулювання та ремонт вікон і дверей</h2>
             <hr>
           </div>
           <div class="section__content-block section__content-block--row-between section__content-block--pair img-right">
@@ -786,7 +825,7 @@
                             <use xlink:href="assets/img/svgIcons/sprite.multi.svg#telegram"></use>
                         </svg>
                     </a>
-                    <button id="burger_nav">X</button>
+                    <button class="burger_nav hidden">X</button>
                 </div>
             </div>
         </div>

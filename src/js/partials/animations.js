@@ -10,6 +10,8 @@ gsap.registerPlugin(ScrollTrigger);
 /// ANIMATION SELECTORS
 /// index.html
 const i = {
+    scrolledNav: "#scrolledNav",
+    gatesSection: "#gatesSection",
     headingAccentHero: ".section__heading-block--hero .accent",
     headingHeroRest: ".section__heading-block--hero .rest-of-heading",
     textBlockHero: ".section__text-block--hero",
@@ -26,14 +28,30 @@ const pageAnimations = {
     index: () => {
         const tlData = {};
 
-        ///////////// SECTION ABOUT ANIMATION /////////////////
-        //const tlAbout = gsap.timeline();
-
-
         return tlData;
     },
     common: () => {
         const tlData = {};
+
+        ///////////// SCROLLED NAVIGATION ANIMATION //////////
+        const scrolledNav = gsap.to(i.scrolledNav, {
+            top: 0,
+            duration: 1,
+            ease: "back.out(2.5)",
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: i.gatesSection,
+                start: "top 10%",
+                //end: "bottom 85%",
+                toggleActions: "play none none reverse",
+                //markers: true,
+                /**
+                 * preventOverlaps vs fastScrollEnd - should be chosen on of them
+                 */
+                preventOverlaps: true, //prevent overlapping animations at several trigger animations
+                //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
+            }
+        });
 
         ///////////// SECTION HERO ANIMATION /////////////////
         const tlHero = gsap.timeline();
@@ -197,7 +215,7 @@ function onPageLoaded(animationData) {
 
 /**
  * Checking the gsap timeline for not empty animations
- * @param {gsap.core.Timeline} timeline - the gsap timeline to be checked
+ * @param {gsap.core.Timeline | gsap.core.Tween} timeline - the gsap timeline to be checked
  * @return {boolean} - returns whether the timeline has at least one not empty tween
  */
 function hasRealAnimations(timeline) {
@@ -227,16 +245,15 @@ function getScrollTimelineTwoTweens(elem, gsapToParams = {}, gsapFromParams = {}
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: elem,
-                start: "top 100%+100px",
+                start: "top 80%",
                 //end: "bottom 85%",
-                toggleActions: "restart none none none",
+                toggleActions: "play none none reverse",
                 //markers: true,
                 /**
                  * preventOverlaps vs fastScrollEnd - should be chosen on of them
                  */
-                //preventOverlaps: true, //prevent overlapping animations at several trigger animations
+                preventOverlaps: true, //prevent overlapping animations at several trigger animations
                 //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
-                lazy: true,                // Waiting for initialization before coming into scope
             }
         });
 

@@ -45,7 +45,7 @@
 
 .header__contacts-block {
   @include flex-box($flex-box-row-center-wrap...);
-  gap: 1em;
+  gap: 0.5em 1em;
 }
 
 .phone-link {
@@ -55,15 +55,10 @@
   @include flex-box($flex-box-row-center-nowrap...);
   @include transition();
 
-  gap: 0.625em;
+  gap: 0.3em;
 
   &:hover {
     transform: scale(1.03);
-  }
-
-  /* mobile (portrait narrow): (max-width: 480px)*/
-  @include maxMobilePortraitNarrow {
-    font-size: 0.9em;
   }
 
   &__phone-icon {
@@ -81,7 +76,7 @@
 
     /* mobile (landscape): (max-width: 768px)*/
     @include maxMobileLandscape {
-      font-size: 1.13em;
+      font-size: 1.2em;
     }
   }
 }
@@ -113,15 +108,18 @@
   }
 }
 
-#burger_nav {
+.burger_nav {
   width: 2em;
   height: 2em;
   background-color: #413930;
-  display: none;
 
-  /* mobile (landscape): (max-width: 768px)*/
-  @include maxMobileLandscape {
-    display: inline-block;
+  &.hidden {
+    display: none;
+
+    /* mobile (landscape): (max-width: 768px)*/
+    @include maxMobileLandscape {
+      display: inline-block;
+    }
   }
 }
 
