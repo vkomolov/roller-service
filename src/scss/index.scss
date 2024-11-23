@@ -11,7 +11,17 @@
 @import "./partials/footer";
 
 /////// STYLES ////////
+// it is used for avoiding the page shift on removing the scrollbar at overflow: hidden;
+.total-layer {
+  width: 100vw;
+  padding-right: 17px;
+  overflow: hidden;
+  box-sizing: content-box;
+}
+
 .total-wrapper {
+  box-sizing: border-box;
+
   position: relative;
   font-size: 1.125rem;  //18px
   max-width: $maxWidth; //1440px;

@@ -18,10 +18,6 @@
 }
 
 /////// STYLES ///////
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -31,8 +27,6 @@ body {
   background-color: $color-07;
 
   /**** user-select: none; *****/
-  @include transition();
-
 }
 
 /*************TOP BORDER BODY****************/

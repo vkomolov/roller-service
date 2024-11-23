@@ -2,7 +2,7 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-import { setAttributes } from "../helpers/funcsDOM.js";
+import { setAttributes, handleScroll } from "../helpers/funcsDOM.js";
 
 ///////////////// REGISTER GSAP PLUGINS /////////////
 gsap.registerPlugin(ScrollTrigger);
@@ -183,6 +183,7 @@ const pageAnimations = {
             paused: true,
         });
 
+
         document.addEventListener("click", (e) => {
 
             //if clicked out of the burger-menu range then to check if the burger is opened and reverse the animation...
@@ -201,6 +202,7 @@ const pageAnimations = {
                     navMenuAnime.reverse();
 
                     //returning scroll to the page...
+                    //handleScroll(true);
                     document.body.style.overflow = "auto";
                 }
             }
@@ -223,11 +225,13 @@ const pageAnimations = {
                     if (isExpanded) {
                         burgerHidden.classList.remove("opened");
                         burgerFixed.classList.remove("opened");
+                        //handleScroll(true);
                         document.body.style.overflow = "auto";
                     }
                     else {
                         burgerHidden.classList.add("opened");
                         burgerFixed.classList.add("opened");
+                        //handleScroll(false);
                         document.body.style.overflow = "hidden";
                     }
 

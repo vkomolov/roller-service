@@ -19,10 +19,6 @@
   --range_18-16_max-1280px:calc((min(max(100vw, 641px), 1280px) - 641px)*2/639 + 16px);
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   font-family:Open Sans,sans-serif;
   font-weight:400;
@@ -30,7 +26,6 @@ body{
   -moz-osx-font-smoothing:grayscale;
   background-color:#dcdcdc;
   line-height:1.4;
-  transition:.15s ease-in-out;
 }
 body:before{
   box-shadow:0 0 10px rgba(0,0,0,.8);
@@ -166,7 +161,7 @@ img,picture,svg,video{
   left:0;
   padding:0;
   position:fixed;
-  top:-100%;
+  top:-110%;
   width:100%;
   z-index:40;
 }
@@ -234,26 +229,39 @@ img,picture,svg,video{
   display:none;
 }
 .burger_nav.opened{
-  background-color:red;
+  background-color:#fff;
+  border-color:#d30303;
+}
+.burger_nav.opened span{
+  background-color:transparent;
+}
+.burger_nav.opened span:after,.burger_nav.opened span:before{
+  background-color:#d30303;
+}
+.burger_nav.opened span:before{
+  top:0;
+  transform:rotate(45deg);
+}
+.burger_nav.opened span:after{
+  top:0;
+  transform:rotate(-45deg);
 }
 .burger_nav span,.burger_nav span:after,.burger_nav span:before{
   background-color:#ff8502;
   display:inline-block;
+  height:.19em;
   position:absolute;
-  transition:background-color,top .2s ease-in-out;
+  transition:background-color,top,transform .2s ease-in-out;
+  width:1.1em;
 }
 .burger_nav span{
-  height:9%;
   left:50%;
   top:50%;
   transform:translate(-48%, -50%);
-  width:70%;
 }
 .burger_nav span:after,.burger_nav span:before{
   content:"";
-  height:100%;
   left:0;
-  width:100%;
 }
 .burger_nav span:before{
   top:-5px;
@@ -289,6 +297,7 @@ html{
   -webkit-text-size-adjust:100%;
   -ms-text-size-adjust:100%;
   line-height:1;
+  scroll-behavior:smooth;
 }
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,picture,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,svg,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{
   border:0;
@@ -450,8 +459,16 @@ ul{
   width:100%;
 }
 
+.total-layer{
+  box-sizing:content-box;
+  overflow:hidden;
+  padding-right:17px;
+  width:100vw;
+}
+
 .total-wrapper{
   background-color:#fff;
+  box-sizing:border-box;
   color:#655c52;
   font-size:1.125rem;
   margin:0 auto;
@@ -1028,6 +1045,9 @@ ul{
   .header{
     flex-direction:column;
   }
+  .header__nav.abs .header__nav-list{
+    padding-top:7em;
+  }
   .total-wrapper{
     font-size:.938rem;
   }
@@ -1152,7 +1172,7 @@ ul{
   }
   .header__nav.abs .header__nav-list{
     padding-right:1.3em;
-    padding-top:6em;
+    padding-top:10em;
   }
   .scrolledNav__contacts-block{
     align-items:center;

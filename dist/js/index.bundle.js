@@ -9601,6 +9601,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   customTargetStyleOnScroll: function() { return /* binding */ customTargetStyleOnScroll; },
 /* harmony export */   fountainBalls: function() { return /* binding */ fountainBalls; },
+/* harmony export */   handleScroll: function() { return /* binding */ handleScroll; },
 /* harmony export */   isStyleSupported: function() { return /* binding */ isStyleSupported; },
 /* harmony export */   migrateElement: function() { return /* binding */ migrateElement; },
 /* harmony export */   scrollLimitedListener: function() { return /* binding */ scrollLimitedListener; },
@@ -9926,6 +9927,20 @@ function setAttributes(elements = [], targetAttr = {}) {
     });
   });
 }
+function handleScroll(isScrolled = true) {
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  if (isScrolled) {
+    requestAnimationFrame(() => {
+      document.body.style.paddingRight = `0`;
+      document.body.style.overflow = 'auto';
+    });
+  } else {
+    requestAnimationFrame(() => {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+      document.body.style.overflow = 'hidden';
+    });
+  }
+}
 
 /***/ }),
 
@@ -10138,6 +10153,8 @@ const pageAnimations = {
           navMenuAnime.reverse();
 
           //returning scroll to the page...
+          //document.body.style.overflow = "auto";
+          //handleScroll(true);
           document.body.style.overflow = "auto";
         }
       }
@@ -10158,10 +10175,14 @@ const pageAnimations = {
           if (isExpanded) {
             burgerHidden.classList.remove("opened");
             burgerFixed.classList.remove("opened");
+            //document.body.style.overflow = "auto";
+            //handleScroll(true);
             document.body.style.overflow = "auto";
           } else {
             burgerHidden.classList.add("opened");
             burgerFixed.classList.add("opened");
+            //document.body.style.overflow = "hidden";
+            //handleScroll(false);
             document.body.style.overflow = "hidden";
           }
           if (isExpanded) {

@@ -330,3 +330,18 @@ export function setAttributes(elements = [], targetAttr = {}) {
     });
   });
 }
+
+export function handleScroll(isScrolled = true) {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (isScrolled) {
+        requestAnimationFrame(() => {
+            document.body.style.paddingRight = `0`;
+            document.body.style.overflow = 'auto';
+        });
+    } else {
+        requestAnimationFrame(() => {
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
+            document.body.style.overflow = 'hidden';
+        });
+    }
+}
