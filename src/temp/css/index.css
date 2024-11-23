@@ -77,6 +77,7 @@ textarea {
   margin: 0;
   padding: 0;
   box-shadow: none;
+  border: none;
   outline: none;
   resize: none;
   line-height: normal;
@@ -274,997 +275,7 @@ textarea {
   margin: 0;
   padding: 0;
   box-shadow: none;
-  outline: none;
-  resize: none;
-  line-height: normal;
-  vertical-align: baseline;
-  -webkit-appearance: button;
-  cursor: pointer;
-}
-
-/* Reset button styles */
-button:active,
-button:focus {
-  outline: none;
-}
-
-button::-moz-focus-inner {
-  padding: 0;
   border: none;
-}
-
-/* Search input styles */
-input[type=search] {
-  -webkit-appearance: textfield;
-  -moz-appearance: none;
-  box-sizing: content-box;
-}
-
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-/* Checkbox and radio button sizing */
-input[type=checkbox],
-input[type=radio] {
-  box-sizing: border-box;
-  padding: 0;
-  height: 13px;
-  width: 13px;
-}
-
-/* Remove default spacing between table cells */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-legend {
-  display: block;
-  border: 0;
-  padding: 0;
-  white-space: normal;
-}
-
-label {
-  cursor: pointer;
-}
-
-/* Remove most spacing between blockquotes and quotes */
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: "";
-}
-
-/* Remove list-style for ordered and unordered lists */
-ul {
-  list-style: none;
-}
-
-/* Selection styles */
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-/* Hidden elements */
-[hidden] {
-  display: none;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Open Sans";
-  font-weight: 600;
-  font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ubuntu";
-  font-weight: 700;
-  font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Jost";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Jost";
-  font-weight: 700;
-  font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
-}
-/* retina display (2x) */
-/* large desktop: (min-width: 1921px) */
-/* desktop max-width: 1920px */
-/* desktop: (max-width: 1920px) and (min-width: 1441px) */
-/* laptop max-width: 1440px*/
-/* laptop:(max-width: 1440px) and (min-width: 1281px) */
-/* tablet (landscape) max-width: 1280px */
-/* tablet (landscape) min-width: 1281px */
-/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
-/* tablet (portrait): (min-width: 1025px) */
-/* tablet (portrait): (max-width: 1024px) */
-/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
-/* mobile (landscape): (max-width: 768px)*/
-/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
-/* mobile (portrait wide): (max-width: 640px) */
-/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
-/* mobile (portrait narrow): (max-width: 480px)*/
-/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
-/* mobile (medium): (max-width: 375px) */
-/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
-/* mobile (small): (max-width: 320px) */
-@keyframes popup {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes scaleUpZero {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-:root {
-  --range_120-64_max-1280px: calc(56 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 64px);
-  --range_80-64_max-1280px: calc(16 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 64px);
-  --range_80-32_max-1280px: calc(48 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 32px);
-  --range_48-32_max-1280px: calc(16 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 32px);
-  --range_32-23_max-640px: calc(9 * (min(max(100vw, 320px), 640px) - 320px) / 320 + 23px);
-  --range_24-18_max-1280px: calc(6 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 18px);
-  --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.4;
-  background-color: rgb(220, 220, 220);
-  /**** user-select: none; *****/
-  transition: 0.15s ease-in-out;
-}
-
-/*************TOP BORDER BODY****************/
-body:before {
-  content: "";
-  position: fixed;
-  top: -10px;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  z-index: 100;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-/*****************END TOP BORDER BODY************/
-h1, h2, h3, h4, h5 {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-wrap: break-word;
-}
-
-h1 {
-  line-height: 1.25;
-}
-
-h2, h3, h4, h5 {
-  line-height: 1.2;
-}
-
-img, svg, picture, video {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-  vertical-align: top;
-}
-
-.section {
-  padding-top: 80px;
-  padding-bottom: 120px;
-  /* tablet (landscape) max-width: 1280px */
-  /* mobile (portrait wide): (max-width: 640px) */
-}
-@media (max-width: 1280px) {
-  .section {
-    padding-top: var(--range_80-64_max-1280px);
-    padding-bottom: var(--range_120-64_max-1280px);
-  }
-}
-@media (max-width: 640px) {
-  .section {
-    padding-top: 64px;
-    padding-bottom: 64px;
-  }
-}
-
-.section__content-layer, .header {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-right: 80px;
-  padding-left: 80px;
-  /* tablet (landscape) max-width: 1280px */
-  /* mobile (portrait wide): (max-width: 640px) */
-}
-@media (max-width: 1280px) {
-  .section__content-layer, .header {
-    padding-right: var(--range_80-32_max-1280px);
-    padding-left: var(--range_80-32_max-1280px);
-  }
-}
-@media (max-width: 640px) {
-  .section__content-layer, .header {
-    padding-right: var(--range_32-23_max-640px);
-    padding-left: var(--range_32-23_max-640px);
-  }
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Open Sans";
-  font-weight: 600;
-  font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ubuntu";
-  font-weight: 700;
-  font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Jost";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Jost";
-  font-weight: 700;
-  font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
-}
-@keyframes popup {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes scaleUpZero {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-/* retina display (2x) */
-/* large desktop: (min-width: 1921px) */
-/* desktop max-width: 1920px */
-/* desktop: (max-width: 1920px) and (min-width: 1441px) */
-/* laptop max-width: 1440px*/
-/* laptop:(max-width: 1440px) and (min-width: 1281px) */
-/* tablet (landscape) max-width: 1280px */
-/* tablet (landscape) min-width: 1281px */
-/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
-/* tablet (portrait): (min-width: 1025px) */
-/* tablet (portrait): (max-width: 1024px) */
-/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
-/* mobile (landscape): (max-width: 768px)*/
-/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
-/* mobile (portrait wide): (max-width: 640px) */
-/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
-/* mobile (portrait narrow): (max-width: 480px)*/
-/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
-/* mobile (medium): (max-width: 375px) */
-/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
-/* mobile (small): (max-width: 320px) */
-/**
- * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
- *    `em` units.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
-html {
-  font-size: 100%;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  line-height: 1;
-}
-
-/* Universal reset */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li, hr,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, img, audio, svg, picture, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-img, audio, svg, picture, canvas, video, object, iframe, embed {
-  display: block;
-}
-
-/* Improve image quality when scaled in IE 7 */
-img, object, video, canvas {
-  -ms-interpolation-mode: bicubic;
-  image-rendering: auto;
-}
-
-*:before, *:after {
-  box-sizing: inherit;
-}
-
-/* Links styling */
-a {
-  display: inline-block;
-}
-
-a:focus {
-  outline: thin dotted;
-}
-
-a:active,
-a:hover {
-  outline: 0;
-}
-
-button,
-input,
-select,
-textarea {
-  display: inline-block;
-  font-size: 100%;
-  text-transform: none;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  box-shadow: none;
-  outline: none;
-  resize: none;
-  line-height: normal;
-  vertical-align: baseline;
-  -webkit-appearance: button;
-  cursor: pointer;
-}
-
-/* Reset button styles */
-button:active,
-button:focus {
-  outline: none;
-}
-
-button::-moz-focus-inner {
-  padding: 0;
-  border: none;
-}
-
-/* Search input styles */
-input[type=search] {
-  -webkit-appearance: textfield;
-  -moz-appearance: none;
-  box-sizing: content-box;
-}
-
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-/* Checkbox and radio button sizing */
-input[type=checkbox],
-input[type=radio] {
-  box-sizing: border-box;
-  padding: 0;
-  height: 13px;
-  width: 13px;
-}
-
-/* Remove default spacing between table cells */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-legend {
-  display: block;
-  border: 0;
-  padding: 0;
-  white-space: normal;
-}
-
-label {
-  cursor: pointer;
-}
-
-/* Remove most spacing between blockquotes and quotes */
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: "";
-}
-
-/* Remove list-style for ordered and unordered lists */
-ul {
-  list-style: none;
-}
-
-/* Selection styles */
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-/* Hidden elements */
-[hidden] {
-  display: none;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Open Sans";
-  font-weight: 600;
-  font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Ubuntu";
-  font-weight: 700;
-  font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Jost";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Jost";
-  font-weight: 700;
-  font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
-}
-/* retina display (2x) */
-/* large desktop: (min-width: 1921px) */
-/* desktop max-width: 1920px */
-/* desktop: (max-width: 1920px) and (min-width: 1441px) */
-/* laptop max-width: 1440px*/
-/* laptop:(max-width: 1440px) and (min-width: 1281px) */
-/* tablet (landscape) max-width: 1280px */
-/* tablet (landscape) min-width: 1281px */
-/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
-/* tablet (portrait): (min-width: 1025px) */
-/* tablet (portrait): (max-width: 1024px) */
-/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
-/* mobile (landscape): (max-width: 768px)*/
-/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
-/* mobile (portrait wide): (max-width: 640px) */
-/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
-/* mobile (portrait narrow): (max-width: 480px)*/
-/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
-/* mobile (medium): (max-width: 375px) */
-/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
-/* mobile (small): (max-width: 320px) */
-@keyframes popup {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes scaleUpZero {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-:root {
-  --range_120-64_max-1280px: calc(56 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 64px);
-  --range_80-64_max-1280px: calc(16 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 64px);
-  --range_80-32_max-1280px: calc(48 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 32px);
-  --range_48-32_max-1280px: calc(16 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 32px);
-  --range_32-23_max-640px: calc(9 * (min(max(100vw, 320px), 640px) - 320px) / 320 + 23px);
-  --range_24-18_max-1280px: calc(6 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 18px);
-  --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.4;
-  background-color: rgb(220, 220, 220);
-  /**** user-select: none; *****/
-  transition: 0.15s ease-in-out;
-}
-
-/*************TOP BORDER BODY****************/
-body:before {
-  content: "";
-  position: fixed;
-  top: -10px;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  z-index: 100;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-/*****************END TOP BORDER BODY************/
-h1, h2, h3, h4, h5 {
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-wrap: break-word;
-}
-
-h1 {
-  line-height: 1.25;
-}
-
-h2, h3, h4, h5 {
-  line-height: 1.2;
-}
-
-img, svg, picture, video {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-  vertical-align: top;
-}
-
-/**
- * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
- *    `em` units.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
-html {
-  font-size: 100%;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  line-height: 1;
-}
-
-/* Universal reset */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li, hr,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, img, audio, svg, picture, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-img, audio, svg, picture, canvas, video, object, iframe, embed {
-  display: block;
-}
-
-/* Improve image quality when scaled in IE 7 */
-img, object, video, canvas {
-  -ms-interpolation-mode: bicubic;
-  image-rendering: auto;
-}
-
-*:before, *:after {
-  box-sizing: inherit;
-}
-
-/* Links styling */
-a {
-  display: inline-block;
-}
-
-a:focus {
-  outline: thin dotted;
-}
-
-a:active,
-a:hover {
-  outline: 0;
-}
-
-button,
-input,
-select,
-textarea {
-  display: inline-block;
-  font-size: 100%;
-  text-transform: none;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  box-shadow: none;
-  outline: none;
-  resize: none;
-  line-height: normal;
-  vertical-align: baseline;
-  -webkit-appearance: button;
-  cursor: pointer;
-}
-
-/* Reset button styles */
-button:active,
-button:focus {
-  outline: none;
-}
-
-button::-moz-focus-inner {
-  padding: 0;
-  border: none;
-}
-
-/* Search input styles */
-input[type=search] {
-  -webkit-appearance: textfield;
-  -moz-appearance: none;
-  box-sizing: content-box;
-}
-
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-/* Checkbox and radio button sizing */
-input[type=checkbox],
-input[type=radio] {
-  box-sizing: border-box;
-  padding: 0;
-  height: 13px;
-  width: 13px;
-}
-
-/* Remove default spacing between table cells */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-legend {
-  display: block;
-  border: 0;
-  padding: 0;
-  white-space: normal;
-}
-
-label {
-  cursor: pointer;
-}
-
-/* Remove most spacing between blockquotes and quotes */
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: "";
-}
-
-/* Remove list-style for ordered and unordered lists */
-ul {
-  list-style: none;
-}
-
-/* Selection styles */
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-/* Hidden elements */
-[hidden] {
-  display: none;
-}
-
-/* retina display (2x) */
-/* large desktop: (min-width: 1921px) */
-/* desktop max-width: 1920px */
-/* desktop: (max-width: 1920px) and (min-width: 1441px) */
-/* laptop max-width: 1440px*/
-/* laptop:(max-width: 1440px) and (min-width: 1281px) */
-/* tablet (landscape) max-width: 1280px */
-/* tablet (landscape) min-width: 1281px */
-/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
-/* tablet (portrait): (min-width: 1025px) */
-/* tablet (portrait): (max-width: 1024px) */
-/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
-/* mobile (landscape): (max-width: 768px)*/
-/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
-/* mobile (portrait wide): (max-width: 640px) */
-/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
-/* mobile (portrait narrow): (max-width: 480px)*/
-/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
-/* mobile (medium): (max-width: 375px) */
-/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
-/* mobile (small): (max-width: 320px) */
-/**
- * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
- *    `em` units.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
-html {
-  font-size: 100%;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  line-height: 1;
-}
-
-/* Universal reset */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li, hr,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, img, audio, svg, picture, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-img, audio, svg, picture, canvas, video, object, iframe, embed {
-  display: block;
-}
-
-/* Improve image quality when scaled in IE 7 */
-img, object, video, canvas {
-  -ms-interpolation-mode: bicubic;
-  image-rendering: auto;
-}
-
-*:before, *:after {
-  box-sizing: inherit;
-}
-
-/* Links styling */
-a {
-  display: inline-block;
-}
-
-a:focus {
-  outline: thin dotted;
-}
-
-a:active,
-a:hover {
-  outline: 0;
-}
-
-button,
-input,
-select,
-textarea {
-  display: inline-block;
-  font-size: 100%;
-  text-transform: none;
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  box-shadow: none;
   outline: none;
   resize: none;
   line-height: normal;
@@ -1728,6 +739,1001 @@ textarea {
   margin: 0;
   padding: 0;
   box-shadow: none;
+  border: none;
+  outline: none;
+  resize: none;
+  line-height: normal;
+  vertical-align: baseline;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/* Reset button styles */
+button:active,
+button:focus {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: none;
+}
+
+/* Search input styles */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-appearance: none;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Checkbox and radio button sizing */
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+  height: 13px;
+  width: 13px;
+}
+
+/* Remove default spacing between table cells */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  display: block;
+  border: 0;
+  padding: 0;
+  white-space: normal;
+}
+
+label {
+  cursor: pointer;
+}
+
+/* Remove most spacing between blockquotes and quotes */
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+}
+
+/* Remove list-style for ordered and unordered lists */
+ul {
+  list-style: none;
+}
+
+/* Selection styles */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* Hidden elements */
+[hidden] {
+  display: none;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+}
+/* retina display (2x) */
+/* large desktop: (min-width: 1921px) */
+/* desktop max-width: 1920px */
+/* desktop: (max-width: 1920px) and (min-width: 1441px) */
+/* laptop max-width: 1440px*/
+/* laptop:(max-width: 1440px) and (min-width: 1281px) */
+/* tablet (landscape) max-width: 1280px */
+/* tablet (landscape) min-width: 1281px */
+/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
+/* tablet (portrait): (min-width: 1025px) */
+/* tablet (portrait): (max-width: 1024px) */
+/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
+/* mobile (landscape): (max-width: 768px)*/
+/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
+/* mobile (portrait wide): (max-width: 640px) */
+/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
+/* mobile (portrait narrow): (max-width: 480px)*/
+/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
+/* mobile (medium): (max-width: 375px) */
+/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
+/* mobile (small): (max-width: 320px) */
+@keyframes popup {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes scaleUpZero {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+:root {
+  --range_120-64_max-1280px: calc(56 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 64px);
+  --range_80-64_max-1280px: calc(16 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 64px);
+  --range_80-32_max-1280px: calc(48 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 32px);
+  --range_48-32_max-1280px: calc(16 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 32px);
+  --range_32-23_max-640px: calc(9 * (min(max(100vw, 320px), 640px) - 320px) / 320 + 23px);
+  --range_24-18_max-1280px: calc(6 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 18px);
+  --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+  background-color: rgb(220, 220, 220);
+  /**** user-select: none; *****/
+  transition: 0.15s ease-in-out;
+}
+
+/*************TOP BORDER BODY****************/
+body:before {
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/*****************END TOP BORDER BODY************/
+h1, h2, h3, h4, h5 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  line-height: 1.25;
+}
+
+h2, h3, h4, h5 {
+  line-height: 1.2;
+}
+
+img, svg, picture, video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  vertical-align: top;
+}
+
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  line-height: 1;
+}
+
+/* Universal reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li, hr,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, img, audio, svg, picture, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+img, audio, svg, picture, canvas, video, object, iframe, embed {
+  display: block;
+}
+
+/* Improve image quality when scaled in IE 7 */
+img, object, video, canvas {
+  -ms-interpolation-mode: bicubic;
+  image-rendering: auto;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Links styling */
+a {
+  display: inline-block;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  display: inline-block;
+  font-size: 100%;
+  text-transform: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  resize: none;
+  line-height: normal;
+  vertical-align: baseline;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/* Reset button styles */
+button:active,
+button:focus {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: none;
+}
+
+/* Search input styles */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-appearance: none;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Checkbox and radio button sizing */
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+  height: 13px;
+  width: 13px;
+}
+
+/* Remove default spacing between table cells */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  display: block;
+  border: 0;
+  padding: 0;
+  white-space: normal;
+}
+
+label {
+  cursor: pointer;
+}
+
+/* Remove most spacing between blockquotes and quotes */
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+}
+
+/* Remove list-style for ordered and unordered lists */
+ul {
+  list-style: none;
+}
+
+/* Selection styles */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* Hidden elements */
+[hidden] {
+  display: none;
+}
+
+/* retina display (2x) */
+/* large desktop: (min-width: 1921px) */
+/* desktop max-width: 1920px */
+/* desktop: (max-width: 1920px) and (min-width: 1441px) */
+/* laptop max-width: 1440px*/
+/* laptop:(max-width: 1440px) and (min-width: 1281px) */
+/* tablet (landscape) max-width: 1280px */
+/* tablet (landscape) min-width: 1281px */
+/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
+/* tablet (portrait): (min-width: 1025px) */
+/* tablet (portrait): (max-width: 1024px) */
+/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
+/* mobile (landscape): (max-width: 768px)*/
+/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
+/* mobile (portrait wide): (max-width: 640px) */
+/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
+/* mobile (portrait narrow): (max-width: 480px)*/
+/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
+/* mobile (medium): (max-width: 375px) */
+/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
+/* mobile (small): (max-width: 320px) */
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  line-height: 1;
+}
+
+/* Universal reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li, hr,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, img, audio, svg, picture, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+img, audio, svg, picture, canvas, video, object, iframe, embed {
+  display: block;
+}
+
+/* Improve image quality when scaled in IE 7 */
+img, object, video, canvas {
+  -ms-interpolation-mode: bicubic;
+  image-rendering: auto;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Links styling */
+a {
+  display: inline-block;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  display: inline-block;
+  font-size: 100%;
+  text-transform: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  resize: none;
+  line-height: normal;
+  vertical-align: baseline;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/* Reset button styles */
+button:active,
+button:focus {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: none;
+}
+
+/* Search input styles */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-appearance: none;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Checkbox and radio button sizing */
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+  height: 13px;
+  width: 13px;
+}
+
+/* Remove default spacing between table cells */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  display: block;
+  border: 0;
+  padding: 0;
+  white-space: normal;
+}
+
+label {
+  cursor: pointer;
+}
+
+/* Remove most spacing between blockquotes and quotes */
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+}
+
+/* Remove list-style for ordered and unordered lists */
+ul {
+  list-style: none;
+}
+
+/* Selection styles */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* Hidden elements */
+[hidden] {
+  display: none;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+}
+/* retina display (2x) */
+/* large desktop: (min-width: 1921px) */
+/* desktop max-width: 1920px */
+/* desktop: (max-width: 1920px) and (min-width: 1441px) */
+/* laptop max-width: 1440px*/
+/* laptop:(max-width: 1440px) and (min-width: 1281px) */
+/* tablet (landscape) max-width: 1280px */
+/* tablet (landscape) min-width: 1281px */
+/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
+/* tablet (portrait): (min-width: 1025px) */
+/* tablet (portrait): (max-width: 1024px) */
+/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
+/* mobile (landscape): (max-width: 768px)*/
+/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
+/* mobile (portrait wide): (max-width: 640px) */
+/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
+/* mobile (portrait narrow): (max-width: 480px)*/
+/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
+/* mobile (medium): (max-width: 375px) */
+/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
+/* mobile (small): (max-width: 320px) */
+@keyframes popup {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes scaleUpZero {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+:root {
+  --range_120-64_max-1280px: calc(56 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 64px);
+  --range_80-64_max-1280px: calc(16 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 64px);
+  --range_80-32_max-1280px: calc(48 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 32px);
+  --range_48-32_max-1280px: calc(16 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 32px);
+  --range_32-23_max-640px: calc(9 * (min(max(100vw, 320px), 640px) - 320px) / 320 + 23px);
+  --range_24-18_max-1280px: calc(6 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 18px);
+  --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+  background-color: rgb(220, 220, 220);
+  /**** user-select: none; *****/
+  transition: 0.15s ease-in-out;
+}
+
+/*************TOP BORDER BODY****************/
+body:before {
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/*****************END TOP BORDER BODY************/
+h1, h2, h3, h4, h5 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  line-height: 1.25;
+}
+
+h2, h3, h4, h5 {
+  line-height: 1.2;
+}
+
+img, svg, picture, video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  vertical-align: top;
+}
+
+.section {
+  padding-top: 80px;
+  padding-bottom: 120px;
+  /* tablet (landscape) max-width: 1280px */
+  /* mobile (portrait wide): (max-width: 640px) */
+}
+@media (max-width: 1280px) {
+  .section {
+    padding-top: var(--range_80-64_max-1280px);
+    padding-bottom: var(--range_120-64_max-1280px);
+  }
+}
+@media (max-width: 640px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+.section__content-layer, .header {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-right: 80px;
+  padding-left: 80px;
+  /* tablet (landscape) max-width: 1280px */
+  /* mobile (portrait wide): (max-width: 640px) */
+}
+@media (max-width: 1280px) {
+  .section__content-layer, .header {
+    padding-right: var(--range_80-32_max-1280px);
+    padding-left: var(--range_80-32_max-1280px);
+  }
+}
+@media (max-width: 640px) {
+  .section__content-layer, .header {
+    padding-right: var(--range_32-23_max-640px);
+    padding-left: var(--range_32-23_max-640px);
+  }
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+}
+@keyframes popup {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes scaleUpZero {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* retina display (2x) */
+/* large desktop: (min-width: 1921px) */
+/* desktop max-width: 1920px */
+/* desktop: (max-width: 1920px) and (min-width: 1441px) */
+/* laptop max-width: 1440px*/
+/* laptop:(max-width: 1440px) and (min-width: 1281px) */
+/* tablet (landscape) max-width: 1280px */
+/* tablet (landscape) min-width: 1281px */
+/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
+/* tablet (portrait): (min-width: 1025px) */
+/* tablet (portrait): (max-width: 1024px) */
+/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
+/* mobile (landscape): (max-width: 768px)*/
+/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
+/* mobile (portrait wide): (max-width: 640px) */
+/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
+/* mobile (portrait narrow): (max-width: 480px)*/
+/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
+/* mobile (medium): (max-width: 375px) */
+/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
+/* mobile (small): (max-width: 320px) */
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  line-height: 1;
+}
+
+/* Universal reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li, hr,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, img, audio, svg, picture, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+img, audio, svg, picture, canvas, video, object, iframe, embed {
+  display: block;
+}
+
+/* Improve image quality when scaled in IE 7 */
+img, object, video, canvas {
+  -ms-interpolation-mode: bicubic;
+  image-rendering: auto;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Links styling */
+a {
+  display: inline-block;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  display: inline-block;
+  font-size: 100%;
+  text-transform: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
   outline: none;
   resize: none;
   line-height: normal;
@@ -2008,6 +2014,8 @@ img, svg, picture, video {
 }
 
 .header__contacts-wrapper {
+  position: relative;
+  z-index: 55;
   flex-grow: 1;
   display: flex;
   flex-flow: row wrap;
@@ -2061,10 +2069,10 @@ img, svg, picture, video {
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  gap: 0.625em;
+  gap: 0.6em;
 }
 .social-icons-wrapper__social-icon {
-  width: 2em;
+  width: 1.8em;
   transition: 0.15s ease-in-out;
 }
 .social-icons-wrapper__social-icon:hover {
@@ -2082,23 +2090,63 @@ img, svg, picture, video {
 }
 @media (max-width: 768px) {
   .header__nav {
-    position: absolute;
     display: none;
   }
 }
-
-.burger_nav {
-  width: 2em;
-  height: 2em;
-  background-color: #413930;
-}
-.burger_nav.hidden {
-  display: none;
+.header__nav.abs {
+  display: block;
+  position: fixed;
+  width: 100%;
+  padding: 0;
+  top: -100%;
+  left: 0;
+  z-index: 40;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(0.2em);
   /* mobile (landscape): (max-width: 768px)*/
 }
 @media (max-width: 768px) {
-  .burger_nav.hidden {
-    display: inline-block;
+  .header__nav.abs {
+    display: block;
+  }
+}
+.header__nav.abs .header__nav-list-wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  /* mobile (medium): (max-width: 375px) */
+}
+@media (max-width: 375px) {
+  .header__nav.abs .header__nav-list-wrapper {
+    justify-content: center;
+  }
+}
+.header__nav.abs .header__nav-list {
+  padding: 3em 2.2em 0.5em;
+  /* mobile (landscape): (max-width: 768px)*/
+  /* mobile (medium): (max-width: 375px) */
+}
+@media (max-width: 768px) {
+  .header__nav.abs .header__nav-list {
+    max-width: 20em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-top: 4em;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-end;
+    column-gap: 0.5em;
+  }
+}
+@media (max-width: 375px) {
+  .header__nav.abs .header__nav-list {
+    padding-top: 6em;
+    padding-right: 1.3em;
   }
 }
 
@@ -2133,6 +2181,114 @@ img, svg, picture, video {
   transform: translateY(-0.1em);
 }
 
+.burger_nav {
+  position: relative;
+  width: 1.8em;
+  height: 1.8em;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 133, 2);
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+}
+.burger_nav:hover {
+  background-color: rgb(255, 133, 2);
+}
+.burger_nav:hover span, .burger_nav:hover span:before, .burger_nav:hover span:after {
+  background-color: rgb(255, 255, 255);
+}
+.burger_nav:hover span:before {
+  top: -7px;
+}
+.burger_nav:hover span:after {
+  top: 7px;
+}
+.burger_nav.hidden {
+  display: none;
+  /* mobile (landscape): (max-width: 768px)*/
+}
+@media (max-width: 768px) {
+  .burger_nav.hidden {
+    display: inline-block;
+  }
+}
+.burger_nav.opened {
+  background-color: red;
+}
+.burger_nav span, .burger_nav span:before, .burger_nav span:after {
+  position: absolute;
+  display: inline-block;
+  background-color: rgb(255, 133, 2);
+  transition: background-color, top 0.2s ease-in-out;
+}
+.burger_nav span {
+  top: 50%;
+  left: 50%;
+  transform: translate(-48%, -50%);
+  width: 70%;
+  height: 9%;
+}
+.burger_nav span:before, .burger_nav span:after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  left: 0;
+}
+.burger_nav span:before {
+  top: -5px;
+}
+.burger_nav span:after {
+  top: 5px;
+}
+
+#scrolledNav {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(0.2em);
+}
+
+.scrolledNav__contacts-block {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.4em 2em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.4em 1em;
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  /* mobile (medium): (max-width: 375px) */
+}
+@media (max-width: 480px) {
+  .scrolledNav__contacts-block {
+    gap: 0.4em 0.7em;
+  }
+}
+@media (max-width: 375px) {
+  .scrolledNav__contacts-block {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.scrolledNav__contacts-block .phone-link span {
+  /* mobile (medium): (max-width: 375px) */
+}
+.scrolledNav__contacts-block .phone-link__phone-icon {
+  /* mobile (portrait narrow): (max-width: 480px)*/
+}
+.scrolledNav__contacts-block .social-icons-wrapper__social-icon {
+  /* mobile (portrait narrow): (max-width: 480px)*/
+}
+.scrolledNav__contacts-block .burger_nav {
+  /* mobile (medium): (max-width: 375px) */
+}
 /**
  * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
  *    `em` units.
@@ -2212,6 +2368,7 @@ textarea {
   margin: 0;
   padding: 0;
   box-shadow: none;
+  border: none;
   outline: none;
   resize: none;
   line-height: normal;
@@ -2396,6 +2553,7 @@ ul {
 }
 
 .total-wrapper {
+  position: relative;
   font-size: 1.125rem;
   max-width: 1440px;
   margin: 0 auto;
@@ -2412,65 +2570,6 @@ ul {
 @media (max-width: 640px) {
   .total-wrapper {
     font-size: 0.938rem;
-  }
-}
-
-#scrolledNav {
-  position: fixed;
-  top: -50px;
-  z-index: 100;
-  width: 100%;
-  max-width: 1440px;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(0.2em);
-}
-
-.scrolledNav__contacts-block {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 0.5em 1em;
-  padding: 0.4em 2em;
-  /* mobile (portrait narrow): (max-width: 480px)*/
-}
-@media (max-width: 480px) {
-  .scrolledNav__contacts-block {
-    justify-content: center;
-    padding: 0.4em 0.7em;
-  }
-}
-.scrolledNav__contacts-block .phone-link span {
-  /* mobile (medium): (max-width: 375px) */
-}
-@media (max-width: 375px) {
-  .scrolledNav__contacts-block .phone-link span {
-    font-size: 1.12em;
-  }
-}
-.scrolledNav__contacts-block .phone-link__phone-icon {
-  /* mobile (medium): (max-width: 375px) */
-}
-@media (max-width: 375px) {
-  .scrolledNav__contacts-block .phone-link__phone-icon {
-    width: 1.1em;
-  }
-}
-.scrolledNav__contacts-block .social-icons-wrapper__social-icon {
-  /* mobile (medium): (max-width: 375px) */
-}
-@media (max-width: 375px) {
-  .scrolledNav__contacts-block .social-icons-wrapper__social-icon {
-    width: 1.5em;
-  }
-}
-.scrolledNav__contacts-block .burger_nav {
-  /* mobile (medium): (max-width: 375px) */
-}
-@media (max-width: 375px) {
-  .scrolledNav__contacts-block .burger_nav {
-    width: 1.5em;
-    height: 1.5em;
   }
 }
 

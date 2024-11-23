@@ -39,10 +39,25 @@
                 <use xlink:href="assets/img/svgIcons/sprite.multi.svg#telegram"></use>
               </svg>
             </a>
+            <button class="burger_nav" aria-label="Toggle navigation" aria-expanded="false">
+              <span></span>
+            </button>
           </div>
-          <button class="burger_nav">X</button>
         </div>
       </div>
+      <nav class="header__nav abs" aria-label="navigation menu to services" aria-expanded="false">
+        <div class="header__nav-list-wrapper">
+          <ul class="header__nav-list">
+            <li><a href="#securityShuttersSection" class="header__nav-link">Ролети</a></li>
+            <li><a href="#gatesSection" class="header__nav-link">Ворота</a></li>
+            <li><a href="#securitySurveillanceSection" class="header__nav-link">Відеонагляд</a></li>
+            <li><a href="#rollerShuttersAutomation" class="header__nav-link">Автоматизація</a></li>
+            <li><a href="#barrierSection" class="header__nav-link">Шлагбауми</a></li>
+            <li><a href="#windowSection" class="header__nav-link">Вікна та двері</a></li>
+            <li><a href="#awningsSection" class="header__nav-link">Маркізи</a></li>
+          </ul>
+        </div>
+      </nav>
       <section class="section section--hero">
         <div class="section__content-layer section__content-layer--hero">
           <div class="section__heading-block section__heading-block--hero">
@@ -705,7 +720,7 @@
           </div>
         </div>
       </section>
-      @@include("templates/header.html", {"page": "index"})
+      @@include("templates/footer.html", {"page": "index"})
     </div>
 
     <!-- SCRIPTS -->

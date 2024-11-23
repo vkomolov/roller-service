@@ -12,6 +12,7 @@
 
 /////// STYLES ////////
 .total-wrapper {
+  position: relative;
   font-size: 1.125rem;  //18px
   max-width: $maxWidth; //1440px;
   //min-width: $minWidth; //320px;
@@ -27,59 +28,6 @@
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
     font-size: 0.938rem;  //15px
-  }
-}
-
-#scrolledNav {
-  position: fixed;
-  top: -50px;
-  z-index: 100;
-  width: 100%;
-  max-width: $maxWidth;
-  background-color: rgba(255, 255, 255, .2);
-  backdrop-filter: blur(.2em);
-}
-
-.scrolledNav__contacts-block {
-  @include flex-box($flex-box-row-right-wrap...);
-  gap: 0.5em 1em;
-  padding: 0.4em 2em;
-
-  /* mobile (portrait narrow): (max-width: 480px)*/
-  @include maxMobilePortraitNarrow {
-    justify-content: center;
-    padding: 0.4em 0.7em;
-  }
-
-  .phone-link {
-    span {
-      /* mobile (medium): (max-width: 375px) */
-      @include maxMobileMedium {
-        font-size: 1.12em;
-      }
-    }
-  }
-
-  .phone-link__phone-icon {
-    /* mobile (medium): (max-width: 375px) */
-    @include maxMobileMedium {
-      width: 1.1em;
-    }
-  }
-
-  .social-icons-wrapper__social-icon {
-    /* mobile (medium): (max-width: 375px) */
-    @include maxMobileMedium {
-      width: 1.5em;
-    }
-  }
-
-  .burger_nav {
-    /* mobile (medium): (max-width: 375px) */
-    @include maxMobileMedium {
-      width: 1.5em;
-      height: 1.5em;
-    }
   }
 }
 

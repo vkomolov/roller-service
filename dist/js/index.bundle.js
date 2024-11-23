@@ -9591,6 +9591,344 @@ TweenMaxWithCSS = gsapWithCSS.core.Tween;
 
 /***/ }),
 
+/***/ "./src/js/helpers/funcsDOM.js":
+/*!************************************!*\
+  !*** ./src/js/helpers/funcsDOM.js ***!
+  \************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   customTargetStyleOnScroll: function() { return /* binding */ customTargetStyleOnScroll; },
+/* harmony export */   fountainBalls: function() { return /* binding */ fountainBalls; },
+/* harmony export */   isStyleSupported: function() { return /* binding */ isStyleSupported; },
+/* harmony export */   migrateElement: function() { return /* binding */ migrateElement; },
+/* harmony export */   scrollLimitedListener: function() { return /* binding */ scrollLimitedListener; },
+/* harmony export */   setAttributes: function() { return /* binding */ setAttributes; }
+/* harmony export */ });
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+
+
+
+
+/**
+ * It checks whether the given style rule is supported for the given HTML Element
+ * @param {HTMLElement} element - target HTML Element
+ * @param {string} param - css rule
+ * @param {string} value - the value of the css rule
+ * @return {boolean}
+ */
+function isStyleSupported(element, param, value) {
+  return param in element.style && CSS.supports(param, value);
+}
+
+/**
+ * it migrates the given HTML Element to another HTML parent
+ * @param {HTMLElement} target - the target HTML Element
+ * @param {HTMLElement} parentFrom - the current HTML parent
+ * @param {HTMLElement} parentTo - the target HTML parent to migrate to
+ */
+function migrateElement({
+  target,
+  parentFrom,
+  parentTo
+}) {
+  if (target.parentNode) {
+    (target.parentNode === parentFrom ? parentTo : parentFrom).appendChild(target);
+  } else {
+    console.warn(`transitBox: target in not in DOM: ${target}`);
+  }
+}
+
+/**
+ * Fountains a certain number of balls.
+ * @param {HTMLElement} targetElem - the target Element for animation
+ * @param {Object} [params={}] - additional params
+ * @param {number} [params.ballsCount = 1] - The quantity of the balls to be fountained. Defaults to 1 if not provided.
+ * @param {Object} [params.cssStyles={}] additional css styles of the balls
+ * @param {boolean} [params.animateSeparate=false] the flag for separate animation of the balls
+ * @param {string[]} [params.ballColors=[]] If not provided, a default inner array (ballColorsArr) is used:
+ *
+ * @return {gsap.core.Timeline | null}
+ */
+function fountainBalls(targetElem, params = {}) {
+  if (!document.body.contains(targetElem)) {
+    console.error(`the given targetElem ${targetElem} is not in DOM...`);
+    return null;
+  }
+
+  ///////////// INITIAL SETTINGS /////////////////
+
+  const ballStylesObj = {
+    position: "absolute",
+    width: "30px",
+    height: "30px",
+    top: "50%",
+    left: "50%",
+    borderRadius: "50%",
+    zIndex: "-1",
+    visibility: "hidden",
+    scale: "0"
+  };
+  const ballColorsArr = ["#0adb38", "#db0ac6", "#db0a11", "#150adb", "#0adbca", "#cddb0a"];
+  const {
+    ballsCount = 1,
+    cssStyles = {},
+    animateSeparate = false,
+    ballColors = []
+  } = params;
+  const ballStyles = {
+    ...ballStylesObj,
+    ...cssStyles
+  };
+  const colors = ballColors.length ? ballColors : ballColorsArr;
+
+  /**
+   * Function for "fountain" movement of balls with the common animations
+   * @param {gsap.core.Timeline} tl - the timeline for the animation
+   * @param {HTMLElement[]} ballsArray - the real array (not collection) of DOM elements
+   * @return {void}
+   */
+  const fountainAll = (tl, ballsArray = []) => {
+    // Clear and reset the timeline
+    tl.clear().progress(0);
+
+    // Setting initial values directly in the timeline
+    tl.set(ballsArray, {
+      //if to remove the initial positions of the balls, they will appear in different places of the area
+      //x: 0,
+      y: 0,
+      immediateRender: false // prevents immediate render of the settings
+    });
+
+    // Animation of appearing balls with the random size and random color
+    tl.to(ballsArray, {
+      autoAlpha: 1,
+      scale: function () {
+        return gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.random(0.3, 1);
+      },
+      backgroundColor: function () {
+        return gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.random(colors);
+      },
+      duration: 0.1
+      //stagger: 0.1, // delay between animations for each ball
+    });
+
+    // Animation of balls moving up the Y axis
+    tl.to(ballsArray, {
+      y: function () {
+        return gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.random(-70, -100);
+      },
+      stagger: {
+        //each: 0.1, // delay between animations for each ball
+        repeat: 1,
+        // repeat once (for the "back" effect)
+        yoyo: true // animation "forward-backward"
+        //from: "random",  // "start", "random", "center", "end" to determine the order
+      },
+      ease: "circ" // smooth deceleration at the end
+    }, 0);
+
+    // Animation of balls on the X axis
+    tl.to(ballsArray, {
+      x: () => gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.random(-200, 200),
+      ease: "none",
+      // linear animation
+      duration: 1 // animation duration on X axis
+      //stagger: 0.1, // delay between balls
+    }, 0); // starting the animation on the X axis at the same time as on the Y axis
+
+    // Hiding the balls after animation
+    tl.to(ballsArray, {
+      autoAlpha: 0,
+      duration: 0.1
+    }, "-=0.1");
+
+    // Starting the timeline
+    tl.play();
+  };
+
+  /**
+   * Function for "fountain" movement of balls with the separate animations
+   * @param {gsap.core.Timeline} tl - the timeline for the animation
+   * @param {HTMLElement[]} ballsArray - the real array (not collection) of DOM elements
+   * @return {void}
+   */
+  const fountainSeparate = (tl, ballsArray = []) => {
+    // Clear and reset the timeline
+    tl.clear().progress(0);
+
+    // Checking for the nested timelines in the main timeline if the animation has already been run
+    const childTimeLines = tl.getChildren(false, false, true);
+
+    /**
+     * Creating the inner timelines of each ball or using the already created inner timelines of the previous run
+     * Adding the animations to the separate inner timeline of each ball
+     */
+    ballsArray.forEach((ball, index) => {
+      let ballTl = childTimeLines[index];
+      if (!ballTl) {
+        ballTl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
+        tl.add(ballTl, index * 0.2);
+      }
+
+      //to avoid the IDE alerts on checking the method "to" in childTimeLines[index]
+      if ("to" in ballTl && typeof ballTl.to === "function") {
+        // Animation of appearing of each ball with the random size and random color
+        ballTl.to(ball, {
+          autoAlpha: 1,
+          scale: gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.random(0.3, 1),
+          backgroundColor: gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.random(colors),
+          duration: 0.1
+        });
+
+        // Animation of each ball moving up the Y axis
+        ballTl.to(ball, {
+          y: gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.random(-70, -100),
+          //duration: 1,
+          ease: "circ",
+          // smooth deceleration at the end
+          yoyo: true,
+          // animation "forward-backward"
+          repeat: 1 // repeat once (for the "back" effect)
+        }, 0);
+
+        // Animation of balls on the X axis
+        ballTl.to(ball, {
+          x: gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.random(-200, 200),
+          duration: 1,
+          // animation duration on X axis
+          ease: "none" // linear animation
+        }, 0); // starting the animation on the X axis at the same time as on the Y axis
+
+        // Hiding the balls after animation
+        ballTl.to(ball, {
+          autoAlpha: 0,
+          duration: 0.1
+        }, "-=0.1");
+      }
+    });
+
+    // Starting the timeline
+    tl.play();
+  };
+
+  ///////////// END OF INITIAL SETTINGS /////////////////
+
+  // Adding styles to the target element: position: relative; and display: inline-block;
+  targetElem.style.position = "relative";
+  targetElem.style.display = "inline-block";
+
+  //creating balls with account to the given balls count in params
+  const ballsArr = [];
+  for (let i = 1; i <= ballsCount; i++) {
+    let ball = document.createElement("div");
+    Object.assign(ball.style, ballStyles);
+    targetElem.appendChild(ball);
+    ballsArr.push(ball);
+  }
+  const tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+    paused: true
+  });
+  targetElem.addEventListener("mouseenter", () => {
+    animateSeparate ? fountainSeparate(tl, ballsArr) : fountainAll(tl, ballsArr);
+  });
+  return tl;
+}
+
+/**
+ * A function that adds a scroll event listener to a DOM element, window, or document,
+ * with a delay to limit the number of times the callback function is triggered during scroll events.
+ * It prevents the callback from being called too frequently by using a "lock" mechanism.
+ *
+ * @param {HTMLElement|Window|Document} listenerOwner - The DOM element, window, or document to listen for scroll events.
+ * @param {number} [delay=300] - The delay (in milliseconds) between consecutive callback executions. Defaults to 300ms.
+ * @returns {Function} A function that accepts a callback and parameters, and returns another function to remove the scroll event listener.
+ *
+ * @throws {Error} If the listenerOwner is not a valid DOM element, window, or document.
+ *
+ * @example
+ * // Example of using scrollLimitedListener with the window object
+ * const initScrollLimiter = scrollLimitedListener(window, 700);
+ *     const removeScrollListener = initScrollLimiter(() => {
+ *         const scrollY = window.scrollY || document.documentElement.scrollTop;
+ *         console.log(scrollY); // Logs scroll position
+ *     });
+ *
+ *     // Remove the scroll listener on click
+ *     document.addEventListener("click", () => removeScrollListener());
+ */
+function scrollLimitedListener(listenerOwner, delay = 300) {
+  if (!(listenerOwner instanceof HTMLElement) && window !== listenerOwner && document !== listenerOwner) {
+    throw new Error("Provided listenerOwner at scrollLimitedListener() is not a valid DOM element.");
+  }
+  let isLocked = false;
+  return (cb, params = []) => {
+    const handler = () => {
+      if (!isLocked) {
+        isLocked = true;
+        setTimeout(() => {
+          cb(...params);
+          isLocked = false;
+        }, delay);
+      }
+    };
+    listenerOwner.addEventListener("scroll", handler);
+    return () => {
+      listenerOwner.removeEventListener("scroll", handler);
+    };
+  };
+}
+function customTargetStyleOnScroll(target, trigger, classActivation, scrollOwner = window, scrollTimeLimit = 300) {
+  if (!document.contains(target) || !document.contains(trigger)) {
+    throw new Error("at initTopAppearanceOnScroll(): the given target or trigger are not found in DOM...");
+  }
+
+  /**
+   * is scrolledNav is already active to avoid extra animations
+   * @type {boolean}
+   */
+  let isScrolledActive = false;
+  const initScrollLimiter = scrollLimitedListener(scrollOwner, scrollTimeLimit);
+  initScrollLimiter(() => {
+    const triggerTop = trigger.getBoundingClientRect().top;
+    if (triggerTop <= 0) {
+      if (!isScrolledActive) {
+        requestAnimationFrame(() => {
+          target.classList.add(classActivation);
+          isScrolledActive = true;
+        });
+      }
+    } else {
+      if (isScrolledActive && target.classList.contains(classActivation)) {
+        requestAnimationFrame(() => {
+          target.classList.remove(classActivation);
+          isScrolledActive = false;
+        });
+      }
+    }
+  });
+}
+
+/**
+ *  It sets attributes to HTMLElement instances
+ * @param {[Element]} [elements=[]] the list of HTMLElements to be set with the attributes
+ * @param {Object} [targetAttr={}] consists of the keys as the attributes and the values
+ * @returns {void}
+ */
+function setAttributes(elements = [], targetAttr = {}) {
+  elements.forEach((element, i) => {
+    if (!(element instanceof HTMLElement)) {
+      throw new Error(`one of the elements at index ${i} is not the instance of HTMLElement...`);
+    }
+    Object.entries(targetAttr).forEach(([attr, value]) => {
+      element.setAttribute(attr, value !== null && value !== undefined ? value.toString() : "");
+    });
+  });
+}
+
+/***/ }),
+
 /***/ "./src/js/partials/animations.js":
 /*!***************************************!*\
   !*** ./src/js/partials/animations.js ***!
@@ -9601,21 +9939,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   animatePage: function() { return /* binding */ animatePage; }
 /* harmony export */ });
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
-/* harmony import */ var gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap/ScrollTrigger.js */ "./node_modules/gsap/ScrollTrigger.js");
+/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
+/* harmony import */ var gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollTrigger.js */ "./node_modules/gsap/ScrollTrigger.js");
+/* harmony import */ var _helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/funcsDOM.js */ "./src/js/helpers/funcsDOM.js");
+
 
 
 
 
 
 ///////////////// REGISTER GSAP PLUGINS /////////////
-gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.registerPlugin(gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_1__.ScrollTrigger);
+gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.registerPlugin(gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__.ScrollTrigger);
 
 //////////////// ANIMATION DATA /////////////////////
 /// ANIMATION SELECTORS
 /// index.html
+/// SELECTORS
 const i = {
   scrolledNav: "#scrolledNav",
+  burgerBase: ".burger_nav",
+  burgerFixed: ".burger_nav:not(.hidden)",
+  burgerHidden: ".burger_nav.hidden",
+  navMenuHidden: ".header__nav.abs",
   gatesSection: "#gatesSection",
   headingAccentHero: ".section__heading-block--hero .accent",
   headingHeroRest: ".section__heading-block--hero .rest-of-heading",
@@ -9637,28 +9982,8 @@ const pageAnimations = {
   common: () => {
     const tlData = {};
 
-    ///////////// SCROLLED NAVIGATION ANIMATION //////////
-    const scrolledNav = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.to(i.scrolledNav, {
-      top: 0,
-      duration: 1,
-      ease: "back.out(2.5)",
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: i.gatesSection,
-        start: "top 10%",
-        //end: "bottom 85%",
-        toggleActions: "play none none reverse",
-        //markers: true,
-        /**
-         * preventOverlaps vs fastScrollEnd - should be chosen on of them
-         */
-        preventOverlaps: true //prevent overlapping animations at several trigger animations
-        //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
-      }
-    });
-
     ///////////// SECTION HERO ANIMATION /////////////////
-    const tlHero = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline();
+    const tlHero = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline();
     tlHero.to(i.headingAccentHero, {
       opacity: 1,
       duration: 2,
@@ -9763,8 +10088,90 @@ const pageAnimations = {
     //assigning timeline references
     Object.assign(tlData, fadeInUpAnimations);
 
-    /////////////////
+    ///////////////// SEPARATE TWEENS ////////////////////
 
+    ///////////// SCROLLED NAVIGATION ANIMATION //////////
+    gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(i.scrolledNav, {
+      top: 0,
+      duration: 1.2,
+      ease: "back.out(0.8)",
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: i.gatesSection,
+        start: "top 10%",
+        //end: "bottom 85%",
+        toggleActions: "play none none reverse",
+        //markers: true,
+        /**
+         * preventOverlaps vs fastScrollEnd - should be chosen on of them
+         */
+        preventOverlaps: true //prevent overlapping animations at several trigger animations
+        //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
+      }
+    });
+
+    //////////// BURGER MENU OPEN ANIMATION /////////////
+    const navMenuFixed = document.querySelector(i.navMenuHidden);
+    const burgerHidden = document.querySelector(i.burgerHidden);
+    const burgerFixed = document.querySelector(i.burgerFixed);
+    const burgerAll = document.querySelectorAll(i.burgerBase);
+    //// animation of the fixed navigation menu
+    const navMenuAnime = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.to(navMenuFixed, {
+      top: 0,
+      duration: .8,
+      ease: "back.out(0.8)",
+      paused: true
+    });
+    document.addEventListener("click", e => {
+      //if clicked out of the burger-menu range then to check if the burger is opened and reverse the animation...
+      if (!e.target.closest(i.burgerBase)) {
+        const isNavActive = navMenuFixed.getAttribute("aria-expanded") === "true";
+        if (isNavActive) {
+          // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
+          (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.setAttributes)([burgerHidden, burgerFixed, navMenuFixed], {
+            "aria-expanded": !isNavActive
+          });
+          burgerHidden.classList.remove("opened");
+          burgerFixed.classList.remove("opened");
+
+          /// animation of hiding the fixed navigation menu with top: -100%;
+          navMenuAnime.reverse();
+
+          //returning scroll to the page...
+          document.body.style.overflow = "auto";
+        }
+      }
+    });
+
+    //adding listener to the burger buttons...
+    burgerAll.forEach(burger => {
+      burger.addEventListener("click", e => {
+        const burgerMenu = e.target.closest(i.burgerBase);
+        if (burgerMenu) {
+          e.preventDefault();
+          const isExpanded = burger.getAttribute("aria-expanded") === "true";
+
+          // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
+          (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.setAttributes)([burgerHidden, burgerFixed, navMenuFixed], {
+            "aria-expanded": !isExpanded
+          });
+          if (isExpanded) {
+            burgerHidden.classList.remove("opened");
+            burgerFixed.classList.remove("opened");
+            document.body.style.overflow = "auto";
+          } else {
+            burgerHidden.classList.add("opened");
+            burgerFixed.classList.add("opened");
+            document.body.style.overflow = "hidden";
+          }
+          if (isExpanded) {
+            navMenuAnime.reverse();
+          } else {
+            navMenuAnime.play();
+          }
+        }
+      });
+    });
     return tlData;
   }
 };
@@ -9834,7 +10241,7 @@ function hasRealAnimations(timeline) {
 function getScrollTimelineTwoTweens(elem, gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
   if (elem instanceof HTMLElement) {
     //The timeline initiation with the ScrollTrigger and its default params...
-    const tl = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.timeline({
+    const tl = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
       scrollTrigger: {
         trigger: elem,
         start: "top 80%",
@@ -9871,7 +10278,7 @@ function getScrollTimelineTwoTweens(elem, gsapToParams = {}, gsapFromParams = {}
  * @return {Object} - Object containing gsap.core.Timeline references in particular properties...
  */
 function getAllScrollTwoTweens(selector, propKey = "tlKey", gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
-  const targetElems = gsap__WEBPACK_IMPORTED_MODULE_0__.gsap.utils.toArray(selector);
+  const targetElems = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(selector);
   const tlObj = {};
   if (!targetElems.length) {
     console.warn(`at getAllScrollTimeLineTwoTweens(): no elements found in DOM with selector: ${selector}...`);

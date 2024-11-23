@@ -2,6 +2,7 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import { setAttributes } from "../helpers/funcsDOM.js";
 
 ///////////////// REGISTER GSAP PLUGINS /////////////
 gsap.registerPlugin(ScrollTrigger);
@@ -9,8 +10,13 @@ gsap.registerPlugin(ScrollTrigger);
 //////////////// ANIMATION DATA /////////////////////
 /// ANIMATION SELECTORS
 /// index.html
+/// SELECTORS
 const i = {
     scrolledNav: "#scrolledNav",
+    burgerBase: ".burger_nav",
+    burgerFixed: ".burger_nav:not(.hidden)",
+    burgerHidden: ".burger_nav.hidden",
+    navMenuHidden: ".header__nav.abs",
     gatesSection: "#gatesSection",
     headingAccentHero: ".section__heading-block--hero .accent",
     headingHeroRest: ".section__heading-block--hero .rest-of-heading",
@@ -32,26 +38,6 @@ const pageAnimations = {
     },
     common: () => {
         const tlData = {};
-
-        ///////////// SCROLLED NAVIGATION ANIMATION //////////
-        const scrolledNav = gsap.to(i.scrolledNav, {
-            top: 0,
-            duration: 1,
-            ease: "back.out(2.5)",
-            delay: 0.5,
-            scrollTrigger: {
-                trigger: i.gatesSection,
-                start: "top 10%",
-                //end: "bottom 85%",
-                toggleActions: "play none none reverse",
-                //markers: true,
-                /**
-                 * preventOverlaps vs fastScrollEnd - should be chosen on of them
-                 */
-                preventOverlaps: true, //prevent overlapping animations at several trigger animations
-                //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
-            }
-        });
 
         ///////////// SECTION HERO ANIMATION /////////////////
         const tlHero = gsap.timeline();
@@ -162,7 +148,98 @@ const pageAnimations = {
         //assigning timeline references
         Object.assign(tlData, fadeInUpAnimations);
 
-        /////////////////
+        ///////////////// SEPARATE TWEENS ////////////////////
+
+        ///////////// SCROLLED NAVIGATION ANIMATION //////////
+        gsap.to(i.scrolledNav, {
+            top: 0,
+            duration: 1.2,
+            ease: "back.out(0.8)",
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: i.gatesSection,
+                start: "top 10%",
+                //end: "bottom 85%",
+                toggleActions: "play none none reverse",
+                //markers: true,
+                /**
+                 * preventOverlaps vs fastScrollEnd - should be chosen on of them
+                 */
+                preventOverlaps: true, //prevent overlapping animations at several trigger animations
+                //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
+            }
+        });
+
+        //////////// BURGER MENU OPEN ANIMATION /////////////
+        const navMenuFixed = document.querySelector(i.navMenuHidden);
+        const burgerHidden = document.querySelector(i.burgerHidden);
+        const burgerFixed = document.querySelector(i.burgerFixed);
+        const burgerAll = document.querySelectorAll(i.burgerBase);
+        //// animation of the fixed navigation menu
+        const navMenuAnime = gsap.to(navMenuFixed, {
+            top: 0,
+            duration: .8,
+            ease: "back.out(0.8)",
+            paused: true,
+        });
+
+        document.addEventListener("click", (e) => {
+
+            //if clicked out of the burger-menu range then to check if the burger is opened and reverse the animation...
+            if (!(e.target.closest(i.burgerBase))) {
+                const isNavActive = navMenuFixed.getAttribute("aria-expanded") === "true";
+                if (isNavActive) {
+                    // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
+                    setAttributes([burgerHidden, burgerFixed, navMenuFixed], {
+                        "aria-expanded": !isNavActive,
+                    });
+
+                    burgerHidden.classList.remove("opened");
+                    burgerFixed.classList.remove("opened");
+
+                    /// animation of hiding the fixed navigation menu with top: -100%;
+                    navMenuAnime.reverse();
+
+                    //returning scroll to the page...
+                    document.body.style.overflow = "auto";
+                }
+            }
+        });
+
+        //adding listener to the burger buttons...
+        burgerAll.forEach(burger => {
+            burger.addEventListener("click", (e) => {
+                const burgerMenu = e.target.closest(i.burgerBase);
+
+                if (burgerMenu) {
+                    e.preventDefault();
+                    const isExpanded = burger.getAttribute("aria-expanded") === "true";
+
+                    // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
+                    setAttributes([burgerHidden, burgerFixed, navMenuFixed], {
+                        "aria-expanded": !isExpanded,
+                    });
+
+                    if (isExpanded) {
+                        burgerHidden.classList.remove("opened");
+                        burgerFixed.classList.remove("opened");
+                        document.body.style.overflow = "auto";
+                    }
+                    else {
+                        burgerHidden.classList.add("opened");
+                        burgerFixed.classList.add("opened");
+                        document.body.style.overflow = "hidden";
+                    }
+
+                    if (isExpanded) {
+                        navMenuAnime.reverse();
+                    }
+                    else {
+                        navMenuAnime.play();
+                    }
+                }
+            });
+        })
 
 
         return tlData;
@@ -171,6 +248,7 @@ const pageAnimations = {
 
 
 ////////////////  ANIMATION FUNCTIONS ////////////////
+
 
 //for the dynamic and SPA site without reloading, using the flag to avoid multiple listeners
 let listenerAdded = false;

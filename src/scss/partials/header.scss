@@ -37,6 +37,8 @@
 }
 
 .header__contacts-wrapper {
+  position: relative;
+  z-index: 55;
   flex-grow: 1;
 
   @include flex-box($flex-box-row-right-wrap...);
@@ -83,10 +85,10 @@
 
 .social-icons-wrapper {
   @include flex-box($flex-box-row-center-nowrap...);
-  gap: 0.625em;
+  gap: 0.6em;
 
   &__social-icon {
-    width: 2em;
+    width: 1.8em;
 
     @include transition();
 
@@ -103,22 +105,57 @@
 
   /* mobile (landscape): (max-width: 768px)*/
   @include maxMobileLandscape {
-    position: absolute;
     display: none;
   }
-}
 
-.burger_nav {
-  width: 2em;
-  height: 2em;
-  background-color: #413930;
-
-  &.hidden {
-    display: none;
+  &.abs {
+    display: block;
+    position: fixed;
+    width: 100%;
+    padding: 0;
+    top: -100%;
+    left: 0;
+    z-index: 40;
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(.2em);
 
     /* mobile (landscape): (max-width: 768px)*/
     @include maxMobileLandscape {
-      display: inline-block;
+      display: block;  //original header__nav with display: none;
+    }
+
+    .header__nav-list-wrapper {
+      width: 100%;
+      max-width: $maxContentWidth;
+      margin: 0 auto;
+
+      @include flex-box($flex-box-row-right-wrap...);
+
+      /* mobile (medium): (max-width: 375px) */
+      @include maxMobileMedium {
+        justify-content: center;
+      }
+    }
+
+    .header__nav-list {
+      padding: 3em 2.2em .5em;
+
+      /* mobile (landscape): (max-width: 768px)*/
+      @include maxMobileLandscape {
+        max-width: 20em;
+        padding-bottom: 1em;
+        padding-left: 1em;
+        padding-top: 4em;
+
+        @include flex-box($flex-box-col-right-wrap...);
+        column-gap: 0.5em;
+      }
+
+      /* mobile (medium): (max-width: 375px) */
+      @include maxMobileMedium {
+        padding-top: 6em;
+        padding-right: 1.3em;
+      }
     }
   }
 }
@@ -150,6 +187,137 @@
     color: $color-01-darken;
     @include text-shadow(0.07em, 0.07em);
     transform: translateY(-0.1em);
+  }
+}
+
+.burger_nav {
+  position: relative;
+  width: 1.8em;
+  height: 1.8em;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(255, 133, 2, 1);
+  border-radius: 50%;
+  transition: background-color .2s ease-in-out;
+
+  &:hover {
+    background-color: rgba(255, 133, 2, 1);
+
+    span, span:before, span:after {
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    span:before {
+      top: -7px;
+    }
+
+    span:after {
+      top: 7px;
+    }
+  }
+
+  &.hidden {
+    display: none;
+
+    /* mobile (landscape): (max-width: 768px)*/
+    @include maxMobileLandscape {
+      display: inline-block;
+    }
+  }
+
+  &.opened {
+    background-color: red;
+  }
+
+  span, span:before, span:after {
+    position: absolute;
+    display: inline-block;
+    background-color: $color-01;
+    transition: background-color, top 0.2s ease-in-out;
+  }
+
+  span {
+    top: 50%;
+    left: 50%;
+    transform: translate(-48%, -50%);
+    width: 70%;
+    height: 9%;
+
+    &:before, &:after {
+      width: 100%;
+      height: 100%;
+      content: "";
+      left: 0;
+    }
+
+    &:before {
+      top: -5px;
+    }
+    &:after {
+      top: 5px;
+    }
+
+  }
+}
+
+#scrolledNav {
+  position: fixed;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, .2);
+  backdrop-filter: blur(.2em);
+}
+
+.scrolledNav__contacts-block {
+  width: 100%;
+  max-width: $maxContentWidth;
+  margin: 0 auto;
+  padding: 0.4em 2em;
+
+  @include flex-box($flex-box-row-right-wrap...);
+  gap: 0.4em 1em;
+
+  /* mobile (portrait narrow): (max-width: 480px)*/
+  @include maxMobilePortraitNarrow {
+    gap: 0.4em 0.7em;
+  }
+
+  /* mobile (medium): (max-width: 375px) */
+  @include maxMobileMedium {
+    @include flex-box($flex-box-row-center-wrap...);
+  }
+
+  .phone-link {
+    span {
+      /* mobile (medium): (max-width: 375px) */
+      @include maxMobileMedium {
+        //font-size: 1.12em;
+      }
+    }
+  }
+
+  .phone-link__phone-icon {
+    /* mobile (portrait narrow): (max-width: 480px)*/
+    @include maxMobilePortraitNarrow {
+      //width: 1.1em;
+    }
+  }
+
+  .social-icons-wrapper__social-icon {
+    /* mobile (portrait narrow): (max-width: 480px)*/
+    @include maxMobilePortraitNarrow {
+      //width: 1.5em;
+    }
+  }
+
+  .burger_nav {
+    /* mobile (medium): (max-width: 375px) */
+    @include maxMobileMedium {
+      //width: 1.5em;
+      //height: 1.5em;
+    }
   }
 }
 
