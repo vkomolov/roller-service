@@ -10153,7 +10153,6 @@ const pageAnimations = {
           navMenuAnime.reverse();
 
           //returning scroll to the page...
-          //document.body.style.overflow = "auto";
           //handleScroll(true);
           document.body.style.overflow = "auto";
         }
@@ -10175,13 +10174,11 @@ const pageAnimations = {
           if (isExpanded) {
             burgerHidden.classList.remove("opened");
             burgerFixed.classList.remove("opened");
-            //document.body.style.overflow = "auto";
             //handleScroll(true);
             document.body.style.overflow = "auto";
           } else {
             burgerHidden.classList.add("opened");
             burgerFixed.classList.add("opened");
-            //document.body.style.overflow = "hidden";
             //handleScroll(false);
             document.body.style.overflow = "hidden";
           }

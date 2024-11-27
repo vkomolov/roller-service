@@ -15,11 +15,9 @@ export const modes = {
 }
 const headParams = {
     index: {
-        description: "description of the Page index.html",
-        keywords: "keywords of the Page index.html",
-        pageTopic: "page-topic of the Page index.html",
+        description: "[Терміновий ремонт та встановленння воріт, ролетних систем, маркізів, шлагбаумів, відеопостереження в Київі та Київській області] $ Краща ціна ➤ Оперативна робота професійного персоналу  ➨ Заходьте!",
         robots: "noindex",
-        title: "Title of the Page 'index.html'",
+        title: "Терміновий ремонт та встановленння воріт, ролетних систем, маркізів, шлагбаумів, відеопостереження в Київі та Київській області",
         linkStyles: "css/index.min.css",
         root: ".", //some *.html can be nested in src/html/somePages/ which requires correct path to root: "..", "../.." etc...
         //if the scripts are to be written in the end of body, the property linkScripts may not exits

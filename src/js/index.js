@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalTl = animatePage();
   log(totalTl, "totalTl: ");
 
-
     ///////// END OF DOMContentLoaded Listener ////////////
 });
 

@@ -607,6 +607,7 @@
   font-size: 1em; //parent font-size (18px at max 1280px)
   background-position: 70%;
   background-size: cover;
+  background-attachment: fixed;
   color: $white;
 
   /* tablet (landscape) min-width: 1281px */
@@ -933,6 +934,7 @@
   font-size: 1em; //parent font-size (18px at max 1280px)
   background-position: 0;
   background-size: cover;
+  background-attachment: fixed;
   color: $white;
 
   /* tablet (landscape) min-width: 1281px */

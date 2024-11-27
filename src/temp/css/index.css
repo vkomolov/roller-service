@@ -1995,8 +1995,8 @@ img, svg, picture, video {
   }
 }
 
-.header__logo-wrapper {
-  width: 11.875em;
+.header__logo-heading {
+  color: rgba(220, 220, 220, 0.5);
 }
 
 .header__contacts-wrapper {
@@ -3117,6 +3117,7 @@ ul {
   font-size: 1em;
   background-position: 70%;
   background-size: cover;
+  background-attachment: fixed;
   color: rgb(255, 255, 255);
   /* tablet (landscape) min-width: 1281px */
   /* tablet (landscape) max-width: 1280px */
@@ -3407,6 +3408,7 @@ ul {
   font-size: 1em;
   background-position: 0;
   background-size: cover;
+  background-attachment: fixed;
   color: rgb(255, 255, 255);
   /* tablet (landscape) min-width: 1281px */
   /* tablet (landscape) max-width: 1280px */

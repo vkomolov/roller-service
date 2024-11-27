@@ -81,8 +81,8 @@ img,picture,svg,video{
   position:relative;
 }
 
-.header__logo-wrapper{
-  width:11.875em;
+.header__logo-heading{
+  color:hsla(0,0%,86%,.5);
 }
 
 .header__contacts-wrapper{
@@ -757,6 +757,7 @@ ul{
 }
 
 .section--services{
+  background-attachment:fixed;
   background-position:70%;
   background-size:cover;
   color:#fff;
@@ -870,6 +871,7 @@ ul{
 }
 
 .section--roller-automation{
+  background-attachment:fixed;
   background-position:0;
   background-size:cover;
   color:#fff;
