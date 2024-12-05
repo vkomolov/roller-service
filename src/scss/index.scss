@@ -1047,3 +1047,23 @@
             }*/
   }
 }
+
+/////////////////// gallery ///////////////////
+#gallery-work {
+  width: 100%;
+  min-height: 50em;
+  //padding: 10px;
+  //border: 1px solid $color-01;
+  @include scroll-init(0.45em, rgba(255, 133, 2, 1), rgba(255, 133, 2, .5));
+}
+
+.gallery__item {
+  width: 20%;
+  min-width: 12.22em;
+  //padding: 1em;
+  //opacity: 0;
+  //transform: scale(0);
+  will-change: transform, scale;
+}
+
+

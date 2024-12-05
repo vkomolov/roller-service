@@ -1,6 +1,8 @@
 'use strict';
 
 import { gsap } from "gsap";
+//import Masonry from 'masonry-layout';
+import imagesLoaded from 'imagesloaded';
 
 /**
  * It checks whether the given style rule is supported for the given HTML Element
@@ -253,7 +255,7 @@ export function fountainBalls(targetElem, params = {}) {
  *     document.addEventListener("click", () => removeScrollListener());
  */
 export function scrollLimitedListener(listenerOwner, delay=300) {
-    if (!(listenerOwner instanceof HTMLElement) && window !== listenerOwner && document !== listenerOwner) {
+    if (!(document.contains(listenerOwner)) && window !== listenerOwner && document !== listenerOwner) {
         throw new Error("Provided listenerOwner at scrollLimitedListener() is not a valid DOM element.");
     }
 
@@ -344,4 +346,171 @@ export function handleScroll(isScrolled = true) {
             document.body.style.overflow = 'hidden';
         });
     }
+}
+
+export function getImagesInParent(parent) {
+    if (!(document.contains(parent)) && window !== parent && document !== parent) {
+        throw new Error("no such element in DOM");
+    }
+
+    return Array.from(parent.children).find((elem => {
+        const elemTagName = elem.tagName.toLowerCase();
+        return elemTagName === "img"
+          || elemTagName === "picture"
+          || elemTagName === "svg"
+          || elemTagName === "canvas"
+          || elemTagName === "video";
+    }));
+}
+
+/**
+ * @function getImagesLoaded
+ * @description This function checks the loading status of all images within a specified container and returns a promise.
+ * It resolves with an array of elements that contain images that have successfully loaded, filtering out those that failed to load.
+ * If any images are broken, their URLs will be logged to the console.
+ *
+ * @param {HTMLElement} container - The DOM element that contains the images to check. This element must be present in the document.
+ * @returns {Promise<Array<HTMLElement>>} A promise that resolves to an array of HTML elements (children of the container) where all images are successfully loaded.
+ *
+ * @example
+ * const container = document.querySelector('.image-container');
+ * getImagesLoaded(container).then(loadedElements => {
+ *     console.log('Loaded elements:', loadedElements);
+ * }).catch(error => {
+ *     console.error('Error loading images:', error);
+ * });
+ */
+export function getImagesLoaded(container) {
+    return new Promise((resolve, reject) => {
+        if (!document.contains(container)) {
+            reject(new Error("Container not found in DOM at getImagesLoaded..."));
+            return;
+        }
+
+        imagesLoaded(container, instance => {
+            const brokenImages = { brokenUrls: [], brokenIndexes: [] };
+
+            if (instance.hasAnyBroken) {
+                instance.images.forEach((item, index) => {
+                    if (!item.isLoaded) {
+                        brokenImages.brokenUrls.push(item.img.attributes.src.value);
+                        brokenImages.brokenIndexes.push(index);
+                    }
+                });
+
+                // Displaying a warning only if there are broken images
+                if (brokenImages.brokenUrls.length > 0) {
+                    console.warn("The following URLs of the images are not found: ", brokenImages.brokenUrls);
+                }
+            }
+
+            // Creating an array of container elements
+            const elements = Array.from(container.children);
+            // Filtering elements, excluding broken images
+            const filteredElements = elements.filter((item, index) => !brokenImages.brokenIndexes.includes(index));
+
+            // Returning the result even if the images were not broken
+            resolve(filteredElements);
+        });
+    });
+}
+
+export async function initMasonry(containerSelector, params =  {}) {
+    const options = {
+        percentPosition: false,
+        gap: 0,
+    };
+    const auxOptions = {
+        ...options,
+        ...params,
+    };
+
+    try {
+        const container = document.querySelector(containerSelector);
+        if (!container) {
+            throw new Error(`at initMasonry: no such selector ${containerSelector} found in DOM`);
+        }
+
+        container.style.position = "relative";
+        //container.style.overflow = "hidden";
+        const imagesArr = await getImagesLoaded(container);
+        const containerWidth = parseFloat(window.getComputedStyle(container).width);
+
+        log(containerWidth, "container width: ");
+
+        const { gap } = auxOptions;
+        //all image items are equal in width by css rule...
+        const styles = window.getComputedStyle(imagesArr[0]);
+        let itemWidth = parseFloat(styles.width);
+        const itemMinWidth = parseFloat(styles.minWidth);
+        itemWidth = auxOptions.percentPosition && itemMinWidth > 0 ? Math.max(itemWidth, itemMinWidth) : itemWidth;
+        log(itemWidth, "image width: ");
+
+        let totalWidth = 0;
+        let columns = 0;
+
+        while (true) {
+            if (containerWidth > (totalWidth + itemWidth)) {
+                totalWidth += itemWidth;
+                columns++;
+
+                if (containerWidth > (totalWidth + itemWidth + gap)) {
+                    totalWidth += gap;
+                }
+                else {
+                    break;
+                }
+            }
+            else {
+                break;
+            }
+        }
+
+        log(totalWidth, "totalWidth: ");
+        log(columns, "columns: ");
+
+        const leftOffset = (containerWidth - totalWidth) / 2;
+        log(leftOffset, "leftOffset: ");
+
+        const posLeftArr = new Array(columns).fill(0);
+        const posTopArr = new Array(columns).fill(0);
+
+        for (let i = 0, n = 0; i < imagesArr.length; i++) {
+            const item = imagesArr[i];
+            const itemHeight = parseFloat(window.getComputedStyle(item).height);
+
+            if (n === 0) {
+                posLeftArr[n] = leftOffset;
+            }
+
+            item.style.position = "absolute";
+            item.style.top = `${posTopArr[n]}px`;
+            item.style.left = `${posLeftArr[n]}px`;
+
+            posTopArr[n] += itemHeight;
+
+            //if the image item is not in the last row...
+            if (i < (imagesArr.length - posLeftArr.length)) {
+                posTopArr[n] += gap;
+            }
+            if (n < (posLeftArr.length - 1)) {
+                posLeftArr[n + 1] = posLeftArr[n] + itemWidth + gap;
+                n++;
+            }
+            else {
+                n = 0;
+            }
+        }
+
+        return imagesArr;
+    }
+    catch (error) {
+        console.error("at initMasonry: ", error.message);
+    }
+}
+
+
+/////// DEV
+function log(it, text="value: ") {
+    console.log(text, it );
 }

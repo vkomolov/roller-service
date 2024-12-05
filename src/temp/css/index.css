@@ -3486,3 +3486,29 @@ ul {
             }*/
   }
 }
+
+#gallery-work {
+  width: 100%;
+  min-height: 50em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  /* width */
+  /* Handle */
+  /* Track */
+}
+#gallery-work::-webkit-scrollbar {
+  width: 0.45em;
+}
+#gallery-work:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 133, 2);
+}
+#gallery-work:hover::-webkit-scrollbar-track {
+  background-color: rgba(255, 133, 2, 0.5);
+}
+
+.gallery__item {
+  width: 20%;
+  min-width: 12.22em;
+  will-change: transform, scale;
+}
