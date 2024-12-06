@@ -8,13 +8,21 @@ document.addEventListener("DOMContentLoaded", () => {
   log(totalTl, "totalTl: ");
 
   const masonryElem = initMasonry("#gallery-work", {
-    gap: 7,
+    gap: 20,
     percentPosition: true,
   })
     .then(res =>  log(res, "elements: "));
 
 
     ///////// END OF DOMContentLoaded Listener ////////////
+});
+
+window.addEventListener("resize", () => {
+  const masonryElem = initMasonry("#gallery-work", {
+    gap: 20,
+    percentPosition: true,
+  })
+    .then(res =>  log(res, "elements: "));
 });
 
 

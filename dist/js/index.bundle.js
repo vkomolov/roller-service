@@ -10075,7 +10075,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-//import Masonry from 'masonry-layout';
 
 
 /**
@@ -10398,80 +10397,143 @@ function handleScroll(isScrolled = true) {
   if (isScrolled) {
     requestAnimationFrame(() => {
       document.body.style.paddingRight = `0`;
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     });
   } else {
     requestAnimationFrame(() => {
       document.body.style.paddingRight = `${scrollbarWidth}px`;
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     });
   }
 }
+
+/**
+ * @function getImagesInParent
+ * @description Retrieves all graphical elements (img, picture, svg, canvas, video) within a given parent element.
+ *
+ * @param {HTMLElement|Document} parent - The parent element to search within.
+ *
+ * @returns {Array<HTMLElement>} An array of graphical elements found within the parent element.
+ *
+ * @throws {Error} If the provided parent element is not in the DOM.
+ *
+ * @example
+ * const parent = document.querySelector('.gallery');
+ * const images = getImagesInParent(parent);
+ * console.log(images);
+ */
 function getImagesInParent(parent) {
-  if (!document.contains(parent) && window !== parent && document !== parent) {
-    throw new Error("no such element in DOM");
+  if (parent !== document && !document.contains(parent)) {
+    throw new Error("The given parent element is not in the DOM.");
   }
-  return Array.from(parent.children).find(elem => {
-    const elemTagName = elem.tagName.toLowerCase();
-    return elemTagName === "img" || elemTagName === "picture" || elemTagName === "svg" || elemTagName === "canvas" || elemTagName === "video";
-  });
+
+  // Use querySelectorAll to get all matching elements inside the parent
+  return Array.from(parent.querySelectorAll("img, picture, svg, canvas, video"));
 }
 
 /**
  * @function getImagesLoaded
- * @description This function checks the loading status of all images within a specified container and returns a promise.
- * It resolves with an array of elements that contain images that have successfully loaded, filtering out those that failed to load.
- * If any images are broken, their URLs will be logged to the console.
+ * @description Processes all images within a given container, ensuring they are fully loaded and retrieves their dimensions.
+ * Removes broken images along with their parent elements from the DOM.
  *
- * @param {HTMLElement} container - The DOM element that contains the images to check. This element must be present in the document.
- * @returns {Promise<Array<HTMLElement>>} A promise that resolves to an array of HTML elements (children of the container) where all images are successfully loaded.
+ * @param {HTMLElement} container - The container element holding image elements or their parent blocks.
+ * @param {Object} [options={}] - Additional options for controlling how background images are detected on load.
+ * @param {boolean|string} [options.background] -
+ *   - If set to `true`, the function will also watch for the load of background images (as defined by CSS `background-image`).
+ *   - If set to a string, it specifies a CSS selector to watch for background images within elements that match this selector.
  *
- * @example
- * const container = document.querySelector('.image-container');
- * getImagesLoaded(container).then(loadedElements => {
- *     console.log('Loaded elements:', loadedElements);
- * }).catch(error => {
- *     console.error('Error loading images:', error);
- * });
+ *   Examples:
+ *   - `{ background: true }` - Will detect background images for all elements.
+ *   - `{ background: '.item' }` - Will detect background images for elements matching the `.item` selector.
  */
-function getImagesLoaded(container) {
+function getImagesLoaded(container, options = {}) {
   return new Promise((resolve, reject) => {
-    if (!document.contains(container)) {
-      reject(new Error("Container not found in DOM at getImagesLoaded..."));
-      return;
-    }
-    imagesloaded__WEBPACK_IMPORTED_MODULE_0__(container, instance => {
-      const brokenImages = {
-        brokenUrls: [],
-        brokenIndexes: []
-      };
-      if (instance.hasAnyBroken) {
+    try {
+      // Check if imagesLoaded library is available
+      if (typeof imagesloaded__WEBPACK_IMPORTED_MODULE_0__ === "undefined") {
+        reject(new Error("imagesLoaded library is not loaded. Please ensure it is included before using getImagesLoaded."));
+        return;
+      }
+      if (!container || !document.contains(container)) {
+        reject(new Error("The given container is not found in the DOM."));
+        return;
+      }
+      imagesloaded__WEBPACK_IMPORTED_MODULE_0__(container, options, instance => {
+        const brokenImages = [];
+        const loadedImagesPromises = [];
+
+        //making the static array with references to DOM elements
+        const imgArr = Array.from(container.children);
+        const getSize = img => ({
+          naturalWidth: img.naturalWidth,
+          naturalHeight: img.naturalHeight,
+          offsetWidth: img.offsetWidth,
+          offsetHeight: img.offsetHeight
+        });
+        const ensureSize = img => new Promise(res => {
+          if (img.naturalWidth > 0 && img.naturalHeight > 0) {
+            res(getSize(img));
+          } else {
+            img.onload = () => res(getSize(img));
+          }
+        });
         instance.images.forEach((item, index) => {
           if (!item.isLoaded) {
-            brokenImages.brokenUrls.push(item.img.attributes.src.value);
-            brokenImages.brokenIndexes.push(index);
+            brokenImages.push({
+              src: item.img.src,
+              elem: imgArr[index] //adding the block with the broken image
+            });
+          } else {
+            const sizePromise = ensureSize(item.img).then(size => ({
+              elem: imgArr[index],
+              size
+            }));
+            loadedImagesPromises.push(sizePromise);
           }
         });
 
-        // Displaying a warning only if there are broken images
-        if (brokenImages.brokenUrls.length > 0) {
-          console.warn("The following URLs of the images are not found: ", brokenImages.brokenUrls);
+        // Displaying a warning and removing the elements with the broken images...
+        if (brokenImages.length > 0) {
+          brokenImages.forEach(({
+            src,
+            elem
+          }) => {
+            console.warn("The following URL of the image is not found at getImagesLoaded: ", src);
+            if (elem) elem.remove();
+          });
         }
-      }
-
-      // Creating an array of container elements
-      const elements = Array.from(container.children);
-      // Filtering elements, excluding broken images
-      const filteredElements = elements.filter((item, index) => !brokenImages.brokenIndexes.includes(index));
-
-      // Returning the result even if the images were not broken
-      resolve(filteredElements);
-    });
+        resolve(Promise.all(loadedImagesPromises));
+      });
+    } catch (e) {
+      reject(new Error("Error in getImagesLoaded: " + e.message));
+    }
   });
 }
+
+/**
+ * Initializes a masonry grid layout for the specified container, positioning its child image elements.
+ * The function calculates the number of columns based on the container's width and the image item's width,
+ * and positions the images in a masonry style with specified gaps between them.
+ * If a free space in a row exists then it places the columns in the center position...
+ *
+ * @async
+ * @function initMasonry
+ * @param {string} containerSelector - The CSS selector of the container element where the masonry grid will be applied.
+ * @param {Object} [params={}] - Optional configuration parameters for masonry initialization.
+ * @param {number} [params.gap=0] - The gap (in pixels) between the items in the masonry grid. Defaults to 0.
+ *
+ * @returns {Promise<Element[]>} - A promise that resolves to an array of image elements in the container, after they have been positioned.
+ *
+ * @throws {Error} - If the specified container is not found in the DOM or if there is an issue with loading the images.
+ *
+ * @example
+ * // Initialize masonry grid with a 20px gap
+ * initMasonry('#gallery', { gap: 20 }).then((imageItems) => {
+ *   console.log('Masonry initialized and images positioned:', imageItems);
+ * });
+ */
 async function initMasonry(containerSelector, params = {}) {
   const options = {
-    percentPosition: false,
     gap: 0
   };
   const auxOptions = {
@@ -10483,64 +10545,101 @@ async function initMasonry(containerSelector, params = {}) {
     if (!container) {
       throw new Error(`at initMasonry: no such selector ${containerSelector} found in DOM`);
     }
-    container.style.position = "relative";
-    //container.style.overflow = "hidden";
     const imagesArr = await getImagesLoaded(container);
-    const containerWidth = parseFloat(window.getComputedStyle(container).width);
-    log(containerWidth, "container width: ");
+    const imageItems = [];
+
+    /**
+     * all image items are equal in width by css rule...
+     * if the image items has no equal width in the css rules, or the image items have different widths,
+     * then all the items will have the width of the first element to achieve the columns with the same width
+     * Recommended to use one .selector for all image items with the same width and styles...
+     * if the width of the image item is in percentage, then it is recommended to add min-width to the styles
+     * or to use different widths for different media...
+     */
+    const imgItem = imagesArr[0].elem;
+    const itemWidth = imgItem.offsetWidth;
+    const containerWidth = container.clientWidth; //excluding border width and scroll-bar width
+
     const {
       gap
     } = auxOptions;
-    //all image items are equal in width by css rule...
-    const styles = window.getComputedStyle(imagesArr[0]);
-    let itemWidth = parseFloat(styles.width);
-    const itemMinWidth = parseFloat(styles.minWidth);
-    itemWidth = auxOptions.percentPosition && itemMinWidth > 0 ? Math.max(itemWidth, itemMinWidth) : itemWidth;
-    log(itemWidth, "image width: ");
-    let totalWidth = 0;
-    let columns = 0;
-    while (true) {
-      if (containerWidth > totalWidth + itemWidth) {
-        totalWidth += itemWidth;
-        columns++;
-        if (containerWidth > totalWidth + itemWidth + gap) {
-          totalWidth += gap;
-        } else {
-          break;
-        }
-      } else {
-        break;
-      }
-    }
-    log(totalWidth, "totalWidth: ");
-    log(columns, "columns: ");
-    const leftOffset = (containerWidth - totalWidth) / 2;
-    log(leftOffset, "leftOffset: ");
+    const {
+      columns,
+      freeWidth
+    } = getColumnsNumber(containerWidth, itemWidth, gap);
+    const leftOffset = freeWidth / 2;
+    container.style.position = "relative";
+    container.style.overflowX = "hidden";
     const posLeftArr = new Array(columns).fill(0);
     const posTopArr = new Array(columns).fill(0);
     for (let i = 0, n = 0; i < imagesArr.length; i++) {
-      const item = imagesArr[i];
-      const itemHeight = parseFloat(window.getComputedStyle(item).height);
+      const item = imagesArr[i].elem;
+      imageItems.push(item);
+      const itemHeight = imagesArr[i].size.offsetHeight;
       if (n === 0) {
         posLeftArr[n] = leftOffset;
       }
       item.style.position = "absolute";
-      item.style.top = `${posTopArr[n]}px`;
-      item.style.left = `${posLeftArr[n]}px`;
+      item.style.top = `${Math.round(posTopArr[n])}px`;
+      item.style.left = `${Math.round(posLeftArr[n])}px`;
       posTopArr[n] += itemHeight;
 
       //if the image item is not in the last row...
       if (i < imagesArr.length - posLeftArr.length) {
         posTopArr[n] += gap;
       }
+
+      //if the image item is not the last in the row
       if (n < posLeftArr.length - 1) {
         posLeftArr[n + 1] = posLeftArr[n] + itemWidth + gap;
         n++;
       } else {
+        //starting new row...
         n = 0;
       }
     }
-    return imagesArr;
+    function getColumnsNumber(containerWidth, itemWidth, gap) {
+      const itemGapWidth = itemWidth + gap;
+      const maxColumns = Math.floor(containerWidth / itemGapWidth); // максимально возможное количество колонок
+      const usedWidth = maxColumns * itemGapWidth;
+      const remainingSpace = containerWidth - usedWidth;
+
+      // Если оставшееся пространство больше или равно ширине элемента, добавляем еще одну колонку
+      const columns = remainingSpace >= itemWidth ? maxColumns + 1 : maxColumns;
+
+      // Перерасчет оставшегося свободного пространства после размещения всех колонок
+      const freeWidth = containerWidth - (columns * itemWidth + (columns - 1) * gap);
+      return {
+        columns,
+        freeWidth
+      };
+    }
+
+    /*function getColumnsNumber(containerWidth, itemWidth, gap) {
+      let totalWidth = 0;
+      let columns = 0;
+        while (true) {
+        if (containerWidth > (totalWidth + itemWidth)) {
+          totalWidth += itemWidth;
+          columns++;
+            if (containerWidth > (totalWidth + itemWidth + gap)) {
+            totalWidth += gap;
+          }
+          else {
+            break;
+          }
+        }
+        else {
+          break;
+        }
+      }
+        return {
+        columns,
+        freeWidth: containerWidth - totalWidth,
+      };
+    }*/
+
+    return imageItems;
   } catch (error) {
     console.error("at initMasonry: ", error.message);
   }
@@ -11003,11 +11102,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalTl = (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_0__.animatePage)();
   log(totalTl, "totalTl: ");
   const masonryElem = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.initMasonry)("#gallery-work", {
-    gap: 7,
+    gap: 20,
     percentPosition: true
   }).then(res => log(res, "elements: "));
 
   ///////// END OF DOMContentLoaded Listener ////////////
+});
+window.addEventListener("resize", () => {
+  const masonryElem = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.initMasonry)("#gallery-work", {
+    gap: 20,
+    percentPosition: true
+  }).then(res => log(res, "elements: "));
 });
 
 /////// DEV

@@ -3489,7 +3489,7 @@ ul {
 
 #gallery-work {
   width: 100%;
-  min-height: 50em;
+  height: 45em;
   overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
@@ -3508,7 +3508,8 @@ ul {
 }
 
 .gallery__item {
-  width: 20%;
+  width: 30%;
   min-width: 12.22em;
   will-change: transform, scale;
+  box-shadow: 0.2em 0.2em 0.4em rgba(0, 0, 0, 0.8);
 }
