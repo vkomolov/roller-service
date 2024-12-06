@@ -3,7 +3,7 @@
 import { animatePage } from "./partials/animations.js";
 import { createMasonry, lockedEventListener } from "./helpers/funcsDOM.js";
 
-lockedEventListener("resize", window, 3000)(() => {
+lockedEventListener("resize", window, 2000)(() => {
   createMasonry("#gallery-work", {
     gap: 20,
   })

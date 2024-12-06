@@ -11097,7 +11097,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.lockedEventListener)("resize", window, 3000)(() => {
+(0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.lockedEventListener)("resize", window, 2000)(() => {
   (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.createMasonry)("#gallery-work", {
     gap: 20
   }).then(res => log(res, "elements at window resize: "));

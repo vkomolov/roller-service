@@ -899,7 +899,7 @@ ul{
   box-shadow:.2em .2em .4em rgba(0,0,0,.8);
   min-width:12.22em;
   width:30%;
-  will-change:transform, scale;
+  will-change:transform, opacity;
 }
 
 @media (min-width:1025px){

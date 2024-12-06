@@ -3510,6 +3510,6 @@ ul {
 .gallery__item {
   width: 30%;
   min-width: 12.22em;
-  will-change: transform, scale;
+  will-change: transform, opacity;
   box-shadow: 0.2em 0.2em 0.4em rgba(0, 0, 0, 0.8);
 }
