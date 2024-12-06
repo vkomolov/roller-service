@@ -1,30 +1,27 @@
 'use strict';
 
 import { animatePage } from "./partials/animations.js";
-import { initMasonry } from "./helpers/funcsDOM.js";
+import { createMasonry, lockedEventListener } from "./helpers/funcsDOM.js";
+
+lockedEventListener("resize", window, 3000)(() => {
+  createMasonry("#gallery-work", {
+    gap: 20,
+  })
+    .then(res =>  log(res, "elements at window resize: "));
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const totalTl = animatePage();
   log(totalTl, "totalTl: ");
 
-  const masonryElem = initMasonry("#gallery-work", {
+  createMasonry("#gallery-work", {
     gap: 20,
-    percentPosition: true,
   })
     .then(res =>  log(res, "elements: "));
 
 
     ///////// END OF DOMContentLoaded Listener ////////////
 });
-
-window.addEventListener("resize", () => {
-  const masonryElem = initMasonry("#gallery-work", {
-    gap: 20,
-    percentPosition: true,
-  })
-    .then(res =>  log(res, "elements: "));
-});
-
 
 
 /////// DEV

@@ -10059,15 +10059,15 @@ return ImagesLoaded;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createMasonry: function() { return /* binding */ createMasonry; },
 /* harmony export */   customTargetStyleOnScroll: function() { return /* binding */ customTargetStyleOnScroll; },
 /* harmony export */   fountainBalls: function() { return /* binding */ fountainBalls; },
 /* harmony export */   getImagesInParent: function() { return /* binding */ getImagesInParent; },
 /* harmony export */   getImagesLoaded: function() { return /* binding */ getImagesLoaded; },
-/* harmony export */   handleScroll: function() { return /* binding */ handleScroll; },
-/* harmony export */   initMasonry: function() { return /* binding */ initMasonry; },
 /* harmony export */   isStyleSupported: function() { return /* binding */ isStyleSupported; },
+/* harmony export */   lockScroll: function() { return /* binding */ lockScroll; },
+/* harmony export */   lockedEventListener: function() { return /* binding */ lockedEventListener; },
 /* harmony export */   migrateElement: function() { return /* binding */ migrateElement; },
-/* harmony export */   scrollLimitedListener: function() { return /* binding */ scrollLimitedListener; },
 /* harmony export */   setAttributes: function() { return /* binding */ setAttributes; }
 /* harmony export */ });
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
@@ -10303,30 +10303,30 @@ function fountainBalls(targetElem, params = {}) {
 }
 
 /**
- * A function that adds a scroll event listener to a DOM element, window, or document,
- * with a delay to limit the number of times the callback function is triggered during scroll events.
- * It prevents the callback from being called too frequently by using a "lock" mechanism.
+ * It creates a debounced event listener that ensures the provided callback is called
+ * only after a specified delay, regardless of how frequently the event is triggered.
  *
- * @param {HTMLElement|Window|Document} listenerOwner - The DOM element, window, or document to listen for scroll events.
- * @param {number} [delay=300] - The delay (in milliseconds) between consecutive callback executions. Defaults to 300ms.
- * @returns {Function} A function that accepts a callback and parameters, and returns another function to remove the scroll event listener.
- *
- * @throws {Error} If the listenerOwner is not a valid DOM element, window, or document.
+ * @param {string} event - The name of the event to listen for (e.g., "click", "scroll").
+ * @param {HTMLElement|Window|Document} listenerOwner - The target element, window, or document
+ *   that will receive the event listener.
+ * @param {number} [delay=300] - The delay in milliseconds before the callback is executed
+ *   after the event is triggered. Defaults to 300ms.
+ * @returns {Function} A function that accepts a callback (`cb`) and optional parameters (`params`).
+ *   This function attaches the event listener with debouncing behavior. The returned function
+ *   also returns another function for removing the event listener.
  *
  * @example
- * // Example of using scrollLimitedListener with the window object
- * const initScrollLimiter = scrollLimitedListener(window, 700);
- *     const removeScrollListener = initScrollLimiter(() => {
- *         const scrollY = window.scrollY || document.documentElement.scrollTop;
- *         console.log(scrollY); // Logs scroll position
- *     });
+ * const removeClickListener = lockedEventListener("click", document.body, 500)(
+ *   () => console.log("Click event triggered!"),
+ *   []
+ * );
  *
- *     // Remove the scroll listener on click
- *     document.addEventListener("click", () => removeScrollListener());
+ * // To remove the listener:
+ * removeClickListener();
  */
-function scrollLimitedListener(listenerOwner, delay = 300) {
-  if (!document.contains(listenerOwner) && window !== listenerOwner && document !== listenerOwner) {
-    throw new Error("Provided listenerOwner at scrollLimitedListener() is not a valid DOM element.");
+function lockedEventListener(event, listenerOwner, delay = 300) {
+  if (window !== listenerOwner && document !== listenerOwner && !document.contains(listenerOwner)) {
+    throw new Error("Provided listenerOwner at lockedEventListener() is not a valid DOM element...");
   }
   let isLocked = false;
   return (cb, params = []) => {
@@ -10339,12 +10339,36 @@ function scrollLimitedListener(listenerOwner, delay = 300) {
         }, delay);
       }
     };
-    listenerOwner.addEventListener("scroll", handler);
+    listenerOwner.addEventListener(event, handler);
     return () => {
-      listenerOwner.removeEventListener("scroll", handler);
+      listenerOwner.removeEventListener(event, handler);
     };
   };
 }
+
+/**
+ * Adds or removes a class on a target element based on the scroll position of a trigger element.
+ * The class is added when the trigger element is scrolled past the top of the viewport,
+ * and removed when the trigger element is scrolled back above the viewport.
+ *
+ * The function ensures that the class is only toggled once per specified time interval during scrolling,
+ * preventing excessive animations or layout changes.
+ *
+ * @param {HTMLElement} target - The DOM element that will have the class added or removed based on scroll position.
+ * @param {HTMLElement} trigger - The DOM element that triggers the style change when it reaches the top of the viewport.
+ * @param {string} classActivation - The CSS class that will be added or removed on the target element.
+ * @param {HTMLElement|Window|Document} [scrollOwner=window] - The element or object that will be used to track the scroll event. Default is the `window`.
+ * @param {number} [scrollTimeLimit=300] - The time delay in milliseconds to limit the frequency of scroll event handling. Default is 300ms.
+ *
+ * @example
+ * customTargetStyleOnScroll(
+ *   document.querySelector(".target"),
+ *   document.querySelector(".trigger"),
+ *   "scrolled",
+ *   window,
+ *   200
+ * );
+ */
 function customTargetStyleOnScroll(target, trigger, classActivation, scrollOwner = window, scrollTimeLimit = 300) {
   if (!document.contains(target) || !document.contains(trigger)) {
     throw new Error("at initTopAppearanceOnScroll(): the given target or trigger are not found in DOM...");
@@ -10355,7 +10379,7 @@ function customTargetStyleOnScroll(target, trigger, classActivation, scrollOwner
    * @type {boolean}
    */
   let isScrolledActive = false;
-  const initScrollLimiter = scrollLimitedListener(scrollOwner, scrollTimeLimit);
+  const initScrollLimiter = lockedEventListener("scroll", scrollOwner, scrollTimeLimit);
   initScrollLimiter(() => {
     const triggerTop = trigger.getBoundingClientRect().top;
     if (triggerTop <= 0) {
@@ -10392,7 +10416,7 @@ function setAttributes(elements = [], targetAttr = {}) {
     });
   });
 }
-function handleScroll(isScrolled = true) {
+function lockScroll(isScrolled = true) {
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
   if (isScrolled) {
     requestAnimationFrame(() => {
@@ -10532,7 +10556,7 @@ function getImagesLoaded(container, options = {}) {
  *   console.log('Masonry initialized and images positioned:', imageItems);
  * });
  */
-async function initMasonry(containerSelector, params = {}) {
+async function createMasonry(containerSelector, params = {}) {
   const options = {
     gap: 0
   };
@@ -10614,31 +10638,6 @@ async function initMasonry(containerSelector, params = {}) {
         freeWidth
       };
     }
-
-    /*function getColumnsNumber(containerWidth, itemWidth, gap) {
-      let totalWidth = 0;
-      let columns = 0;
-        while (true) {
-        if (containerWidth > (totalWidth + itemWidth)) {
-          totalWidth += itemWidth;
-          columns++;
-            if (containerWidth > (totalWidth + itemWidth + gap)) {
-            totalWidth += gap;
-          }
-          else {
-            break;
-          }
-        }
-        else {
-          break;
-        }
-      }
-        return {
-        columns,
-        freeWidth: containerWidth - totalWidth,
-      };
-    }*/
-
     return imageItems;
   } catch (error) {
     console.error("at initMasonry: ", error.message);
@@ -10862,7 +10861,7 @@ const pageAnimations = {
           navMenuAnime.reverse();
 
           //returning scroll to the page...
-          //handleScroll(true);
+          //lockScroll(true);
           document.body.style.overflow = "auto";
         }
       }
@@ -10883,12 +10882,12 @@ const pageAnimations = {
           if (isExpanded) {
             burgerHidden.classList.remove("opened");
             burgerFixed.classList.remove("opened");
-            //handleScroll(true);
+            //lockScroll(true);
             document.body.style.overflow = "auto";
           } else {
             burgerHidden.classList.add("opened");
             burgerFixed.classList.add("opened");
-            //handleScroll(false);
+            //lockScroll(false);
             document.body.style.overflow = "hidden";
           }
           if (isExpanded) {
@@ -11098,21 +11097,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+(0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.lockedEventListener)("resize", window, 3000)(() => {
+  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.createMasonry)("#gallery-work", {
+    gap: 20
+  }).then(res => log(res, "elements at window resize: "));
+});
 document.addEventListener("DOMContentLoaded", () => {
   const totalTl = (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_0__.animatePage)();
   log(totalTl, "totalTl: ");
-  const masonryElem = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.initMasonry)("#gallery-work", {
-    gap: 20,
-    percentPosition: true
+  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.createMasonry)("#gallery-work", {
+    gap: 20
   }).then(res => log(res, "elements: "));
 
   ///////// END OF DOMContentLoaded Listener ////////////
-});
-window.addEventListener("resize", () => {
-  const masonryElem = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.initMasonry)("#gallery-work", {
-    gap: 20,
-    percentPosition: true
-  }).then(res => log(res, "elements: "));
 });
 
 /////// DEV

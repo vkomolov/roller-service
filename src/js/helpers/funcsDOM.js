@@ -232,30 +232,30 @@ export function fountainBalls(targetElem, params = {}) {
 }
 
 /**
- * A function that adds a scroll event listener to a DOM element, window, or document,
- * with a delay to limit the number of times the callback function is triggered during scroll events.
- * It prevents the callback from being called too frequently by using a "lock" mechanism.
+ * It creates a debounced event listener that ensures the provided callback is called
+ * only after a specified delay, regardless of how frequently the event is triggered.
  *
- * @param {HTMLElement|Window|Document} listenerOwner - The DOM element, window, or document to listen for scroll events.
- * @param {number} [delay=300] - The delay (in milliseconds) between consecutive callback executions. Defaults to 300ms.
- * @returns {Function} A function that accepts a callback and parameters, and returns another function to remove the scroll event listener.
- *
- * @throws {Error} If the listenerOwner is not a valid DOM element, window, or document.
+ * @param {string} event - The name of the event to listen for (e.g., "click", "scroll").
+ * @param {HTMLElement|Window|Document} listenerOwner - The target element, window, or document
+ *   that will receive the event listener.
+ * @param {number} [delay=300] - The delay in milliseconds before the callback is executed
+ *   after the event is triggered. Defaults to 300ms.
+ * @returns {Function} A function that accepts a callback (`cb`) and optional parameters (`params`).
+ *   This function attaches the event listener with debouncing behavior. The returned function
+ *   also returns another function for removing the event listener.
  *
  * @example
- * // Example of using scrollLimitedListener with the window object
- * const initScrollLimiter = scrollLimitedListener(window, 700);
- *     const removeScrollListener = initScrollLimiter(() => {
- *         const scrollY = window.scrollY || document.documentElement.scrollTop;
- *         console.log(scrollY); // Logs scroll position
- *     });
+ * const removeClickListener = lockedEventListener("click", document.body, 500)(
+ *   () => console.log("Click event triggered!"),
+ *   []
+ * );
  *
- *     // Remove the scroll listener on click
- *     document.addEventListener("click", () => removeScrollListener());
+ * // To remove the listener:
+ * removeClickListener();
  */
-export function scrollLimitedListener(listenerOwner, delay = 300) {
-  if (!(document.contains(listenerOwner)) && window !== listenerOwner && document !== listenerOwner) {
-    throw new Error("Provided listenerOwner at scrollLimitedListener() is not a valid DOM element.");
+export function lockedEventListener(event, listenerOwner, delay = 300) {
+  if (window !== listenerOwner && document !== listenerOwner && !(document.contains(listenerOwner))) {
+    throw new Error("Provided listenerOwner at lockedEventListener() is not a valid DOM element...");
   }
 
   let isLocked = false;
@@ -271,14 +271,37 @@ export function scrollLimitedListener(listenerOwner, delay = 300) {
       }
     };
 
-    listenerOwner.addEventListener("scroll", handler);
+    listenerOwner.addEventListener(event, handler);
 
     return () => {
-      listenerOwner.removeEventListener("scroll", handler);
+      listenerOwner.removeEventListener(event, handler);
     };
   };
 }
 
+/**
+ * Adds or removes a class on a target element based on the scroll position of a trigger element.
+ * The class is added when the trigger element is scrolled past the top of the viewport,
+ * and removed when the trigger element is scrolled back above the viewport.
+ *
+ * The function ensures that the class is only toggled once per specified time interval during scrolling,
+ * preventing excessive animations or layout changes.
+ *
+ * @param {HTMLElement} target - The DOM element that will have the class added or removed based on scroll position.
+ * @param {HTMLElement} trigger - The DOM element that triggers the style change when it reaches the top of the viewport.
+ * @param {string} classActivation - The CSS class that will be added or removed on the target element.
+ * @param {HTMLElement|Window|Document} [scrollOwner=window] - The element or object that will be used to track the scroll event. Default is the `window`.
+ * @param {number} [scrollTimeLimit=300] - The time delay in milliseconds to limit the frequency of scroll event handling. Default is 300ms.
+ *
+ * @example
+ * customTargetStyleOnScroll(
+ *   document.querySelector(".target"),
+ *   document.querySelector(".trigger"),
+ *   "scrolled",
+ *   window,
+ *   200
+ * );
+ */
 export function customTargetStyleOnScroll(target, trigger, classActivation, scrollOwner = window, scrollTimeLimit = 300) {
   if (!document.contains(target) || !document.contains(trigger)) {
     throw new Error("at initTopAppearanceOnScroll(): the given target or trigger are not found in DOM...");
@@ -290,7 +313,7 @@ export function customTargetStyleOnScroll(target, trigger, classActivation, scro
    */
   let isScrolledActive = false;
 
-  const initScrollLimiter = scrollLimitedListener(scrollOwner, scrollTimeLimit);
+  const initScrollLimiter = lockedEventListener("scroll", scrollOwner, scrollTimeLimit);
   initScrollLimiter(() => {
     const triggerTop = trigger.getBoundingClientRect().top;
 
@@ -332,7 +355,7 @@ export function setAttributes(elements = [], targetAttr = {}) {
   });
 }
 
-export function handleScroll(isScrolled = true) {
+export function lockScroll(isScrolled = true) {
   const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
   if (isScrolled) {
     requestAnimationFrame(() => {
@@ -478,7 +501,7 @@ export function getImagesLoaded(container, options = {}) {
  *   console.log('Masonry initialized and images positioned:', imageItems);
  * });
  */
-export async function initMasonry(containerSelector, params = {}) {
+export async function createMasonry(containerSelector, params = {}) {
   const options = {
     gap: 0,
   };
@@ -562,33 +585,6 @@ export async function initMasonry(containerSelector, params = {}) {
 
       return { columns, freeWidth };
     }
-
-    /*function getColumnsNumber(containerWidth, itemWidth, gap) {
-      let totalWidth = 0;
-      let columns = 0;
-
-      while (true) {
-        if (containerWidth > (totalWidth + itemWidth)) {
-          totalWidth += itemWidth;
-          columns++;
-
-          if (containerWidth > (totalWidth + itemWidth + gap)) {
-            totalWidth += gap;
-          }
-          else {
-            break;
-          }
-        }
-        else {
-          break;
-        }
-      }
-
-      return {
-        columns,
-        freeWidth: containerWidth - totalWidth,
-      };
-    }*/
 
     return imageItems;
   }
