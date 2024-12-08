@@ -50,35 +50,54 @@
   gap: 0.5em 1em;
 }
 
-.phone-link {
+.icon-link {
   text-decoration: none;
   transform-origin: 100% 50%;
+  transition: transform 0.15s ease-in-out, text-shadow 0.15s ease-in-out;
 
   @include flex-box($flex-box-row-center-nowrap...);
-  @include transition();
-
   gap: 0.3em;
 
   &:hover {
-    transform: scale(1.03);
+    transform: translateX(-0.3em);
+
+    @include text-shadow(0, 0.5em, rgba(255, 255, 255, 1));
   }
 
   &__phone-icon {
-    width: 1.375em;
+    width: 1.2em;
     fill: $color-01;
   }
 
-  span {
+  &__social-icon {
+    width: 1.375em;
+  }
+
+  &__text {
     font-family: "Jost", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: $color_01;
+    line-height: 1;
 
-    @include init-font(1.375em, 700);
+    &.icon-link__text--phone {
+      color: $color_01;
 
-    /* mobile (landscape): (max-width: 768px)*/
-    @include maxMobileLandscape {
-      font-size: 1.2em;
+      @include init-font(1.375em, 700);
+
+      /* mobile (landscape): (max-width: 768px)*/
+      @include maxMobileLandscape {
+        font-size: 1.2em;
+      }
+    }
+
+    &.icon-link__text--social-icon {
+      color: $white;
+      @include init-font(1em, 700);
+
+      /* mobile (landscape): (max-width: 768px)*/
+      @include maxMobileLandscape {
+        font-size: 0.8em;
+      }
     }
   }
 }
@@ -86,15 +105,15 @@
 .social-icons-wrapper {
   @include flex-box($flex-box-row-center-nowrap...);
   gap: 0.6em;
+}
 
-  &__social-icon {
-    width: 1.8em;
+.social-icons-wrapper__social-icon {
+  width: 1.8em;
 
-    @include transition();
+  @include transition(transform);
 
-    &:hover {
-      transform: scale(1.1);
-    }
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
@@ -181,12 +200,12 @@
   }
 }
 
-.header__nav-link {
+.nav-link {
   text-decoration: none;
   color: $color-01;
 
   @include text-shadow(0.05em, 0.05em);
-  @include transition();
+  @include transition(transform);
 
   &:hover {
     color: $color-01-darken;
@@ -311,7 +330,7 @@
     @include flex-box($flex-box-row-center-wrap...);
   }
 
-  .phone-link {
+  .icon-link {
     span {
       /* mobile (medium): (max-width: 375px) */
       @include maxMobileMedium {
@@ -320,7 +339,7 @@
     }
   }
 
-  .phone-link__phone-icon {
+  .icon-link__phone-icon {
     /* mobile (portrait narrow): (max-width: 480px)*/
     @include maxMobilePortraitNarrow {
       //width: 1.1em;

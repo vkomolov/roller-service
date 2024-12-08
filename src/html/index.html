@@ -9,20 +9,20 @@
         <div class="scrolledNav__contacts-block">
           <a href="tel:380991019368"
              aria-label="Мобільний зв'язок з майстром"
-             class="phone-link"
+             class="icon-link"
              tabindex="0"
           >
-            <div class="phone-link__phone-icon">
+            <div class="icon-link__phone-icon">
               <svg viewBox="0 0 24 25">
                 <title>phone icon</title>
                 <use xlink:href="assets/img/svgIcons/sprite.mono.svg#phone"></use>
               </svg>
             </div>
-            <span>+38 (099) 101 93 68</span>
+            <span class="icon-link__text icon-link__text--phone">+38 (099) 101 93 68</span>
           </a>
           <div class="social-icons-wrapper">
             <a href="viber://chat?number=+380991019368"
-               aria-label="Viber Chat with Master"
+               aria-label="Спілкуватися з майстром через Viber"
                class="social-icons-wrapper__social-icon"
                tabindex="0">
               <svg viewBox="0 0 48 48">
@@ -32,7 +32,7 @@
             </a>
             <a href="https://t.me/username"
                target="_blank"
-               aria-label="Telegram Chat with Master"
+               aria-label="Спілкуватися з майстром через Telegram"
                rel="noopener noreferrer nofollow"
                class="social-icons-wrapper__social-icon"
             >
@@ -43,7 +43,7 @@
             </a>
             <button
                 class="burger_nav"
-                aria-label="Навігація послуг"
+                aria-label="Навігація до послуг"
                 aria-expanded="false"
                 tabindex="0">
               <span></span>
@@ -51,48 +51,48 @@
           </div>
         </div>
       </div>
-      <nav class="header__nav abs" aria-label="Навігація послуг" aria-expanded="false">
+      <nav class="header__nav abs" aria-label="Навігація до послуг" aria-expanded="false">
         <div class="header__nav-list-wrapper">
           <ul class="header__nav-list">
             <li><a href="#securityShuttersSection"
-                   class="header__nav-link"
-                   aria-label="Перейти к розділу Ролети"
+                   class="nav-link"
+                   aria-label="Перейти к розділу 'Ролети'"
                    tabindex="0">
               Ролети
             </a></li>
             <li><a href="#gatesSection"
-                   class="header__nav-link"
-                   aria-label="Перейти к розділу Ворота"
+                   class="nav-link"
+                   aria-label="Перейти к розділу 'Ворота'"
                    tabindex="0">
               Ворота
             </a></li>
             <li><a href="#securitySurveillanceSection"
-                   class="header__nav-link"
-                   aria-label="Перейти к розділу Відеонагляд"
+                   class="nav-link"
+                   aria-label="Перейти к розділу 'Відеонагляд'"
                    tabindex="0">
               Відеонагляд
             </a></li>
             <li><a href="#rollerShuttersAutomation"
-                   class="header__nav-link"
-                   aria-label="Перейти к розділу Автоматизація"
+                   class="nav-link"
+                   aria-label="Перейти к розділу 'Автоматизація'"
                    tabindex="0">
               Автоматизація
             </a></li>
             <li><a href="#barrierSection"
-                   class="header__nav-link"
-                   aria-label="Перейти к розділу Шлагбауми"
+                   class="nav-link"
+                   aria-label="Перейти к розділу 'Шлагбауми'"
                    tabindex="0">
               Шлагбауми
             </a></li>
             <li><a href="#windowSection"
-                   class="header__nav-link"
-                   aria-label="Перейти к розділу Вікна та двері"
+                   class="nav-link"
+                   aria-label="Перейти к розділу 'Вікна та двері'"
                    tabindex="0">
               Вікна та двері
             </a></li>
             <li><a href="#awningsSection"
-                   class="header__nav-link"
-                   aria-label="Перейти к розділу Маркізи"
+                   class="nav-link"
+                   aria-label="Перейти к розділу 'Маркізи'"
                    tabindex="0">
               Маркізи
             </a></li>
@@ -126,7 +126,7 @@
                 class="button-request"
                 data-type="general"
                 onclick="window.location.href='tel:380991019368'"
-                aria-label="Зв’язок з фахівцем"
+                aria-label="Мобільний зв’язок з фахівцем"
                 tabindex="0">
               Зв’язок з фахівцем
             </button>
@@ -261,11 +261,11 @@
           <div class="section__content-block section__content-block--row-right flex-gap-02-01">
             <div class="section__bidding-block section__bidding-block--services">
               <p>Оберить послугу</p>
-              <nav class="hexagon-comb-block" aria-label="navigation menu of the services" data-type="scale-in">
+              <nav class="hexagon-comb-block" aria-label="Навігація до послуг" data-type="scale-in">
                 <a href="#gatesSection"
                    class="hexagon-comb-block__cell-link"
                    title="Перейти до послуги"
-                   aria-label="Виготовлення та ремонт воріт"
+                   aria-label="Перейти до ремонту воріт"
                    tabindex="0">
                   <img
                       src="../assets/img/servicesSection/gates_installation/gates_installation.png"
@@ -277,7 +277,7 @@
                 <a href="#securityShuttersSection"
                    class="hexagon-comb-block__cell-link"
                    title="Перейти до послуги"
-                   aria-label="Монтаж та ремонт захісних ролет"
+                   aria-label="Перейти до монтажу та ремонту захісних ролет"
                    tabindex="0">
                   <img
                       src="../assets/img/servicesSection/shutters_installation/shutters_installation.png"
@@ -289,7 +289,7 @@
                 <a href="#rollerShuttersAutomation"
                    class="hexagon-comb-block__cell-link"
                    title="Перейти до послуги"
-                   aria-label="Автоматизація воріт та захисних ролет"
+                   aria-label="Перейти до автоматизації воріт та захисних ролет"
                    tabindex="0">
                   <img
                       src="../assets/img/servicesSection/roller_automation/roller_automation.png"
@@ -301,7 +301,7 @@
                 <a href="#barrierSection"
                    class="hexagon-comb-block__cell-link"
                    title="Перейти до послуги"
-                   aria-label="Встановлення та ремонт шлагбаумів"
+                   aria-label="Перейти до встановлення та ремонту шлагбаумів"
                    tabindex="0">
                   <img
                       src="../assets/img/servicesSection/barrier_installation/barrier.png"
@@ -313,7 +313,7 @@
                 <a href="#awningsSection"
                    class="hexagon-comb-block__cell-link"
                    title="Перейти до послуги"
-                   aria-label="Виготовлення, монтаж та ремонт маркіз"
+                   aria-label="Перейти до виготовлення, монтажу та ремонту маркіз"
                    tabindex="0">
                   <img
                       src="../assets/img/servicesSection/awnings_installation/awnings.png"
@@ -325,7 +325,7 @@
                 <a href="#securitySurveillanceSection"
                    class="hexagon-comb-block__cell-link"
                    title="Перейти до послуги"
-                   aria-label="Встановлення систем охорони та відеонагляду"
+                   aria-label="Перейти до встановлення систем охорони та відеонагляду"
                    tabindex="0">
                   <img
                       src="../assets/img/servicesSection/surveillance_installation/surveillance_installation.png"
@@ -337,7 +337,7 @@
                 <a href="#windowSection"
                    class="hexagon-comb-block__cell-link"
                    title="Перейти до послуги"
-                   aria-label="Бронювання та ремонт вікон і дверей"
+                   aria-label="Перейти до бронювання та ремонту вікон і дверей"
                    tabindex="0">
                   <img
                       src="../assets/img/servicesSection/window_hardening/window_hardening.png"
@@ -416,7 +416,7 @@
                   class="button-request"
                   data-type="gates automation"
                   onclick="window.location.href='tel:380991019368'"
-                  aria-label="Зв’язок з фахівцем"
+                  aria-label="Мобільний зв’язок з фахівцем"
                   tabindex="0">Зв’язок з фахівцем
               </button>
             </div>
@@ -492,7 +492,7 @@
                   class="button-request"
                   data-type="shutters"
                   onclick="window.location.href='tel:380991019368'"
-                  aria-label="Зв’язок з фахівцем"
+                  aria-label="Мобільний зв’язок з фахівцем"
                   tabindex="0">
                 Зв’язок з фахівцем
               </button>
@@ -530,7 +530,7 @@
                   class="button-request"
                   data-type="shutters automation"
                   onclick="window.location.href='tel:380991019368'"
-                  aria-label="Зв’язок з фахівцем"
+                  aria-label="Мобільний зв’язок з фахівцем"
                   tabindex="0">
                 Зв’язок з фахівцем
               </button>
@@ -568,7 +568,7 @@
                   class="button-request"
                   data-type="barrier"
                   onclick="window.location.href='tel:380991019368'"
-                  aria-label="Зв’язок з фахівцем"
+                  aria-label="Мобільний зв’язок з фахівцем"
                   tabindex="0">
                 Зв’язок з фахівцем
               </button>
@@ -659,7 +659,7 @@
                   class="button-request"
                   data-type="awnings"
                   onclick="window.location.href='tel:380991019368'"
-                  aria-label="Зв’язок з фахівцем"
+                  aria-label="Мобільний зв’язок з фахівцем"
                   tabindex="0">
                 Зв’язок з фахівцем
               </button>
@@ -750,7 +750,7 @@
                   class="button-request"
                   data-type="surveillance"
                   onclick="window.location.href='tel:380991019368'"
-                  aria-label="Зв’язок з фахівцем"
+                  aria-label="Мобільний зв’язок з фахівцем"
                   tabindex="0">
                 Зв’язок з фахівцем
               </button>
@@ -828,7 +828,7 @@
                   class="button-request"
                   data-type="window"
                   onclick="window.location.href='tel:380991019368'"
-                  aria-label="Зв’язок з фахівцем"
+                  aria-label="Мобільний зв'язок з фахівцем"
                   tabindex="0">
                 Зв’язок з фахівцем
               </button>

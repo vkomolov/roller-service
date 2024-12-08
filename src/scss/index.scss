@@ -149,7 +149,7 @@
   width: 100%;
   display: flex;
 
-  @include transition();  //transition all
+  //@include transition();  //transition all
 
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
@@ -304,6 +304,7 @@
 /////////// section "hero" //////////
 .section--hero {
   background-position: 75%;
+  background-repeat: no-repeat;
   background-size: cover;
 
   /* tablet (portrait): (min-width: 1025px) */

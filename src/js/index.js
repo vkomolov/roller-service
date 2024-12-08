@@ -7,17 +7,23 @@ lockedEventListener("resize", window, 2000)(() => {
   createMasonry("#gallery-work", {
     gap: 20,
   })
-    .then(res =>  log(res, "elements at window resize: "));
+    .catch(error => {
+      console.error(error);
+    })
+  //.then(res =>  log(res, "elements: "));
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const totalTl = animatePage();
-  log(totalTl, "totalTl: ");
+  //log(totalTl, "totalTl: ");
 
   createMasonry("#gallery-work", {
     gap: 20,
   })
-    .then(res =>  log(res, "elements: "));
+    .catch(error => {
+      console.error(error);
+    })
+    //.then(res =>  log(res, "elements: "));
 
 
     ///////// END OF DOMContentLoaded Listener ////////////

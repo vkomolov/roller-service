@@ -2018,35 +2018,53 @@ img, svg, picture, video {
   gap: 0.5em 1em;
 }
 
-.phone-link {
+.icon-link {
   text-decoration: none;
   transform-origin: 100% 50%;
+  transition: transform 0.15s ease-in-out, text-shadow 0.15s ease-in-out;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  transition: 0.15s ease-in-out;
   gap: 0.3em;
 }
-.phone-link:hover {
-  transform: scale(1.03);
+.icon-link:hover {
+  transform: translateX(-0.3em);
+  text-shadow: 0 0 0.5em rgb(255, 255, 255);
 }
-.phone-link__phone-icon {
-  width: 1.375em;
+.icon-link__phone-icon {
+  width: 1.2em;
   fill: rgb(255, 133, 2);
 }
-.phone-link span {
+.icon-link__social-icon {
+  width: 1.375em;
+}
+.icon-link__text {
   font-family: "Jost", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1;
+}
+.icon-link__text.icon-link__text--phone {
   color: rgb(255, 133, 2);
   font-size: 1.375em;
   font-weight: 700;
   /* mobile (landscape): (max-width: 768px)*/
 }
 @media (max-width: 768px) {
-  .phone-link span {
+  .icon-link__text.icon-link__text--phone {
     font-size: 1.2em;
+  }
+}
+.icon-link__text.icon-link__text--social-icon {
+  color: rgb(255, 255, 255);
+  font-size: 1em;
+  font-weight: 700;
+  /* mobile (landscape): (max-width: 768px)*/
+}
+@media (max-width: 768px) {
+  .icon-link__text.icon-link__text--social-icon {
+    font-size: 0.8em;
   }
 }
 
@@ -2057,9 +2075,10 @@ img, svg, picture, video {
   align-items: center;
   gap: 0.6em;
 }
+
 .social-icons-wrapper__social-icon {
   width: 1.8em;
-  transition: 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
 }
 .social-icons-wrapper__social-icon:hover {
   transform: scale(1.1);
@@ -2161,13 +2180,13 @@ img, svg, picture, video {
   }
 }
 
-.header__nav-link {
+.nav-link {
   text-decoration: none;
   color: rgb(255, 133, 2);
   text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.8);
-  transition: 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out;
 }
-.header__nav-link:hover {
+.nav-link:hover {
   color: rgb(204, 82, 0);
   text-shadow: 0.07em 0.07em 0.07em rgba(0, 0, 0, 0.8);
   transform: translateY(-0.1em);
@@ -2282,10 +2301,10 @@ img, svg, picture, video {
     align-items: center;
   }
 }
-.scrolledNav__contacts-block .phone-link span {
+.scrolledNav__contacts-block .icon-link span {
   /* mobile (medium): (max-width: 375px) */
 }
-.scrolledNav__contacts-block .phone-link__phone-icon {
+.scrolledNav__contacts-block .icon-link__phone-icon {
   /* mobile (portrait narrow): (max-width: 480px)*/
 }
 .scrolledNav__contacts-block .social-icons-wrapper__social-icon {
@@ -2294,6 +2313,205 @@ img, svg, picture, video {
 .scrolledNav__contacts-block .burger_nav {
   /* mobile (medium): (max-width: 375px) */
 }
+/**
+ * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  line-height: 1;
+  scroll-behavior: smooth;
+}
+
+/* Universal reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li, hr,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, img, audio, svg, picture, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+img, audio, svg, picture, canvas, video, object, iframe, embed {
+  display: block;
+}
+
+/* Improve image quality when scaled in IE 7 */
+img, object, video, canvas {
+  -ms-interpolation-mode: bicubic;
+  image-rendering: auto;
+}
+
+*:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Links styling */
+a {
+  display: inline-block;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  display: inline-block;
+  font-size: 100%;
+  text-transform: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  resize: none;
+  line-height: normal;
+  vertical-align: baseline;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/* Reset button styles */
+button:active,
+button:focus {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: none;
+}
+
+/* Search input styles */
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-appearance: none;
+  box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Checkbox and radio button sizing */
+input[type=checkbox],
+input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+  height: 13px;
+  width: 13px;
+}
+
+/* Remove default spacing between table cells */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  display: block;
+  border: 0;
+  padding: 0;
+  white-space: normal;
+}
+
+label {
+  cursor: pointer;
+}
+
+/* Remove most spacing between blockquotes and quotes */
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+}
+
+/* Remove list-style for ordered and unordered lists */
+ul {
+  list-style: none;
+}
+
+/* Selection styles */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* Hidden elements */
+[hidden] {
+  display: none;
+}
+
+/* retina display (2x) */
+/* large desktop: (min-width: 1921px) */
+/* desktop max-width: 1920px */
+/* desktop: (max-width: 1920px) and (min-width: 1441px) */
+/* laptop max-width: 1440px*/
+/* laptop:(max-width: 1440px) and (min-width: 1281px) */
+/* tablet (landscape) max-width: 1280px */
+/* tablet (landscape) min-width: 1281px */
+/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
+/* tablet (portrait): (min-width: 1025px) */
+/* tablet (portrait): (max-width: 1024px) */
+/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
+/* mobile (landscape): (max-width: 768px)*/
+/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
+/* mobile (portrait wide): (max-width: 640px) */
+/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
+/* mobile (portrait narrow): (max-width: 480px)*/
+/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
+/* mobile (medium): (max-width: 375px) */
+/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
+/* mobile (small): (max-width: 320px) */
 /**
  * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
  *    `em` units.
@@ -2502,6 +2720,27 @@ ul {
   font-style: normal;
   src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
+/* retina display (2x) */
+/* large desktop: (min-width: 1921px) */
+/* desktop max-width: 1920px */
+/* desktop: (max-width: 1920px) and (min-width: 1441px) */
+/* laptop max-width: 1440px*/
+/* laptop:(max-width: 1440px) and (min-width: 1281px) */
+/* tablet (landscape) max-width: 1280px */
+/* tablet (landscape) min-width: 1281px */
+/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
+/* tablet (portrait): (min-width: 1025px) */
+/* tablet (portrait): (max-width: 1024px) */
+/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
+/* mobile (landscape): (max-width: 768px)*/
+/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
+/* mobile (portrait wide): (max-width: 640px) */
+/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
+/* mobile (portrait narrow): (max-width: 480px)*/
+/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
+/* mobile (medium): (max-width: 375px) */
+/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
+/* mobile (small): (max-width: 320px) */
 @keyframes popup {
   0% {
     transform: scale(1);
@@ -2543,19 +2782,304 @@ ul {
     transform: rotate(360deg);
   }
 }
-.footer-wrapper {
+:root {
+  --range_120-64_max-1280px: calc(56 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 64px);
+  --range_80-64_max-1280px: calc(16 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 64px);
+  --range_80-32_max-1280px: calc(48 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 32px);
+  --range_48-32_max-1280px: calc(16 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 32px);
+  --range_32-23_max-640px: calc(9 * (min(max(100vw, 320px), 640px) - 320px) / 320 + 23px);
+  --range_24-18_max-1280px: calc(6 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 18px);
+  --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.4;
+  background-color: rgb(220, 220, 220);
+  /**** user-select: none; *****/
+}
+
+/*************TOP BORDER BODY****************/
+body:before {
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: 0;
   width: 100%;
+  height: 10px;
+  z-index: 100;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/*****************END TOP BORDER BODY************/
+h1, h2, h3, h4, h5 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  line-height: 1.25;
+}
+
+h2, h3, h4, h5 {
+  line-height: 1.2;
+}
+
+img, svg, picture, video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  vertical-align: top;
+}
+
+.section {
+  padding-top: 80px;
+  padding-bottom: 120px;
+  /* tablet (landscape) max-width: 1280px */
+  /* mobile (portrait wide): (max-width: 640px) */
+}
+@media (max-width: 1280px) {
+  .section {
+    padding-top: var(--range_80-64_max-1280px);
+    padding-bottom: var(--range_120-64_max-1280px);
+  }
+}
+@media (max-width: 640px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+.section__content-layer, .header {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-right: 80px;
+  padding-left: 80px;
+  /* tablet (landscape) max-width: 1280px */
+  /* mobile (portrait wide): (max-width: 640px) */
+}
+@media (max-width: 1280px) {
+  .section__content-layer, .header {
+    padding-right: var(--range_80-32_max-1280px);
+    padding-left: var(--range_80-32_max-1280px);
+  }
+}
+@media (max-width: 640px) {
+  .section__content-layer, .header {
+    padding-right: var(--range_32-23_max-640px);
+    padding-left: var(--range_32-23_max-640px);
+  }
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Jost";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+}
+@keyframes popup {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes scaleUpZero {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* retina display (2x) */
+/* large desktop: (min-width: 1921px) */
+/* desktop max-width: 1920px */
+/* desktop: (max-width: 1920px) and (min-width: 1441px) */
+/* laptop max-width: 1440px*/
+/* laptop:(max-width: 1440px) and (min-width: 1281px) */
+/* tablet (landscape) max-width: 1280px */
+/* tablet (landscape) min-width: 1281px */
+/* tablet (landscape): (max-width: 1280px) and (min-width: 1025px) */
+/* tablet (portrait): (min-width: 1025px) */
+/* tablet (portrait): (max-width: 1024px) */
+/* tablet (portrait): (max-width: 1024px) and (min-width: 769px) */
+/* mobile (landscape): (max-width: 768px)*/
+/* mobile (landscape): (max-width: 768px) and (min-width: 641px) */
+/* mobile (portrait wide): (max-width: 640px) */
+/* mobile (portrait wide): (max-width: 640px) and (min-width: 481px) */
+/* mobile (portrait narrow): (max-width: 480px)*/
+/* mobile (portrait narrow): (max-width: 480px) and (min-width: 376px) */
+/* mobile (medium): (max-width: 375px) */
+/* mobile (medium): (max-width: 375px) and (min-width: 320px) */
+/* mobile (small): (max-width: 320px) */
+.section--footer {
+  min-height: 20em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* tablet (portrait): (min-width: 1025px) */
+  /* tablet (portrait): (max-width: 1024px) */
+  /* mobile (portrait wide): (max-width: 640px) */
+}
+@media (min-width: 1025px) {
+  .section--footer {
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.5), rgba(40, 32, 23, 0.8) 60%), image-set(url("../assets/img/footerSection/professional_1440.webp") 1x, url("../assets/img/footerSection/professional_1440.jpg") 1x);
+    /*    @include mediaRetina2x {
+          background-image:
+            linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
+            image-set(
+                url("../assets/img/footerSection/professional_1440@2x.webp") 2x,
+                url("../assets/img/footerSection/professional_1440@2x.jpg") 2x
+            );
+        }*/
+  }
+}
+@media (max-width: 1024px) {
+  .section--footer {
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.5), rgba(40, 32, 23, 0.8) 60%), image-set(url("../assets/img/footerSection/professional_1024.webp") 1x, url("../assets/img/footerSection/professional_1024.jpg") 1x);
+    /*    @include mediaRetina2x {
+          background-image:
+            linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
+            image-set(
+              url("../assets/img/footerSection/professional_1024@2x.webp") 2x,
+              url("../assets/img/footerSection/professional_1024@2x.jpg") 2x
+          );
+        }*/
+  }
+}
+@media (max-width: 640px) {
+  .section--footer {
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.5), rgba(40, 32, 23, 0.8) 60%), image-set(url("../assets/img/footerSection/professional_640.webp") 1x, url("../assets/img/footerSection/professional_640.jpg") 1x);
+    /*    @include mediaRetina2x {
+          background-image:
+            linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
+            image-set(
+              url("../assets/img/footerSection/professional_640@2x.webp") 2x,
+              url("../assets/img/footerSection/professional_640@2x.jpg") 2x
+          );
+        }*/
+  }
+}
+
+.section__content-layer--footer {
+  color: white;
+}
+
+.footer__logo-heading {
+  color: rgba(220, 220, 220, 0.8);
+}
+
+.footer__contacts-block {
+  max-width: 17em;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1em;
+}
+
+.footer__content-block {
+  flex-grow: 1;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  gap: 0.5em;
 }
-.footer-wrapper .footer-image-wrapper {
-  width: 100%;
+
+.footer__content-block-item {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5em;
 }
-.footer-wrapper .footer-image-wrapper img {
-  width: 100%;
-  height: auto;
+
+.footer__nav-heading {
+  font-size: 1.1em;
+  letter-spacing: 0.05em;
+}
+
+.footer__logo-text {
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.footer__nav-list {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 0.75em;
+  font-weight: 600;
+}
+.footer__nav-list li + li {
+  margin-top: 0.2em;
+}
+
+.nav-link--footer {
+  text-transform: uppercase;
+}
+
+.icon-link--footer {
+  font-size: 0.8em;
 }
 
 .total-layer {
@@ -2682,7 +3206,6 @@ ul {
 .section__content-block {
   width: 100%;
   display: flex;
-  transition: 0.15s ease-in-out;
   /* mobile (portrait wide): (max-width: 640px) */
 }
 @media (max-width: 640px) {
@@ -2835,6 +3358,7 @@ ul {
 
 .section--hero {
   background-position: 75%;
+  background-repeat: no-repeat;
   background-size: cover;
   /* tablet (portrait): (min-width: 1025px) */
   /* tablet (portrait): (max-width: 1024px) */
