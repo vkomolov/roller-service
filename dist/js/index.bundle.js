@@ -10541,7 +10541,7 @@ function getImagesLoaded(container, options = {}) {
  * If a free space in a row exists then it places the columns in the center position...
  *
  * @async
- * @function initMasonry
+ * @function createMasonry
  * @param {string} containerSelector - The CSS selector of the container element where the masonry grid will be applied.
  * @param {Object} [params={}] - Optional configuration parameters for masonry initialization.
  * @param {number} [params.gap=0] - The gap (in pixels) between the items in the masonry grid. Defaults to 0.
@@ -10552,7 +10552,7 @@ function getImagesLoaded(container, options = {}) {
  *
  * @example
  * // Initialize masonry grid with a 20px gap
- * initMasonry('#gallery', { gap: 20 }).then((imageItems) => {
+ * createMasonry('#gallery', { gap: 20 }).then((imageItems) => {
  *   console.log('Masonry initialized and images positioned:', imageItems);
  * });
  */
@@ -10585,31 +10585,31 @@ async function createMasonry(containerSelector, params = {}) {
     container.style.position = "relative";
     container.style.overflowX = "hidden";
 
-    // Инициализируем массивы для расчета позиций
+    // Initializing arrays for calculating positions
     const posLeftArr = Array.from({
       length: columns
     }, (_, i) => leftOffset + i * (itemWidth + gap));
     const posTopArr = new Array(columns).fill(0);
 
-    // Расставляем элементы
+    // Arranging the elements
     for (let i = 0; i < imagesArr.length; i++) {
       const item = imagesArr[i].elem;
       imageItems.push(item);
       const itemHeight = imagesArr[i].size.offsetHeight;
 
-      // Находим индекс колонки с минимальной высотой
+      // Finding the index of the column with the minimum height
       const minColumnIndex = posTopArr.indexOf(Math.min(...posTopArr));
-      // Убедимся, что minColumnIndex всегда число
+      // Making sure that minColumnIndex is always a number
       if (minColumnIndex === -1) {
         throw new Error("Invalid column index: no minimum found in posTopArr");
       }
 
-      // Устанавливаем позицию элемента
+      // Setting the position of the element
       item.style.position = "absolute";
       item.style.top = `${Math.round(posTopArr[minColumnIndex])}px`;
       item.style.left = `${Math.round(posLeftArr[minColumnIndex])}px`;
 
-      // Обновляем высоту колонки
+      // Updating the column height
       posTopArr[minColumnIndex] += itemHeight + gap;
     }
     function getColumnsNumber(containerWidth, itemWidth, gap) {

@@ -516,7 +516,7 @@ h2, h3, h4, h5 {
   line-height: 1.2;
 }
 
-img, svg, picture, video {
+img, svg, picture, video, object {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -976,7 +976,7 @@ h2, h3, h4, h5 {
   line-height: 1.2;
 }
 
-img, svg, picture, video {
+img, svg, picture, video, object {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -1503,7 +1503,7 @@ h2, h3, h4, h5 {
   line-height: 1.2;
 }
 
-img, svg, picture, video {
+img, svg, picture, video, object {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -1963,7 +1963,7 @@ h2, h3, h4, h5 {
   line-height: 1.2;
 }
 
-img, svg, picture, video {
+img, svg, picture, video, object {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -2831,7 +2831,7 @@ h2, h3, h4, h5 {
   line-height: 1.2;
 }
 
-img, svg, picture, video {
+img, svg, picture, video, object {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -2973,9 +2973,10 @@ img, svg, picture, video {
 /* mobile (medium): (max-width: 375px) and (min-width: 320px) */
 /* mobile (small): (max-width: 320px) */
 .section--footer {
-  min-height: 20em;
+  padding-top: 10em;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 80%;
   /* tablet (portrait): (min-width: 1025px) */
   /* tablet (portrait): (max-width: 1024px) */
   /* mobile (portrait wide): (max-width: 640px) */
@@ -3020,12 +3021,19 @@ img, svg, picture, video {
   }
 }
 
-.section__content-layer--footer {
-  color: white;
+.section__content-block--footer {
+  color: rgb(255, 255, 255);
+  /* mobile (portrait wide): (max-width: 640px) */
+}
+@media (max-width: 640px) {
+  .section__content-block--footer {
+    align-items: flex-start !important;
+  }
 }
 
 .footer__logo-heading {
   color: rgba(220, 220, 220, 0.8);
+  font-size: 1.8em;
 }
 
 .footer__contacts-block {
@@ -3057,6 +3065,8 @@ img, svg, picture, video {
 .footer__nav-heading {
   font-size: 1.1em;
   letter-spacing: 0.05em;
+  padding-top: 0.55em;
+  padding-bottom: 0.4em;
 }
 
 .footer__logo-text {

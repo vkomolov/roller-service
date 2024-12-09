@@ -10,9 +10,10 @@
 /////// STYLES ///////
 
 .section--footer {
-  min-height: 20em;
+  padding-top: 10em;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: 80%;
 
   /* tablet (portrait): (min-width: 1025px) */
   @include minTabletPortrait {
@@ -75,12 +76,18 @@
   }
 }
 
-.section__content-layer--footer {
-  color: white;
+.section__content-block--footer {
+  color: $white;
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    align-items: flex-start !important;
+  }
 }
 
 .footer__logo-heading {
   color: rgba(220, 220, 220, .8);
+  font-size: 1.8em;
 }
 
 .footer__contacts-block {
@@ -105,6 +112,8 @@
 .footer__nav-heading {
   font-size: 1.1em;
   letter-spacing: 0.05em;
+  padding-top: .55em;
+  padding-bottom: .4em;
 }
 
 .footer__logo-text {

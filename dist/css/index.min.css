@@ -404,7 +404,7 @@ h2,h3,h4,h5{
   line-height:1.2;
 }
 
-img,picture,svg,video{
+img,object,picture,svg,video{
   height:auto;
   max-width:100%;
   -o-object-fit:cover;
@@ -458,17 +458,19 @@ img,picture,svg,video{
   src:url(../assets/fonts/Jost/Jost-Bold.woff2) format("woff2"), url(../assets/fonts/Jost/Jost-Bold.woff) format("woff"), url(../assets/fonts/Jost/Jost-Bold.ttf) format("truetype");
 }
 .section--footer{
+  background-position:80%;
   background-repeat:no-repeat;
   background-size:cover;
-  min-height:20em;
+  padding-top:10em;
 }
 
-.section__content-layer--footer{
+.section__content-block--footer{
   color:#fff;
 }
 
 .footer__logo-heading{
   color:hsla(0,0%,86%,.8);
+  font-size:1.8em;
 }
 
 .footer__contacts-block{
@@ -500,6 +502,8 @@ img,picture,svg,video{
 .footer__nav-heading{
   font-size:1.1em;
   letter-spacing:.05em;
+  padding-bottom:.4em;
+  padding-top:.55em;
 }
 
 .footer__logo-text{
@@ -1154,6 +1158,9 @@ img,picture,svg,video{
   .section--footer{
     background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), -webkit-image-set(url("../assets/img/footerSection/professional_640.webp") 1x, url("../assets/img/footerSection/professional_640.jpg") 1x);
     background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), image-set(url("../assets/img/footerSection/professional_640.webp") 1x, url("../assets/img/footerSection/professional_640.jpg") 1x);
+  }
+  .section__content-block--footer{
+    align-items:flex-start !important;
   }
   .total-wrapper{
     font-size:.938rem;
