@@ -95,3 +95,8 @@ export const entries = {
         index: `${ pathData.srcPath }/js/index.js`,
     },
 }
+
+/////// DEV
+function log(it, text = "value: ") {
+    console.log(text, it);
+}

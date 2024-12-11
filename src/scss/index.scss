@@ -1060,8 +1060,24 @@
   width: 30%;
   min-width: 12.22em;
   will-change: transform, opacity;
+  border-radius: 0.5em;
+  overflow: hidden;
 
   @include box-shadow(0.2em, 0.4em);
+
+  &:hover {
+    cursor: pointer;
+
+    img, svg, picture, video, object {
+      transform: scale(1.05);
+    }
+  }
+
+  img, svg, picture, video, object {
+    border-radius: 0.5em;
+
+    @include transition(transform, 0.15s);
+  }
 }
 
 

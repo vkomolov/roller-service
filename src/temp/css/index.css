@@ -4045,5 +4045,17 @@ img, svg, picture, video, object {
   width: 30%;
   min-width: 12.22em;
   will-change: transform, opacity;
+  border-radius: 0.5em;
+  overflow: hidden;
   box-shadow: 0.2em 0.2em 0.4em rgba(0, 0, 0, 0.8);
+}
+.gallery__item:hover {
+  cursor: pointer;
+}
+.gallery__item:hover img, .gallery__item:hover svg, .gallery__item:hover picture, .gallery__item:hover video, .gallery__item:hover object {
+  transform: scale(1.05);
+}
+.gallery__item img, .gallery__item svg, .gallery__item picture, .gallery__item video, .gallery__item object {
+  border-radius: 0.5em;
+  transition: transform 0.15s ease-in-out;
 }
