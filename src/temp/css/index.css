@@ -3081,7 +3081,7 @@ img, svg, picture, video, object {
   font-weight: 600;
 }
 .footer__nav-list li + li {
-  margin-top: 0.2em;
+  margin-top: 0.3em;
 }
 
 .nav-link--footer {

@@ -10676,6 +10676,7 @@ const i = {
   textBlockHero: ".section__text-block--hero",
   biddingBlockHero: ".section__bidding-block--hero",
   iconWrapperHero: ".section__img-wrapper--hero",
+  galleryWork: "#gallery-work",
   fadeInLeft: "[data-type=fade-in-left]",
   fadeInRight: "[data-type=fade-in-right]",
   fadeInUp: "[data-type=fade-in-up]",
@@ -10741,7 +10742,7 @@ const pageAnimations = {
 
     ///////////// FADE-IN-LEFT ANIMATIONS /////////////////
 
-    const fadeInLeftAnimations = getAllScrollTwoTweens(i.fadeInLeft, "fadeInLeft", {
+    const fadeInLeftAnimations = getAllScrollTwoTweens(i.fadeInLeft, null, "fadeInLeft", {
       opacity: 1,
       duration: 0.7,
       delay: 0.2
@@ -10756,7 +10757,7 @@ const pageAnimations = {
 
     ///////////// FADE-IN-RIGHT ANIMATIONS /////////////////
 
-    const fadeInRightAnimations = getAllScrollTwoTweens(i.fadeInRight, "fadeInRight", {
+    const fadeInRightAnimations = getAllScrollTwoTweens(i.fadeInRight, null, "fadeInRight", {
       opacity: 1,
       duration: 0.7,
       delay: 0.2
@@ -10771,7 +10772,7 @@ const pageAnimations = {
 
     ///////////// SCALE-IN ANIMATIONS ///////////
 
-    const scaleInAnimations = getAllScrollTwoTweens(i.scaleIn, "scaleIn", {
+    const scaleInAnimations = getAllScrollTwoTweens(i.scaleIn, null, "scaleIn", {
       opacity: 1,
       duration: 1,
       delay: 0.2
@@ -10785,7 +10786,7 @@ const pageAnimations = {
 
     //////////// FADE-IN-UP ANIMATIONS /////////////////
 
-    const fadeInUpAnimations = getAllScrollTwoTweens(i.fadeInUp, "fadeInUp", {
+    const fadeInUpAnimations = getAllScrollTwoTweens(i.fadeInUp, null, "fadeInUp", {
       opacity: 1,
       duration: 1,
       delay: 0.2
@@ -10927,7 +10928,7 @@ function onPageLoaded(animationData) {
 /**
  * Checking the gsap timeline for not empty animations
  * @param {gsap.core.Timeline | gsap.core.Tween} timeline - the gsap timeline to be checked
- * @return {boolean} - returns whether the timeline has at least one not empty tween
+ * @return {boolean} - Returns true if the timeline has at least one tween with a duration greater than zero.
  */
 function hasRealAnimations(timeline) {
   // Getting all child tweens of the timeline
@@ -10939,66 +10940,70 @@ function hasRealAnimations(timeline) {
  * It creates the Timeline scroll animations with fading in from opacity: 0, and optional gsap.from params which
  * are animated with the opacity animation...
  * @param {HTMLElement} elem  - the HTMLElement
+ * @param {HTMLElement} triggerElem - the trigger HTMLElement for the animations at scrollTrigger
  * @param {Object} [gsapToParams={}] - params for the first tween with gsap.to
  * @param {Object} [gsapFromParams={}] - params for the last tween with gsap.from
- * @param {String} [nextAnimePos="<"] - The position for the second tween, indicating when the animation should start relative to the first.
+ * @param {string} [nextAnimePos="<"] - The position for the second tween, indicating when the animation should start relative to the first.
  * @return {gsap.core.Timeline|boolean} - Returns a Timeline with animations, or false if the passed element is not an HTMLElement.
  *
  * @example using first tween gsap.to params for the first animation, and gsap.from params for the last tween
- * getScrollTimelineTwoTweens(elem, { opacity: 1, duration: 0.7, delay: 0.2 }, { x: 80, y: 80, duration: 1, ease: "circ.out", });
+ * getScrollTimelineTwoTweens(elem, triggerElem, { opacity: 1, duration: 0.7, delay: 0.2 }, { x: 80, y: 80, duration: 1, ease: "circ.out", });
  *
  * @example
- * getScrollTimelineTwoTweens(elem, { opacity: 1, duration: 1, delay: 0.2 }, { scale: 0.7, duration: 1, ease: "circ.out", }, "-=1.5");
+ * getScrollTimelineTwoTweens(elem, triggerElem, { opacity: 1, duration: 1, delay: 0.2 }, { scale: 0.7, duration: 1, ease: "circ.out", }, "-=1.5");
  */
-function getScrollTimelineTwoTweens(elem, gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
-  if (elem instanceof HTMLElement) {
-    //The timeline initiation with the ScrollTrigger and its default params...
-    const tl = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
-      scrollTrigger: {
-        trigger: elem,
-        start: "top 80%",
-        //end: "bottom 85%",
-        toggleActions: "play none none reverse",
-        //markers: true,
-        /**
-         * preventOverlaps vs fastScrollEnd - should be chosen on of them
-         */
-        preventOverlaps: true //prevent overlapping animations at several trigger animations
-        //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
-      }
-    });
-    tl.to(elem, {
-      ...gsapToParams
-    });
-    tl.from(elem, {
-      ...gsapFromParams
-    }, nextAnimePos);
-    return tl;
-  } else {
-    console.warn(`at getScrollTimeLinePairLeftRight: the given selector ${elem} is not HTMLElement...`);
+function getScrollTimelineTwoTweens(elem, triggerElem, gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
+  if (!(elem instanceof HTMLElement) || !(triggerElem instanceof HTMLElement)) {
+    console.warn(`at getScrollTimeLinePairLeftRight: the given selector: ${elem} or trigger: ${triggerElem} is not HTMLElement... animation is omitted...`);
     return false;
   }
+
+  //The timeline initiation with the ScrollTrigger and its default params...
+  const tl = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
+    scrollTrigger: {
+      trigger: triggerElem,
+      start: "top 80%",
+      //end: "bottom 85%",
+      toggleActions: "play none none reverse",
+      //markers: true,
+      /**
+       * preventOverlaps vs fastScrollEnd - should be chosen on of them
+       */
+      preventOverlaps: true //prevent overlapping animations at several trigger animations
+      //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
+    }
+  });
+  tl.to(elem, {
+    ...gsapToParams
+  });
+  tl.from(elem, {
+    ...gsapFromParams
+  }, nextAnimePos);
+  return tl;
 }
 
 /**
- * It makes animation timeline for each element by selector and returns the Object with the timeline references...
- * @param {String} selector - the common selector of the target elements in DOM
- * @param {String} [propKey="tlKey"] - the key part for making unique key of the timeline in the Object to return...
+ * Creates multiple scroll-triggered timelines for elements matching the selector.
+ * It makes animation timeline for the each element and returns the Object with the timeline references...
+ * @param {string} selector - the common selector of the target elements in DOM
+ * @param {string|null} triggerSelector - The selector for the trigger element (or null).
+ * @param {string} [propKey="tlKey"] - the key part for making unique key of the timeline in the Object to return...
  * @param {Object} [gsapToParams={}] - params for the first tween with gsap.to
  * @param {Object} [gsapFromParams={}] - params for the last tween with gsap.from
- * @param {String} [nextAnimePos="<"] - The position for the second tween, indicating when the animation should start relative to the first.
- * @return {Object} - Object containing gsap.core.Timeline references in particular properties...
+ * @param {string} [nextAnimePos="<"] - The position for the second tween, indicating when the animation should start relative to the first.
+ * @return {Object} - An object containing timelines with unique keys.
  */
-function getAllScrollTwoTweens(selector, propKey = "tlKey", gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
+function getAllScrollTwoTweens(selector, triggerSelector, propKey = "tlKey", gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
   const targetElems = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(selector);
   const tlObj = {};
+  const triggerElem = triggerSelector && document.querySelector(triggerSelector);
   if (!targetElems.length) {
-    console.warn(`at getAllScrollTimeLineTwoTweens(): no elements found in DOM with selector: ${selector}...`);
+    console.warn(`at getAllScrollTimeLineTwoTweens(): no elements found with selector: ${selector}...`);
     return tlObj;
   }
   targetElems.forEach((elem, index) => {
     const tlKey = `${propKey}_${index}`;
-    const tl = getScrollTimelineTwoTweens(elem, gsapToParams, gsapFromParams, nextAnimePos);
+    const tl = getScrollTimelineTwoTweens(elem, triggerElem || elem, gsapToParams, gsapFromParams, nextAnimePos);
     if (tl && hasRealAnimations(tl)) {
       tlObj[tlKey] = tl;
     }
@@ -11292,9 +11297,7 @@ document.addEventListener("DOMContentLoaded", () => {
     gap: 20
   }).catch(error => {
     console.error(error);
-  });
-  //.then(res =>  log(res, "elements: "));
-
+  }).then(res => log(res, "elements: "));
   (0,_partials_galleryThumbs_js__WEBPACK_IMPORTED_MODULE_2__.initGalleryThumbs)("#gallery-work", {
     auxSource: "assets/img/gallery",
     imageParentStyle: {

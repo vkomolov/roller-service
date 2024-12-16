@@ -521,7 +521,7 @@ img,object,picture,svg,video{
   font-weight:600;
 }
 .footer__nav-list li+li{
-  margin-top:.2em;
+  margin-top:.3em;
 }
 
 .nav-link--footer{

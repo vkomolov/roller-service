@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(error => {
       console.error(error);
     })
-    //.then(res =>  log(res, "elements: "));
+    .then(res =>  log(res, "elements: "));
 
   initGalleryThumbs("#gallery-work", {
     auxSource: "assets/img/gallery",
