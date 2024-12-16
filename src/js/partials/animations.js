@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
@@ -12,261 +12,299 @@ gsap.registerPlugin(ScrollTrigger);
 /// index.html
 /// SELECTORS
 const i = {
-    scrolledNav: "#scrolledNav",
-    burgerBase: ".burger_nav",
-    burgerFixed: ".burger_nav:not(.hidden)",
-    burgerHidden: ".burger_nav.hidden",
-    navMenuHidden: ".header__nav.abs",
-    gatesSection: "#gatesSection",
-    headingAccentHero: ".section__heading-block--hero .accent",
-    headingHeroRest: ".section__heading-block--hero .rest-of-heading",
-    textBlockHero: ".section__text-block--hero",
-    biddingBlockHero: ".section__bidding-block--hero",
-    iconWrapperHero: ".section__img-wrapper--hero",
-    galleryWork: "#gallery-work",
-    fadeInLeft: "[data-type=fade-in-left]",
-    fadeInRight: "[data-type=fade-in-right]",
-    fadeInUp: "[data-type=fade-in-up]",
-    scaleIn: "[data-type=scale-in]",
-}
+  scrolledNav: "#scrolledNav",
+  burgerBase: ".burger_nav",
+  burgerFixed: ".burger_nav:not(.hidden)",
+  burgerHidden: ".burger_nav.hidden",
+  navMenuHidden: ".header__nav.abs",
+  gatesSection: "#gatesSection",
+  headingAccentHero: ".section__heading-block--hero .accent",
+  headingHeroRest: ".section__heading-block--hero .rest-of-heading",
+  textBlockHero: ".section__text-block--hero",
+  biddingBlockHero: ".section__bidding-block--hero",
+  iconWrapperHero: ".section__img-wrapper--hero",
+  galleryWork: "#gallery-work",
+  fadeInLeft: "[data-type=fade-in-left]",
+  fadeInRight: "[data-type=fade-in-right]",
+  fadeInUp: "[data-type=fade-in-up]",
+  scaleIn: "[data-type=scale-in]",
+};
 
 /// ANIMATION PARAMS
 const pageAnimations = {
-    index: () => {
-        const tlData = {};
+  index: () => {
+    const tlData = {};
 
-        return tlData;
-    },
-    common: () => {
-        const tlData = {};
+    return tlData;
+  },
+  common: () => {
+    const tlData = {};
 
-        ///////////// SECTION HERO ANIMATION /////////////////
-        const tlHero = gsap.timeline();
+    ///////////// SECTION HERO ANIMATION /////////////////
+    const tlHero = gsap.timeline();
 
-        tlHero.to(i.headingAccentHero, {
-            opacity: 1,
-            duration: 2,
-            delay: 0.3,
-        });
-        tlHero.from(i.headingAccentHero, {
-            x: 80,
-            duration: 0.8,
-            ease: "circ.out"
-        }, "<");
-        tlHero.to(i.headingHeroRest, {
-            opacity: 1,
-            duration: 2,
-        }, "<");
-        tlHero.from(i.headingHeroRest, {
-            x: -80,
-            duration: 0.8,
-            ease: "circ.out"
-        }, "<");
-        tlHero.to(i.textBlockHero, {
-            opacity: 1,
-            duration: 2,
-        }, "-=1.5");
-        tlHero.from(i.textBlockHero, {
-            y: 80,
-            duration: 0.8,
-            ease: "circ.out"
-        }, "<");
-        tlHero.to(i.biddingBlockHero, {
-            opacity: 1,
-            duration: 2,
-        }, "<+0.3");
-        tlHero.from(i.biddingBlockHero, {
-            y: 40,
-            duration: 0.8,
-            ease: "circ.out"
-        }, "<");
-        tlHero.to(i.iconWrapperHero, {
-            scale: 1,
-            duration: 1.5,
-            ease: "elastic.out"
-        }, "<+0.5");
+    tlHero.to(i.headingAccentHero, {
+      opacity: 1,
+      duration: 2,
+      delay: 0.3,
+    });
+    tlHero.from(i.headingAccentHero, {
+      x: 80,
+      duration: 0.8,
+      ease: "circ.out"
+    }, "<");
+    tlHero.to(i.headingHeroRest, {
+      opacity: 1,
+      duration: 2,
+    }, "<");
+    tlHero.from(i.headingHeroRest, {
+      x: -80,
+      duration: 0.8,
+      ease: "circ.out"
+    }, "<");
+    tlHero.to(i.textBlockHero, {
+      opacity: 1,
+      duration: 2,
+    }, "-=1.5");
+    tlHero.from(i.textBlockHero, {
+      y: 80,
+      duration: 0.8,
+      ease: "circ.out"
+    }, "<");
+    tlHero.to(i.biddingBlockHero, {
+      opacity: 1,
+      duration: 2,
+    }, "<+0.3");
+    tlHero.from(i.biddingBlockHero, {
+      y: 40,
+      duration: 0.8,
+      ease: "circ.out"
+    }, "<");
+    tlHero.to(i.iconWrapperHero, {
+      scale: 1,
+      duration: 1.5,
+      ease: "elastic.out"
+    }, "<+0.5");
 
-        if (hasRealAnimations(tlHero)) {
-            tlData["tlHero"] = tlHero;
-        }
-
-        ///////////// FADE-IN-LEFT ANIMATIONS /////////////////
-
-        const fadeInLeftAnimations = getAllScrollTwoTweens(i.fadeInLeft, null,"fadeInLeft",{
-            opacity: 1,
-            duration: 0.7,
-            delay: 0.2,
-        }, {
-            x: -80,
-            y: 80,
-            duration: 1,
-            ease: "circ.out",
-        });
-        //assigning timeline references
-        Object.assign(tlData, fadeInLeftAnimations);
-
-        ///////////// FADE-IN-RIGHT ANIMATIONS /////////////////
-
-        const fadeInRightAnimations = getAllScrollTwoTweens(i.fadeInRight, null, "fadeInRight", {
-            opacity: 1,
-            duration: 0.7,
-            delay: 0.2,
-        }, {
-            x: 80,
-            y: 80,
-            duration: 1,
-            ease: "circ.out",
-        });
-        //assigning timeline references
-        Object.assign(tlData, fadeInRightAnimations);
-
-        ///////////// SCALE-IN ANIMATIONS ///////////
-
-        const scaleInAnimations = getAllScrollTwoTweens(i.scaleIn, null,"scaleIn", {
-            opacity: 1,
-            duration: 1,
-            delay: 0.2,
-        }, {
-            scale: 0.7,
-            duration: 1.2,
-            ease: "back.out(1)",
-        });
-        //assigning timeline references
-        Object.assign(tlData, scaleInAnimations);
-
-
-        //////////// FADE-IN-UP ANIMATIONS /////////////////
-
-        const fadeInUpAnimations = getAllScrollTwoTweens(i.fadeInUp, null,"fadeInUp", {
-            opacity: 1,
-            duration: 1,
-            delay: 0.2,
-        }, {
-            y: 80,
-            duration: 1,
-            ease: "circ.out",
-        });
-        //assigning timeline references
-        Object.assign(tlData, fadeInUpAnimations);
-
-        ///////////////// SEPARATE TWEENS ////////////////////
-
-        ///////////// SCROLLED NAVIGATION ANIMATION //////////
-        gsap.to(i.scrolledNav, {
-            top: 0,
-            duration: 1.2,
-            ease: "back.out(0.8)",
-            delay: 0.5,
-            scrollTrigger: {
-                trigger: i.gatesSection,
-                start: "top 10%",
-                //end: "bottom 85%",
-                toggleActions: "play none none reverse",
-                //markers: true,
-                /**
-                 * preventOverlaps vs fastScrollEnd - should be chosen on of them
-                 */
-                preventOverlaps: true, //prevent overlapping animations at several trigger animations
-                //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
-            }
-        });
-
-        //////////// BURGER MENU OPEN ANIMATION /////////////
-        const navMenuFixed = document.querySelector(i.navMenuHidden);
-        const burgerHidden = document.querySelector(i.burgerHidden);
-        const burgerFixed = document.querySelector(i.burgerFixed);
-        const burgerAll = document.querySelectorAll(i.burgerBase);
-        //// animation of the fixed navigation menu
-        const navMenuAnime = gsap.to(navMenuFixed, {
-            top: 0,
-            duration: .8,
-            ease: "back.out(0.8)",
-            paused: true,
-        });
-
-
-        document.addEventListener("click", (e) => {
-
-            //if clicked out of the burger-menu range then to check if the burger is opened and reverse the animation...
-            if (!(e.target.closest(i.burgerBase))) {
-                const isNavActive = navMenuFixed.getAttribute("aria-expanded") === "true";
-                if (isNavActive) {
-                    // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
-                    setAttributes([burgerHidden, burgerFixed, navMenuFixed], {
-                        "aria-expanded": !isNavActive,
-                    });
-
-                    burgerHidden.classList.remove("opened");
-                    burgerFixed.classList.remove("opened");
-
-                    /// animation of hiding the fixed navigation menu with top: -100%;
-                    navMenuAnime.reverse();
-
-                    //returning scroll to the page...
-                    //lockScroll(true);
-                    document.body.style.overflow = "auto";
-                }
-            }
-        });
-
-        //adding listener to the burger buttons...
-        burgerAll.forEach(burger => {
-            burger.addEventListener("click", (e) => {
-                const burgerMenu = e.target.closest(i.burgerBase);
-
-                if (burgerMenu) {
-                    e.preventDefault();
-                    const isExpanded = burger.getAttribute("aria-expanded") === "true";
-
-                    // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
-                    setAttributes([burgerHidden, burgerFixed, navMenuFixed], {
-                        "aria-expanded": !isExpanded,
-                    });
-
-                    if (isExpanded) {
-                        burgerHidden.classList.remove("opened");
-                        burgerFixed.classList.remove("opened");
-                        //lockScroll(true);
-                        document.body.style.overflow = "auto";
-                    }
-                    else {
-                        burgerHidden.classList.add("opened");
-                        burgerFixed.classList.add("opened");
-                        //lockScroll(false);
-                        document.body.style.overflow = "hidden";
-                    }
-
-                    if (isExpanded) {
-                        navMenuAnime.reverse();
-                    }
-                    else {
-                        navMenuAnime.play();
-                    }
-                }
-            });
-        })
-
-
-        return tlData;
+    if (hasRealAnimations(tlHero)) {
+      tlData["tlHero"] = tlHero;
     }
-}
+
+    ///////////// FADE-IN-LEFT ANIMATIONS ////////////////
+
+    const fadeInLeftAnimations = getAllScrollTwoTweens(
+      gsap.utils.toArray(document.querySelectorAll(i.fadeInLeft)),
+      null,
+      "fadeInLeft",
+      {
+        opacity: 1,
+        duration: 0.7,
+        delay: 0.2,
+      },
+      {
+        x: -80,
+        y: 80,
+        duration: 1,
+        ease: "circ.out",
+      });
+    //assigning timeline references
+    Object.assign(tlData, fadeInLeftAnimations);
+
+    ///////////// FADE-IN-RIGHT ANIMATIONS /////////////////
+
+    const fadeInRightAnimations = getAllScrollTwoTweens(
+      gsap.utils.toArray(document.querySelectorAll(i.fadeInRight)),
+      null,
+      "fadeInRight",
+      {
+        opacity: 1,
+        duration: 0.7,
+        delay: 0.2,
+      },
+      {
+        x: 80,
+        y: 80,
+        duration: 1,
+        ease: "circ.out",
+      });
+    //assigning timeline references
+    Object.assign(tlData, fadeInRightAnimations);
+
+    ///////////// SCALE-IN ANIMATIONS ///////////
+
+    const scaleInAnimations = getAllScrollTwoTweens(
+      gsap.utils.toArray(document.querySelectorAll(i.scaleIn)),
+      null,
+      "scaleIn",
+      {
+        opacity: 1,
+        duration: 1,
+        delay: 0.2,
+      },
+      {
+        scale: 0.7,
+        duration: 1.2,
+        ease: "back.out(1)",
+      });
+    //assigning timeline references
+    Object.assign(tlData, scaleInAnimations);
+
+
+    //////////// FADE-IN-UP ANIMATIONS /////////////////
+
+    const fadeInUpAnimations = getAllScrollTwoTweens(
+      gsap.utils.toArray(document.querySelectorAll(i.fadeInUp)),
+      null,
+      "fadeInUp",
+      {
+      opacity: 1,
+      duration: 1,
+      delay: 0.2,
+    },
+      {
+      y: 80,
+      duration: 1,
+      ease: "circ.out",
+    }
+    );
+    //assigning timeline references
+    Object.assign(tlData, fadeInUpAnimations);
+
+    ///////////////// SEPARATE TWEENS ////////////////////
+
+    ///////////// SCROLLED NAVIGATION ANIMATION //////////
+    gsap.to(i.scrolledNav, {
+      top: 0,
+      duration: 1.2,
+      ease: "back.out(0.8)",
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: i.gatesSection,
+        start: "top 10%",
+        //end: "bottom 85%",
+        toggleActions: "play none none reverse",
+        //markers: true,
+        /**
+         * preventOverlaps vs fastScrollEnd - should be chosen on of them
+         */
+        preventOverlaps: true, //prevent overlapping animations at several trigger animations
+        //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
+      }
+    });
+
+    //////////// BURGER MENU OPEN ANIMATION /////////////
+    const navMenuFixed = document.querySelector(i.navMenuHidden);
+    const burgerHidden = document.querySelector(i.burgerHidden);
+    const burgerFixed = document.querySelector(i.burgerFixed);
+    const burgerAll = document.querySelectorAll(i.burgerBase);
+    //// animation of the fixed navigation menu
+    const navMenuAnime = gsap.to(navMenuFixed, {
+      top: 0,
+      duration: .8,
+      ease: "back.out(0.8)",
+      paused: true,
+    });
+
+
+    document.addEventListener("click", (e) => {
+
+      //if clicked out of the burger-menu range then to check if the burger is opened and reverse the animation...
+      if (!(e.target.closest(i.burgerBase))) {
+        const isNavActive = navMenuFixed.getAttribute("aria-expanded") === "true";
+        if (isNavActive) {
+          // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
+          setAttributes([burgerHidden, burgerFixed, navMenuFixed], {
+            "aria-expanded": !isNavActive,
+          });
+
+          burgerHidden.classList.remove("opened");
+          burgerFixed.classList.remove("opened");
+
+          /// animation of hiding the fixed navigation menu with top: -100%;
+          navMenuAnime.reverse();
+
+          //returning scroll to the page...
+          //lockScroll(true);
+          document.body.style.overflow = "auto";
+        }
+      }
+    });
+
+    //adding listener to the burger buttons...
+    burgerAll.forEach(burger => {
+      burger.addEventListener("click", (e) => {
+        const burgerMenu = e.target.closest(i.burgerBase);
+
+        if (burgerMenu) {
+          e.preventDefault();
+          const isExpanded = burger.getAttribute("aria-expanded") === "true";
+
+          // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
+          setAttributes([burgerHidden, burgerFixed, navMenuFixed], {
+            "aria-expanded": !isExpanded,
+          });
+
+          if (isExpanded) {
+            burgerHidden.classList.remove("opened");
+            burgerFixed.classList.remove("opened");
+            //lockScroll(true);
+            document.body.style.overflow = "auto";
+          }
+          else {
+            burgerHidden.classList.add("opened");
+            burgerFixed.classList.add("opened");
+            //lockScroll(false);
+            document.body.style.overflow = "hidden";
+          }
+
+          if (isExpanded) {
+            navMenuAnime.reverse();
+          }
+          else {
+            navMenuAnime.play();
+          }
+        }
+      });
+    });
+
+
+    return tlData;
+  }
+};
 
 
 ////////////////  ANIMATION FUNCTIONS ////////////////
 
+export function fadeInGallery(elemsArr = []) {
+  return getAllScrollTwoTweens(
+    elemsArr,
+    document.querySelector(i.galleryWork),
+    "fadInGallery",
+    {
+      opacity: 1,
+      duration: 0.8,
+      delay: 0.2,
+    },
+    {
+      scale: 0.7,
+      duration: 1,
+      ease: "back.out",
+    }
+  );
+}
 
 //for the dynamic and SPA site without reloading, using the flag to avoid multiple listeners
 let listenerAdded = false;
 
 export const animatePage = () => {
-    if (document.readyState === "loading" && !listenerAdded) {
-        document.addEventListener("DOMContentLoaded", () => onPageLoaded(pageAnimations));
-        listenerAdded = true;  // Set a flag so that the listener is added only once
-    }
-    else {
-        return onPageLoaded(pageAnimations);
-    }
-}
+  if (document.readyState === "loading" && !listenerAdded) {
+    document.addEventListener("DOMContentLoaded", () => onPageLoaded(pageAnimations));
+    listenerAdded = true;  // Set a flag so that the listener is added only once
+  }
+  else {
+    return onPageLoaded(pageAnimations);
+  }
+};
 
 /**
  * It gets the animation instructions Object and returns the Object with the references to the initiated timelines
@@ -274,26 +312,26 @@ export const animatePage = () => {
  * @return {Object} - Returns the Object with the references to all the initiated timelines
  */
 function onPageLoaded(animationData) {
-    const pageName = document.body.dataset.type;
-    const totalTl = {};
+  const pageName = document.body.dataset.type;
+  const totalTl = {};
 
 
-    if (animationData.common) {
-        const commonTl = animationData.common();
-        Object.assign(totalTl, commonTl);
-    }
-    else {
-        console.warn(`at onPageLoaded(): no "common" property found in the given Object...`);
-    }
+  if (animationData.common) {
+    const commonTl = animationData.common();
+    Object.assign(totalTl, commonTl);
+  }
+  else {
+    console.warn(`at onPageLoaded(): no "common" property found in the given Object...`);
+  }
 
-    if (pageName in animationData) {
-        const tlPage = animationData[pageName]();
-        return Object.assign(totalTl, tlPage);
-    }
-    else {
-        console.warn(`at onPageLoaded(): no such page name property: ${pageName} found in the given Object...`);
-        return totalTl;
-    }
+  if (pageName in animationData) {
+    const tlPage = animationData[pageName]();
+    return Object.assign(totalTl, tlPage);
+  }
+  else {
+    console.warn(`at onPageLoaded(): no such page name property: ${pageName} found in the given Object...`);
+    return totalTl;
+  }
 }
 
 /**
@@ -302,9 +340,9 @@ function onPageLoaded(animationData) {
  * @return {boolean} - Returns true if the timeline has at least one tween with a duration greater than zero.
  */
 function hasRealAnimations(timeline) {
-    // Getting all child tweens of the timeline
-    // Checking if there is at least one tween with a duration greater than zero
-    return timeline.getChildren().some(child => child.duration() > 0);
+  // Getting all child tweens of the timeline
+  // Checking if there is at least one tween with a duration greater than zero
+  return timeline.getChildren().some(child => child.duration() > 0);
 }
 
 /**
@@ -324,73 +362,86 @@ function hasRealAnimations(timeline) {
  * getScrollTimelineTwoTweens(elem, triggerElem, { opacity: 1, duration: 1, delay: 0.2 }, { scale: 0.7, duration: 1, ease: "circ.out", }, "-=1.5");
  */
 function getScrollTimelineTwoTweens(elem, triggerElem, gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
-    if (!(elem instanceof HTMLElement) || !(triggerElem instanceof HTMLElement)) {
-        console.warn(`at getScrollTimeLinePairLeftRight: the given selector: ${elem} or trigger: ${triggerElem} is not HTMLElement... animation is omitted...`);
-        return false;
+  if (!(elem instanceof HTMLElement) || !(triggerElem instanceof HTMLElement)) {
+    console.warn(`at getScrollTimeLinePairLeftRight: the given selector: ${elem} or trigger: ${triggerElem} is not HTMLElement... animation is omitted...`);
+    return false;
+  }
+
+  //The timeline initiation with the ScrollTrigger and its default params...
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: triggerElem,
+      start: "top 80%",
+      //end: "bottom 85%",
+      toggleActions: "play none none reverse",
+      //markers: true,
+      /**
+       * preventOverlaps vs fastScrollEnd - should be chosen on of them
+       */
+      preventOverlaps: true, //prevent overlapping animations at several trigger animations
+      //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
     }
+  });
 
-    //The timeline initiation with the ScrollTrigger and its default params...
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: triggerElem,
-            start: "top 80%",
-            //end: "bottom 85%",
-            toggleActions: "play none none reverse",
-            //markers: true,
-            /**
-             * preventOverlaps vs fastScrollEnd - should be chosen on of them
-             */
-            preventOverlaps: true, //prevent overlapping animations at several trigger animations
-            //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
-        }
-    });
+  tl.to(elem, {
+    ...gsapToParams,
+  });
+  tl.from(elem, {
+    ...gsapFromParams,
+  }, nextAnimePos);
 
-    tl.to(elem, {
-        ...gsapToParams,
-    });
-    tl.from(elem, {
-        ...gsapFromParams,
-    }, nextAnimePos);
-
-    return tl;
+  return tl;
 }
 
 /**
  * Creates multiple scroll-triggered timelines for elements matching the selector.
  * It makes animation timeline for the each element and returns the Object with the timeline references...
- * @param {string} selector - the common selector of the target elements in DOM
- * @param {string|null} triggerSelector - The selector for the trigger element (or null).
+ * @param {Array<HTMLElement>} elemsArr - the Array of the target elements in DOM
+ * @param {HTMLElement|null} triggerElem - the trigger element for the scrollTrigger (or null).
  * @param {string} [propKey="tlKey"] - the key part for making unique key of the timeline in the Object to return...
  * @param {Object} [gsapToParams={}] - params for the first tween with gsap.to
  * @param {Object} [gsapFromParams={}] - params for the last tween with gsap.from
  * @param {string} [nextAnimePos="<"] - The position for the second tween, indicating when the animation should start relative to the first.
  * @return {Object} - An object containing timelines with unique keys.
  */
-function getAllScrollTwoTweens(selector, triggerSelector, propKey = "tlKey", gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
-    const targetElems = gsap.utils.toArray(selector);
-    const tlObj = {};
+function getAllScrollTwoTweens(elemsArr, triggerElem, propKey = "tlKey", gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
+  const tlObj = {};
+  let trigger = null;
 
-    const triggerElem = triggerSelector && document.querySelector(triggerSelector);
+  if (!(Array.isArray(elemsArr)) || !elemsArr.length) {
+    console.error(`at getAllScrollTimeLineTwoTweens(): the given "elemsArr" is not Array or empty...`);
+    return tlObj;
+  }
 
-    if (!targetElems.length) {
-        console.warn(`at getAllScrollTimeLineTwoTweens(): no elements found with selector: ${selector}...`);
-        return tlObj;
+  if (triggerElem !== null) {
+    if (!(triggerElem instanceof HTMLElement) || !(document.body.contains(triggerElem))) {
+      console.error(`at getAllScrollTwoTweens: the given trigger is not HTMLElement or not in DOM...`);
+      return tlObj;
+    }
+    else {
+      trigger = triggerElem;
+    }
+  }
+
+  elemsArr.forEach((elem, index) => {
+    if (!(elem instanceof HTMLElement) || !(document.body.contains(elem))) {
+      console.warn(`at getAllScrollTwoTweens: the target element at index ${index} is not HTMLElement or not in DOM...`);
+      return;
     }
 
-    targetElems.forEach((elem, index) => {
-        const tlKey = `${propKey}_${index}`;
-        const tl = getScrollTimelineTwoTweens(elem, triggerElem || elem, gsapToParams, gsapFromParams, nextAnimePos);
+    const tlKey = `${propKey}_${index}`;
+    const tl = getScrollTimelineTwoTweens(elem, trigger || elem, gsapToParams, gsapFromParams, nextAnimePos);
 
-        if (tl && hasRealAnimations(tl)) {
-            tlObj[tlKey] = tl;
-        }
-    });
+    if (tl && hasRealAnimations(tl)) {
+      tlObj[tlKey] = tl;
+    }
+  });
 
-    return tlObj;
+  return tlObj;
 }
 
 
 /////// DEV
-function log(it, text="value: ") {
-    console.log(text, it );
+function log(it, text = "value: ") {
+  console.log(text, it);
 }

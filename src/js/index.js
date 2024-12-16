@@ -1,6 +1,6 @@
 'use strict';
 
-import { animatePage } from "./partials/animations.js";
+import { animatePage, fadeInGallery } from "./partials/animations.js";
 import { createMasonry, lockedEventListener } from "./helpers/funcsDOM.js";
 import { initGalleryThumbs } from "./partials/galleryThumbs.js";
 
@@ -21,10 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
   createMasonry("#gallery-work", {
     gap: 20,
   })
+    .then(imagesArr =>  {
+      //log(res, "masonry elements: ")
+      return fadeInGallery(imagesArr);
+    })
+    .then(timelines => {
+      Object.assign(totalTl, timelines);
+      //log("total timelines: ", totalTl);
+    })
     .catch(error => {
       console.error(error);
     })
-    .then(res =>  log(res, "elements: "));
 
   initGalleryThumbs("#gallery-work", {
     auxSource: "assets/img/gallery",

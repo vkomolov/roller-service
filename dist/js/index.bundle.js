@@ -10646,7 +10646,8 @@ function log(it, text = "value: ") {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   animatePage: function() { return /* binding */ animatePage; }
+/* harmony export */   animatePage: function() { return /* binding */ animatePage; },
+/* harmony export */   fadeInGallery: function() { return /* binding */ fadeInGallery; }
 /* harmony export */ });
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var gsap_ScrollTrigger_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! gsap/ScrollTrigger.js */ "./node_modules/gsap/ScrollTrigger.js");
@@ -10740,9 +10741,9 @@ const pageAnimations = {
       tlData["tlHero"] = tlHero;
     }
 
-    ///////////// FADE-IN-LEFT ANIMATIONS /////////////////
+    ///////////// FADE-IN-LEFT ANIMATIONS ////////////////
 
-    const fadeInLeftAnimations = getAllScrollTwoTweens(i.fadeInLeft, null, "fadeInLeft", {
+    const fadeInLeftAnimations = getAllScrollTwoTweens(gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(document.querySelectorAll(i.fadeInLeft)), null, "fadeInLeft", {
       opacity: 1,
       duration: 0.7,
       delay: 0.2
@@ -10757,7 +10758,7 @@ const pageAnimations = {
 
     ///////////// FADE-IN-RIGHT ANIMATIONS /////////////////
 
-    const fadeInRightAnimations = getAllScrollTwoTweens(i.fadeInRight, null, "fadeInRight", {
+    const fadeInRightAnimations = getAllScrollTwoTweens(gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(document.querySelectorAll(i.fadeInRight)), null, "fadeInRight", {
       opacity: 1,
       duration: 0.7,
       delay: 0.2
@@ -10772,7 +10773,7 @@ const pageAnimations = {
 
     ///////////// SCALE-IN ANIMATIONS ///////////
 
-    const scaleInAnimations = getAllScrollTwoTweens(i.scaleIn, null, "scaleIn", {
+    const scaleInAnimations = getAllScrollTwoTweens(gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(document.querySelectorAll(i.scaleIn)), null, "scaleIn", {
       opacity: 1,
       duration: 1,
       delay: 0.2
@@ -10786,7 +10787,7 @@ const pageAnimations = {
 
     //////////// FADE-IN-UP ANIMATIONS /////////////////
 
-    const fadeInUpAnimations = getAllScrollTwoTweens(i.fadeInUp, null, "fadeInUp", {
+    const fadeInUpAnimations = getAllScrollTwoTweens(gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(document.querySelectorAll(i.fadeInUp)), null, "fadeInUp", {
       opacity: 1,
       duration: 1,
       delay: 0.2
@@ -10891,6 +10892,18 @@ const pageAnimations = {
 
 ////////////////  ANIMATION FUNCTIONS ////////////////
 
+function fadeInGallery(elemsArr = []) {
+  return getAllScrollTwoTweens(elemsArr, document.querySelector(i.galleryWork), "fadInGallery", {
+    opacity: 1,
+    duration: 0.8,
+    delay: 0.2
+  }, {
+    scale: 0.7,
+    duration: 1,
+    ease: "back.out"
+  });
+}
+
 //for the dynamic and SPA site without reloading, using the flag to avoid multiple listeners
 let listenerAdded = false;
 const animatePage = () => {
@@ -10985,25 +10998,36 @@ function getScrollTimelineTwoTweens(elem, triggerElem, gsapToParams = {}, gsapFr
 /**
  * Creates multiple scroll-triggered timelines for elements matching the selector.
  * It makes animation timeline for the each element and returns the Object with the timeline references...
- * @param {string} selector - the common selector of the target elements in DOM
- * @param {string|null} triggerSelector - The selector for the trigger element (or null).
+ * @param {Array<HTMLElement>} elemsArr - the Array of the target elements in DOM
+ * @param {HTMLElement|null} triggerElem - the trigger element for the scrollTrigger (or null).
  * @param {string} [propKey="tlKey"] - the key part for making unique key of the timeline in the Object to return...
  * @param {Object} [gsapToParams={}] - params for the first tween with gsap.to
  * @param {Object} [gsapFromParams={}] - params for the last tween with gsap.from
  * @param {string} [nextAnimePos="<"] - The position for the second tween, indicating when the animation should start relative to the first.
  * @return {Object} - An object containing timelines with unique keys.
  */
-function getAllScrollTwoTweens(selector, triggerSelector, propKey = "tlKey", gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
-  const targetElems = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.toArray(selector);
+function getAllScrollTwoTweens(elemsArr, triggerElem, propKey = "tlKey", gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
   const tlObj = {};
-  const triggerElem = triggerSelector && document.querySelector(triggerSelector);
-  if (!targetElems.length) {
-    console.warn(`at getAllScrollTimeLineTwoTweens(): no elements found with selector: ${selector}...`);
+  let trigger = null;
+  if (!Array.isArray(elemsArr) || !elemsArr.length) {
+    console.error(`at getAllScrollTimeLineTwoTweens(): the given "elemsArr" is not Array or empty...`);
     return tlObj;
   }
-  targetElems.forEach((elem, index) => {
+  if (triggerElem !== null) {
+    if (!(triggerElem instanceof HTMLElement) || !document.body.contains(triggerElem)) {
+      console.error(`at getAllScrollTwoTweens: the given trigger is not HTMLElement or not in DOM...`);
+      return tlObj;
+    } else {
+      trigger = triggerElem;
+    }
+  }
+  elemsArr.forEach((elem, index) => {
+    if (!(elem instanceof HTMLElement) || !document.body.contains(elem)) {
+      console.warn(`at getAllScrollTwoTweens: the target element at index ${index} is not HTMLElement or not in DOM...`);
+      return;
+    }
     const tlKey = `${propKey}_${index}`;
-    const tl = getScrollTimelineTwoTweens(elem, triggerElem || elem, gsapToParams, gsapFromParams, nextAnimePos);
+    const tl = getScrollTimelineTwoTweens(elem, trigger || elem, gsapToParams, gsapFromParams, nextAnimePos);
     if (tl && hasRealAnimations(tl)) {
       tlObj[tlKey] = tl;
     }
@@ -11295,9 +11319,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.createMasonry)("#gallery-work", {
     gap: 20
+  }).then(imagesArr => {
+    //log(res, "masonry elements: ")
+    return (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_0__.fadeInGallery)(imagesArr);
+  }).then(timelines => {
+    Object.assign(totalTl, timelines);
+    //log("total timelines: ", totalTl);
   }).catch(error => {
     console.error(error);
-  }).then(res => log(res, "elements: "));
+  });
   (0,_partials_galleryThumbs_js__WEBPACK_IMPORTED_MODULE_2__.initGalleryThumbs)("#gallery-work", {
     auxSource: "assets/img/gallery",
     imageParentStyle: {

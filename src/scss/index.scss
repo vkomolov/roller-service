@@ -1062,6 +1062,7 @@
   will-change: transform, opacity;
   border-radius: 0.5em;
   overflow: hidden;
+  opacity: 0;
 
   @include box-shadow(0.2em, 0.4em);
 

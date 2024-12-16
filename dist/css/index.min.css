@@ -972,6 +972,7 @@ img,object,picture,svg,video{
   border-radius:.5em;
   box-shadow:.2em .2em .4em rgba(0,0,0,.8);
   min-width:12.22em;
+  opacity:0;
   overflow:hidden;
   width:30%;
   will-change:transform, opacity;
