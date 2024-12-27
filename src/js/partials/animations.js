@@ -84,7 +84,7 @@ const pageAnimations = {
       scale: 1,
       duration: 1.5,
       ease: "elastic.out"
-    }, "<+0.5");
+    }, "<+0.2");
 
     if (hasRealAnimations(tlHero)) {
       tlData["tlHero"] = tlHero;
@@ -138,8 +138,8 @@ const pageAnimations = {
       "scaleIn",
       {
         opacity: 1,
-        duration: 1,
-        delay: 0.2,
+        duration: 0.8,
+        //delay: 0.2,
       },
       {
         scale: 0.7,
@@ -297,6 +297,7 @@ export function fadeInGallery(elemsArr = []) {
 let listenerAdded = false;
 
 export const animatePage = () => {
+  //if no Listener on DOMContentLoaded then to add Listener onPageLoaded()
   if (document.readyState === "loading" && !listenerAdded) {
     document.addEventListener("DOMContentLoaded", () => onPageLoaded(pageAnimations));
     listenerAdded = true;  // Set a flag so that the listener is added only once

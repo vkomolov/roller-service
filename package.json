@@ -63,6 +63,7 @@
   },
   "dependencies": {
     "gsap": "^3.12.5",
-    "imagesloaded": "^5.0.0"
+    "imagesloaded": "^5.0.0",
+    "swiped-events": "^1.2.0"
   }
 }

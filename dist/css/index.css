@@ -581,6 +581,13 @@ img,object,picture,svg,video{
   background-color:#f1f1f1;
 }
 
+.foxy-on-hover{
+  transition:background-color .15s ease;
+}
+.foxy-on-hover:hover{
+  background-color:#ff8502 !important;
+}
+
 .section__content-layer{
   display:flex;
   flex-direction:column;
@@ -790,11 +797,8 @@ img,object,picture,svg,video{
   position:relative;
   width:100%;
 }
-.section__img-wrapper--benefits:before{
-  -webkit-backdrop-filter:blur(.4em);
-          backdrop-filter:blur(.4em);
-}
-.section__img-wrapper--benefits:after,.section__img-wrapper--benefits:before{
+.section__img-wrapper--benefits:after{
+  background-color:hsla(0,0%,100%,.3);
   bottom:0;
   content:"";
   display:block;
@@ -802,9 +806,6 @@ img,object,picture,svg,video{
   left:0;
   position:absolute;
   width:100%;
-}
-.section__img-wrapper--benefits:after{
-  background-color:hsla(0,0%,100%,.2);
 }
 
 .content-block-item--benefits{

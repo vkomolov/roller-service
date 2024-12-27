@@ -6,6 +6,7 @@
 @import "./global_styles/animations";
 @import "./global_styles/media";
 
+@import "../js/gallery-thumbs/scss/gallery-thumbs.scss";
 @import "./partials/root";
 @import "./partials/header";
 @import "./partials/footer";
@@ -94,6 +95,13 @@
 
 .bg-darker {
   background-color: $color-13;
+}
+
+.foxy-on-hover {
+  transition: background-color 0.15s ease;
+  &:hover {
+    background-color: $color-01 !important;
+  }
 }
 
 .section__content-layer {
@@ -547,6 +555,7 @@
 //////// section benefits /////////
 
 .section__benefits {
+
   padding-top: 5.5vw;
 
   @include flex-box(column, center, center);
@@ -563,27 +572,26 @@
     margin-top: 1em;
   }
 
-  &:before {
-    display: block;
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 6.25vw;
-    backdrop-filter: blur(0.4em);
-  }
-
-  &:after {
-    display: block;
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 6.25vw;
-    background-color: rgba(255, 255, 255, 0.2);
-  }
+    /*&:before {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6.25vw;
+      backdrop-filter: blur(0.4em);
+  }*/
+    &:after {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6.25vw;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
 }
 
 .content-block-item--benefits {
