@@ -10062,12 +10062,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   createMasonry: function() { return /* binding */ createMasonry; },
 /* harmony export */   customTargetStyleOnScroll: function() { return /* binding */ customTargetStyleOnScroll; },
 /* harmony export */   fountainBalls: function() { return /* binding */ fountainBalls; },
-/* harmony export */   getImagesInParent: function() { return /* binding */ getImagesInParent; },
 /* harmony export */   getImagesLoaded: function() { return /* binding */ getImagesLoaded; },
 /* harmony export */   isStyleSupported: function() { return /* binding */ isStyleSupported; },
 /* harmony export */   lockScroll: function() { return /* binding */ lockScroll; },
 /* harmony export */   lockedEventListener: function() { return /* binding */ lockedEventListener; },
 /* harmony export */   migrateElement: function() { return /* binding */ migrateElement; },
+/* harmony export */   replaceFilePath: function() { return /* binding */ replaceFilePath; },
 /* harmony export */   setAttributes: function() { return /* binding */ setAttributes; }
 /* harmony export */ });
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
@@ -10120,6 +10120,10 @@ function migrateElement({
 function fountainBalls(targetElem, params = {}) {
   if (!document.body.contains(targetElem)) {
     console.error(`the given targetElem ${targetElem} is not in DOM...`);
+    return null;
+  }
+  if (typeof gsap__WEBPACK_IMPORTED_MODULE_1__.gsap === "undefined") {
+    console.error(`gsap is not installed... please use "npm i gsap"`);
     return null;
   }
 
@@ -10432,30 +10436,6 @@ function lockScroll(isScrolled = true) {
 }
 
 /**
- * @function getImagesInParent
- * @description Retrieves all graphical elements (img, picture, svg, canvas, video) within a given parent element.
- *
- * @param {HTMLElement|Document} parent - The parent element to search within.
- *
- * @returns {Array<HTMLElement>} An array of graphical elements found within the parent element.
- *
- * @throws {Error} If the provided parent element is not in the DOM.
- *
- * @example
- * const parent = document.querySelector('.gallery');
- * const images = getImagesInParent(parent);
- * console.log(images);
- */
-function getImagesInParent(parent) {
-  if (parent !== document && !document.contains(parent)) {
-    throw new Error("The given parent element is not in the DOM.");
-  }
-
-  // Use querySelectorAll to get all matching elements inside the parent
-  return Array.from(parent.querySelectorAll("img, picture, svg, canvas, video"));
-}
-
-/**
  * @function getImagesLoaded
  * @description Processes all images within a given container, ensuring they are fully loaded and retrieves their dimensions.
  * Removes broken images along with their parent elements from the DOM.
@@ -10628,6 +10608,25 @@ async function createMasonry(containerSelector, params = {}) {
   } catch (error) {
     console.error("at initMasonry: ", error.message);
   }
+}
+
+/**
+ * Replaces the file path of the given URL with a new base path.
+ *
+ * @param {string} url - The original URL (either `src` or `srcset`) with the file.
+ * @param {string} newBase - The new base URL to prepend.
+ * @returns {string} The updated URL with the new base path to the given file.
+ */
+function replaceFilePath(url, newBase) {
+  const match = url.match(/([^/]+\.\w+(\s\d+x)?)$/); // Find the file name with extension and parameters (if any)
+
+  if (match) {
+    const fileNameWithExt = match[0]; // File name with extension (and possible parameters)
+    const cleanBase = newBase.replace(/^\/+|\/+$/g, ''); // Removing leading and trailing slashes
+
+    return `${cleanBase}/${fileNameWithExt}`;
+  }
+  return url; // If no match is found, return the original URL
 }
 
 /////// DEV
@@ -11051,9 +11050,14 @@ function log(it, text = "value: ") {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   initGalleryThumbs: function() { return /* binding */ initGalleryThumbs; }
+/* harmony export */   initThumbs: function() { return /* binding */ initThumbs; }
 /* harmony export */ });
+/* harmony import */ var _helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers/funcsDOM.js */ "./src/js/helpers/funcsDOM.js");
 
+
+
+
+//////// END OF IMPORTS //////////////////
 
 /**
  * Initializes a gallery with thumbnails, allowing users to click on a thumbnail to open a modal with the full-size image.
@@ -11082,32 +11086,34 @@ __webpack_require__.r(__webpack_exports__);
  *   imageParentStyle: { width: "70%" }
  * });
  */
-function initGalleryThumbs(gallerySelector, options = {}) {
+/*export function initGalleryThumbs(gallerySelector, options = {}) {
   const container = document.querySelector(gallerySelector);
   if (!container || !(container instanceof HTMLElement)) {
     throw new Error("at initGalleryThumbs: The given 'galleryContainer' is not in the DOM...");
   }
+
   const auxOptions = {
     auxSource: options.auxSource || "",
     imageParentStyle: {
-      width: "50%",
-      minWidth: "250px",
-      maxHeight: "80%",
       boxSizing: "border-box",
+      //width: "max(250px, 80%)",
+      maxWidth: "100%",
+      maxHeight: "100%",
       overflow: "hidden",
       opacity: 0,
       transition: "opacity 1.5s ease",
-      ...options.imageParentStyle
-    }
+      ...options.imageParentStyle,
+    },
   };
+
   const pictureStyles = {
     width: "100%",
-    maxWidth: "100%",
-    height: "auto",
-    objectFit: "contain",
-    objectPosition: "50% 50%",
-    verticalAlign: "center"
+    //maxWidth: "100%",
+    //height: "auto",
+    //objectFit: "contain",
+    //objectPosition: "top center",
   };
+
   const modalStyles = {
     position: "fixed",
     top: 0,
@@ -11119,17 +11125,19 @@ function initGalleryThumbs(gallerySelector, options = {}) {
     alignItems: "center",
     backgroundColor: "rgba(0, 0, 0, 0.8)",
     zIndex: 200,
-    overflow: "hidden"
+    padding: "3em 4em",
   };
+
   let imageParentElem = null;
+  //SOURCE implies that the parent element has a tag PICTURE...
   const graphicTags = ["SOURCE", "IMG"];
-  container.addEventListener("click", ({
-    target
-  }) => {
+
+  container.addEventListener("click", ({ target }) => {
     const parentElement = target.parentElement;
 
     // Cloning the parent element to preserve the structure of the thumbnail
     const clonedParent = parentElement.cloneNode(true);
+
     if (clonedParent.tagName === "PICTURE") {
       imageParentElem = document.createElement("div");
       Object.assign(imageParentElem.style, auxOptions.imageParentStyle);
@@ -11139,6 +11147,7 @@ function initGalleryThumbs(gallerySelector, options = {}) {
       // If the parent is not a <picture>, then the parent element contains the <img> element
       Object.assign(clonedParent.style, auxOptions.imageParentStyle);
     }
+
     const graphicsInParent = Array.from(clonedParent.children).filter(isGraphicElement);
 
     // Iterating over all graphic elements (images or sources) inside the cloned parent element
@@ -11170,7 +11179,8 @@ function initGalleryThumbs(gallerySelector, options = {}) {
 
     // Add the modal to the body
     document.body.appendChild(modal);
-    const child = modal.children[0];
+    const child = modal.firstElementChild;
+
     setTimeout(() => {
       child.style.opacity = "1";
     }, 0);
@@ -11184,45 +11194,240 @@ function initGalleryThumbs(gallerySelector, options = {}) {
     };
 
     // Close the modal when "Escape" key is pressed
-    const onEscape = e => {
+    const onEscape = (e) => {
       if (e.key === "Escape") cleanup();
     };
 
     // Close the modal when the background (modal itself) is clicked
-    const onCloseModal = e => {
+    const onCloseModal = (e) => {
       if (e.target === modal) cleanup();
     };
+
     modal.addEventListener("click", onCloseModal);
     document.addEventListener("keydown", onEscape);
   });
 
-  /**
+  /!**
    * Checks if the given element is a graphic element (either <img> or <source>).
    *
    * @param {HTMLElement} el - The element to check.
    * @returns {boolean} True if the element is a graphic element, false otherwise.
-   */
+   *!/
   function isGraphicElement(el) {
     return graphicTags.includes(el.tagName);
   }
+}*/
 
-  /**
-   * Replaces the file path of the given URL with a new base path.
-   *
-   * @param {string} url - The original URL (either `src` or `srcset`).
-   * @param {string} newBase - The new base URL to prepend.
-   * @returns {string} The updated URL with the new base path.
-   */
-  function replaceFilePath(url, newBase) {
-    const match = url.match(/([^/]+\.\w+(\s\d+x)?)$/); // Find the file name with extension and parameters (if any)
+function initThumbs(gallerySelector, originPath = null) {
+  const galleryBlock = document.querySelector(gallerySelector);
+  if (!galleryBlock) {
+    throw new Error("at initGalleryThumbs: The given 'galleryContainer' is not in the DOM...");
+  }
 
-    if (match) {
-      const fileNameWithExt = match[0]; // File name with extension (and possible parameters)
-      const cleanBase = newBase.replace(/^\/+|\/+$/g, ''); // Removing leading and trailing slashes
-
-      return `${cleanBase}/${fileNameWithExt}`;
+  //for checking media tags
+  const queryTags = ["picture", "video", "audio", "object", "img"];
+  const mediaArr = [];
+  for (const elem of galleryBlock.children) {
+    const mediaItem = elem.querySelector(queryTags.join(", ")); //receiving one string with the selectors
+    if (mediaItem) mediaArr.push(mediaItem);
+  }
+  const initThumbs = initModal(mediaArr, originPath);
+  galleryBlock.addEventListener("click", ({
+    target
+  }) => {
+    const foundIndex = mediaArr.findIndex(item => item === target.parentElement || item === target);
+    if (foundIndex === -1) {
+      console.warn("at initThumbs: the clicked element is not found in the gallery... omitting click...");
+    } else {
+      initThumbs(foundIndex);
     }
-    return url; // If no match is found, return the original URL
+  });
+  function initModal(mediaArr, originPath = null) {
+    const modalStyle = {
+      fontSize: "1em",
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "rgba(0, 0, 0, 0.8)",
+      zIndex: 200,
+      padding: "3em 5em",
+      overflow: "hidden"
+    };
+    const containerStyle = {
+      boxSizing: "border-box",
+      maxWidth: "100%",
+      maxHeight: "100%",
+      overflow: "hidden",
+      opacity: "0",
+      transition: "opacity 0.3s ease"
+    };
+    const pictureStyle = {
+      width: "100%"
+      //maxWidth: "100%",
+    };
+    const imgScoreStyle = {
+      position: "absolute",
+      top: "1%",
+      left: "50%",
+      transform: "translateX(-50%)",
+      fontSize: "1.5em",
+      color: "rgba(255, 255, 255, .8)"
+    };
+    const arrowStyle = {
+      fontSize: "1.5em",
+      position: "absolute",
+      top: "50%",
+      transform: "translateY(-50%)",
+      display: "flex",
+      width: "2em",
+      height: "2em",
+      justifyContent: "center",
+      alignItems: "center",
+      borderRadius: "50%",
+      lineHeight: 1,
+      backgroundColor: "rgba(255, 255, 255, .4)",
+      color: "rgba(255, 255, 255, 1)"
+    };
+    //clicked index of the media array
+    let currentIndex = null;
+
+    //creating modal container
+    const modal = document.createElement("div");
+    const imgScore = document.createElement("span");
+    imgScore.setAttribute("data-type", "imgScore");
+    imgScore.setAttribute("tabindex", "0");
+    const arrowPrev = document.createElement("span");
+    arrowPrev.textContent = "<";
+    arrowPrev.setAttribute("data-type", "prev");
+    arrowPrev.setAttribute("tabindex", "0");
+    const arrowNext = document.createElement("span");
+    arrowNext.textContent = ">";
+    arrowNext.setAttribute("data-type", "next");
+    arrowNext.setAttribute("tabindex", "0");
+    const mediaContainer = document.createElement("div");
+    Object.assign(modal.style, modalStyle);
+    Object.assign(imgScore.style, imgScoreStyle);
+    Object.assign(arrowPrev.style, arrowStyle, {
+      left: "0.5em"
+    });
+    Object.assign(arrowNext.style, arrowStyle, {
+      right: "0.5em"
+    });
+    Object.assign(mediaContainer.style, containerStyle);
+    modal.append(imgScore, arrowPrev, arrowNext, mediaContainer);
+    let clonedMediaItem = null;
+    const runThumbs = clickedIndex => {
+      if (clickedIndex !== currentIndex) {
+        currentIndex = clickedIndex;
+        const clickedElem = mediaArr[clickedIndex];
+        if (!clonedMediaItem) {
+          log("creating and appending the clicked cloneNode...");
+          clonedMediaItem = clickedElem.cloneNode(true);
+          Object.assign(clonedMediaItem.style, pictureStyle);
+          mediaContainer.appendChild(clonedMediaItem);
+        } else {
+          //checking the clonedMediaItem to have the same tagName and the same children structure...
+          if (clonedMediaItem.tagName !== clickedElem.tagName || clonedMediaItem.childElementCount !== clickedElem.childElementCount) {
+            log("overwriting the clonedNode...");
+            //overwriting the appended media item...
+            clonedMediaItem = clickedElem.cloneNode(true);
+          }
+          log("the clicked has the same tag name...");
+        }
+        if (clickedElem.tagName === "IMG") {
+          if (clickedElem.src && clickedElem.src !== "") {
+            if (!originPath) {
+              console.warn('at initThumbs: No origin path to media is provided, falling back to default source...');
+              clonedMediaItem.src = clickedElem.src;
+            } else {
+              clonedMediaItem.src = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.replaceFilePath)(clickedElem.src, originPath);
+            }
+          } else {
+            console.warn(`the clicked elem "IMG" at index: ${clickedIndex} has no "src" attribute or it is empty... omitting thumbs...`);
+          }
+        } else if (clickedElem.tagName === "OBJECT") {
+          if (clickedElem.hasAttribute("data") && clickedElem.getAttribute("data") !== "") {
+            if (!originPath) {
+              console.warn('at initThumbs: No origin path to media is provided, falling back to default source...');
+              clonedMediaItem.setAttribute("data", clickedElem.getAttribute("data"));
+            } else {
+              const newPath = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.replaceFilePath)(clickedElem.getAttribute("data"), originPath);
+              clonedMediaItem.setAttribute("data", newPath);
+            }
+          } else {
+            console.warn(`the clicked elem "OBJECT" at index: ${clickedIndex} has no "data" attribute or it is empty... omitting thumbs...`);
+          }
+        }
+        /// processing rest PICTURE, VIDEO, AUDIO elems
+        else {
+          const children = clickedElem.children;
+          const childrenCloned = clonedMediaItem.children;
+          if (children.length > 0) {
+            for (let i = 0; i < children.length; i++) {
+              if (children[i].hasAttribute("srcset")) {
+                if (children[i].srcset !== "") {
+                  if (!originPath) {
+                    console.warn('at initThumbs: No origin path to media is provided, falling back to default source...');
+                    childrenCloned[i].srcset = children[i].srcset;
+                  } else {
+                    childrenCloned[i].srcset = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.replaceFilePath)(children[i].srcset, originPath);
+                  }
+                } else {
+                  console.warn(`the clicked elem ${clickedElem.tagName} at index: ${clickedIndex} has the child 
+                  ${children[i].tagName} at index ${i} with empty "src"...`);
+                }
+              } else if (children[i].hasAttribute("src")) {
+                if (children[i].src !== "") {
+                  if (!originPath) {
+                    console.warn('at initThumbs: No origin path to media is provided, falling back to default source...');
+                    childrenCloned[i].src = children[i].src;
+                  } else {
+                    childrenCloned[i].src = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.replaceFilePath)(children[i].src, originPath);
+                  }
+                } else {
+                  console.warn(`the clicked elem ${clickedElem.tagName} at index: ${clickedIndex} has the child 
+                  ${children[i].tagName} at index ${i} with empty "src"...`);
+                }
+              } else {
+                console.warn(`the clicked elem ${clickedElem.tagName} at index: ${clickedIndex} has the child 
+                  ${children[i].tagName} at index ${i} with no "src" or "srcset...`);
+              }
+            }
+          } else {
+            console.warn(`at initThumbs: the clicked element ${clickedElem.tagName} at index: ${clickedIndex} 
+            has no media children... Elements: "PICTURE", "VIDEO", "AUDIO" must have children... omitting thumbs...`);
+          }
+        }
+
+        //giving the count of the image
+        imgScore.textContent = `${clickedIndex + 1} / ${mediaArr.length}`;
+
+        // Disabling scrolling when modal is open
+        document.body.style.overflow = "hidden";
+
+        // Add the modal to the body
+        document.body.appendChild(modal);
+        setTimeout(() => {
+          mediaContainer.style.opacity = "1";
+        }, 0);
+      } else {
+        log("repeated index...");
+        // Disabling scrolling when modal is open
+        document.body.style.overflow = "hidden";
+
+        // Add the modal to the body
+        document.body.appendChild(modal);
+        setTimeout(() => {
+          mediaContainer.style.opacity = "1";
+        }, 0);
+      }
+    };
+    return runThumbs;
   }
 }
 
@@ -11320,23 +11525,12 @@ document.addEventListener("DOMContentLoaded", () => {
   (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.createMasonry)("#gallery-work", {
     gap: 20
   }).then(imagesArr => {
-    //log(res, "masonry elements: ")
     return (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_0__.fadeInGallery)(imagesArr);
   }).then(timelines => {
     Object.assign(totalTl, timelines);
     //log("total timelines: ", totalTl);
-  }).catch(error => {
+  }).then(() => (0,_partials_galleryThumbs_js__WEBPACK_IMPORTED_MODULE_2__.initThumbs)("#gallery-work", "assets/img/gallery")).catch(error => {
     console.error(error);
-  });
-  (0,_partials_galleryThumbs_js__WEBPACK_IMPORTED_MODULE_2__.initGalleryThumbs)("#gallery-work", {
-    auxSource: "assets/img/gallery",
-    imageParentStyle: {
-      width: "50%",
-      minWidth: "250px",
-      maxHeight: "80%",
-      boxSizing: "border-box",
-      overflow: "hidden"
-    }
   });
 
   ///////// END OF DOMContentLoaded Listener ////////////

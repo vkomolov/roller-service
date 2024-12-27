@@ -520,9 +520,6 @@ img, svg, picture, video, object {
   width: 100%;
   max-width: 100%;
   height: auto;
-  object-fit: cover;
-  object-position: center;
-  vertical-align: top;
 }
 
 .section {
@@ -980,9 +977,6 @@ img, svg, picture, video, object {
   width: 100%;
   max-width: 100%;
   height: auto;
-  object-fit: cover;
-  object-position: center;
-  vertical-align: top;
 }
 
 /**
@@ -1507,9 +1501,6 @@ img, svg, picture, video, object {
   width: 100%;
   max-width: 100%;
   height: auto;
-  object-fit: cover;
-  object-position: center;
-  vertical-align: top;
 }
 
 .section {
@@ -1967,9 +1958,6 @@ img, svg, picture, video, object {
   width: 100%;
   max-width: 100%;
   height: auto;
-  object-fit: cover;
-  object-position: center;
-  vertical-align: top;
 }
 
 .header-layer {
@@ -2835,9 +2823,6 @@ img, svg, picture, video, object {
   width: 100%;
   max-width: 100%;
   height: auto;
-  object-fit: cover;
-  object-position: center;
-  vertical-align: top;
 }
 
 .section {

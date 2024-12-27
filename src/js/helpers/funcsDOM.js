@@ -45,6 +45,10 @@ export function fountainBalls(targetElem, params = {}) {
     console.error(`the given targetElem ${targetElem} is not in DOM...`);
     return null;
   }
+  if (typeof gsap === "undefined") {
+    console.error(`gsap is not installed... please use "npm i gsap"`);
+    return null;
+  }
 
   ///////////// INITIAL SETTINGS /////////////////
 
@@ -372,30 +376,6 @@ export function lockScroll(isScrolled = true) {
 }
 
 /**
- * @function getImagesInParent
- * @description Retrieves all graphical elements (img, picture, svg, canvas, video) within a given parent element.
- *
- * @param {HTMLElement|Document} parent - The parent element to search within.
- *
- * @returns {Array<HTMLElement>} An array of graphical elements found within the parent element.
- *
- * @throws {Error} If the provided parent element is not in the DOM.
- *
- * @example
- * const parent = document.querySelector('.gallery');
- * const images = getImagesInParent(parent);
- * console.log(images);
- */
-export function getImagesInParent(parent) {
-  if (parent !== document && !document.contains(parent)) {
-    throw new Error("The given parent element is not in the DOM.");
-  }
-
-  // Use querySelectorAll to get all matching elements inside the parent
-  return Array.from(parent.querySelectorAll("img, picture, svg, canvas, video"));
-}
-
-/**
  * @function getImagesLoaded
  * @description Processes all images within a given container, ensuring they are fully loaded and retrieves their dimensions.
  * Removes broken images along with their parent elements from the DOM.
@@ -574,6 +554,25 @@ export async function createMasonry(containerSelector, params = {}) {
   }
 }
 
+/**
+ * Replaces the file path of the given URL with a new base path.
+ *
+ * @param {string} url - The original URL (either `src` or `srcset`) with the file.
+ * @param {string} newBase - The new base URL to prepend.
+ * @returns {string} The updated URL with the new base path to the given file.
+ */
+export function replaceFilePath(url, newBase) {
+  const match = url.match(/([^/]+\.\w+(\s\d+x)?)$/); // Find the file name with extension and parameters (if any)
+
+  if (match) {
+    const fileNameWithExt = match[0]; // File name with extension (and possible parameters)
+    const cleanBase = newBase.replace(/^\/+|\/+$/g, ''); // Removing leading and trailing slashes
+
+    return `${cleanBase}/${fileNameWithExt}`;
+  }
+
+  return url; // If no match is found, return the original URL
+}
 
 /////// DEV
 function log(it, text = "value: ") {
