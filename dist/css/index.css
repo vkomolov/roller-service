@@ -1,3 +1,99 @@
+.modal{
+  align-items:center;
+  background-color:rgba(0,0,0,.9);
+  display:flex;
+  font-size:1em;
+  height:100vh;
+  justify-content:center;
+  left:0;
+  overflow:hidden;
+  padding:3em 5em;
+  position:fixed;
+  top:0;
+  width:100vw;
+  z-index:200;
+}
+
+.media-container{
+  box-sizing:border-box;
+  max-height:100%;
+  max-width:100%;
+  overflow:hidden;
+}
+.media-container .picture-item{
+  opacity:0;
+  transition:opacity 1s ease;
+  width:100%;
+}
+
+.image-score{
+  color:hsla(0,0%,100%,.8);
+  font-size:1.5em;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.close-button,.image-score{
+  position:absolute;
+  top:1%;
+}
+
+.close-button{
+  align-items:center;
+  background-color:hsla(0,0%,100%,.4);
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  font-size:1em;
+  height:1.5em;
+  justify-content:center;
+  line-height:1em;
+  right:.5em;
+  transition:background-color .1s ease,transform .1s ease-in-out;
+  width:1.5em;
+}
+.close-button:hover{
+  background-color:#fff;
+  color:#282017;
+  transform:scale(1.1);
+}
+.close-button:focus{
+  background-color:#cc5200;
+  transform:scale(1.2);
+}
+
+.thumb-arrow{
+  align-items:center;
+  background-color:hsla(0,0%,100%,.4);
+  border-radius:50%;
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  font-size:1.5em;
+  height:1.5em;
+  justify-content:center;
+  line-height:1;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  transition:background-color .1s ease,color .1s ease,transform .1s ease-in-out;
+  width:1.5em;
+}
+.thumb-arrow:hover{
+  background-color:#fff;
+  color:#282017;
+  transform:scale(1.1) translateY(-50%);
+}
+.thumb-arrow:focus{
+  transform:scale(1.2) translateY(-50%);
+}
+.thumb-arrow.prev{
+  left:.5em;
+}
+.thumb-arrow.next{
+  right:.5em;
+}
+
 .header-layer{
   background:linear-gradient(90deg, #282017 25%, rgba(65,57,48,0) 80%);
   width:100%;
@@ -795,16 +891,6 @@ img,object,picture,svg,video{
 .section__img-wrapper--benefits{
   margin-top:2em;
   position:relative;
-  width:100%;
-}
-.section__img-wrapper--benefits:after{
-  background-color:hsla(0,0%,100%,.3);
-  bottom:0;
-  content:"";
-  display:block;
-  height:6.25vw;
-  left:0;
-  position:absolute;
   width:100%;
 }
 

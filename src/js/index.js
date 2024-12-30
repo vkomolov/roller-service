@@ -2,7 +2,7 @@
 
 import { animatePage, fadeInGallery } from "./partials/animations.js";
 import { createMasonry, lockedEventListener } from "./helpers/funcsDOM.js";
-import { initThumbs } from "./gallery-thumbs/gallery-thumbs.js";
+import { initThumbs } from "./modulesPack/gallery-thumbs/gallery-thumbs.js";
 
 lockedEventListener("resize", window, 2000)(() => {
   createMasonry("#gallery-work", {

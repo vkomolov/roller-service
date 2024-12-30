@@ -65,10 +65,13 @@ export const pathData = {
         htmlNested: [
             `${ srcPath }/html/**/*.html`,
         ],
-        stylesNested: `${ srcPath }/scss/**/*.scss`,
+        stylesNested: [
+            `${ srcPath }/scss/**/*.scss`,
+            `${ srcPath }/js/modulesPack/**/scss/*.scss`,
+        ],
         jsNested: [
             `${ srcPath }/js/**/*.js`,
-            `${ srcPath }/modules/**/*.js`,
+            `${ srcPath }/js/modulesPack/**/*.js`,
         ],
         img: [
             `${ srcPath }/assets/img/**/*.{jpg,jpeg,png,svg,gif,webp,avif,ico}`,

@@ -1,6 +1,6 @@
 "use strict";
 
-import { replaceFilePath } from "../helpers/funcsDOM.js";
+import { replaceFilePath } from "../../helpers/funcsDOM.js";
 
 //////// END OF IMPORTS //////////////////
 
@@ -35,107 +35,36 @@ export function initThumbs(gallerySelector, originPath = null) {
   });
 
   function initModal(mediaArr, originPath = null) {
-    const modalStyle = {
-      fontSize: "1em",
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100vw",
-      height: "100vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "rgba(0, 0, 0, 0.9)",
-      zIndex: 200,
-      padding: "3em 5em",
-      overflow: "hidden",
-    };
-    const mediaContainerStyle = {
-      boxSizing: "border-box",
-      maxWidth: "100%",
-      maxHeight: "100%",
-      overflow: "hidden",
-      opacity: "0",
-      transition: "opacity 1.5s ease",
-    };
-    const pictureStyle = {
-      width: "100%",
-      //maxWidth: "100%",
-    };
-    const imgScoreStyle = {
-      position: "absolute",
-      top: "1%",
-      left: "50%",
-      transform: "translateX(-50%)",
-      fontSize: "1.5em",
-      color: "rgba(255, 255, 255, .8)",
-    };
-    const arrowStyle = {
-      fontSize: "1.5em",
-      position: "absolute",
-      top: "50%",
-      transform: "translateY(-50%)",
-      display: "flex",
-      width: "1.5em",
-      height: "1.5em",
-      justifyContent: "center",
-      alignItems: "center",
-      borderRadius: "50%",
-      lineHeight: 1,
-      backgroundColor: "rgba(255, 255, 255, .4)",
-      color: "rgba(255, 255, 255, 1)",
-      cursor: "pointer",
-    };
-    const closeButtonStyle = {
-      fontSize: "1em",
-      position: "absolute",
-      top: "1%",
-      right: "0.5em",
-      display: "flex",
-      width: "1.5em",
-      height: "1.5em",
-      justifyContent: "center",
-      alignItems: "center",
-      lineHeight: "1em",
-      backgroundColor: "rgba(255, 255, 255, .4)",
-      color: "rgba(255, 255, 255, 1)",
-      cursor: "pointer",
-    };
     //clicked index of the media array
     let currentIndex = null;
 
     //creating modal container
     const modal = document.createElement("div");
+    modal.classList.add("modal");
 
     const imgScore = document.createElement("span");
-    imgScore.setAttribute("tabindex", "0");
+    imgScore.classList.add("image-score");
 
     const closeButton = document.createElement("span");
-    closeButton.classList.add("foxy-on-hover");
+    closeButton.classList.add("close-button");
     closeButton.textContent = "X";
     closeButton.setAttribute("data-type", "close");
     closeButton.setAttribute("tabindex", "0");
 
     const arrowPrev = document.createElement("span");
-    arrowPrev.classList.add("foxy-on-hover");
+    arrowPrev.classList.add("thumb-arrow", "prev");
     arrowPrev.textContent = "<";
     arrowPrev.setAttribute("data-type", "prev");
     arrowPrev.setAttribute("tabindex", "0");
 
     const arrowNext = document.createElement("span");
-    arrowNext.classList.add("foxy-on-hover");
+    arrowNext.classList.add("thumb-arrow", "next");
     arrowNext.textContent = ">";
     arrowNext.setAttribute("data-type", "next");
     arrowNext.setAttribute("tabindex", "0");
 
     const mediaContainer = document.createElement("div");
-
-    Object.assign(modal.style, modalStyle);
-    Object.assign(imgScore.style, imgScoreStyle);
-    Object.assign(closeButton.style, closeButtonStyle);
-    Object.assign(arrowPrev.style, arrowStyle, { left: "0.5em" });
-    Object.assign(arrowNext.style, arrowStyle, { right: "0.5em" });
-    Object.assign(mediaContainer.style, mediaContainerStyle);
+    mediaContainer.classList.add("media-container");
 
     modal.append(imgScore, closeButton, arrowPrev, arrowNext, mediaContainer);
 
@@ -144,12 +73,13 @@ export function initThumbs(gallerySelector, originPath = null) {
     //////// LISTERNERS //////////
     const getPrev = () => {
       const index = currentIndex === 0 ? mediaArr.length - 1 : currentIndex - 1;
-      runThumbs(index);
+      cycleThumbs(index);
     };
     const getNext = () => {
       const index = currentIndex === mediaArr.length - 1 ? 0 : currentIndex + 1;
-      runThumbs(index);
-    }
+      cycleThumbs(index);
+    };
+
     const actions = {
       "close": handleEscape,
       "prev": getPrev,
@@ -166,42 +96,37 @@ export function initThumbs(gallerySelector, originPath = null) {
       }
     });
 
-    modal.addEventListener('swiped-left', getPrev);
+    modal.addEventListener("swiped-left", getPrev);
 
-    modal.addEventListener('swiped-right', getNext);
+    modal.addEventListener("swiped-right", getNext);
 
-    function handleKey(event) {
-      if (event.key in actions) {
-        actions[event.key]();
+
+    return (clickedIndex) => {
+      if (!document.body.contains(modal)) {
+        document.body.appendChild(modal); // добавляем в body
       }
-    }
-    function handleEscape() {
-      modal.remove();
-      document.removeEventListener("keydown", handleKey);
-      document.body.style.overflow = "auto";
-    }
-    const runThumbs = (clickedIndex) => {
-      mediaContainer.style.opacity = "0";
+      //document.body.appendChild(modal);
+
+      cycleThumbs(clickedIndex);
       //adding document listener on each runThumbs, removing document listener on modal.remove()
       document.addEventListener("keydown", handleKey);
 
+    };
+
+    function cycleThumbs(clickedIndex) {
+      //the first or next cycle of thumbs...
       if (clickedIndex !== currentIndex) {
         currentIndex = clickedIndex;
         const clickedElem = mediaArr[clickedIndex];
         let imgAlt = null;
         const clonedElem = clickedElem.cloneNode(true);
 
-        if (!clonedMediaItem) {
-          clonedMediaItem = clonedElem;
-          Object.assign(clonedMediaItem.style, pictureStyle);
-          mediaContainer.appendChild(clonedMediaItem);
-        }
-        else {
+        if (clonedMediaItem) {
           mediaContainer.removeChild(clonedMediaItem);
-          //overwriting the appended media item...
-          clonedMediaItem = clonedElem;
-          mediaContainer.appendChild(clonedMediaItem);
         }
+
+        clonedMediaItem = clonedElem;
+        clonedMediaItem.classList.add("picture-item");
 
         if (!clickedElem.childElementCount) {
           updateSource(clickedElem, clonedMediaItem, originPath);
@@ -227,18 +152,19 @@ export function initThumbs(gallerySelector, originPath = null) {
         const imgAltText = imgAlt ? `: ${imgAlt}` : "";
         imgScore.textContent = `${clickedIndex + 1} / ${mediaArr.length} ${imgAltText}`;
 
-        // Add the modal to the body
-        document.body.appendChild(modal);
+        mediaContainer.appendChild(clonedMediaItem);
 
+        setTimeout(() => {
+          clonedMediaItem.style.opacity = "1";
+        }, 0);
       }
       else {
-        // Add the modal to the body
-        document.body.appendChild(modal);
-      }
+        clonedMediaItem.style.opacity = "0";
 
-      setTimeout(() => {
-        mediaContainer.style.opacity = "1";
-      }, 0);
+        setTimeout(() => {
+          clonedMediaItem.style.opacity = "1";
+        }, 0);
+      }
 
       function updateSource(clickedElem, clonedMediaItem, originPath = null) {
         const attrData = {
@@ -263,9 +189,19 @@ export function initThumbs(gallerySelector, originPath = null) {
           }
         }
       }
-    };
+    }
 
-    return runThumbs;
+    function handleKey(event) {
+      if (event.key in actions) {
+        actions[event.key]();
+      }
+    }
+
+    function handleEscape() {
+      modal.remove();
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "auto";
+    }
   }
 }
 
