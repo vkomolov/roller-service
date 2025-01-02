@@ -11,12 +11,21 @@ export function initThumbs(gallerySelector, originPath = null) {
   }
 
   //for checking media tags
-  const queryTags = ["picture", "video", "audio", "object", "img"];
-  const mediaArr = [];
+  const queryTags = ["picture", "img", "video", "audio", "object"];
+
+/*  const mediaArr = [];
 
   for (const elem of galleryBlock.children) {
     const mediaItem = elem.querySelector(queryTags.join(", ")); //receiving one string with the selectors
     if (mediaItem) mediaArr.push(mediaItem);
+  }*/
+
+  const mediaArr = Array.from(galleryBlock.children)
+    .map(elem => elem.querySelector(queryTags.join(", ")))
+    .filter(Boolean);
+
+  if (!mediaArr.length) {
+    throw new Error(`at initThumbs: the found medaiArr is empty: ${mediaArr.length}... `);
   }
 
   const runThumbs = initModal(mediaArr, originPath);
@@ -29,7 +38,6 @@ export function initThumbs(gallerySelector, originPath = null) {
     else {
       // Disabling scrolling when modal is open
       document.body.style.overflow = "hidden";
-
       runThumbs(foundIndex);
     }
   });
@@ -38,35 +46,18 @@ export function initThumbs(gallerySelector, originPath = null) {
     //clicked index of the media array
     let currentIndex = null;
 
-    //creating modal container
-    const modal = document.createElement("div");
-    modal.classList.add("modal");
+    const modal = createElementWithClass("div", "modal");
+    const scoreBar = createElementWithClass("div", "modal__bar");
+    const arrowBar = createElementWithClass("div", "modal__bar", "modal__bar--arrow");
+    const imgScore = createElementWithClass("span", "modal-score");
+    const closeButton = createButton("X", "close");
+    const arrowPrev = createButton("<", "prev");
+    const arrowNext = createButton(">", "next");
+    const mediaContainer = createElementWithClass("div", "media-container");
 
-    const imgScore = document.createElement("span");
-    imgScore.classList.add("image-score");
-
-    const closeButton = document.createElement("span");
-    closeButton.classList.add("close-button");
-    closeButton.textContent = "X";
-    closeButton.setAttribute("data-type", "close");
-    closeButton.setAttribute("tabindex", "0");
-
-    const arrowPrev = document.createElement("span");
-    arrowPrev.classList.add("thumb-arrow", "prev");
-    arrowPrev.textContent = "<";
-    arrowPrev.setAttribute("data-type", "prev");
-    arrowPrev.setAttribute("tabindex", "0");
-
-    const arrowNext = document.createElement("span");
-    arrowNext.classList.add("thumb-arrow", "next");
-    arrowNext.textContent = ">";
-    arrowNext.setAttribute("data-type", "next");
-    arrowNext.setAttribute("tabindex", "0");
-
-    const mediaContainer = document.createElement("div");
-    mediaContainer.classList.add("media-container");
-
-    modal.append(imgScore, closeButton, arrowPrev, arrowNext, mediaContainer);
+    scoreBar.append(imgScore, closeButton);
+    arrowBar.append(arrowPrev, arrowNext);
+    modal.append(scoreBar, arrowBar, mediaContainer);
 
     let clonedMediaItem = null;
 
@@ -112,6 +103,30 @@ export function initThumbs(gallerySelector, originPath = null) {
       document.addEventListener("keydown", handleKey);
 
     };
+
+    function createElementWithClass(tag, ...classNames) {
+      const element = document.createElement(tag);
+      element.classList.add(...classNames);
+      return element;
+    }
+
+    function createButton(text, type) {
+      const types = {
+        prev: "prev",
+        next: "next",
+        close: "close",
+      };
+
+      if (!types[type]) {
+        console.warn(`at createButton: the given data-type: ${type} is not found in types...`);
+      }
+
+      const button = createElementWithClass("span", 'thumb-arrow', types[type] || "");
+      button.textContent = text;
+      button.dataset.type = type;
+      button.tabIndex = 0;
+      return button;
+    }
 
     function cycleThumbs(clickedIndex) {
       //the first or next cycle of thumbs...
