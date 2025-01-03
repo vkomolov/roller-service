@@ -26,6 +26,18 @@ const headParams = {
             //loadMode: "async"   //"differ" this property may not exist in linkScripts
         }*/
     },
+    gates: {
+        description: "Терміновий ремонт, автоматизація та встановлення воріт в Києві та області. Професійна робота та оперативний сервіс. Замовляйте зараз!",
+        robots: "noindex",
+        title: "Терміновий ремонт, автоматизація та встановлення воріт в Києві та області",
+        linkStyles: "css/index.min.css",
+        root: ".", //some *.html can be nested in src/html/somePages/ which requires correct path to root: "..", "../.." etc...
+        //if the scripts are to be written in the end of body, the property linkScripts may not exits
+        /*        linkScripts: {
+                    link: "js/index.bundle.js", //this property must exist in linkScripts
+                    //loadMode: "async"   //"differ" this property may not exist in linkScripts
+                }*/
+    },
 }
 export const fileIncludeSettings = {
     prefix: "@@",

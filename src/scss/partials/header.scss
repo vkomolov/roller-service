@@ -203,14 +203,20 @@
 .nav-link {
   text-decoration: none;
   color: $color-01;
+  cursor: default;
 
   @include text-shadow(0.05em, 0.05em);
   @include transition(transform);
 
-  &:hover {
+  &:not(.active):hover {
     color: $color-01-darken;
     @include text-shadow(0.07em, 0.07em);
     transform: translateY(-0.1em);
+    cursor: pointer;
+  }
+
+  &.active {
+    color: $color-01-darkest;
   }
 }
 

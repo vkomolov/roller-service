@@ -219,14 +219,19 @@
 
 .nav-link{
   color:#ff8502;
+  cursor:default;
   text-decoration:none;
   text-shadow:.05em .05em .05em rgba(0,0,0,.8);
   transition:transform .15s ease-in-out;
 }
-.nav-link:hover{
+.nav-link:not(.active):hover{
   color:#cc5200;
+  cursor:pointer;
   text-shadow:.07em .07em .07em rgba(0,0,0,.8);
   transform:translateY(-.1em);
+}
+.nav-link.active{
+  color:#8a3700;
 }
 
 .burger_nav{

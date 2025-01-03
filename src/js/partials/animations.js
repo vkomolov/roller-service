@@ -37,6 +37,11 @@ const pageAnimations = {
 
     return tlData;
   },
+  gates: () => {
+    const tlData = {};
+
+    return tlData;
+  },
   common: () => {
     const tlData = {};
 

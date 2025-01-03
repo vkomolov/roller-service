@@ -574,6 +574,31 @@ export function replaceFilePath(url, newBase) {
   return url; // If no match is found, return the original URL
 }
 
+export function lightenCurrentNav(navItems = [], bodyType = null, activeClass = null) {
+  if (!bodyType || !navItems.length || !activeClass) {
+    console.warn("at lightenCurrentNav: no arguments given or incorrect data...");
+    return;
+  }
+
+  const activeItem = getActiveNavItem(navItems, bodyType);
+  if (activeItem) {
+    activeItem.classList.add('active');
+  }
+}
+
+export function getActiveNavItem(navItems = [], bodyType = null) {
+  if (!bodyType) return null;
+
+  for (const item of navItems) {
+    const a = item.querySelector('a');
+    if (a?.dataset.type === bodyType) {
+      return a;
+    }
+  }
+
+  return null;
+}
+
 /////// DEV
 function log(it, text = "value: ") {
   console.log(text, it);

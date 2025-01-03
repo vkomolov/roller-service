@@ -2268,13 +2268,18 @@ img, svg, picture, video, object {
 .nav-link {
   text-decoration: none;
   color: rgb(255, 133, 2);
+  cursor: default;
   text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.8);
   transition: transform 0.15s ease-in-out;
 }
-.nav-link:hover {
+.nav-link:not(.active):hover {
   color: rgb(204, 82, 0);
   text-shadow: 0.07em 0.07em 0.07em rgba(0, 0, 0, 0.8);
   transform: translateY(-0.1em);
+  cursor: pointer;
+}
+.nav-link.active {
+  color: rgb(138, 55, 0);
 }
 
 .burger_nav {

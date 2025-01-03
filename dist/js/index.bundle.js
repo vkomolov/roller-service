@@ -10062,8 +10062,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   createMasonry: function() { return /* binding */ createMasonry; },
 /* harmony export */   customTargetStyleOnScroll: function() { return /* binding */ customTargetStyleOnScroll; },
 /* harmony export */   fountainBalls: function() { return /* binding */ fountainBalls; },
+/* harmony export */   getActiveNavItem: function() { return /* binding */ getActiveNavItem; },
 /* harmony export */   getImagesLoaded: function() { return /* binding */ getImagesLoaded; },
 /* harmony export */   isStyleSupported: function() { return /* binding */ isStyleSupported; },
+/* harmony export */   lightenCurrentNav: function() { return /* binding */ lightenCurrentNav; },
 /* harmony export */   lockScroll: function() { return /* binding */ lockScroll; },
 /* harmony export */   lockedEventListener: function() { return /* binding */ lockedEventListener; },
 /* harmony export */   migrateElement: function() { return /* binding */ migrateElement; },
@@ -10628,6 +10630,26 @@ function replaceFilePath(url, newBase) {
   }
   return url; // If no match is found, return the original URL
 }
+function lightenCurrentNav(navItems = [], bodyType = null, activeClass = null) {
+  if (!bodyType || !navItems.length || !activeClass) {
+    console.warn("at lightenCurrentNav: no arguments given or incorrect data...");
+    return;
+  }
+  const activeItem = getActiveNavItem(navItems, bodyType);
+  if (activeItem) {
+    activeItem.classList.add('active');
+  }
+}
+function getActiveNavItem(navItems = [], bodyType = null) {
+  if (!bodyType) return null;
+  for (const item of navItems) {
+    const a = item.querySelector('a');
+    if (a?.dataset.type === bodyType) {
+      return a;
+    }
+  }
+  return null;
+}
 
 /////// DEV
 function log(it, text = "value: ") {
@@ -10896,6 +10918,10 @@ const i = {
 /// ANIMATION PARAMS
 const pageAnimations = {
   index: () => {
+    const tlData = {};
+    return tlData;
+  },
+  gates: () => {
     const tlData = {};
     return tlData;
   },
@@ -11333,6 +11359,13 @@ __webpack_require__.r(__webpack_exports__);
   //.then(res =>  log(res, "elements: "));
 });
 document.addEventListener("DOMContentLoaded", () => {
+  const pageType = document.body.dataset.type;
+  //several duplicate navigations:
+  const navLists = Array.from(document.querySelectorAll(".header__nav-list"));
+  for (const navList of navLists) {
+    const navArr = Array.from(navList.children);
+    (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.lightenCurrentNav)(navArr, pageType, "active");
+  }
   const totalTl = (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_0__.animatePage)();
   //log(totalTl, "totalTl: ");
 
