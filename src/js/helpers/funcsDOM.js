@@ -574,29 +574,25 @@ export function replaceFilePath(url, newBase) {
   return url; // If no match is found, return the original URL
 }
 
-export function lightenCurrentNav(navItems = [], bodyType = null, activeClass = null) {
-  if (!bodyType || !navItems.length || !activeClass) {
-    console.warn("at lightenCurrentNav: no arguments given or incorrect data...");
+export function activateNavLink(navLinkSelector, pageType, activeClass, anchorLink) {
+  if (!navLinkSelector || !pageType || !activeClass || !anchorLink) {
+    console.warn("at activateNavLink: no given all arguments");
     return;
   }
 
-  const activeItem = getActiveNavItem(navItems, bodyType);
-  if (activeItem) {
-    activeItem.classList.add('active');
+  const navLinkItems = Array.from(document.querySelectorAll(navLinkSelector));
+  if (!navLinkItems.length) {
+    console.warn(`at activateNavLink: the nav link items with selector: ${navLinkSelector} are not found in the page...`);
+    return;
   }
-}
 
-export function getActiveNavItem(navItems = [], bodyType = null) {
-  if (!bodyType) return null;
-
-  for (const item of navItems) {
-    const a = item.querySelector('a');
-    if (a?.dataset.type === bodyType) {
-      return a;
+  for (const navItem of navLinkItems) {
+    if (navItem?.dataset?.type === pageType) {
+      navItem.classList.add(activeClass);
+      navItem.setAttribute("href", anchorLink);
+      navItem.setAttribute("target", "_self");
     }
   }
-
-  return null;
 }
 
 /////// DEV

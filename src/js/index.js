@@ -1,7 +1,7 @@
 'use strict';
 
 import { animatePage, fadeInGallery } from "./partials/animations.js";
-import { createMasonry, lightenCurrentNav, lockedEventListener } from "./helpers/funcsDOM.js";
+import { createMasonry, activateNavLink, lockedEventListener } from "./helpers/funcsDOM.js";
 import { initThumbs } from "./modulesPack/gallery-thumbs/gallery-thumbs.js";
 
 lockedEventListener("resize", window, 2000)(() => {
@@ -16,14 +16,19 @@ lockedEventListener("resize", window, 2000)(() => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const pageType = document.body.dataset.type;
-  //several duplicate navigations:
-  const navLists = Array.from(document.querySelectorAll(".header__nav-list"));
+  const linkAnchors = {
+    gates: "#gatesSection",
+    rollers: "#securityShuttersSection",
+    automation: "#rollerShuttersAutomation",
+    barriers: "#barrierSection",
+    awnings: "#awningsSection",
+    windows: "#windowSection",
+    security: "#securitySurveillanceSection",
+  };
+  //checking and lighten several duplicate navigations for the .active links:
+  activateNavLink(".nav-link", pageType, "active", linkAnchors[pageType]);
 
-  for (const navList of navLists) {
-    const navArr = Array.from(navList.children);
-    lightenCurrentNav(navArr, pageType, "active");
-  }
-
+  //GSAP animation tweens
   const totalTl = animatePage();
   //log(totalTl, "totalTl: ");
 
