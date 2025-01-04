@@ -1,10 +1,138 @@
 <!doctype html>
 <html lang="en">
-@@include("templates/head.html", {"page": "gates"})
-<body data-type="gates">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+        <meta name="description" content="Терміновий ремонт, автоматизація та встановлення воріт в Києві та області. Професійна робота та оперативний сервіс. Замовляйте зараз!">
+        <meta name="robots" content="noindex">
+        <title>Терміновий ремонт, автоматизація та встановлення воріт в Києві та області</title>
+        <link rel="stylesheet" href="css/index.min.css">
+        
+        
+    
+    <link rel="shortcut icon" sizes="24x24" href="assets/img/24_7_24x24.ico" type="image/x-icon">
+    <link rel="shortcut icon" sizes="32x32" href="assets/img/24_7_32x32.ico" type="image/x-icon">
+    <link rel="shortcut icon" sizes="48x48" href="assets/img/24_7_48x48.ico" type="image/x-icon">
+</head>
+<body data-type="barriers">
 <div class="total-layer">
   <div class="total-wrapper">
-    @@include("templates/header.html", {"page": "gates"})
+    <div class="header-layer">
+    <header class="header" role="banner">
+        <h2 class="header__logo-heading">Майстер-Сервіс</h2>
+        <div class="header__contacts-wrapper">
+            <div class="header__contacts-block">
+                <a href="tel:380991019368"
+                   aria-label="Мобільний зв'язок з майстром"
+                   class="icon-link"
+                   tabindex="0"
+                >
+                    <div class="icon-link__phone-icon">
+                        <svg viewBox="0 0 24 25">
+                            <title>phone icon</title>
+                            <use xlink:href="assets/img/svgIcons/sprite.mono.svg#phone"></use>
+                        </svg>
+                    </div>
+                    <span class="icon-link__text icon-link__text--phone">+38 (099) 101 93 68</span>
+                </a>
+                <div class="social-icons-wrapper">
+                    <a href="viber://chat?number=+380991019368"
+                       aria-label="Зв'язок з майстром через Viber"
+                       class="social-icons-wrapper__social-icon"
+                       tabindex="0"
+                    >
+                        <svg viewBox="0 0 48 48">
+                            <title>viber icon</title>
+                            <use xlink:href="assets/img/svgIcons/sprite.multi.svg#viber"></use>
+                        </svg>
+                    </a>
+                    <a href="https://t.me/username"
+                       target="_blank"
+                       aria-label="Зв'язок з майстром через Telegram"
+                       rel="noopener noreferrer nofollow"
+                       class="social-icons-wrapper__social-icon"
+                       tabindex="0"
+                    >
+                        <svg viewBox="0 0 240 240">
+                            <title>telegram icon</title>
+                            <use xlink:href="assets/img/svgIcons/sprite.multi.svg#telegram"></use>
+                        </svg>
+                    </a>
+                    <button
+                        class="burger_nav hidden"
+                        aria-label="Навігація до послуг"
+                        aria-expanded="false"
+                        tabindex="0">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav class="header__nav" aria-label="Навігація до послуг">
+            <ul class="header__nav-list">
+                <li><a href="index.html"
+                       class="nav-link"
+                       aria-label="Перейти до сторінки 'Про нас'"
+                       tabindex="0"
+                       data-type="index">
+                    Про нас
+                </a></li>
+                <li><a href="gates-installation-repair.html"
+                       class="nav-link"
+                       aria-label="Перейти до послуг 'Ворота'"
+                       tabindex="0"
+                       data-type="gates">
+                    Ворота
+                </a></li>
+                <li><a href="rollers-installation-repair.html"
+                       class="nav-link"
+                       aria-label="Перейти до послуг 'Ролети'"
+                       tabindex="0"
+                       data-type="rollers">
+                    Ролети
+                </a></li>
+                <li><a href="gates-rollers-automation.html"
+                       class="nav-link"
+                       aria-label="Перейти до послуг 'Автоматизація'"
+                       tabindex="0"
+                       data-type="automation">
+                    Автоматизація
+                </a></li>
+                <li><a href="barriers-installation-repair.html"
+                       class="nav-link"
+                       aria-label="Перейти до послуг 'Шлагбауми'"
+                       tabindex="0"
+                       data-type="barriers">
+                    Шлагбауми
+                </a></li>
+                <li><a href="awnings-installation-repair.html"
+                       class="nav-link"
+                       aria-label="Перейти до послуг 'Маркізи'"
+                       tabindex="0"
+                       data-type="awnings">
+                    Маркізи
+                </a></li>
+                <li><a href="window-settings-repair.html"
+                       class="nav-link"
+                       aria-label="Перейти до послуг 'Вікна та двері'"
+                       tabindex="0"
+                       data-type="windows">
+                    Вікна та двері
+                </a></li>
+                <li><a href="security-installation-maintenance.html"
+                       class="nav-link"
+                       aria-label="Перейти до послуг 'Відеонагляд'"
+                       tabindex="0"
+                       data-type="security">
+                    Відеонагляд
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
     <div id="scrolledNav">
       <div class="scrolledNav__contacts-block">
         <a href="tel:380991019368"
@@ -254,83 +382,54 @@
         </div>
       </div>
     </section>
-    <section class="section" id="gatesSection" aria-labelledby="gates-group">
+    <section class="section" id="barrierSection" aria-labelledby="barrier-group">
       <div class="section__content-layer">
         <div class="section__heading-block section__heading-block--separation" data-type="fade-in-left">
-          <h2 id="gates-group">Виготовлення та ремонт автоматичних воріт</h2>
+          <h2 id="barrier-group">Встановлення та ремонт шлагбаумів</h2>
           <hr>
         </div>
         <div class="section__content-block section__content-block--row-between section__content-block--pair img-right">
           <div class="section__text-block section__text-block--pair" data-type="fade-in-left">
             <p class="section__text-separ">
-              Наша компанія пропонує повний спектр послуг з виготовлення, монтажу та ремонту воріт і автоматики.
-            </p>
-            <p>Ми працюємо з різними типами воріт, включаючи промислові, секційні, ролетні, відкатні та розкладні.</p>
-            <p>
-              Нами враховуються побажання щодо кольору, типу воріт, властивостей полотна, системи відкривання, та
-              особливостей самого об'єкту.
+              Ми маємо великий досвід в встановленні, ремонті та обслуговуванні автоматичних шлагбаумів любої
+              складності.
             </p>
             <p>
-              Для цього ми пропонуємо безкоштовний виїзд досвідченого майстра для заміру та консультації безпосередньо
-              на місці.
+              Наш технічний фахівець допоможе Вам в оптимальному підборі типу шлагбауму, довжини його стріли та інших
+              параметрів пристрою, враховуючи погодні умови, ширину проїзду, що перекривається, очікувану інтенсивність
+              експлуатації та інші особливості застосування.
             </p>
             <p>
-              Таким чином він зможе вивчити об'єкт і знайти для Вас найбільш оптимальне, надійне та економічне рішення.
+              У зручний для Вас час наш майстер зможе приїхати до Вас, щоб на місці вивчити всі деталі, пов'язані з
+              монтажем шлагбауму: можливість зміцнення фундаменту, прокладання кабелів та інші важливі нюанси під час
+              встановлення.
             </p>
             <p>
-              Ми використовуємо автоматику для воріт лише надійних виробників, які гарантують якість своєї продукції та
-              зарекомендували себе високою лояльністю споживачів.
+              Автоматичний шлагбаум може бути додатково оснащений різними опціями для підвищення безпеки та зручності
+              використання.
             </p>
             <p>
-              Наші фахівці забезпечать якісне виготовлення та монтаж воріт, включаючи встановлення автоматики та
-              налаштування системи управління, у найкоротші терміни.
-            </p>
-          </div>
-          <div class="section__img-wrapper section__img-wrapper--pair" data-type="fade-in-right">
-            <img src="../assets/img/gatesSection/gates_automation_service.png"
-                 alt="gates automation service"
-                 loading="lazy"
-            >
-          </div>
-        </div>
-        <div class="section__content-block section__content-block--row-between section__content-block--pair margin-top">
-          <div class="section__img-wrapper section__img-wrapper--pair order-02" data-type="fade-in-left">
-            <img src="../assets/img/gatesSection/gates_roller_shutters_repair_service.png"
-                 alt="gates automation service"
-                 loading="lazy"
-            >
-          </div>
-          <div class="section__text-block section__text-block--pair" data-type="fade-in-right">
-            <p class="section__text-separ">
-              В разі необхідності, чергова бригада майстрів терміново прибуде на об'єкт у Києві та Київській області для
-              аварійного відкриття воріт, діагностичного огляду та проведення екстреного ремонту.
+              Це включає додаткове підсвічування і світловідбивачі, фотоелементи і датчики руху під шлагбаумом, або
+              посилена конструкція самого пристрою.
             </p>
             <p>
-              Ми підтримуємо склад запчастин та комплектуючіх автоматики, що дозволяє нам оперативно замінити несправну
-              деталь або цілий комплект автоматики для воріт під час ремонту або обслуговування.
-            </p>
-            <p>
-              Проводиться оперативна заміна зношених пружин, тросів, роликів, направляючих, замків, ламелів, касет,
-              шнура, двигунів та інших вузлів і деталей.
-            </p>
-            <p>
-              Більш того, на базі власного виробництва ми проводимо зварювальні роботи, виготовляємо конструкції з
-              металопрофільної труби та окремі деталі: торсійні пружини для секційних воріт тощо…
-            </p>
-            <p>
-              Все це значно розширює можливості ремонту та модернізації.
-            </p>
-            <p>
-              Зверниться до наших фахівців – і Ви можете розраховувати на усунення будь-якої несправності та гарантію
-              якості виконаних робіт у найближчий термін.
+              Також у Києві та Київській області ми готові допомогти з ремонтом вже встановлених шлагбаумів, заміною
+              стріли, зношених деталей та комплектуючих у оптимальні для Вас терміни.
             </p>
             <button
                 class="button-request"
-                data-type="gates automation"
+                data-type="barrier"
                 onclick="window.location.href='tel:380991019368'"
                 aria-label="Мобільний зв’язок з фахівцем"
-                tabindex="0">Зв’язок з фахівцем
+                tabindex="0">
+              Зв’язок з фахівцем
             </button>
+          </div>
+          <div class="section__img-wrapper section__img-wrapper--pair" data-type="fade-in-right">
+            <img src="./assets/img/barrierSection/barriers_installation_repair_service.png"
+                 alt="barrier installation and repair"
+                 loading="lazy"
+            >
           </div>
         </div>
       </div>
@@ -537,7 +636,126 @@
         </div>
       </div>
     </section>
-    @@include("templates/footer.html", {"page": "gates"})
+    <footer class="section section--footer">
+  <div class="section__content-layer">
+    <div class="section__content-block section__content-block--row-right section__content-block--footer flex-gap-02-01">
+      <div class="footer__contacts-block">
+        <div class="footer__content-block-item">
+          <h2 class="footer__logo-heading">Майстер-Сервіс</h2>
+          <p class="footer__logo-text">Оперативне виконання послуг у Києві та Київській області</p>
+        </div>
+        <div class="footer__content-block-item" aria-label="Опції зв'язку з майстром">
+          <a href="tel:380991019368"
+             aria-label="Мобільний зв'язок з майстром"
+             class="icon-link icon-link--footer"
+             tabindex="0"
+          >
+            <div class="icon-link__phone-icon">
+              <svg viewBox="0 0 24 25">
+                <title>phone icon</title>
+                <use xlink:href="assets/img/svgIcons/sprite.mono.svg#phone"></use>
+              </svg>
+            </div>
+            <span class="icon-link__text icon-link__text--phone">+38 (099) 101 93 68</span>
+          </a>
+          <a href="viber://chat?number=+380991019368"
+             aria-label="Зв'язок з майстром через Viber"
+             class="icon-link icon-link--footer"
+             tabindex="0"
+          >
+            <div class="icon-link__social-icon">
+              <svg viewBox="0 0 48 48">
+                <title>viber icon</title>
+                <use xlink:href="assets/img/svgIcons/sprite.multi.svg#viber"></use>
+              </svg>
+            </div>
+            <span class="icon-link__text icon-link__text--social-icon">+38 (099) 101 93 68</span>
+          </a>
+          <a href="https://t.me/username"
+             target="_blank"
+             aria-label="Зв'язок з майстром через Telegram"
+             rel="noopener noreferrer nofollow"
+             class="icon-link icon-link--footer"
+             tabindex="0"
+          >
+            <div class="icon-link__social-icon">
+              <svg viewBox="0 0 240 240">
+                <title>telegram icon</title>
+                <use xlink:href="assets/img/svgIcons/sprite.multi.svg#telegram"></use>
+              </svg>
+            </div>
+            <span class="icon-link__text icon-link__text--social-icon">+38 (099) 101 93 68</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer__content-block">
+        <div class="footer__content-block-item">
+          <h3 class="footer__nav-heading">Послуги:</h3>
+          <nav class="footer__nav" aria-label="Навігація до послуг">
+            <ul class="footer__nav-list">
+              <li><a href="index.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Перейти до сторінки 'Про нас'"
+                     tabindex="0"
+                     data-type="index">
+                Про нас
+              </a></li>
+              <li><a href="gates-installation-repair.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Перейти до послуг 'Ворота'"
+                     tabindex="0"
+                     data-type="gates">
+                Виготовлення та ремонт воріт
+              </a></li>
+              <li><a href="rollers-installation-repair.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Перейти до послуг 'Ролети'"
+                     tabindex="0"
+                     data-type="rollers">
+                Монтаж та ремонт захісних ролет
+              </a></li>
+              <li><a href="gates-rollers-automation.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Перейти до послуг 'Автоматизація'"
+                     tabindex="0"
+                     data-type="automation">
+                Автоматизація воріт та захисних ролет
+              </a></li>
+              <li><a href="barriers-installation-repair.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Перейти до послуг 'Шлагбауми'"
+                     tabindex="0"
+                     data-type="barriers">
+                Встановлення та ремонт шлагбаумів
+              </a></li>
+              <li><a href="awnings-installation-repair.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Перейти до послуг 'Маркізи'"
+                     tabindex="0"
+                     data-type="awnings">
+                Виготовлення, монтаж та ремонт маркіз
+              </a></li>
+              <li><a href="window-settings-repair.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Перейти до послуг 'Вікна та двері'"
+                     tabindex="0"
+                     data-type="windows">
+                Бронювання та ремонт вікон і дверей
+              </a></li>
+              <li><a href="security-installation-maintenance.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Перейти до послуг 'Відеонагляд'"
+                     tabindex="0"
+                     data-type="security">
+                Встановлення систем охорони та відеонагляду
+              </a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
   </div>
 </div>
 

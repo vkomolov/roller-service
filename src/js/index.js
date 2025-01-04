@@ -17,6 +17,7 @@ lockedEventListener("resize", window, 2000)(() => {
 document.addEventListener("DOMContentLoaded", () => {
   const pageType = document.body.dataset.type;
   const linkAnchors = {
+    index: "#",
     gates: "#gatesSection",
     rollers: "#securityShuttersSection",
     automation: "#rollerShuttersAutomation",
@@ -25,8 +26,21 @@ document.addEventListener("DOMContentLoaded", () => {
     windows: "#windowSection",
     security: "#securitySurveillanceSection",
   };
+  const logoLinkSelector = ".logo-link";
+
   //checking and lighten several duplicate navigations for the .active links:
-  activateNavLink(".nav-link", pageType, "active", linkAnchors[pageType]);
+  activateNavLink(".nav-link", pageType, "active", linkAnchors[pageType] || "#");
+
+  //removing href from "index.html" to "#" if pageType === "index"
+  const logoLink = document.querySelector(logoLinkSelector);
+  if (!logoLink) {
+    console.warn(`logoLink Selector: ${logoLinkSelector} is no found in DOM...`);
+  }
+  else {
+    if (pageType === "index") {
+      logoLink.setAttribute("href", linkAnchors[pageType])
+    }
+  }
 
   //GSAP animation tweens
   const totalTl = animatePage();

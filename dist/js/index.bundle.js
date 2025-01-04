@@ -10643,7 +10643,6 @@ function activateNavLink(navLinkSelector, pageType, activeClass, anchorLink) {
     if (navItem?.dataset?.type === pageType) {
       navItem.classList.add(activeClass);
       navItem.setAttribute("href", anchorLink);
-      navItem.setAttribute("target", "_self");
     }
   }
 }
@@ -10900,6 +10899,7 @@ const i = {
   burgerHidden: ".burger_nav.hidden",
   navMenuHidden: ".header__nav.abs",
   gatesSection: "#gatesSection",
+  benefitsSection: "#benefitsSection",
   headingAccentHero: ".section__heading-block--hero .accent",
   headingHeroRest: ".section__heading-block--hero .rest-of-heading",
   textBlockHero: ".section__text-block--hero",
@@ -10915,10 +10915,6 @@ const i = {
 /// ANIMATION PARAMS
 const pageAnimations = {
   index: () => {
-    const tlData = {};
-    return tlData;
-  },
-  gates: () => {
     const tlData = {};
     return tlData;
   },
@@ -11040,7 +11036,7 @@ const pageAnimations = {
       ease: "back.out(0.8)",
       delay: 0.5,
       scrollTrigger: {
-        trigger: i.gatesSection,
+        trigger: i.benefitsSection,
         start: "top 10%",
         //end: "bottom 85%",
         toggleActions: "play none none reverse",
@@ -11166,7 +11162,7 @@ function onPageLoaded(animationData) {
     const tlPage = animationData[pageName]();
     return Object.assign(totalTl, tlPage);
   } else {
-    console.warn(`at onPageLoaded(): no such page name property: ${pageName} found in the given Object...`);
+    //console.warn(`at onPageLoaded(): no such page name property: ${pageName} found in the given Object...`);
     return totalTl;
   }
 }
@@ -11358,6 +11354,7 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener("DOMContentLoaded", () => {
   const pageType = document.body.dataset.type;
   const linkAnchors = {
+    index: "#",
     gates: "#gatesSection",
     rollers: "#securityShuttersSection",
     automation: "#rollerShuttersAutomation",
@@ -11366,8 +11363,20 @@ document.addEventListener("DOMContentLoaded", () => {
     windows: "#windowSection",
     security: "#securitySurveillanceSection"
   };
+  const logoLinkSelector = ".logo-link";
+
   //checking and lighten several duplicate navigations for the .active links:
-  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.activateNavLink)(".nav-link", pageType, "active", linkAnchors[pageType]);
+  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.activateNavLink)(".nav-link", pageType, "active", linkAnchors[pageType] || "#");
+
+  //removing href from "index.html" to "#" if pageType === "index"
+  const logoLink = document.querySelector(logoLinkSelector);
+  if (!logoLink) {
+    console.warn(`logoLink Selector: ${logoLinkSelector} is no found in DOM...`);
+  } else {
+    if (pageType === "index") {
+      logoLink.setAttribute("href", linkAnchors[pageType]);
+    }
+  }
 
   //GSAP animation tweens
   const totalTl = (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_0__.animatePage)();

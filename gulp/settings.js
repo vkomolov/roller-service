@@ -49,6 +49,66 @@ const headParams = {
                     link: "js/index.bundle.js", //this property must exist in linkScripts
                     //loadMode: "async"   //"differ" this property may not exist in linkScripts
                 }*/
+    },
+    automation: {
+        description: "Терміновий ремонт та встановлення автоматики воріт та ролет в Києві та області. Професійна робота та оперативний сервіс. Замовляйте зараз!",
+        robots: "noindex",
+        title: "Терміновий ремонт та встановлення автоматичних воріт та ролет в Києві та області",
+        linkStyles: "css/index.min.css",
+        root: ".", //some *.html can be nested in src/html/somePages/ which requires correct path to root: "..", "../.." etc...
+        //if the scripts are to be written in the end of body, the property linkScripts may not exits
+        /*        linkScripts: {
+                    link: "js/index.bundle.js", //this property must exist in linkScripts
+                    //loadMode: "async"   //"differ" this property may not exist in linkScripts
+                }*/
+    },
+    barriers: {
+        description: "Терміновий ремонт та встановлення шлагбаумів в Києві та області. Професійна робота та оперативний сервіс. Замовляйте зараз!",
+        robots: "noindex",
+        title: "Терміновий ремонт та встановлення шлагбаумів в Києві та області",
+        linkStyles: "css/index.min.css",
+        root: ".", //some *.html can be nested in src/html/somePages/ which requires correct path to root: "..", "../.." etc...
+        //if the scripts are to be written in the end of body, the property linkScripts may not exits
+        /*        linkScripts: {
+                    link: "js/index.bundle.js", //this property must exist in linkScripts
+                    //loadMode: "async"   //"differ" this property may not exist in linkScripts
+                }*/
+    },
+    awnings: {
+        description: "Терміновий ремонт та встановлення маркіз в Києві та області. Професійна робота та оперативний сервіс. Замовляйте зараз!",
+        robots: "noindex",
+        title: "Терміновий ремонт та встановлення маркіз в Києві та області",
+        linkStyles: "css/index.min.css",
+        root: ".", //some *.html can be nested in src/html/somePages/ which requires correct path to root: "..", "../.." etc...
+        //if the scripts are to be written in the end of body, the property linkScripts may not exits
+        /*        linkScripts: {
+                    link: "js/index.bundle.js", //this property must exist in linkScripts
+                    //loadMode: "async"   //"differ" this property may not exist in linkScripts
+                }*/
+    },
+    windows: {
+        description: "Терміновий ремонт, та бронювання вікон в Києві та області. Професійна робота та оперативний сервіс. Замовляйте зараз!",
+        robots: "noindex",
+        title: "Терміновий ремонт, та бронювання вікон в Києві та області",
+        linkStyles: "css/index.min.css",
+        root: ".", //some *.html can be nested in src/html/somePages/ which requires correct path to root: "..", "../.." etc...
+        //if the scripts are to be written in the end of body, the property linkScripts may not exits
+        /*        linkScripts: {
+                    link: "js/index.bundle.js", //this property must exist in linkScripts
+                    //loadMode: "async"   //"differ" this property may not exist in linkScripts
+                }*/
+    },
+    security: {
+        description: "Терміновий ремонт та встановлення відеопостереження в Києві та області. Професійна робота та оперативний сервіс. Замовляйте зараз!",
+        robots: "noindex",
+        title: "Терміновий ремонт та встановлення відеопостереження в Києві та області",
+        linkStyles: "css/index.min.css",
+        root: ".", //some *.html can be nested in src/html/somePages/ which requires correct path to root: "..", "../.." etc...
+        //if the scripts are to be written in the end of body, the property linkScripts may not exits
+        /*        linkScripts: {
+                    link: "js/index.bundle.js", //this property must exist in linkScripts
+                    //loadMode: "async"   //"differ" this property may not exist in linkScripts
+                }*/
     }
 }
 export const fileIncludeSettings = {

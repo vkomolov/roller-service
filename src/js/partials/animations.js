@@ -18,6 +18,7 @@ const i = {
   burgerHidden: ".burger_nav.hidden",
   navMenuHidden: ".header__nav.abs",
   gatesSection: "#gatesSection",
+  benefitsSection: "#benefitsSection",
   headingAccentHero: ".section__heading-block--hero .accent",
   headingHeroRest: ".section__heading-block--hero .rest-of-heading",
   textBlockHero: ".section__text-block--hero",
@@ -33,11 +34,6 @@ const i = {
 /// ANIMATION PARAMS
 const pageAnimations = {
   index: () => {
-    const tlData = {};
-
-    return tlData;
-  },
-  gates: () => {
     const tlData = {};
 
     return tlData;
@@ -184,7 +180,7 @@ const pageAnimations = {
       ease: "back.out(0.8)",
       delay: 0.5,
       scrollTrigger: {
-        trigger: i.gatesSection,
+        trigger: i.benefitsSection,
         start: "top 10%",
         //end: "bottom 85%",
         toggleActions: "play none none reverse",
@@ -335,7 +331,7 @@ function onPageLoaded(animationData) {
     return Object.assign(totalTl, tlPage);
   }
   else {
-    console.warn(`at onPageLoaded(): no such page name property: ${pageName} found in the given Object...`);
+    //console.warn(`at onPageLoaded(): no such page name property: ${pageName} found in the given Object...`);
     return totalTl;
   }
 }

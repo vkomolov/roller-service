@@ -590,7 +590,6 @@ export function activateNavLink(navLinkSelector, pageType, activeClass, anchorLi
     if (navItem?.dataset?.type === pageType) {
       navItem.classList.add(activeClass);
       navItem.setAttribute("href", anchorLink);
-      navItem.setAttribute("target", "_self");
     }
   }
 }

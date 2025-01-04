@@ -2256,7 +2256,7 @@ img, svg, picture, video, object {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  gap: 0.5em 1em;
+  gap: 0.5em 0.75em;
   /* tablet (portrait): (max-width: 1024px) */
 }
 @media (max-width: 1024px) {
