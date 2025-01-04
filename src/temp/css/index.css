@@ -3193,12 +3193,10 @@ img, svg, picture, video, object {
   background-color: rgb(255, 255, 255);
   color: rgb(101, 92, 82);
   /* tablet (landscape) max-width: 1280px */
+  /*  @include maxTabletLandscape {
+      font-size: var(--range_18-16_max-1280px);  //in root.scss
+    }*/
   /* mobile (portrait wide): (max-width: 640px) */
-}
-@media (max-width: 1280px) {
-  .total-wrapper {
-    font-size: var(--range_18-16_max-1280px);
-  }
 }
 @media (max-width: 640px) {
   .total-wrapper {
@@ -3924,15 +3922,37 @@ img, svg, picture, video, object {
   background: rgba(220, 220, 220, 0.8);
   transition: top 0.2s ease-in-out;
 }
+.hexagon-comb-block__cell-link.active {
+  --_s: 1.1;
+  z-index: 1;
+  cursor: default;
+  /*    &:hover {
+        &:before {
+          top: 0;
+        }
 
-.hexagon-comb-block__cell-link:hover {
+        .hexagon-comb-block__cell-title {
+          opacity: 1;
+        }
+      }*/
+}
+.hexagon-comb-block__cell-link.active:before {
+  background-color: rgba(101, 92, 82, 0.7);
+}
+.hexagon-comb-block__cell-link.active .hexagon-comb-block__cell-title {
+  opacity: 1;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+}
+
+.hexagon-comb-block__cell-link:not(.active):hover {
   --_s: 1.1;
   z-index: 1;
 }
-.hexagon-comb-block__cell-link:hover:before {
+.hexagon-comb-block__cell-link:not(.active):hover:before {
   top: -100%;
 }
-.hexagon-comb-block__cell-link:hover .hexagon-comb-block__cell-title {
+.hexagon-comb-block__cell-link:not(.active):hover .hexagon-comb-block__cell-title {
   opacity: 0;
 }
 

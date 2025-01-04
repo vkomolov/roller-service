@@ -11363,20 +11363,12 @@ document.addEventListener("DOMContentLoaded", () => {
     windows: "#windowSection",
     security: "#securitySurveillanceSection"
   };
-  const logoLinkSelector = ".logo-link";
+  const navLinkSelector = ".nav-link";
+  const navHexagonSelector = ".hexagon-comb-block__cell-link";
 
   //checking and lighten several duplicate navigations for the .active links:
-  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.activateNavLink)(".nav-link", pageType, "active", linkAnchors[pageType] || "#");
-
-  //removing href from "index.html" to "#" if pageType === "index"
-  const logoLink = document.querySelector(logoLinkSelector);
-  if (!logoLink) {
-    console.warn(`logoLink Selector: ${logoLinkSelector} is no found in DOM...`);
-  } else {
-    if (pageType === "index") {
-      logoLink.setAttribute("href", linkAnchors[pageType]);
-    }
-  }
+  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.activateNavLink)(navLinkSelector, pageType, "active", linkAnchors[pageType] || "#");
+  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.activateNavLink)(navHexagonSelector, pageType, "active", linkAnchors[pageType] || "#");
 
   //GSAP animation tweens
   const totalTl = (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_0__.animatePage)();

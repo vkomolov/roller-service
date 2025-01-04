@@ -103,18 +103,5 @@ $element-shadow: 0.15em, 0.3em, rgba(0, 0, 0, .8);
   @return calc(($value-diff * ($normalized-width - #{$min-width}#{$measure})) / $width-range + #{$min-value}#{$measure});
 }
 
-@function em($pixel-value, $use-rem: false) {
-  @if type-of($pixel-value) == 'number' {
-    @if $use-rem {
-      // Если $use-rem == true, делим на 1rem
-      @return calc(#{$pixel-value} / #{1rem});
-    } @else {
-      // Если $use-rem == false (или не передан), делим на 1em
-      @return calc(#{$pixel-value} / #{1em});
-    }
-  } @else {
-    @error "Invalid input: '$pixel-value' must be a number.";
-  }
-}
 
 
