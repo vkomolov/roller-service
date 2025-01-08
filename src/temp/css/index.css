@@ -3289,6 +3289,17 @@ img, svg, picture, video, object {
   display: inline-block;
   opacity: 0;
 }
+.section__heading-block .sub-p {
+  text-transform: initial;
+  font-size: 0.4em;
+  margin-top: 1.5em;
+  /* mobile (portrait wide): (max-width: 640px) */
+}
+@media (max-width: 640px) {
+  .section__heading-block .sub-p {
+    font-size: 14px;
+  }
+}
 .section__heading-block h1, .section__heading-block h2 {
   font-size: inherit;
 }
@@ -4126,6 +4137,18 @@ img, svg, picture, video, object {
                 );
             }*/
   }
+}
+
+.logo-wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.logo-wrapper__item {
+  width: clamp(5em, 12vw, 9em);
 }
 
 #gallery-work {

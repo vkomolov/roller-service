@@ -143,6 +143,17 @@
     opacity: 0;
   }
 
+  .sub-p {
+    text-transform: initial;
+    font-size: 0.4em;
+    margin-top: 1.5em;
+
+    /* mobile (portrait wide): (max-width: 640px) */
+    @include maxMobilePortraitWide {
+      font-size: 14px;
+    }
+  }
+
   h1, h2, {
     font-size: inherit;
   }
@@ -1083,6 +1094,18 @@
                     url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.jpg") 2x
                 );
             }*/
+  }
+}
+
+///////// logo slider ///////////////
+.logo-wrapper {
+  width: 100%;
+
+  @include flex-box($flex-box-row-center-wrap...);
+  gap: 1em;
+
+  &__item {
+    width: clamp(5em, 12vw, 9em);
   }
 }
 

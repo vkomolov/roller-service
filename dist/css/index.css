@@ -685,6 +685,11 @@ img,object,picture,svg,video{
   display:inline-block;
   opacity:0;
 }
+.section__heading-block .sub-p{
+  font-size:.4em;
+  margin-top:1.5em;
+  text-transform:none;
+}
 .section__heading-block h1,.section__heading-block h2{
   font-size:inherit;
 }
@@ -1029,6 +1034,18 @@ img,object,picture,svg,video{
   font-size:1em;
 }
 
+.logo-wrapper{
+  align-items:center;
+  display:flex;
+  flex-flow:row wrap;
+  gap:1em;
+  justify-content:center;
+  width:100%;
+}
+.logo-wrapper__item{
+  width:clamp(5em, 12vw, 9em);
+}
+
 #gallery-work{
   height:45em;
   overflow-x:hidden;
@@ -1267,6 +1284,9 @@ img,object,picture,svg,video{
   }
   .section__content-layer{
     align-items:center;
+  }
+  .section__heading-block .sub-p{
+    font-size:14px;
   }
   .section__content-block{
     align-items:center;
