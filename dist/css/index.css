@@ -461,9 +461,6 @@ body{
   -moz-osx-font-smoothing:grayscale;
   background-color:#dcdcdc;
   line-height:1.4;
-  -webkit-user-select:none;
-     -moz-user-select:none;
-          user-select:none;
 }
 body:before{
   box-shadow:0 0 10px rgba(0,0,0,.8);
