@@ -817,6 +817,7 @@ img,object,picture,svg,video{
   background-position:75%;
   background-repeat:no-repeat;
   background-size:cover;
+  font-size:1.8em;
 }
 .section--hero[aria-labelledby=index]{
   background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/hero_professional_1440.webp") 1x, url("../assets/img/heroSection/hero_professional_1440.jpg") 1x);
@@ -830,13 +831,20 @@ img,object,picture,svg,video{
   background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/security_shutters_roll-up _1440.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _1440.jpg") 1x);
   background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/security_shutters_roll-up _1440.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _1440.jpg") 1x);
 }
+.section--hero[aria-labelledby=automation]{
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/shutter_automatic_1440.webp") 1x, url("../assets/img/heroSection/shutter_automatic_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/shutter_automatic_1440.webp") 1x, url("../assets/img/heroSection/shutter_automatic_1440.jpg") 1x);
+}
+.section--hero[aria-labelledby=barriers]{
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/barrier_1440.webp") 1x, url("../assets/img/heroSection/barrier_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/barrier_1440.webp") 1x, url("../assets/img/heroSection/barrier_1440.jpg") 1x);
+}
 
 .section__content-layer--hero{
   color:#fff;
 }
 
 .section__heading-block--hero{
-  font-size:36px;
   margin-bottom:1em;
   max-width:18.6em;
   text-shadow:.05em .1em .1em rgba(0,0,0,.8);
@@ -850,7 +858,7 @@ img,object,picture,svg,video{
 
 .section__img-wrapper--hero{
   transform:scale(0);
-  width:12.3em;
+  width:6.5em;
 }
 
 .section__bidding-block--hero{
@@ -1121,16 +1129,10 @@ img,object,picture,svg,video{
   .section__heading-block--separation{
     font-size:var(--range_48-32_max-1280px);
   }
-  .section__heading-block--hero{
-    font-size:calc(var(--range_24-18_max-1280px)*1.5);
+  .section--hero{
+    font-size:calc(var(--range_24-18_max-1280px)*1.4);
   }
-  .section__text-block--hero{
-    font-size:var(--range_24-18_max-1280px);
-  }
-  .section__img-wrapper--hero{
-    width:17.57vw;
-  }
-  .section__bidding-block--hero{
+  .section__bidding-block--hero,.section__text-block--hero{
     font-size:var(--range_24-18_max-1280px);
   }
   .section__img-wrapper--pair{
@@ -1174,8 +1176,13 @@ img,object,picture,svg,video{
     background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/security_shutters_roll-up _1024.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _1024.jpg") 1x);
     background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/security_shutters_roll-up _1024.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _1024.jpg") 1x);
   }
-  .section__img-wrapper--hero{
-    width:10.5em;
+  .section--hero[aria-labelledby=automation]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/shutter_automatic_1024.webp") 1x, url("../assets/img/heroSection/shutter_automatic_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/shutter_automatic_1024.webp") 1x, url("../assets/img/heroSection/shutter_automatic_1024.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=barriers]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/barrier_1024.webp") 1x, url("../assets/img/heroSection/barrier_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/barrier_1024.webp") 1x, url("../assets/img/heroSection/barrier_1024.jpg") 1x);
   }
   .section__content-block--pair{
     justify-content:flex-end;
@@ -1320,6 +1327,9 @@ img,object,picture,svg,video{
   .section__heading-block--separation{
     font-size:var(--range_32-23_max-640px);
   }
+  .section--hero{
+    font-size:1.6em;
+  }
   .section--hero[aria-labelledby=index]{
     background-image:linear-gradient(90deg, rgba(40,32,23,.6), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/hero_professional_640.webp") 1x, url("../assets/img/heroSection/hero_professional_640.jpg") 1x);
     background-image:linear-gradient(90deg, rgba(40,32,23,.6), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/hero_professional_640.webp") 1x, url("../assets/img/heroSection/hero_professional_640.jpg") 1x);
@@ -1332,8 +1342,15 @@ img,object,picture,svg,video{
     background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/security_shutters_roll-up _640.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _640.jpg") 1x);
     background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/security_shutters_roll-up _640.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _640.jpg") 1x);
   }
+  .section--hero[aria-labelledby=automation]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/shutter_automatic_640.webp") 1x, url("../assets/img/heroSection/shutter_automatic_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/shutter_automatic_640.webp") 1x, url("../assets/img/heroSection/shutter_automatic_640.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=barriers]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/barrier_640.webp") 1x, url("../assets/img/heroSection/barrier_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/barrier_640.webp") 1x, url("../assets/img/heroSection/barrier_640.jpg") 1x);
+  }
   .section__heading-block--hero{
-    font-size:26px;
     text-align:center;
   }
   .section__text-block--hero{
@@ -1439,6 +1456,9 @@ img,object,picture,svg,video{
     display:flex;
     flex-flow:row wrap;
     justify-content:center;
+  }
+  .section--hero{
+    font-size:1.4em;
   }}
 @media (max-width:375px) and (min-width:320px){
   .modal{

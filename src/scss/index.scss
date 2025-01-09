@@ -323,9 +323,25 @@
 
 /////////// section "hero" //////////
 .section--hero {
+  font-size: 1.8em;
   background-position: 75%;
   background-repeat: no-repeat;
   background-size: cover;
+
+  /* tablet (landscape) max-width: 1280px */
+  @include maxTabletLandscape {
+    font-size: calc(var(--range_24-18_max-1280px) * 1.4);
+  }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    font-size: 1.6em;
+  }
+
+  /* mobile (medium): (max-width: 375px) */
+  @include maxMobileMedium {
+    font-size: 1.4em;
+  }
 
   &[aria-labelledby="index"] {
     background-image:
@@ -473,6 +489,124 @@
           }*/
     }
   }
+
+  &[aria-labelledby="automation"] {
+    background-image:
+      linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
+      image-set(
+          url("../assets/img/heroSection/shutter_automatic_1440.webp") 1x,
+          url("../assets/img/heroSection/shutter_automatic_1440.jpg") 1x
+      );
+
+    //retina can be included
+    /*    @include mediaRetina2x {
+          background-image:
+            linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
+            image-set(
+              url("../assets/img/heroSection/shutter_automatic_1440@2x.webp") 2x,
+              url("../assets/img/heroSection/shutter_automatic_1440@2x.jpg") 2x
+          );
+        }*/
+
+    /* tablet (portrait): (max-width: 1024px) */
+    @include maxTabletPortrait {
+      background-image:
+        linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
+        image-set(
+            url("../assets/img/heroSection/shutter_automatic_1024.webp") 1x,
+            url("../assets/img/heroSection/shutter_automatic_1024.jpg") 1x
+        );
+
+      //retina can be included
+      /*    @include mediaRetina2x {
+            background-image:
+              linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
+              image-set(
+                url("../assets/img/heroSection/shutter_automatic_1024@2x.webp") 2x,
+                url("../assets/img/heroSection/shutter_automatic_1024@2x.jpg") 2x
+            );
+          }*/
+    }
+
+    /* mobile (portrait wide): (max-width: 640px) */
+    @include maxMobilePortraitWide {
+      background-image:
+        linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .5)),
+        image-set(
+            url("../assets/img/heroSection/shutter_automatic_640.webp") 1x,
+            url("../assets/img/heroSection/shutter_automatic_640.jpg") 1x
+        );
+
+      //retina can be included
+      /*    @include mediaRetina2x {
+            background-image:
+              linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
+              image-set(
+                url("../assets/img/heroSection/shutter_automatic_640@2x.webp") 2x,
+                url("../assets/img/heroSection/shutter_automatic_640@2x.jpg") 2x
+            );
+          }*/
+    }
+  }
+
+  &[aria-labelledby="barriers"] {
+    background-image:
+      linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
+      image-set(
+          url("../assets/img/heroSection/barrier_1440.webp") 1x,
+          url("../assets/img/heroSection/barrier_1440.jpg") 1x
+      );
+
+    //retina can be included
+    /*    @include mediaRetina2x {
+          background-image:
+            linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
+            image-set(
+              url("../assets/img/heroSection/barrier_1440@2x.webp") 2x,
+              url("../assets/img/heroSection/barrier_1440@2x.jpg") 2x
+          );
+        }*/
+
+    /* tablet (portrait): (max-width: 1024px) */
+    @include maxTabletPortrait {
+      background-image:
+        linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
+        image-set(
+            url("../assets/img/heroSection/barrier_1024.webp") 1x,
+            url("../assets/img/heroSection/barrier_1024.jpg") 1x
+        );
+
+      //retina can be included
+      /*    @include mediaRetina2x {
+            background-image:
+              linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
+              image-set(
+                url("../assets/img/heroSection/barrier_1024@2x.webp") 2x,
+                url("../assets/img/heroSection/barrier_1024@2x.jpg") 2x
+            );
+          }*/
+    }
+
+    /* mobile (portrait wide): (max-width: 640px) */
+    @include maxMobilePortraitWide {
+      background-image:
+        linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .5)),
+        image-set(
+            url("../assets/img/heroSection/barrier_640.webp") 1x,
+            url("../assets/img/heroSection/barrier_640.jpg") 1x
+        );
+
+      //retina can be included
+      /*    @include mediaRetina2x {
+            background-image:
+              linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
+              image-set(
+                url("../assets/img/heroSection/barrier_640@2x.webp") 2x,
+                url("../assets/img/heroSection/barrier_640@2x.jpg") 2x
+            );
+          }*/
+    }
+  }
 }
 
 .section__content-layer--hero {
@@ -480,19 +614,13 @@
 }
 
 .section__heading-block--hero {
-  font-size: 36px;
+  //font-size: 1em;
   max-width: 18.6em;
   margin-bottom: 1em;
   text-shadow: 0.05em 0.1em 0.1em rgba(0, 0, 0, 0.8);
 
-  /* tablet (landscape) max-width: 1280px */
-  @include maxTabletLandscape {
-    font-size: calc(var(--range_24-18_max-1280px) * 1.5);
-  }
-
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
-    font-size: 26px;
     text-align: center;
   }
 }
@@ -516,20 +644,10 @@
 }
 
 .section__img-wrapper--hero {
-  width: 12.3em;
+  width: 6.5em;
 
   ////////// GSAP:
   transform: scale(0);
-
-  /* tablet (landscape) max-width: 1280px */
-  @include maxTabletLandscape {
-    width: 17.57vw;
-  }
-
-  /* tablet (portrait): (max-width: 1024px) */
-  @include maxTabletPortrait {
-    width: 10.5em;
-  }
 }
 
 .section__bidding-block--hero {
