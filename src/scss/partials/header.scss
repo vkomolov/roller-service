@@ -13,6 +13,17 @@
 .header-layer {
   width: 100%;
   background: linear-gradient(to right, rgba(40, 32, 23, 1) 25%, $rgba_opacity-0 80%);
+
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    background: linear-gradient(to right, rgba(40, 32, 23, 1) 35%, $rgba_opacity-0 75%);
+  }
+
+  /* mobile (portrait wide): (max-width: 640px) */
+  @include maxMobilePortraitWide {
+    background: linear-gradient(to right, rgba(40, 32, 23, 1) 60%, rgba(101, 92, 82, .7) 100%);
+    //background-color: rgba(40, 32, 23, .8);
+  }
 }
 
 .header {
@@ -26,13 +37,20 @@
   padding-top: 0.625em;
   padding-bottom: 0.625em;
 
+  /* tablet (portrait): (max-width: 1024px) */
+  @include maxTabletPortrait {
+    font-size: 0.81em; //16px from font-size: 18px;
+  }
+
   /* mobile (portrait wide): (max-width: 640px) */
   @include maxMobilePortraitWide {
     flex-direction: column;
+    font-size: 1em;
   }
 }
 
 .header__logo-heading {
+  font-size: 1.5em;
   color: rgba(220, 220, 220, .5);
 }
 
@@ -188,16 +206,11 @@
   font-family: "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1em; //parent font-size: 18px;
   font-weight: 700;
 
   @include flex-box($flex-box-row-center-wrap...);
   gap: 0.5em .75em;
 
-  /* tablet (portrait): (max-width: 1024px) */
-  @include maxTabletPortrait {
-    font-size: 0.889em; //16px from font-size: 18px;
-  }
 }
 
 .nav-link {

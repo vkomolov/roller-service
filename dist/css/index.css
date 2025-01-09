@@ -96,6 +96,7 @@
 
 .header__logo-heading{
   color:hsla(0,0%,86%,.5);
+  font-size:1.5em;
 }
 
 .header__contacts-wrapper{
@@ -211,7 +212,6 @@
   align-items:center;
   display:flex;
   flex-flow:row wrap;
-  font-size:1em;
   font-weight:700;
   gap:.5em .75em;
   justify-content:center;
@@ -818,6 +818,18 @@ img,object,picture,svg,video{
   background-repeat:no-repeat;
   background-size:cover;
 }
+.section--hero[aria-labelledby=index]{
+  background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/hero_professional_1440.webp") 1x, url("../assets/img/heroSection/hero_professional_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/hero_professional_1440.webp") 1x, url("../assets/img/heroSection/hero_professional_1440.jpg") 1x);
+}
+.section--hero[aria-labelledby=gates]{
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/garage_gates_roll-up_1440.webp") 1x, url("../assets/img/heroSection/garage_gates_roll-up_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/garage_gates_roll-up_1440.webp") 1x, url("../assets/img/heroSection/garage_gates_roll-up_1440.jpg") 1x);
+}
+.section--hero[aria-labelledby=rollers]{
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/security_shutters_roll-up _1440.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/security_shutters_roll-up _1440.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _1440.jpg") 1x);
+}
 
 .section__content-layer--hero{
   color:#fff;
@@ -1087,10 +1099,6 @@ img,object,picture,svg,video{
   .section--footer{
     background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), -webkit-image-set(url("../assets/img/footerSection/professional_1440.webp") 1x, url("../assets/img/footerSection/professional_1440.jpg") 1x);
     background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), image-set(url("../assets/img/footerSection/professional_1440.webp") 1x, url("../assets/img/footerSection/professional_1440.jpg") 1x);
-  }
-  .section--hero{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/hero_professional_1440.webp") 1x, url("../assets/img/heroSection/hero_professional_1440.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/hero_professional_1440.webp") 1x, url("../assets/img/heroSection/hero_professional_1440.jpg") 1x);
   }}
 @media (min-width:1281px){
   .section--services{
@@ -1140,8 +1148,11 @@ img,object,picture,svg,video{
   .modal{
     font-size:1rem;
   }
-  .header__nav-list{
-    font-size:.889em;
+  .header-layer{
+    background:linear-gradient(90deg, #282017 35%, rgba(65,57,48,0) 75%);
+  }
+  .header{
+    font-size:.81em;
   }
   .section--footer{
     background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), -webkit-image-set(url("../assets/img/footerSection/professional_1024.webp") 1x, url("../assets/img/footerSection/professional_1024.jpg") 1x);
@@ -1151,9 +1162,17 @@ img,object,picture,svg,video{
     font-size:1.185rem;
     width:270px;
   }
-  .section--hero{
+  .section--hero[aria-labelledby=index]{
     background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/hero_professional_1024.webp") 1x, url("../assets/img/heroSection/hero_professional_1024.jpg") 1x);
     background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/hero_professional_1024.webp") 1x, url("../assets/img/heroSection/hero_professional_1024.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=gates]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/garage_gates_roll-up_1024.webp") 1x, url("../assets/img/heroSection/garage_gates_roll-up_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/garage_gates_roll-up_1024.webp") 1x, url("../assets/img/heroSection/garage_gates_roll-up_1024.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=rollers]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/security_shutters_roll-up _1024.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/security_shutters_roll-up _1024.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _1024.jpg") 1x);
   }
   .section__img-wrapper--hero{
     width:10.5em;
@@ -1255,8 +1274,12 @@ img,object,picture,svg,video{
   .modal{
     font-size:.8rem;
   }
+  .header-layer{
+    background:linear-gradient(90deg, #282017 60%, rgba(101,92,82,.7));
+  }
   .header{
     flex-direction:column;
+    font-size:1em;
   }
   .header__nav.abs .header__nav-list{
     padding-top:7em;
@@ -1297,9 +1320,17 @@ img,object,picture,svg,video{
   .section__heading-block--separation{
     font-size:var(--range_32-23_max-640px);
   }
-  .section--hero{
+  .section--hero[aria-labelledby=index]{
     background-image:linear-gradient(90deg, rgba(40,32,23,.6), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/hero_professional_640.webp") 1x, url("../assets/img/heroSection/hero_professional_640.jpg") 1x);
     background-image:linear-gradient(90deg, rgba(40,32,23,.6), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/hero_professional_640.webp") 1x, url("../assets/img/heroSection/hero_professional_640.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=gates]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/garage_gates_roll-up_640.webp") 1x, url("../assets/img/heroSection/garage_gates_roll-up_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/garage_gates_roll-up_640.webp") 1x, url("../assets/img/heroSection/garage_gates_roll-up_640.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=rollers]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/security_shutters_roll-up _640.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/security_shutters_roll-up _640.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up _640.jpg") 1x);
   }
   .section__heading-block--hero{
     font-size:26px;
