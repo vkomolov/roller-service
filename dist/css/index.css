@@ -535,6 +535,7 @@ img,object,picture,svg,video{
   src:url(../assets/fonts/Jost/Jost-Bold.woff2) format("woff2"), url(../assets/fonts/Jost/Jost-Bold.woff) format("woff"), url(../assets/fonts/Jost/Jost-Bold.ttf) format("truetype");
 }
 .section--footer{
+  background-attachment:fixed;
   background-position:80%;
   background-repeat:no-repeat;
   background-size:cover;

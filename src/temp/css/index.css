@@ -3057,6 +3057,7 @@ img, svg, picture, video, object {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 80%;
+  background-attachment: fixed;
   /* tablet (portrait): (min-width: 1025px) */
   /* tablet (portrait): (max-width: 1024px) */
   /* mobile (portrait wide): (max-width: 640px) */
