@@ -839,6 +839,18 @@ img,object,picture,svg,video{
   background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/barrier_1440.webp") 1x, url("../assets/img/heroSection/barrier_1440.jpg") 1x);
   background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/barrier_1440.webp") 1x, url("../assets/img/heroSection/barrier_1440.jpg") 1x);
 }
+.section--hero[aria-labelledby=awnings]{
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/awnings_automatic_1440.webp") 1x, url("../assets/img/heroSection/awnings_automatic_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/awnings_automatic_1440.webp") 1x, url("../assets/img/heroSection/awnings_automatic_1440.jpg") 1x);
+}
+.section--hero[aria-labelledby=windows]{
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/window_setting_1440.webp") 1x, url("../assets/img/heroSection/window_setting_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/window_setting_1440.webp") 1x, url("../assets/img/heroSection/window_setting_1440.jpg") 1x);
+}
+.section--hero[aria-labelledby=security]{
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/surveillance_1440.webp") 1x, url("../assets/img/heroSection/surveillance_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/surveillance_1440.webp") 1x, url("../assets/img/heroSection/surveillance_1440.jpg") 1x);
+}
 
 .section__content-layer--hero{
   color:#fff;
@@ -1184,6 +1196,18 @@ img,object,picture,svg,video{
     background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/barrier_1024.webp") 1x, url("../assets/img/heroSection/barrier_1024.jpg") 1x);
     background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/barrier_1024.webp") 1x, url("../assets/img/heroSection/barrier_1024.jpg") 1x);
   }
+  .section--hero[aria-labelledby=awnings]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/awnings_automatic_1024.webp") 1x, url("../assets/img/heroSection/awnings_automatic_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/awnings_automatic_1024.webp") 1x, url("../assets/img/heroSection/awnings_automatic_1024.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=windows]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/window_setting_1024.webp") 1x, url("../assets/img/heroSection/window_setting_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/window_setting_1024.webp") 1x, url("../assets/img/heroSection/window_setting_1024.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=security]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/surveillance_1024.webp") 1x, url("../assets/img/heroSection/surveillance_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/surveillance_1024.webp") 1x, url("../assets/img/heroSection/surveillance_1024.jpg") 1x);
+  }
   .section__content-block--pair{
     justify-content:flex-end;
   }
@@ -1349,6 +1373,18 @@ img,object,picture,svg,video{
   .section--hero[aria-labelledby=barriers]{
     background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/barrier_640.webp") 1x, url("../assets/img/heroSection/barrier_640.jpg") 1x);
     background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/barrier_640.webp") 1x, url("../assets/img/heroSection/barrier_640.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=awnings]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/awnings_automatic_640.webp") 1x, url("../assets/img/heroSection/awnings_automatic_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/awnings_automatic_640.webp") 1x, url("../assets/img/heroSection/awnings_automatic_640.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=windows]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/window_setting_640.webp") 1x, url("../assets/img/heroSection/window_setting_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/window_setting_640.webp") 1x, url("../assets/img/heroSection/window_setting_640.jpg") 1x);
+  }
+  .section--hero[aria-labelledby=security]{
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/surveillance_640.webp") 1x, url("../assets/img/heroSection/surveillance_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/surveillance_640.webp") 1x, url("../assets/img/heroSection/surveillance_640.jpg") 1x);
   }
   .section__heading-block--hero{
     text-align:center;
