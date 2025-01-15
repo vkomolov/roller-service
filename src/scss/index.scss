@@ -203,6 +203,10 @@
   justify-content: space-between;
 }
 
+.flex-container {
+  @include flex-box($flex-box-row-center-wrap...);
+}
+
 .flex-gap-02-01 {
   gap: 2em 1em;
 }
