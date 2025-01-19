@@ -1,6 +1,7 @@
 "use strict";
 
 import path from "path";
+import { getFilesEntries } from "./utilFuncs.js";
 
 /**
  * As all *.js files are treated as ES modules (package.json contains "type": "module"),
@@ -9,10 +10,9 @@ import path from "path";
  * relative to the current working directory process.cwd.
  * @type {string}
  */
-//
 const curWD = process.cwd();
-import * as nodePath from "path";
-const rootFolder = nodePath.basename(nodePath.resolve());
+//import * as nodePath from "path";
+const rootFolder = path.basename(path.resolve());
 
 const srcPath = path.resolve(curWD, "src");
 const distPath = path.resolve(curWD, "dist");
@@ -94,9 +94,11 @@ export const pathData = {
     ],
 }
 export const entries = {
-    js: {
+    js: getFilesEntries(path.resolve(pathData.srcPath, "js"), "js"),
+/*    js: {
         index: `${ pathData.srcPath }/js/index.js`,
-    },
+
+    },*/
 }
 
 /////// DEV

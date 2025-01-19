@@ -127,5 +127,30 @@ export function processFile(file) {
     return file;
 }
 
+/**
+ * Function to generate an object where the keys are file names without extensions,
+ * and the values are the full paths of those files in the specified directory. This
+ * is typically used to dynamically add `entry` options to a webpack configuration.
+ *
+ * @param {string} srcPath - The path to the directory from which files will be read.
+ * @param {string} fileExt - The extension of the files to include in the object.
+ * @returns {Object} An object where the keys are file names without extensions,
+ * and the values are the absolute paths to these files.
+ * @throws {Error} Throws an error if reading files from the directory fails.
+ */
+export function getFilesEntries(srcPath, fileExt) {
+    try {
+        const files = fs.readdirSync(srcPath).filter(file => file.endsWith(`.${fileExt}`));
+        return files.reduce((acc, file) => {
+            const fileName = path.basename(file, `.${fileExt}`);
+            acc[fileName] = path.resolve(srcPath, file);
+            return acc;
+        }, {});
+    }
+    catch (err) {
+        console.error('error at getEntriesObjFromFilesInPath: ', err);
+    }
+}
+
 
 

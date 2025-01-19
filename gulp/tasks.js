@@ -139,6 +139,7 @@ const tasks = {
           errorHandler: handleError("Error at pipeJs...")
         }))
         .pipe(debug({ title: "*.js is piped..." }))
+        //.pipe(webpackStream(webpackConfigJs.dev)) //if no need in webpack version control...
         .pipe(webpackStream(webpackConfigJs.dev, webpack))
         .pipe(dest(pathData.build.js));
     },
