@@ -24,10 +24,7 @@ export const pathData = {
     tempPath,
     ftp: "",
     src: {
-        htmlNested: [
-            `${ srcPath }/html/**/*.html`,
-            `!${ srcPath }/html/templates/*.html`
-        ],
+        html: `${ srcPath }/html/*.html`,
         styles: `${ srcPath }/scss/*.scss`,   //root *.scss, connected to html (for build tasks)
         js: `${ srcPath }/js/*.js`,
         img: [

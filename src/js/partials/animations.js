@@ -25,10 +25,10 @@ const i = {
   biddingBlockHero: ".section__bidding-block--hero",
   iconWrapperHero: ".section__img-wrapper--hero",
   galleryWork: "#gallery-work",
-  fadeInLeft: "[data-type=fade-in-left]",
-  fadeInRight: "[data-type=fade-in-right]",
-  fadeInUp: "[data-type=fade-in-up]",
-  scaleIn: "[data-type=scale-in]",
+  fadeInLeft: "[langVersions-type=fade-in-left]",
+  fadeInRight: "[langVersions-type=fade-in-right]",
+  fadeInUp: "[langVersions-type=fade-in-up]",
+  scaleIn: "[langVersions-type=scale-in]",
 };
 
 /// ANIMATION PARAMS

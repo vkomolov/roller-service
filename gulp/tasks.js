@@ -3,6 +3,7 @@
 import gulp from "gulp";
 import {
   modes,
+  languages,
   fileIncludeSettings,
   webpackConfigJs,
   useGulpSizeConfig,
@@ -10,6 +11,7 @@ import {
   minifyCss,
   beautifySettings
 } from "./settings.js";
+import { handleError } from "./utilFuncs.js";
 import { pathData } from "./paths.js";
 
 //error handling plugins
@@ -48,7 +50,6 @@ import CustomPurgeCss from "../modules/CustomPurgeCss.js";
 import CustomImgOptimizer from "../modules/CustomImgOptimizer.js";
 import CustomImgConverter from "../modules/CustomImgConverter.js";
 import CustomGulpWebpHtml from "../modules/CustomGulpWebpHtml.js";
-import { combinePaths, handleError } from "./utilFuncs.js";
 import CustomGulpSVGSprite from "../modules/CustomGulpSVGSprite.js";
 
 /////////////// END OF IMPORTS /////////////////////////
@@ -93,22 +94,24 @@ const sass = gulpSass(dartSass);
 const tasks = {
   [modes.dev]: {
     pipeHtml() {
-      return src(pathData.src.htmlNested)
-        .pipe(plumber({
-          errorHandler: handleError("Error at pipeHtml...")
-        }))
-        .pipe(fileInclude(fileIncludeSettings))
-        .pipe(changed(`${pathData.tempPath}/html/`, { hasChanged: compareContents }))
-        .pipe(debug({ title: "*.html is piped:" }))
-        .pipe(dest(`${pathData.tempPath}/html/`))
-        .pipe(
-          replace(/<img(?:.|\n|\r)*?>/g, function (match) {
-            return match.replace(/\r?\n|\r/g, "").replace(/\s{2,}/g, " ");
-          })
-        ) //removes extra spaces and line breaks inside a tag <img>
-        .pipe(new CustomGulpWebpHtml(pathData.distPath, "2x"))
-        .pipe(beautify.html(beautifySettings.html))
-        .pipe(dest(pathData.build.html));
+      return languages.map(lang => {
+        return src(`${pathData.src.html}/${lang}/*.html`)
+          .pipe(plumber({
+            errorHandler: handleError("Error at pipeHtml...")
+          }))
+          .pipe(fileInclude(fileIncludeSettings))
+          .pipe(changed(`${pathData.tempPath}/html/${lang}`, { hasChanged: compareContents }))
+          .pipe(debug({ title: "*.html watched to be changed and piped:" }))
+          .pipe(dest(`${pathData.tempPath}/html/${lang}`))
+          .pipe(
+            replace(/<img(?:.|\n|\r)*?>/g, function (match) {
+              return match.replace(/\r?\n|\r/g, "").replace(/\s{2,}/g, " ");
+            })
+          ) //removes extra spaces and line breaks inside a tag <img>
+          .pipe(new CustomGulpWebpHtml(pathData.distPath, "2x"))
+          .pipe(beautify.html(beautifySettings.html))
+          .pipe(dest(`${pathData.build.html}/${lang}`));
+      });
     },
     pipeStyles() {
       return src(pathData.src.styles, { sourcemaps: true })
@@ -180,7 +183,7 @@ const tasks = {
         .pipe(dest(pathData.build.svgIcons));
     },
     pipeFonts() {
-      return src(pathData.src.fonts, { encoding: false }) //not convert data to text encoding
+      return src(pathData.src.fonts, { encoding: false }) //not convert langVersions to text encoding
         .pipe(plumber({
           errorHandler: handleError("Error at pipeFonts...")
         }))
@@ -200,19 +203,21 @@ const tasks = {
   },
   [modes.build]: {
     pipeHtml() {
-      return src(pathData.src.htmlNested)
-        .pipe(plumber({
-          errorHandler: handleError("Error at pipeHtml...")
-        }))
-        .pipe(fileInclude(fileIncludeSettings))
-        .pipe(
-          replace(/<img(?:.|\n|\r)*?>/g, function (match) {
-            return match.replace(/\r?\n|\r/g, "").replace(/\s{2,}/g, " ");
-          })
-        ) //removes extra spaces and line breaks inside a tag <img>
-        .pipe(new CustomGulpWebpHtml(pathData.distPath, "2x"))
-        .pipe(htmlClean())
-        .pipe(dest(pathData.build.html));
+      return languages.map(lang => {
+        return src(`${pathData.src.html}/${lang}/*.html`)
+          .pipe(plumber({
+            errorHandler: handleError("Error at pipeHtml...")
+          }))
+          .pipe(fileInclude(fileIncludeSettings))
+          .pipe(
+            replace(/<img(?:.|\n|\r)*?>/g, function (match) {
+              return match.replace(/\r?\n|\r/g, "").replace(/\s{2,}/g, " ");
+            })
+          ) //removes extra spaces and line breaks inside a tag <img>
+          .pipe(new CustomGulpWebpHtml(pathData.distPath, "2x"))
+          .pipe(htmlClean())
+          .pipe(dest(`${pathData.build.html}/${lang}`));
+      });
     },
     pipeStyles() {
       return src(pathData.src.styles)
@@ -314,7 +319,7 @@ const tasks = {
         .pipe(dest(pathData.build.svgIcons));
     },
     pipeFonts() {
-      return src(pathData.src.fonts, { encoding: false }) //not convert data to text encoding
+      return src(pathData.src.fonts, { encoding: false }) //not convert langVersions to text encoding
         .pipe(plumber({
           errorHandler: handleError("Error at pipeFonts...")
         }))

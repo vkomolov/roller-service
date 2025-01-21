@@ -574,19 +574,41 @@ export function replaceFilePath(url, newBase) {
   return url; // If no match is found, return the original URL
 }
 
+/**
+ * Activates the navigation link based on the specified conditions.
+ * Adds an `activeClass` to the matching navigation items and sets the `href` attribute to the provided `anchorLink`.
+ *
+ * @param {string} navLinkSelector - The CSS selector to find the navigation link items.
+ * @param {string} pageType - The type of the page to match with the langVersions attribute of the navigation items.
+ * @param {string} activeClass - The class name to add to the matched navigation link items.
+ * @param {string} anchorLink - The URL to set as the `href` attribute for the matched navigation items.
+ *
+ * @returns {void} This function does not return any value.
+ *
+ * @example
+ * // Example usage:
+ * activateNavLink('.nav-link', 'home', 'active', '#homeAnchor');
+ */
 export function activateNavLink(navLinkSelector, pageType, activeClass, anchorLink) {
+  // Check if all necessary arguments are provided, otherwise, log a warning.
   if (!navLinkSelector || !pageType || !activeClass || !anchorLink) {
     console.warn("at activateNavLink: no given all arguments");
     return;
   }
 
+  // Get all navigation link items using the provided selector.
   const navLinkItems = Array.from(document.querySelectorAll(navLinkSelector));
+
+  // If no matching navigation items are found, log a warning and exit.
   if (!navLinkItems.length) {
     console.warn(`at activateNavLink: the nav link items with selector: ${navLinkSelector} are not found in the page...`);
     return;
   }
 
+  // Iterate over each navigation item to check if its langVersions-type matches the provided pageType.
   for (const navItem of navLinkItems) {
+
+    // If the page type matches, add the active class and update the href attribute.
     if (navItem?.dataset?.type === pageType) {
       navItem.classList.add(activeClass);
       navItem.setAttribute("href", anchorLink);

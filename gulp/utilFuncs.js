@@ -128,28 +128,39 @@ export function processFile(file) {
 }
 
 /**
- * Function to generate an object where the keys are file names without extensions,
- * and the values are the full paths of those files in the specified directory. This
- * is typically used to dynamically add `entry` options to a webpack configuration.
- *
- * @param {string} srcPath - The path to the directory from which files will be read.
- * @param {string} fileExt - The extension of the files to include in the object.
- * @returns {Object} An object where the keys are file names without extensions,
- * and the values are the absolute paths to these files.
- * @throws {Error} Throws an error if reading files from the directory fails.
+ * It searches the files with the target extension at the given path
+ * @param {string} pathToFiles - path to the files in search
+ * @param {string} targetExt - target extension of the files with or without dot!!! ".js", ".html", "js", "html"
+ * @returns {Object} returns the object with the name of the file as the property and the path as the value
  */
-export function getFilesEntries(srcPath, fileExt) {
-    try {
-        const files = fs.readdirSync(srcPath).filter(file => file.endsWith(`.${fileExt}`));
-        return files.reduce((acc, file) => {
-            const fileName = path.basename(file, `.${fileExt}`);
-            acc[fileName] = path.resolve(srcPath, file);
-            return acc;
-        }, {});
+export function getFilesEntries(pathToFiles, targetExt) {
+    const entries = {};
+    const fileExt = targetExt.startsWith(".") ? targetExt : `.${targetExt}`;
+
+    // Checking for the correct path
+    if (!fs.existsSync(pathToFiles)) {
+        console.error("No such path found at getFilesEntries:", pathToFiles);
+        return entries; // Return an empty object
     }
-    catch (err) {
-        console.error('error at getEntriesObjFromFilesInPath: ', err);
+
+    // Searching for the files
+    const files = fs.readdirSync(pathToFiles);
+    let foundFiles = false;
+
+    files.forEach(file => {
+        if (file.endsWith(fileExt)) {
+            const fileName = path.basename(file, fileExt); // Getting the file name without extension
+            entries[fileName] = path.resolve(pathToFiles, file); // Creating the path with the file
+            foundFiles = true;
+        }
+    });
+
+    // Checking for the found files
+    if (!foundFiles) {
+        console.error(`at getFilesEntries: no files found with ${targetExt} at ${pathToFiles}`);
     }
+
+    return entries; // Return the object with or without found files
 }
 
 
