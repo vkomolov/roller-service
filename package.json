@@ -10,7 +10,8 @@
     "build": "npm run node:check && gulp runBuild",
     "pipesDev": "npm run node:check && gulp pipesDev",
     "pipesBuild": "npm run node:check && gulp pipesBuild",
-    "clean": "gulp distClean"
+    "clean": "gulp distClean",
+    "temp": "node tempUtil.js"
   },
   "author": "vkomolov.ua@gmail.com",
   "license": "ISC",

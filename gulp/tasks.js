@@ -183,7 +183,7 @@ const tasks = {
         .pipe(dest(pathData.build.svgIcons));
     },
     pipeFonts() {
-      return src(pathData.src.fonts, { encoding: false }) //not convert langVersions to text encoding
+      return src(pathData.src.fonts, { encoding: false }) //not convert pagesVersions to text encoding
         .pipe(plumber({
           errorHandler: handleError("Error at pipeFonts...")
         }))
@@ -319,7 +319,7 @@ const tasks = {
         .pipe(dest(pathData.build.svgIcons));
     },
     pipeFonts() {
-      return src(pathData.src.fonts, { encoding: false }) //not convert langVersions to text encoding
+      return src(pathData.src.fonts, { encoding: false }) //not convert pagesVersions to text encoding
         .pipe(plumber({
           errorHandler: handleError("Error at pipeFonts...")
         }))

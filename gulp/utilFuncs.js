@@ -138,7 +138,7 @@ export function getFilesEntries(pathToFiles, targetExt) {
     const fileExt = targetExt.startsWith(".") ? targetExt : `.${targetExt}`;
 
     // Checking for the correct path
-    if (!fs.existsSync(pathToFiles)) {
+    if (!fs.existsSync(path.resolve(pathToFiles))) {
         console.error("No such path found at getFilesEntries:", pathToFiles);
         return entries; // Return an empty object
     }
@@ -161,6 +161,34 @@ export function getFilesEntries(pathToFiles, targetExt) {
     }
 
     return entries; // Return the object with or without found files
+}
+
+/**
+ * Reads data from a JSON file and returns the parsed content.
+ * This function checks if the provided file path is valid. If the path is incorrect or the file doesn't exist,
+ * it logs an error and returns `false`.
+ * If the path is valid, it reads the file and parses the JSON content.
+ *
+ * @param {string} [pathToFile=""] - The path to the JSON file to read. If no path is provided or the path
+ * is invalid, the function returns `false`.
+ * @returns {object|boolean} Returns the parsed JSON object if the file exists and is valid, otherwise `false`.
+ *
+ * @example
+ * const data = getDataFromJSON('path/to/file.json');
+ * if (data) {
+ *   console.log(data);
+ * } else {
+ *   console.log('Failed to read data');
+ * }
+ */
+export function getDataFromJSON(pathToFile = "") {
+    // Checking for the correct path
+    if (!pathToFile.length || !fs.existsSync(pathToFile)) {
+        console.error("No argument given or No such path found at getDataFromJSON:", pathToFile);
+        return false;
+    }
+
+    return JSON.parse(fs.readFileSync(pathToFile, "utf8"));
 }
 
 

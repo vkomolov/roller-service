@@ -579,7 +579,7 @@ export function replaceFilePath(url, newBase) {
  * Adds an `activeClass` to the matching navigation items and sets the `href` attribute to the provided `anchorLink`.
  *
  * @param {string} navLinkSelector - The CSS selector to find the navigation link items.
- * @param {string} pageType - The type of the page to match with the langVersions attribute of the navigation items.
+ * @param {string} pageType - The type of the page to match with the pagesVersions attribute of the navigation items.
  * @param {string} activeClass - The class name to add to the matched navigation link items.
  * @param {string} anchorLink - The URL to set as the `href` attribute for the matched navigation items.
  *
@@ -605,7 +605,7 @@ export function activateNavLink(navLinkSelector, pageType, activeClass, anchorLi
     return;
   }
 
-  // Iterate over each navigation item to check if its langVersions-type matches the provided pageType.
+  // Iterate over each navigation item to check if its pagesVersions-type matches the provided pageType.
   for (const navItem of navLinkItems) {
 
     // If the page type matches, add the active class and update the href attribute.
