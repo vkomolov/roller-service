@@ -4,7 +4,7 @@ import gulp from "gulp";
 import {
   modes,
   languages,
-  fileIncludeSettings,
+  setFileIncludeSettings,
   webpackConfigJs,
   useGulpSizeConfig,
   optimizeCss,
@@ -94,24 +94,25 @@ const sass = gulpSass(dartSass);
 const tasks = {
   [modes.dev]: {
     pipeHtml() {
-      return languages.map(lang => {
-        return src(`${pathData.src.html}/${lang}/*.html`)
+      return Promise.all(languages.map(lang => {
+        return src(pathData.src.html)
           .pipe(plumber({
             errorHandler: handleError("Error at pipeHtml...")
           }))
-          .pipe(fileInclude(fileIncludeSettings))
+          .pipe(fileInclude(setFileIncludeSettings(lang)))
           .pipe(changed(`${pathData.tempPath}/html/${lang}`, { hasChanged: compareContents }))
           .pipe(debug({ title: "*.html watched to be changed and piped:" }))
           .pipe(dest(`${pathData.tempPath}/html/${lang}`))
           .pipe(
+            //removes extra spaces and line breaks inside a tag <img>
             replace(/<img(?:.|\n|\r)*?>/g, function (match) {
               return match.replace(/\r?\n|\r/g, "").replace(/\s{2,}/g, " ");
             })
-          ) //removes extra spaces and line breaks inside a tag <img>
+          )
           .pipe(new CustomGulpWebpHtml(pathData.distPath, "2x"))
           .pipe(beautify.html(beautifySettings.html))
           .pipe(dest(`${pathData.build.html}/${lang}`));
-      });
+      }));
     },
     pipeStyles() {
       return src(pathData.src.styles, { sourcemaps: true })
@@ -203,21 +204,22 @@ const tasks = {
   },
   [modes.build]: {
     pipeHtml() {
-      return languages.map(lang => {
-        return src(`${pathData.src.html}/${lang}/*.html`)
+      return Promise.all(languages.map(lang => {
+        return src(pathData.src.html)
           .pipe(plumber({
             errorHandler: handleError("Error at pipeHtml...")
           }))
-          .pipe(fileInclude(fileIncludeSettings))
+          .pipe(fileInclude(setFileIncludeSettings(lang)))
           .pipe(
+            //removes extra spaces and line breaks inside a tag <img>
             replace(/<img(?:.|\n|\r)*?>/g, function (match) {
               return match.replace(/\r?\n|\r/g, "").replace(/\s{2,}/g, " ");
             })
-          ) //removes extra spaces and line breaks inside a tag <img>
+          )
           .pipe(new CustomGulpWebpHtml(pathData.distPath, "2x"))
           .pipe(htmlClean())
           .pipe(dest(`${pathData.build.html}/${lang}`));
-      });
+      }));
     },
     pipeStyles() {
       return src(pathData.src.styles)

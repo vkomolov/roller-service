@@ -1,4 +1,5 @@
 import gulp from "gulp";
+import path from "path";
 import BrowserSync from "./modules/BrowserSync.js";
 
 import { pathData } from "./gulp/paths.js";
@@ -8,9 +9,9 @@ import tasks from "./gulp/tasks.js";
 
 /////////////// END OF IMPORTS /////////////////////////
 const { series, parallel, watch } = gulp;
-const initBs = () => {
+const initBs = (lang = "ua") => {
     return new BrowserSync({
-        baseDir: pathData.distPath,
+        baseDir: path.resolve(pathData.build.html, lang),
         index: "index.html",
         open: true,
         notify: false,
@@ -79,7 +80,7 @@ export function pipesBuild(cb) {
 }
 
 export function runDev(cb) {
-    const bs = initBs();
+    const bs = initBs("ua");
     series(
         pipesDev,
         bs.start,
@@ -88,7 +89,7 @@ export function runDev(cb) {
 }
 
 export function runBuild(cb) {
-    const bs = initBs();
+    const bs = initBs("ua");
     series(
         pipesBuild,
         bs.start,

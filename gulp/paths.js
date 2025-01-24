@@ -48,7 +48,7 @@ export const pathData = {
         ]
     },
     build: {
-        html: distPath,
+        html: `${ distPath }/html`,
         styles: `${ distPath }/css`,
         js: `${ distPath }/js`,
         img: `${ distPath }/assets/img`,
