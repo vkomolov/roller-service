@@ -1,6 +1,8 @@
 "use strict";
 
 import gulp from "gulp";
+import path from "path";
+
 import {
   modes,
   languages,
@@ -57,6 +59,10 @@ import CustomGulpSVGSprite from "../modules/CustomGulpSVGSprite.js";
 const { src, dest } = gulp;
 const sass = gulpSass(dartSass);
 
+//regex to the sources in *.html
+const sourcePathRegex = /(src|srcset|href)=["']((?!https?:\/\/|\/)[^"']+)["']/g;
+const imgRegex = /<img(?:.|\n|\r)*?>/g;
+
 /**
  * TASKS:
  *
@@ -95,23 +101,36 @@ const tasks = {
   [modes.dev]: {
     pipeHtml() {
       return Promise.all(languages.map(lang => {
+        const tempHtmlPath = path.join(pathData.tempPath, "html", lang);
+        const nesting = path.relative(tempHtmlPath, pathData.tempPath);
+
         return src(pathData.src.html)
           .pipe(plumber({
             errorHandler: handleError("Error at pipeHtml...")
           }))
           .pipe(fileInclude(setFileIncludeSettings(lang)))
-          .pipe(changed(`${pathData.tempPath}/html/${lang}`, { hasChanged: compareContents }))
+          .pipe(changed(tempHtmlPath, { hasChanged: compareContents }))
           .pipe(debug({ title: "*.html watched to be changed and piped:" }))
-          .pipe(dest(`${pathData.tempPath}/html/${lang}`))
+          .pipe(dest(tempHtmlPath))
           .pipe(
             //removes extra spaces and line breaks inside a tag <img>
-            replace(/<img(?:.|\n|\r)*?>/g, function (match) {
+            replace(imgRegex, function (match) {
               return match.replace(/\r?\n|\r/g, "").replace(/\s{2,}/g, " ");
+            })
+          )
+          .pipe(
+            //adding nesting to the relative paths to the images, styles and scripts in *.html
+            replace(sourcePathRegex, function(match, attr, url) {
+              if (url.includes(":") || (!url.includes("/") && url.endsWith(".html"))) {
+                return match;
+              }
+              const nestedPath = path.join(nesting, url).replace(/\\/g, "/");
+              return `${attr}="${nestedPath}"`;
             })
           )
           .pipe(new CustomGulpWebpHtml(pathData.distPath, "2x"))
           .pipe(beautify.html(beautifySettings.html))
-          .pipe(dest(`${pathData.build.html}/${lang}`));
+          .pipe(dest(path.join(pathData.build.html, lang)));
       }));
     },
     pipeStyles() {
@@ -205,6 +224,9 @@ const tasks = {
   [modes.build]: {
     pipeHtml() {
       return Promise.all(languages.map(lang => {
+        const tempHtmlPath = path.join(pathData.tempPath, "html", lang);
+        const nesting = path.relative(tempHtmlPath, pathData.tempPath);
+
         return src(pathData.src.html)
           .pipe(plumber({
             errorHandler: handleError("Error at pipeHtml...")
@@ -212,13 +234,23 @@ const tasks = {
           .pipe(fileInclude(setFileIncludeSettings(lang)))
           .pipe(
             //removes extra spaces and line breaks inside a tag <img>
-            replace(/<img(?:.|\n|\r)*?>/g, function (match) {
+            replace(imgRegex, function (match) {
               return match.replace(/\r?\n|\r/g, "").replace(/\s{2,}/g, " ");
+            })
+          )
+          .pipe(
+            //adding nesting to the relative paths to the images, styles and scripts in *.html
+            replace(sourcePathRegex, function(match, attr, url) {
+              if (url.includes(":") || (!url.includes("/") && url.endsWith(".html"))) {
+                return match;
+              }
+              const nestedPath = path.join(nesting, url).replace(/\\/g, "/");
+              return `${attr}="${nestedPath}"`;
             })
           )
           .pipe(new CustomGulpWebpHtml(pathData.distPath, "2x"))
           .pipe(htmlClean())
-          .pipe(dest(`${pathData.build.html}/${lang}`));
+          .pipe(dest(path.join(pathData.build.html, lang)));
       }));
     },
     pipeStyles() {
@@ -231,9 +263,7 @@ const tasks = {
         })))*/
         .pipe(sass.sync({}, () => {
         }).on('error', sass.logError))
-        /*.pipe(size(useGulpSizeConfig({
-          title: "After sass: "
-        })))*/
+        //!!! scss files must have the same name as the corresponding HTML file!!!
         .pipe(new CustomPurgeCss(pathData.build.html))  //to filter ${basename}.css selectors not used in ${basename}.html
         .pipe(size(useGulpSizeConfig({
           title: "After PurgeCss: "
@@ -342,14 +372,6 @@ const tasks = {
         .pipe(zip(`${pathData.rootFolder}.project.zip`))
         .pipe(dest(pathData.build.zipProject));
     },
-    pipeZipDist() {
-      return src(pathData.src.zipDist, {})
-        .pipe(plumber({
-          errorHandler: handleError("Error at pipeZipDist...")
-        }))
-        .pipe(zip(`${pathData.rootFolder}.zip`))
-        .pipe(dest(pathData.build.zipDist));
-    }
   }
 };
 export default tasks;

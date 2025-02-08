@@ -24,39 +24,48 @@ export const pathData = {
     tempPath,
     ftp: "",
     src: {
-        html: `${ srcPath }/html/*.html`,
-        styles: `${ srcPath }/scss/*.scss`,   //root *.scss, connected to html (for build tasks)
-        js: `${ srcPath }/js/*.js`,
+        html: path.join(srcPath, "html", "*.html"),
+        styles: path.join(srcPath, "scss", "*.scss"),
+        js: path.join(srcPath, "js", "*.js"),
         img: [
-            `${ srcPath }/assets/img/**/*.{jpg,jpeg,png,svg,gif,webp,avif,ico}`,
-            `!${ srcPath }/assets/img/svgIcons/mono/**/*`,
-            `!${ srcPath }/assets/img/svgIcons/multi/**/*`
+            path.join(srcPath, "assets", "img", "**", "*.{jpg,jpeg,png,svg,gif,webp,avif,ico}"),
+            `!${ path.join(srcPath, "assets", "img", "svgIcons", "mono", "**", "*") }`,
+            `!${ path.join(srcPath, "assets", "img", "svgIcons", "multi", "**", "*") }`
         ],
         svgIconsMono: [
-            `${ srcPath }/assets/img/svgIcons/mono/**/*.svg`
+            path.join(srcPath, "assets", "img", "svgIcons", "mono", "**", "*.svg")
         ],
         svgIconsMulti: [
-            `${ srcPath }/assets/img/svgIcons/multi/**/*.svg`
+            path.join(srcPath, "assets", "img", "svgIcons", "multi", "**", "*.svg")
         ],
-        fonts: `${ srcPath }/assets/fonts/**/*.{eot,woff,woff2,ttf,otf}`,
-        data: `${ srcPath }/assets/data/**/*.{json, pdf, xml}`,
-        zipDist: `${ distPath }/**/*.*`,
+        fonts: path.join(srcPath, "assets", "fonts", "**", "*.{eot,woff,woff2,ttf,otf}"),
+        data: path.join(srcPath, "assets", "data", "**", "*.{json, pdf, xml}"),
         zipProject: [
-            '!node_modules/**/*',
-            '!dist/**/*',
-            '**/*.*'
+            `!${path.resolve(curWD, "node_modules")}`,
+            `!${path.resolve(curWD, "node_modules", "**", ".*")}`, // Exclude hidden files that start with "."
+            `!${path.resolve(curWD, "node_modules", "**", "*")}`,
+
+            `!${path.resolve(curWD, ".git")}`,
+            `!${path.resolve(curWD, ".git", "**", ".*")}`,
+            `!${path.resolve(curWD, ".git", "**", "*")}`,
+
+            `!${path.resolve(curWD, ".idea")}`,
+            `!${path.resolve(curWD, ".idea", "**", ".*")}`,
+            `!${path.resolve(curWD, ".idea", "**", "*")}`,
+
+            path.resolve(curWD, "**", "*"),
+            path.resolve(curWD, "**", ".*"),
         ]
     },
     build: {
-        html: `${ distPath }/html`,
-        styles: `${ distPath }/css`,
-        js: `${ distPath }/js`,
-        img: `${ distPath }/assets/img`,
-        svgIcons: `${ distPath }/assets/img/svgIcons`,
-        fonts: `${ distPath }/assets/fonts`,
-        data: `${ distPath }/assets/data`,
-        zipProject: distPath,
-        zipDist: "./"
+        html: path.join(distPath, "html"),
+        styles: path.join(distPath, "css"),
+        js: path.join(distPath, "js"),
+        img: path.join(distPath, "assets", "img"),
+        svgIcons: path.join(distPath, "assets", "img", "svgIcons"),
+        fonts: path.join(distPath, "assets", "fonts"),
+        data: path.join(distPath, "assets", "data"),
+        zipProject: path.resolve(curWD, "zip"),
     },
     watch: {
         htmlNested: [
@@ -86,7 +95,8 @@ export const pathData = {
     },
     clean: [
         distPath,
-        `./${ rootFolder }.zip`,
+        path.resolve(curWD, "zip"),
+        //path.resolve(curWD, "zip", `${ rootFolder }.zip`),
         tempPath,
     ],
 }

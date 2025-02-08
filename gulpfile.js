@@ -3,21 +3,24 @@ import path from "path";
 import BrowserSync from "./modules/BrowserSync.js";
 
 import { pathData } from "./gulp/paths.js";
-import { modes } from "./gulp/settings.js";
+import { modes, languages } from "./gulp/settings.js";
 import { cleanDist } from "./gulp/utilFuncs.js";
 import tasks from "./gulp/tasks.js";
 
 /////////////// END OF IMPORTS /////////////////////////
 const { series, parallel, watch } = gulp;
-const initBs = (lang = "ua") => {
+
+const initBs = (lang) => {
     return new BrowserSync({
-        baseDir: path.resolve(pathData.build.html, lang),
-        index: "index.html",
+        //first priority: "dist/html/", then "dist/" for assets/css or assets/img...
+        baseDir: [path.resolve(pathData.distPath, "html"), pathData.distPath],
+        startPath: `/${lang}/index.html`,
         open: true,
         notify: false,
         noCacheHeaders: true
     });
 };
+
 
 function watchFiles(bs) {
     const pipesDev = tasks[modes.dev];
@@ -39,9 +42,6 @@ function watchFiles(bs) {
 function runPipes(mode, cb) {
     if (mode in modes) {
         const task = tasks[mode];
-        const zipDist = () => {
-            return task.pipeZipDist ? task.pipeZipDist() : Promise.resolve();
-        }
         const zipProject = () => {
             return task.pipeZipProject ? task.pipeZipProject() : Promise.resolve();
         }
@@ -59,7 +59,6 @@ function runPipes(mode, cb) {
                 task.pipeData
             ),
             zipProject,
-            zipDist,
         )(cb);
     }
     else {

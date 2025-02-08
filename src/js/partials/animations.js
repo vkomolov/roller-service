@@ -25,10 +25,10 @@ const i = {
   biddingBlockHero: ".section__bidding-block--hero",
   iconWrapperHero: ".section__img-wrapper--hero",
   galleryWork: "#gallery-work",
-  fadeInLeft: "[pagesVersions-type=fade-in-left]",
-  fadeInRight: "[pagesVersions-type=fade-in-right]",
-  fadeInUp: "[pagesVersions-type=fade-in-up]",
-  scaleIn: "[pagesVersions-type=scale-in]",
+  fadeInLeft: "[data-anime=fade-in-left]",
+  fadeInRight: "[data-anime=fade-in-right]",
+  fadeInUp: "[data-anime=fade-in-up]",
+  scaleIn: "[data-anime=scale-in]",
 };
 
 /// ANIMATION PARAMS
@@ -410,8 +410,8 @@ function getAllScrollTwoTweens(elemsArr, triggerElem, propKey = "tlKey", gsapToP
   const tlObj = {};
   let trigger = null;
 
-  if (!(Array.isArray(elemsArr)) || !elemsArr.length) {
-    console.error(`at getAllScrollTimeLineTwoTweens(): the given "elemsArr" is not Array or empty...`);
+  if (!(Array.isArray(elemsArr))) {
+    console.error(`at getAllScrollTwoTweens(): the given "elemsArr" is not Array...`);
     return tlObj;
   }
 

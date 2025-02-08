@@ -190,6 +190,3 @@ export function getDataFromJSON(pathToFile = "") {
 
     return JSON.parse(fs.readFileSync(pathToFile, "utf8"));
 }
-
-
-

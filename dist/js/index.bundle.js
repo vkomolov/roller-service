@@ -10930,10 +10930,10 @@ const i = {
   biddingBlockHero: ".section__bidding-block--hero",
   iconWrapperHero: ".section__img-wrapper--hero",
   galleryWork: "#gallery-work",
-  fadeInLeft: "[pagesVersions-type=fade-in-left]",
-  fadeInRight: "[pagesVersions-type=fade-in-right]",
-  fadeInUp: "[pagesVersions-type=fade-in-up]",
-  scaleIn: "[pagesVersions-type=scale-in]"
+  fadeInLeft: "[data-anime=fade-in-left]",
+  fadeInRight: "[data-anime=fade-in-right]",
+  fadeInUp: "[data-anime=fade-in-up]",
+  scaleIn: "[data-anime=scale-in]"
 };
 
 /// ANIMATION PARAMS
@@ -11262,8 +11262,8 @@ function getScrollTimelineTwoTweens(elem, triggerElem, gsapToParams = {}, gsapFr
 function getAllScrollTwoTweens(elemsArr, triggerElem, propKey = "tlKey", gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
   const tlObj = {};
   let trigger = null;
-  if (!Array.isArray(elemsArr) || !elemsArr.length) {
-    console.error(`at getAllScrollTimeLineTwoTweens(): the given "elemsArr" is not Array or empty...`);
+  if (!Array.isArray(elemsArr)) {
+    console.error(`at getAllScrollTwoTweens(): the given "elemsArr" is not Array...`);
     return tlObj;
   }
   if (triggerElem !== null) {
@@ -11405,7 +11405,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }).then(timelines => {
     Object.assign(totalTl, timelines);
     //log("total timelines: ", totalTl);
-  }).then(() => (0,_modulesPack_gallery_thumbs_gallery_thumbs_js__WEBPACK_IMPORTED_MODULE_2__.initThumbs)("#gallery-work", "assets/img/gallery")).catch(error => {
+  }).then(() => (0,_modulesPack_gallery_thumbs_gallery_thumbs_js__WEBPACK_IMPORTED_MODULE_2__.initThumbs)("#gallery-work", "./assets/img/gallery")).catch(error => {
     console.error(error);
   });
 

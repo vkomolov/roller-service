@@ -308,19 +308,19 @@
 }
 
 //// GSAP:
-[data-type=fade-in-left] {
+[data-anime=fade-in-left] {
   opacity: 0;
 }
 
-[data-type=fade-in-right] {
+[data-anime=fade-in-right] {
   opacity: 0;
 }
 
-[data-type=fade-in-up] {
+[data-anime=fade-in-up] {
   opacity: 0;
 }
 
-[data-type=scale-in] {
+[data-anime=scale-in] {
   opacity: 0;
   transform-origin: 50% 100%;
 }

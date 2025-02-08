@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       Object.assign(totalTl, timelines);
       //log("total timelines: ", totalTl);
     })
-    .then(() => initThumbs("#gallery-work", "assets/img/gallery"))
+    .then(() => initThumbs("#gallery-work", "./assets/img/gallery"))
     .catch(error => {
       console.error(error);
     })

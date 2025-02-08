@@ -811,11 +811,11 @@ img,object,picture,svg,video{
   font-size:16px;
 }
 
-[data-type=fade-in-left],[data-type=fade-in-right],[data-type=fade-in-up]{
+[data-anime=fade-in-left],[data-anime=fade-in-right],[data-anime=fade-in-up]{
   opacity:0;
 }
 
-[data-type=scale-in]{
+[data-anime=scale-in]{
   opacity:0;
   transform-origin:50% 100%;
 }
