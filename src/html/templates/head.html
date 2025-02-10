@@ -2,18 +2,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   @@if (page && data && data[page] && data[page].head) {
     <meta name="description" content="@@data.@@page.head.description">
     <meta name="robots" content="@@data.@@page.head.robots">
-    @@if (data[page].head.rootUrl) {
-      @@if (data[page].head.canonical) {
-        <link rel="canonical" href="@@data.@@page.head.rootUrl/@@data.@@page.head.canonical/@@page.html">
-      }
-      @@if (data[page].head.languages) {
-        @@for (var i = 0; i < data[page].head.languages.length; i++) {
-          <link rel="alternate" href="@@data.@@page.head.rootUrl/@@data.@@page.head.languages[i]/@@page.html" hreflang="@@data.@@page.head.languages[i]">
-        }
-      }
+
+    @@if (data[page].head.canonical) {
+      @@data.@@page.head.canonical
+    }
+
+    @@if (data[page].head.alternates) {
+      @@data.@@page.head.alternates
     }
 
     <title>@@data.@@page.head.title</title>

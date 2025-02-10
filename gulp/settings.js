@@ -78,6 +78,8 @@ export const languages = Object.keys(pageContentEntries);
 //what languages are to be canonical... checking if they exist in the const languages...
 const metaCanonical = getMatchedFromArray(languages, ["ua", "ru"]);
 
+////////////// END OF INITIAL SETTINGS ///////////////////////
+
 //collecting data from all jsons at 'gulp/pageVersions/'
 const pagesContent = Object.keys(pageContentEntries).reduce((acc, lang) => {
     const contentVer = getDataFromJSON(pageContentEntries[lang]);
@@ -95,14 +97,15 @@ const pagesContent = Object.keys(pageContentEntries).reduce((acc, lang) => {
             //for writing canonical meta-links
             if (metaCanonical.length) {
                 if (metaCanonical.includes(lang)) {
-                    contentVer[pageName].head.canonical = lang;
+                    contentVer[pageName].head.canonical = `<link rel="canonical" href="${rootUrl}/${lang}/${pageName}.html">`;
                 }
             }
-            //for writing alternate meta-links
-            contentVer[pageName].head.languages = languages;
 
-            //for root url at meta-links
-            contentVer[pageName].head.rootUrl = rootUrl;
+            if (languages.length) {
+                contentVer[pageName].head.alternates = languages.map(lang => {
+                    return `<link rel="alternate" href="${rootUrl}/${lang}/${pageName}.html" hreflang="${lang}">`
+                }).join("\n");
+            }
         }
         else {
             console.warn(`at contentVer: no "head" found in ${lang}.json at key: ${pageName} or key: ${pageName} is not found in "linkStyles" object...`);
