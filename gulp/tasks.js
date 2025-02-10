@@ -59,7 +59,7 @@ import CustomGulpSVGSprite from "../modules/CustomGulpSVGSprite.js";
 const { src, dest } = gulp;
 const sass = gulpSass(dartSass);
 
-//regex to the sources in *.html
+//regex to the sources in *.html to add nesting to the paths at the task: pipeHtml
 const sourcePathRegex = /(src|srcset|href)=["']((?!https?:\/\/|\/)[^"']+)["']/g;
 const imgRegex = /<img(?:.|\n|\r)*?>/g;
 

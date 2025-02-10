@@ -1,6 +1,6 @@
 "use strict";
 
-import { replaceFilePath } from "../../helpers/funcsDOM.js";
+import { replaceFilePath, createElementWithClass } from "../../helpers/funcsDOM.js";
 
 //////// END OF IMPORTS //////////////////
 
@@ -103,12 +103,6 @@ export function initThumbs(gallerySelector, originPath = null) {
       document.addEventListener("keydown", handleKey);
 
     };
-
-    function createElementWithClass(tag, ...classNames) {
-      const element = document.createElement(tag);
-      element.classList.add(...classNames);
-      return element;
-    }
 
     function createButton(text, type) {
       const types = {

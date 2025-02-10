@@ -10060,6 +10060,7 @@ return ImagesLoaded;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   activateNavLink: function() { return /* binding */ activateNavLink; },
+/* harmony export */   createElementWithClass: function() { return /* binding */ createElementWithClass; },
 /* harmony export */   createMasonry: function() { return /* binding */ createMasonry; },
 /* harmony export */   customTargetStyleOnScroll: function() { return /* binding */ customTargetStyleOnScroll; },
 /* harmony export */   fountainBalls: function() { return /* binding */ fountainBalls; },
@@ -10671,9 +10672,21 @@ function activateNavLink(navLinkSelector, pageType, activeClass, anchorLink) {
   }
 }
 
-/////// DEV
-function log(it, text = "value: ") {
-  console.log(text, it);
+/**
+ * Creates a new HTML element with specified tag and adds the provided CSS classes to it.
+ *
+ * @param {string} tag - The tag name of the element to create (e.g., 'div', 'span', 'p').
+ * @param {...string} classNames - One or more class names to be added to the newly created element.
+ * @returns {HTMLElement} The newly created HTML element with the specified tag and classes.
+ *
+ * @example
+ * const div = createElementWithClass('div', 'container', 'main');
+ * console.log(div); // <div class="container main"></div>
+ */
+function createElementWithClass(tag, ...classNames) {
+  const element = document.createElement(tag);
+  element.classList.add(...classNames);
+  return element;
 }
 
 /***/ }),
@@ -10732,14 +10745,14 @@ function initThumbs(gallerySelector, originPath = null) {
   function initModal(mediaArr, originPath = null) {
     //clicked index of the media array
     let currentIndex = null;
-    const modal = createElementWithClass("div", "modal");
-    const scoreBar = createElementWithClass("div", "modal__bar");
-    const arrowBar = createElementWithClass("div", "modal__bar", "modal__bar--arrow");
-    const imgScore = createElementWithClass("span", "modal-score");
+    const modal = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "modal");
+    const scoreBar = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "modal__bar");
+    const arrowBar = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "modal__bar", "modal__bar--arrow");
+    const imgScore = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("span", "modal-score");
     const closeButton = createButton("X", "close");
     const arrowPrev = createButton("<", "prev");
     const arrowNext = createButton(">", "next");
-    const mediaContainer = createElementWithClass("div", "media-container");
+    const mediaContainer = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "media-container");
     scoreBar.append(imgScore, closeButton);
     arrowBar.append(arrowPrev, arrowNext);
     modal.append(scoreBar, arrowBar, mediaContainer);
@@ -10784,11 +10797,6 @@ function initThumbs(gallerySelector, originPath = null) {
       //adding document listener on each runThumbs, removing document listener on modal.remove()
       document.addEventListener("keydown", handleKey);
     };
-    function createElementWithClass(tag, ...classNames) {
-      const element = document.createElement(tag);
-      element.classList.add(...classNames);
-      return element;
-    }
     function createButton(text, type) {
       const types = {
         prev: "prev",
@@ -10798,7 +10806,7 @@ function initThumbs(gallerySelector, originPath = null) {
       if (!types[type]) {
         console.warn(`at createButton: the given data-type: ${type} is not found in types...`);
       }
-      const button = createElementWithClass("span", 'thumb-arrow', types[type] || "");
+      const button = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("span", 'thumb-arrow', types[type] || "");
       button.textContent = text;
       button.dataset.type = type;
       button.tabIndex = 0;
@@ -11367,14 +11375,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.lockedEventListener)("resize", window, 2000)(() => {
-  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.createMasonry)("#gallery-work", {
-    gap: 20
-  }).catch(error => {
-    console.error(error);
-  });
-  //.then(res =>  log(res, "elements: "));
-});
 document.addEventListener("DOMContentLoaded", () => {
   const pageType = document.body.dataset.type;
   const linkAnchors = {
@@ -11407,6 +11407,16 @@ document.addEventListener("DOMContentLoaded", () => {
     //log("total timelines: ", totalTl);
   }).then(() => (0,_modulesPack_gallery_thumbs_gallery_thumbs_js__WEBPACK_IMPORTED_MODULE_2__.initThumbs)("#gallery-work", "./assets/img/gallery")).catch(error => {
     console.error(error);
+  });
+
+  //listening to "resize" event to recompile the masonry gallery with the new parameters...
+  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.lockedEventListener)("resize", window, 2000)(() => {
+    (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.createMasonry)("#gallery-work", {
+      gap: 20
+    }).catch(error => {
+      console.error(error);
+    });
+    //.then(res =>  log(res, "elements: "));
   });
 
   ///////// END OF DOMContentLoaded Listener ////////////

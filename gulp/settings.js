@@ -8,8 +8,11 @@ import cssnano from "cssnano";
 import normalizeWhitespace from "postcss-normalize-whitespace";
 import { entries } from "./paths.js";
 import { getFilesEntries, getDataFromJSON } from "./utilFuncs.js";
+import { getMatchedFromArray } from "../src/js/helpers/funcs.js";
 
 /////////////// END OF IMPORTS /////////////////////////
+
+////////////// INITIAL SETTINGS ///////////////////////
 export const modes = {
     dev: "dev",
     build: "build"
@@ -66,11 +69,15 @@ const linkScripts = {
     },*/
 }
 
-//what languages are to be canonical
-//TODO: to write canonical and alternate meta tags
-const metaCanonical = ["ua", "ru"];
+//base root url at the server... example: "https://example.com"
+const rootUrl = "https://example.com"
 
 const pageContentEntries = getFilesEntries("gulp/pagesVersions", "json");
+export const languages = Object.keys(pageContentEntries);
+
+//what languages are to be canonical... checking if they exist in the const languages...
+const metaCanonical = getMatchedFromArray(languages, ["ua", "ru"]);
+
 //collecting data from all jsons at 'gulp/pageVersions/'
 const pagesContent = Object.keys(pageContentEntries).reduce((acc, lang) => {
     const contentVer = getDataFromJSON(pageContentEntries[lang]);
@@ -85,11 +92,17 @@ const pagesContent = Object.keys(pageContentEntries).reduce((acc, lang) => {
                 contentVer[pageName].head["linkScripts"] = linkScripts[pageName];
             }
 
+            //for writing canonical meta-links
             if (metaCanonical.length) {
                 if (metaCanonical.includes(lang)) {
-                    contentVer[pageName].head.canonical = "true";
+                    contentVer[pageName].head.canonical = lang;
                 }
             }
+            //for writing alternate meta-links
+            contentVer[pageName].head.languages = languages;
+
+            //for root url at meta-links
+            contentVer[pageName].head.rootUrl = rootUrl;
         }
         else {
             console.warn(`at contentVer: no "head" found in ${lang}.json at key: ${pageName} or key: ${pageName} is not found in "linkStyles" object...`);
@@ -99,7 +112,7 @@ const pagesContent = Object.keys(pageContentEntries).reduce((acc, lang) => {
     acc[lang] = contentVer;
     return acc;
 }, {});
-export const languages = Object.keys(pageContentEntries);
+
 
 //it returns the page`s data context with the language version for the gulp-file-include settings
 export const setFileIncludeSettings = (lang) => {
@@ -108,7 +121,6 @@ export const setFileIncludeSettings = (lang) => {
         basepath: "@file",
         context: {
             data: pagesContent[lang],
-            languages
         }
     }
 }

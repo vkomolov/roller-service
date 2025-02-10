@@ -616,7 +616,19 @@ export function activateNavLink(navLinkSelector, pageType, activeClass, anchorLi
   }
 }
 
-/////// DEV
-function log(it, text = "value: ") {
-  console.log(text, it);
+/**
+ * Creates a new HTML element with specified tag and adds the provided CSS classes to it.
+ *
+ * @param {string} tag - The tag name of the element to create (e.g., 'div', 'span', 'p').
+ * @param {...string} classNames - One or more class names to be added to the newly created element.
+ * @returns {HTMLElement} The newly created HTML element with the specified tag and classes.
+ *
+ * @example
+ * const div = createElementWithClass('div', 'container', 'main');
+ * console.log(div); // <div class="container main"></div>
+ */
+export function createElementWithClass(tag, ...classNames) {
+  const element = document.createElement(tag);
+  element.classList.add(...classNames);
+  return element;
 }
