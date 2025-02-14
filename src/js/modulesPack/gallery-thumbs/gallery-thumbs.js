@@ -16,11 +16,10 @@ export function initThumbs(gallerySelector, originPath = null) {
 		throw new Error("at initGalleryThumbs: The given 'galleryContainer' is not in the DOM...");
 	}
 
-	//for checking media tags
-	const queryTags = ["picture", "img", "video", "audio", "object"];
+	//for checking media tags (<img> must be only <picture>)
+	//TODO: to include images, if they are not in picture...
+	const queryTags = ["picture", "video", "audio", "object"];
 	const mediaArr = Array.from(galleryBlock.querySelectorAll(queryTags.join(", ")));
-
-	//TODO: to use Array.from(galleryBlock.querySelectorAll(queryTags.join(", ")))
 
 	if (!mediaArr.length) {
 		console.warn(`at initThumbs: the found mediaArr is empty: ${mediaArr.length}... `);
@@ -44,7 +43,7 @@ export function initThumbs(gallerySelector, originPath = null) {
 /**
  * Initializes the modal for the gallery.
  * @param {HTMLElement[]} mediaArr - Array of media elements.
- * @param {string} [originPath=null] - Base path for media files.
+ * @param {string|null} [originPath=null] - Base path for media files.
  * @returns {Function} Function to run the modal with the clicked index.
  */
 function initModal(mediaArr, originPath = null) {
@@ -65,14 +64,15 @@ function initModal(mediaArr, originPath = null) {
 		ArrowRight: getNext,
 	};
 
-	element.addEventListener("click", ({ target }) => {
-		const { type } = target.dataset;
-		if (type && actions[type]) {
-			actions[type]();
-		}
-	});
-	element.addEventListener("swiped-left", getPrev);
-	element.addEventListener("swiped-right", getNext);
+const handleClick = ({ target }) => {
+	const { type } = target.dataset;
+	if (type && actions[type]) {
+		actions[type]();
+	}
+};
+
+	element.addEventListener("click", handleClick);
+
 
 	return (clickedIndex) => {
 		if (!document.body.contains(element)) {
@@ -99,6 +99,7 @@ function initModal(mediaArr, originPath = null) {
 	}
 
 	function handleEscape() {
+		element.removeEventListener("click", handleClick);
 		element.remove();
 		document.removeEventListener("keydown", handleKey);
 		document.body.style.overflow = "auto";
@@ -109,6 +110,7 @@ function initModal(mediaArr, originPath = null) {
 
 		currentIndex = clickedIndex;
 		const clickedElem = mediaArr[clickedIndex];
+
 		const clonedElem = clickedElem.cloneNode(true);
 		const imgAlt = getAltText(clickedElem);
 

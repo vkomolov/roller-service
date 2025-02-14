@@ -1,6 +1,5 @@
 'use strict';
 
-import axios from "axios";
 
 export function randomNum(max, min) {
   return Math.floor(Math.random() * max) + min;
@@ -59,30 +58,6 @@ export function getRandomElemsfromArray(fromArray, maxRandCount = 1) {
   return fromArray.slice(0, maxRandCount);
 }
 
-export async function initAxios(url, config={}) {
-  try {
-    //if Object.keys(config).length === 0 then axios will use the default method: "get" with responseType: "json"
-    const resp = await axios({
-      url,
-      ...config,
-    });
-
-    return resp.data;
-
-  } catch (error) {
-    if (error.response) {
-      console.error("The request was made and the server responded with a status code out of the range of 2xx",
-        error.response);
-      throw error;
-    } else if (error.request) {
-      console.error("The request was made but no response was received", error.request);
-      throw error;
-    } else {
-      console.error("Something happened in setting up the request that triggered an Error", error.stack);
-      throw error;
-    }
-  }
-}
 
 /**
  * It gets the LocalStorage by name, validating by the time limit in days;

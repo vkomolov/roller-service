@@ -84,6 +84,8 @@ const pagesDataRuVer = getDataFromJSON(pageJsonEntries["ru"]);
 const indexDataRuVer = pagesDataRuVer["index"];
 const indexHeadData = indexDataRuVer["head"];
 
+console.log(indexHeadData);
+
 
 /*console.log(getMetaLink({
 	type: "script",

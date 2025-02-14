@@ -10721,12 +10721,10 @@ function initThumbs(gallerySelector, originPath = null) {
     throw new Error("at initGalleryThumbs: The given 'galleryContainer' is not in the DOM...");
   }
 
-  //for checking media tags
-  const queryTags = ["picture", "img", "video", "audio", "object"];
+  //for checking media tags (<img> must be only <picture>)
+  //TODO: to include images, if they are not in picture...
+  const queryTags = ["picture", "video", "audio", "object"];
   const mediaArr = Array.from(galleryBlock.querySelectorAll(queryTags.join(", ")));
-
-  //TODO: to use Array.from(galleryBlock.querySelectorAll(queryTags.join(", ")))
-
   if (!mediaArr.length) {
     console.warn(`at initThumbs: the found mediaArr is empty: ${mediaArr.length}... `);
     return;
@@ -10748,7 +10746,7 @@ function initThumbs(gallerySelector, originPath = null) {
 /**
  * Initializes the modal for the gallery.
  * @param {HTMLElement[]} mediaArr - Array of media elements.
- * @param {string} [originPath=null] - Base path for media files.
+ * @param {string|null} [originPath=null] - Base path for media files.
  * @returns {Function} Function to run the modal with the clicked index.
  */
 function initModal(mediaArr, originPath = null) {
@@ -10767,7 +10765,7 @@ function initModal(mediaArr, originPath = null) {
     ArrowLeft: getPrev,
     ArrowRight: getNext
   };
-  element.addEventListener("click", ({
+  const handleClick = ({
     target
   }) => {
     const {
@@ -10776,9 +10774,8 @@ function initModal(mediaArr, originPath = null) {
     if (type && actions[type]) {
       actions[type]();
     }
-  });
-  element.addEventListener("swiped-left", getPrev);
-  element.addEventListener("swiped-right", getNext);
+  };
+  element.addEventListener("click", handleClick);
   return clickedIndex => {
     if (!document.body.contains(element)) {
       document.body.appendChild(element);
@@ -10800,6 +10797,7 @@ function initModal(mediaArr, originPath = null) {
     }
   }
   function handleEscape() {
+    element.removeEventListener("click", handleClick);
     element.remove();
     document.removeEventListener("keydown", handleKey);
     document.body.style.overflow = "auto";
