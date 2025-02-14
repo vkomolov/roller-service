@@ -1,6 +1,6 @@
 'use strict';
 
-import { getLocalStorage, setLocalStorage } from "../helpers/funcs.js";
+import { getLocalStorage, initAxios, setLocalStorage } from "../helpers/funcs.js";
 
 //TODO: to check langs
 export function promptLangVersion() {
@@ -30,6 +30,8 @@ export function promptLangVersion() {
     const langModal = document.createElement("div");
     const promptModal = document.createElement("div");
     const heading = document.createElement("p");
+
+
 
 
   }

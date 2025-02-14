@@ -1,7 +1,40 @@
 'use strict';
 
+import axios from "axios";
+
 export function randomNum(max, min) {
   return Math.floor(Math.random() * max) + min;
+}
+
+/**
+ * Filters and returns the elements from `values` that are present in `targetArr`.
+ *
+ * This function checks if the first argument `targetArr` is a non-empty array and then
+ * filters the remaining arguments (`...values`) to find which ones are included in `targetArr`.
+ * If `targetArr` is not a valid array or is empty, a warning is logged to the console and an empty array is returned.
+ *
+ * @param {Array} targetArr - The array to check for matches.
+ * @param {...*} values - A list of values to check against the `targetArr`.
+ *
+ * @returns {Array} - An array of matched values from `values` that exist in `targetArr`.
+ *
+ * @example
+ * const result = getMatchedFromArray([1, 2, 3, 4], 2, 4, 6);
+ * console.log(result); // Output: [2, 4]
+ *
+ * @example
+ * const result = getMatchedFromArray([], 1, 2);
+ * console.log(result); // Output: []
+ */
+export function getMatchedFromArray(targetArr, ...values) {
+  if (!Array.isArray(targetArr) || !targetArr.length) {
+    console.warn(`at getMatchedFromArray: the given targetArr is not Array or empty...`);
+    return [];
+  }
+
+  const targetSet = new Set(targetArr); // Convert targetArr to Set for O(1) lookups
+  const flatValues = values.flat(); //to flat possible arrays in the array of values
+  return flatValues.filter(val => targetSet.has(val));
 }
 
 /**
@@ -24,6 +57,31 @@ export function getRandomElemsfromArray(fromArray, maxRandCount = 1) {
 
   // Return the first maxRandCount numbers
   return fromArray.slice(0, maxRandCount);
+}
+
+export async function initAxios(url, config={}) {
+  try {
+    //if Object.keys(config).length === 0 then axios will use the default method: "get" with responseType: "json"
+    const resp = await axios({
+      url,
+      ...config,
+    });
+
+    return resp.data;
+
+  } catch (error) {
+    if (error.response) {
+      console.error("The request was made and the server responded with a status code out of the range of 2xx",
+        error.response);
+      throw error;
+    } else if (error.request) {
+      console.error("The request was made but no response was received", error.request);
+      throw error;
+    } else {
+      console.error("Something happened in setting up the request that triggered an Error", error.stack);
+      throw error;
+    }
+  }
 }
 
 /**
@@ -66,34 +124,5 @@ export function setLocalStorage( name="localData", data ) {
   localStorage.setItem(name, JSON.stringify( dataWithDate ));
 }
 
-/**
- * Filters and returns the elements from `values` that are present in `targetArr`.
- *
- * This function checks if the first argument `targetArr` is a non-empty array and then
- * filters the remaining arguments (`...values`) to find which ones are included in `targetArr`.
- * If `targetArr` is not a valid array or is empty, a warning is logged to the console and an empty array is returned.
- *
- * @param {Array} targetArr - The array to check for matches.
- * @param {...*} values - A list of values to check against the `targetArr`.
- *
- * @returns {Array} - An array of matched values from `values` that exist in `targetArr`.
- *
- * @example
- * const result = getMatchedFromArray([1, 2, 3, 4], 2, 4, 6);
- * console.log(result); // Output: [2, 4]
- *
- * @example
- * const result = getMatchedFromArray([], 1, 2);
- * console.log(result); // Output: []
- */
-export function getMatchedFromArray(targetArr, ...values) {
-  if (!Array.isArray(targetArr) || !targetArr.length) {
-    console.warn(`at getMatchedFromArray: the given targetArr is not Array or empty...`);
-    return [];
-  }
 
-  const targetSet = new Set(targetArr); // Convert targetArr to Set for O(1) lookups
-  const flatValues = values.flat(); //to flat possible arrays in the array of values
-  return flatValues.filter(val => targetSet.has(val));
-}
 

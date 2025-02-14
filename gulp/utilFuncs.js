@@ -4,17 +4,15 @@ import fs, { constants } from 'fs';
 import path from "path";
 import { rimraf } from 'rimraf';
 
-const fsAsync = fs.promises;
-
 /**
  * It checks the path for existence
- * @param {string} targetPath - path to check for existence
- * @param {number} [mode = fs.constants.F_OK] - access mode
+ * @param {string} targetPath - Full path to the file or directory to check for access
+ * @param {number} [mode = fs.constants.F_OK] - Access mode (e.g., fs.constants.F_OK, fs.constants.R_OK, etc.)
  * @returns {Promise<boolean>}
  */
 export async function checkAccess(targetPath, mode = constants.F_OK) {
     try {
-        await fsAsync.access(targetPath, mode); // async access
+        await fs.promises.access(targetPath, mode); // async access
         return true;
     } catch {
         return false;
@@ -22,47 +20,82 @@ export async function checkAccess(targetPath, mode = constants.F_OK) {
 }
 
 /**
- * It recursively searches for a file in the specified directory and its subdirectories
- * @param {string} dir - The directory to search in
- * @param {string} fileName - File name to search for
- * @param {boolean} [isNested=false] - If true, to search in subfolders
- * @param {boolean} [returnPath=false] - If true, to return the full path of the found file
- * @param {number} [mode = fs.constants.F_OK] - access mode
- * @returns {Promise<string|boolean>} - Full path to file if found, or boolean (true/false) depending on returnPath
+ * Checks if the item is a file and matches the target filename.
+ * @param {string} fullPath - Full path to the item to be checked with the target filename
+ * @param {string} fileName - Target filename
+ * @param {number} mode - Access mode
+ * @returns {Promise<boolean>}
+ */
+async function isMatchingFile(fullPath, fileName, mode) {
+    const isFile = (await fs.promises.stat(fullPath)).isFile();
+    const isMatch = path.basename(fullPath) === fileName;
+    const isAccessible = await checkAccess(fullPath, mode);
+    return isFile && isMatch && isAccessible;
+}
+
+/**
+ * Recursively searches for a file in a flat directory, without nesting
+ * @param {string} dir - Directory to search in
+ * @param {string} fileName - Target filename
+ * @param {number} mode - Access mode
+ * @returns {Promise<string|boolean>}
+ */
+async function searchInDirectory(dir, fileName, mode) {
+    const items = await fs.promises.readdir(dir);
+
+    for (const item of items) {
+        const fullPath = path.join(dir, item);
+        if (await isMatchingFile(fullPath, fileName, mode)) {
+            return fullPath;
+        }
+    }
+    return false;
+}
+
+/**
+ * Recursively searches for a file in a directory and its subdirectories.
+ * @param {string} dir - The directory to search in.
+ * @param {string} fileName - The name of the file to search for.
+ * @param {boolean} [isNested=false] - If true, searches in subdirectories. Default is false.
+ * @param {boolean} [returnPath=false] - If true, returns the full path of the found file. Default is false.
+ * @param {number} [mode=fs.constants.F_OK] - The access mode to check (e.g., fs.constants.F_OK, fs.constants.R_OK). Default is fs.constants.F_OK.
+ * @returns {Promise<string|boolean>} - Returns the full path to the file if found and returnPath is true. Otherwise, returns a boolean indicating whether the file was found.
+ * @throws {Error} - Throws an error if the directory cannot be accessed or read.
+ * @example
+ * // Search for a file in the current directory (non-recursive)
+ * const result = await checkFileInDir('./src', 'index.js');
+ * console.log(result); // true or false
+ *
+ * @example
+ * // Search for a file recursively and return the full path
+ * const result = await checkFileInDir('./src', 'index.js', true, true);
+ * console.log(result); // Full path to the file or false
  */
 export async function checkFileInDir(
-    dir,
-    fileName,
-    isNested = false,
-    returnPath = false,
-    mode = fs.constants.F_OK
+  dir,
+  fileName,
+  isNested = false,
+  returnPath = false,
+  mode = fs.constants.F_OK
 ) {
     try {
-        const items = await fsAsync.readdir(dir);
+        const items = await fs.promises.readdir(dir);
+
         for (const item of items) {
             const fullPath = path.join(dir, item);
-            const stats = await fsAsync.stat(fullPath);
+            const stats = await fs.promises.stat(fullPath);
 
-            if (stats.isDirectory()) {
-                if (isNested) {
-                    const result = await checkFileInDir(fullPath, fileName, isNested, returnPath, mode);
-                    if (result) return result;
-                }
-                // If isNested is false, don't search in subdirectories, continue traversing the current level
-            }
-            else if (path.basename(fullPath) === fileName) {
-                try {
-                    await fsAsync.access(fullPath, mode);
-                    return returnPath ? fullPath : true;
-                } catch {
-                    return false;
-                }
+            if (stats.isDirectory() && isNested) {
+                const result = await checkFileInDir(fullPath, fileName, isNested, returnPath, mode);
+                if (result) return result;
+            } else if (await isMatchingFile(fullPath, fileName, mode)) {
+                return returnPath ? fullPath : true;
             }
         }
-        //If the file is not found in the current level and isNested is false, simply return false
+
         return false;
-    } catch {
-        // In case of an error (for example, no access to the directory), return false
+    } catch (error) {
+        console.error(`Error in checkFileInDir: ${error.message}`);
         return false;
     }
 }
@@ -189,4 +222,51 @@ export function getDataFromJSON(pathToFile = "") {
     }
 
     return JSON.parse(fs.readFileSync(pathToFile, "utf8"));
+}
+
+/**
+ * Generates a meta HTML link or script tag based on the provided parameters.
+ *
+ * @param {Object} [params={}] - An object containing configuration for the meta tag.
+ * @param {string} [params.type] - The type of the meta tag. Can be either 'stylesheet' or 'script'.
+ * @param {string} [params.dataSrc] - The source URL for the resource (CSS or JS file).
+ * @param {string} [params.loadMode] - The load mode for the script (e.g., 'async', 'defer').
+ * @param {Record<string, string>} [params.optionalAttrs={}] - Optional additional attributes for the meta tag (e.g., 'id', 'class').
+ * @returns {string|undefined} - The generated HTML string for the meta tag (either `<link>` or `<script>`).
+ */
+export function getMetaTag(params = {}) {
+
+    /**
+     * Converts an object of attributes into a string representation.
+     *
+     * @param {Object} [optionalAttrs={}] - An object of string key-value pairs representing attributes.
+     * @returns {string} - A string representation of the attributes in the form of 'key="value"'.
+     */
+    const stringifyAttrs = (optionalAttrs = {}) => {
+        if (!Object.keys(optionalAttrs).length) {
+            return "";
+        }
+
+        return Object.entries(optionalAttrs).map(([k, v]) => `${k}="${v}"`).join(" ");
+    };
+
+    const metaTypes = {
+        stylesheet: (dataSrc, attrs) => `<link rel="stylesheet" href="${dataSrc}" ${attrs}>`,
+        script: (dataSrc, attrs, loadMode) => (
+          `<script type="module" src="${dataSrc}" ${attrs} ${loadMode}></script>`
+        ),
+    }
+
+    const { type, dataSrc, loadMode, ...optionalAttrs } = params;
+
+    // Validation of parameters
+    if (!type || !metaTypes.hasOwnProperty(type) || !dataSrc) {
+        console.error(`at getMetaLink: Unrecognized type: "${type}" or data source: "${dataSrc}"`);
+        return; // Exit function without returning an invalid value
+    }
+
+    const attrs = stringifyAttrs(optionalAttrs);
+
+    // Return the appropriate meta tag based on the type
+    return metaTypes[type](dataSrc, attrs, loadMode || "");
 }
