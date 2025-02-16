@@ -10060,23 +10060,19 @@ return ImagesLoaded;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   activateNavLink: function() { return /* binding */ activateNavLink; },
-/* harmony export */   createElementWithClass: function() { return /* binding */ createElementWithClass; },
 /* harmony export */   createMasonry: function() { return /* binding */ createMasonry; },
 /* harmony export */   customTargetStyleOnScroll: function() { return /* binding */ customTargetStyleOnScroll; },
-/* harmony export */   fountainBalls: function() { return /* binding */ fountainBalls; },
 /* harmony export */   getImagesLoaded: function() { return /* binding */ getImagesLoaded; },
 /* harmony export */   isStyleSupported: function() { return /* binding */ isStyleSupported; },
 /* harmony export */   lockScroll: function() { return /* binding */ lockScroll; },
 /* harmony export */   lockedEventListener: function() { return /* binding */ lockedEventListener; },
 /* harmony export */   migrateElement: function() { return /* binding */ migrateElement; },
-/* harmony export */   replaceFilePath: function() { return /* binding */ replaceFilePath; },
 /* harmony export */   setAttributes: function() { return /* binding */ setAttributes; }
 /* harmony export */ });
-/* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
 /* harmony import */ var imagesloaded__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! imagesloaded */ "./node_modules/imagesloaded/imagesloaded.js");
 
 
-
+//import { gsap } from "gsap";
 
 
 /**
@@ -10106,206 +10102,6 @@ function migrateElement({
   } else {
     console.warn(`transitBox: target in not in DOM: ${target}`);
   }
-}
-
-/**
- * Fountains a certain number of balls.
- * @param {HTMLElement} targetElem - the target Element for animation
- * @param {Object} [params={}] - additional params
- * @param {number} [params.ballsCount = 1] - The quantity of the balls to be fountained. Defaults to 1 if not provided.
- * @param {Object} [params.cssStyles={}] additional css styles of the balls
- * @param {boolean} [params.animateSeparate=false] the flag for separate animation of the balls
- * @param {string[]} [params.ballColors=[]] If not provided, a default inner array (ballColorsArr) is used:
- *
- * @return {gsap.core.Timeline | null}
- */
-function fountainBalls(targetElem, params = {}) {
-  if (!document.body.contains(targetElem)) {
-    console.error(`the given targetElem ${targetElem} is not in DOM...`);
-    return null;
-  }
-  if (typeof gsap__WEBPACK_IMPORTED_MODULE_1__.gsap === "undefined") {
-    console.error(`gsap is not installed... please use "npm i gsap"`);
-    return null;
-  }
-
-  ///////////// INITIAL SETTINGS /////////////////
-
-  const ballStylesObj = {
-    position: "absolute",
-    width: "30px",
-    height: "30px",
-    top: "50%",
-    left: "50%",
-    borderRadius: "50%",
-    zIndex: "-1",
-    visibility: "hidden",
-    scale: "0"
-  };
-  const ballColorsArr = ["#0adb38", "#db0ac6", "#db0a11", "#150adb", "#0adbca", "#cddb0a"];
-  const {
-    ballsCount = 1,
-    cssStyles = {},
-    animateSeparate = false,
-    ballColors = []
-  } = params;
-  const ballStyles = {
-    ...ballStylesObj,
-    ...cssStyles
-  };
-  const colors = ballColors.length ? ballColors : ballColorsArr;
-
-  /**
-   * Function for "fountain" movement of balls with the common animations
-   * @param {gsap.core.Timeline} tl - the timeline for the animation
-   * @param {HTMLElement[]} ballsArray - the real array (not collection) of DOM elements
-   * @return {void}
-   */
-  const fountainAll = (tl, ballsArray = []) => {
-    // Clear and reset the timeline
-    tl.clear().progress(0);
-
-    // Setting initial values directly in the timeline
-    tl.set(ballsArray, {
-      //if to remove the initial positions of the balls, they will appear in different places of the area
-      //x: 0,
-      y: 0,
-      immediateRender: false // prevents immediate render of the settings
-    });
-
-    // Animation of appearing balls with the random size and random color
-    tl.to(ballsArray, {
-      autoAlpha: 1,
-      scale: function () {
-        return gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.random(0.3, 1);
-      },
-      backgroundColor: function () {
-        return gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.random(colors);
-      },
-      duration: 0.1
-      //stagger: 0.1, // delay between animations for each ball
-    });
-
-    // Animation of balls moving up the Y axis
-    tl.to(ballsArray, {
-      y: function () {
-        return gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.random(-70, -100);
-      },
-      stagger: {
-        //each: 0.1, // delay between animations for each ball
-        repeat: 1,
-        // repeat once (for the "back" effect)
-        yoyo: true // animation "forward-backward"
-        //from: "random",  // "start", "random", "center", "end" to determine the order
-      },
-      ease: "circ" // smooth deceleration at the end
-    }, 0);
-
-    // Animation of balls on the X axis
-    tl.to(ballsArray, {
-      x: () => gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.random(-200, 200),
-      ease: "none",
-      // linear animation
-      duration: 1 // animation duration on X axis
-      //stagger: 0.1, // delay between balls
-    }, 0); // starting the animation on the X axis at the same time as on the Y axis
-
-    // Hiding the balls after animation
-    tl.to(ballsArray, {
-      autoAlpha: 0,
-      duration: 0.1
-    }, "-=0.1");
-
-    // Starting the timeline
-    tl.play();
-  };
-
-  /**
-   * Function for "fountain" movement of balls with the separate animations
-   * @param {gsap.core.Timeline} tl - the timeline for the animation
-   * @param {HTMLElement[]} ballsArray - the real array (not collection) of DOM elements
-   * @return {void}
-   */
-  const fountainSeparate = (tl, ballsArray = []) => {
-    // Clear and reset the timeline
-    tl.clear().progress(0);
-
-    // Checking for the nested timelines in the main timeline if the animation has already been run
-    const childTimeLines = tl.getChildren(false, false, true);
-
-    /**
-     * Creating the inner timelines of each ball or using the already created inner timelines of the previous run
-     * Adding the animations to the separate inner timeline of each ball
-     */
-    ballsArray.forEach((ball, index) => {
-      let ballTl = childTimeLines[index];
-      if (!ballTl) {
-        ballTl = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline();
-        tl.add(ballTl, index * 0.2);
-      }
-
-      //to avoid the IDE alerts on checking the method "to" in childTimeLines[index]
-      if ("to" in ballTl && typeof ballTl.to === "function") {
-        // Animation of appearing of each ball with the random size and random color
-        ballTl.to(ball, {
-          autoAlpha: 1,
-          scale: gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.random(0.3, 1),
-          backgroundColor: gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.random(colors),
-          duration: 0.1
-        });
-
-        // Animation of each ball moving up the Y axis
-        ballTl.to(ball, {
-          y: gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.random(-70, -100),
-          //duration: 1,
-          ease: "circ",
-          // smooth deceleration at the end
-          yoyo: true,
-          // animation "forward-backward"
-          repeat: 1 // repeat once (for the "back" effect)
-        }, 0);
-
-        // Animation of balls on the X axis
-        ballTl.to(ball, {
-          x: gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.utils.random(-200, 200),
-          duration: 1,
-          // animation duration on X axis
-          ease: "none" // linear animation
-        }, 0); // starting the animation on the X axis at the same time as on the Y axis
-
-        // Hiding the balls after animation
-        ballTl.to(ball, {
-          autoAlpha: 0,
-          duration: 0.1
-        }, "-=0.1");
-      }
-    });
-
-    // Starting the timeline
-    tl.play();
-  };
-
-  ///////////// END OF INITIAL SETTINGS /////////////////
-
-  // Adding styles to the target element: position: relative; and display: inline-block;
-  targetElem.style.position = "relative";
-  targetElem.style.display = "inline-block";
-
-  //creating balls with account to the given balls count in params
-  const ballsArr = [];
-  for (let i = 1; i <= ballsCount; i++) {
-    let ball = document.createElement("div");
-    Object.assign(ball.style, ballStyles);
-    targetElem.appendChild(ball);
-    ballsArr.push(ball);
-  }
-  const tl = gsap__WEBPACK_IMPORTED_MODULE_1__.gsap.timeline({
-    paused: true
-  });
-  targetElem.addEventListener("mouseenter", () => {
-    animateSeparate ? fountainSeparate(tl, ballsArr) : fountainAll(tl, ballsArr);
-  });
-  return tl;
 }
 
 /**
@@ -10613,25 +10409,6 @@ async function createMasonry(containerSelector, params = {}) {
 }
 
 /**
- * Replaces the file path of the given URL with a new base path.
- *
- * @param {string} url - The original URL (either `src` or `srcset`) with the file.
- * @param {string} newBase - The new base URL to prepend.
- * @returns {string} The updated URL with the new base path to the given file.
- */
-function replaceFilePath(url, newBase) {
-  const match = url.match(/([^/]+\.\w+(\s\d+x)?)$/); // Find the file name with extension and parameters (if any)
-
-  if (match) {
-    const fileNameWithExt = match[0]; // File name with extension (and possible parameters)
-    const cleanBase = newBase.replace(/^\/+|\/+$/g, ''); // Removing leading and trailing slashes
-
-    return `${cleanBase}/${fileNameWithExt}`;
-  }
-  return url; // If no match is found, return the original URL
-}
-
-/**
  * Activates the navigation link based on the specified conditions.
  * Adds an `activeClass` to the matching navigation items and sets the `href` attribute to the provided `anchorLink`.
  *
@@ -10672,6 +10449,22 @@ function activateNavLink(navLinkSelector, pageType, activeClass, anchorLink) {
   }
 }
 
+/***/ }),
+
+/***/ "./src/js/modulesPack/gallery-thumbs/gallery-thumbs-funcs.js":
+/*!*******************************************************************!*\
+  !*** ./src/js/modulesPack/gallery-thumbs/gallery-thumbs-funcs.js ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   createElementWithClass: function() { return /* binding */ createElementWithClass; },
+/* harmony export */   replaceFilePath: function() { return /* binding */ replaceFilePath; }
+/* harmony export */ });
+
+
 /**
  * Creates a new HTML element with specified tag and adds the provided CSS classes to it.
  *
@@ -10689,12 +10482,25 @@ function createElementWithClass(tag, ...classNames) {
   return element;
 }
 
+/**
+ * Replaces the file path of the given URL with a new base path.
+ *
+ * @param {string} url - The original URL (either `src` or `srcset`) with the file.
+ * @param {string} targetFolder - the part of the path (folder) to remove from the path...
+ * @returns {string} The updated URL with the new base path to the given file.
+ */
+function replaceFilePath(url, targetFolder) {
+  //to clean from symbols as "./thumbs/", "./thumbs", "/thumbs/", "/thumbs" to "thumbs"
+  const nestedFolder = targetFolder.replace(/^\.?\/?|\/?\.?$/, "");
+  return url.replace(new RegExp(`/${nestedFolder}/`), "/"); // If no match is found, return the original URL
+}
+
 /***/ }),
 
-/***/ "./src/js/modulesPack/gallery-thumbs/gallery-thumbs.js":
-/*!*************************************************************!*\
-  !*** ./src/js/modulesPack/gallery-thumbs/gallery-thumbs.js ***!
-  \*************************************************************/
+/***/ "./src/js/modulesPack/gallery-thumbs/gallery-thumbs-index.js":
+/*!*******************************************************************!*\
+  !*** ./src/js/modulesPack/gallery-thumbs/gallery-thumbs-index.js ***!
+  \*******************************************************************/
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10702,7 +10508,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   initThumbs: function() { return /* binding */ initThumbs; }
 /* harmony export */ });
-/* harmony import */ var _helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helpers/funcsDOM.js */ "./src/js/helpers/funcsDOM.js");
+/* harmony import */ var _gallery_thumbs_funcs_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gallery-thumbs-funcs.js */ "./src/js/modulesPack/gallery-thumbs/gallery-thumbs-funcs.js");
 
 
 
@@ -10712,24 +10518,41 @@ __webpack_require__.r(__webpack_exports__);
 /**
  * Initializes a thumbnail gallery with modal functionality.
  * @param {string} gallerySelector - Selector for the gallery container.
- * @param {string|null} [originPath=null] - Base path for media files.
+ * @param {string} [thumbsFolder="thumbs"] - the nested folder of the path, where the gallery with the minimized
+ * images are located... The gallery container with gallerySelector comprises those images...
+ * It is used for replacing the path of the image to the high dimension image for the modal view...
  * @throws {Error} If the gallery container or media elements are not found.
  */
-function initThumbs(gallerySelector, originPath = null) {
+function initThumbs(gallerySelector, thumbsFolder = "thumbs") {
   const galleryBlock = document.querySelector(gallerySelector);
   if (!galleryBlock) {
     throw new Error("at initGalleryThumbs: The given 'galleryContainer' is not in the DOM...");
   }
 
-  //for checking media tags (<img> must be only <picture>)
-  //TODO: to include images, if they are not in picture...
-  const queryTags = ["picture", "video", "audio", "object"];
-  const mediaArr = Array.from(galleryBlock.querySelectorAll(queryTags.join(", ")));
+  //for checking media tags (!!! <img> in dist *.html must be located only <picture>)
+  /*	const queryTags = ["picture"];
+  	const mediaArr = Array.from(galleryBlock.querySelectorAll(queryTags.join(", ")));*/
+
+  ////// ALTERNATIVE: to include images, if they are not in <picture> tag...
+  const queryTags = ["picture", "img"];
+  const mediaArr = Array.from(galleryBlock.querySelectorAll(queryTags.join(", "))).filter(elem => {
+    // Condition to exclude <img> inside <picture>
+    if (elem.tagName === "IMG") {
+      // Check if <img> is inside <picture>
+      const parent = elem.parentElement;
+      return !(parent.tagName === "PICTURE");
+    }
+    // For all other elements (not <img>) to keep them in the selection
+    return true;
+  });
   if (!mediaArr.length) {
     console.warn(`at initThumbs: the found mediaArr is empty: ${mediaArr.length}... `);
     return;
   }
-  const runThumbs = initModal(mediaArr, originPath);
+  const runThumbs = initModal(mediaArr, {
+    thumbsFolder,
+    queryTags
+  });
   galleryBlock.addEventListener("click", ({
     target
   }) => {
@@ -10746,17 +10569,22 @@ function initThumbs(gallerySelector, originPath = null) {
 /**
  * Initializes the modal for the gallery.
  * @param {HTMLElement[]} mediaArr - Array of media elements.
- * @param {string|null} [originPath=null] - Base path for media files.
+ * @param {Object} params - params for creating the cloned image
+ * @param {string} params.thumbsFolder - the nested folder of the path, where the gallery with the minimized
+ * images are located... The gallery container with gallerySelector comprises those images...
+ * It is used for replacing the path of the image to the high dimension image for the modal view...
+ * @param {Array<string>} params.queryTags - the array of the image tags to operate with...
+ *
  * @returns {Function} Function to run the modal with the clicked index.
  */
-function initModal(mediaArr, originPath = null) {
+function initModal(mediaArr, params) {
   let currentIndex = null;
-  const modalObj = createModal();
+  const modalData = createModal();
   const {
-    element,
+    modal,
     mediaContainer,
     imgScore
-  } = modalObj;
+  } = modalData;
   const actions = {
     close: handleEscape,
     prev: getPrev,
@@ -10768,6 +10596,7 @@ function initModal(mediaArr, originPath = null) {
   const handleClick = ({
     target
   }) => {
+    console.log("clicked in modal...");
     const {
       type
     } = target.dataset;
@@ -10775,12 +10604,12 @@ function initModal(mediaArr, originPath = null) {
       actions[type]();
     }
   };
-  element.addEventListener("click", handleClick);
   return clickedIndex => {
-    if (!document.body.contains(element)) {
-      document.body.appendChild(element);
+    if (!document.body.contains(modal)) {
+      document.body.appendChild(modal);
     }
     cycleThumbs(clickedIndex);
+    modal.addEventListener("click", handleClick);
     document.addEventListener("keydown", handleKey);
   };
   function getPrev() {
@@ -10797,8 +10626,8 @@ function initModal(mediaArr, originPath = null) {
     }
   }
   function handleEscape() {
-    element.removeEventListener("click", handleClick);
-    element.remove();
+    modal.removeEventListener("click", handleClick);
+    modal.remove();
     document.removeEventListener("keydown", handleKey);
     document.body.style.overflow = "auto";
   }
@@ -10806,46 +10635,78 @@ function initModal(mediaArr, originPath = null) {
     if (clickedIndex === currentIndex) return;
     currentIndex = clickedIndex;
     const clickedElem = mediaArr[clickedIndex];
-    const clonedElem = clickedElem.cloneNode(true);
     const imgAlt = getAltText(clickedElem);
-    if (modalObj.clonedMediaItem) {
-      mediaContainer.removeChild(modalObj.clonedMediaItem);
-    }
-    modalObj.clonedMediaItem = clonedElem;
-    modalObj.clonedMediaItem.classList.add("picture-item");
-    updateMediaSources(clickedElem, clonedElem, originPath);
     imgScore.textContent = `${clickedIndex + 1} / ${mediaArr.length}${imgAlt ? `: ${imgAlt}` : ""}`;
-    mediaContainer.appendChild(clonedElem);
+
+    //removing the previous cloned element...
+    if (modalData.clonedMediaItem) {
+      mediaContainer.removeChild(modalData.clonedMediaItem);
+    }
+    modalData.clonedMediaItem = getClonedElement(clickedElem, params);
+    modalData.clonedMediaItem.classList.add("picture-item");
+    mediaContainer.appendChild(modalData.clonedMediaItem);
     setTimeout(() => {
-      clonedElem.style.opacity = "1";
+      modalData.clonedMediaItem.style.opacity = "1";
     }, 0);
   }
 }
 function getAltText(element) {
-  if (element.hasAttribute("alt")) {
+  if (element.tagName === "IMG" && element.hasAttribute("alt")) {
     return element.getAttribute("alt");
   }
-  if (element.children.length) {
-    for (const child of element.children) {
-      if (child.hasAttribute("alt")) {
-        //returning the first alt value from a child
-        return child.getAttribute("alt");
-      }
-    }
+  //if the element comprises <img> (as a rule)...
+  const img = element.querySelector("img");
+  if (img && img.hasAttribute("alt")) {
+    return img.getAttribute("alt");
   }
-  return null;
+
+  //If the alt attribute is not found, return the string "picture"
+  return "picture";
 }
-function updateMediaSources(sourceElem, targetElem, originPath) {
-  const attrMap = {
-    IMG: "src",
-    SOURCE: "srcset",
-    OBJECT: "data"
-  };
-  const attr = attrMap[sourceElem.tagName];
-  if (attr && sourceElem.hasAttribute(attr)) {
-    const newSrc = originPath ? (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.replaceFilePath)(sourceElem.getAttribute(attr), originPath) : sourceElem.getAttribute(attr);
-    targetElem.setAttribute(attr, newSrc);
+
+/**
+ * It creates the clone of the clicked image element and alters the sources to the images
+ * @param {HTMLElement} sourceElem - image element (<img> or <picture>)
+ * @param {Object} params - params for creating the cloned image
+ * @param {string} params.thumbsFolder - the nested folder of the path, where the gallery with the minimized
+ * images are located... The gallery container with gallerySelector comprises those images...
+ * It is used for replacing the path of the image to the high dimension image for the modal view...
+ * @param {Array<string>} params.queryTags - the array of the image tags to operate with...
+ *
+ * @returns {HTMLElement}
+ */
+function getClonedElement(sourceElem, params) {
+  const {
+    thumbsFolder,
+    queryTags
+  } = params;
+  if (!queryTags.includes(sourceElem.tagName.toLowerCase())) {
+    console.warn(`at getClonedImage: the given element with tagName: ${sourceElem.tagName} is not
+		in the tag operation list: [${Object.keys(queryTags).join(", ")}]... returning the origin element...`);
+    return sourceElem;
   }
+  const updateSource = item => {
+    let attr = null;
+    if (item.hasAttribute("src")) {
+      attr = "src";
+    } else if (item.hasAttribute("srcset")) {
+      attr = "srcset";
+    }
+    const originSrc = item.getAttribute(attr);
+    const updatedSrc = (0,_gallery_thumbs_funcs_js__WEBPACK_IMPORTED_MODULE_0__.replaceFilePath)(originSrc, thumbsFolder);
+    item.setAttribute(attr, updatedSrc);
+  };
+
+  //cloning the image HTMLElement with altering the image sources...
+  const clonedElem = sourceElem.cloneNode(true);
+  if (clonedElem?.children.length) {
+    for (const item of clonedElem.children) {
+      updateSource(item);
+    }
+  } else {
+    updateSource(clonedElem);
+  }
+  return clonedElem;
 }
 
 /**
@@ -10853,19 +10714,19 @@ function updateMediaSources(sourceElem, targetElem, originPath) {
  * @returns {Object} An object containing the modal element and its children.
  */
 function createModal() {
-  const modal = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "modal");
-  const scoreBar = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "modal__bar");
-  const arrowBar = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "modal__bar", "modal__bar--arrow");
-  const imgScore = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("span", "modal-score");
+  const modal = (0,_gallery_thumbs_funcs_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "modal");
+  const scoreBar = (0,_gallery_thumbs_funcs_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "modal__bar");
+  const arrowBar = (0,_gallery_thumbs_funcs_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "modal__bar", "modal__bar--arrow");
+  const imgScore = (0,_gallery_thumbs_funcs_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("span", "modal-score");
   const closeButton = createButton("X", "close");
   const arrowPrev = createButton("<", "prev");
   const arrowNext = createButton(">", "next");
-  const mediaContainer = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "media-container");
+  const mediaContainer = (0,_gallery_thumbs_funcs_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("div", "media-container");
   scoreBar.append(imgScore, closeButton);
   arrowBar.append(arrowPrev, arrowNext);
   modal.append(scoreBar, arrowBar, mediaContainer);
   return {
-    element: modal,
+    modal,
     mediaContainer,
     imgScore,
     clonedMediaItem: null
@@ -10879,7 +10740,7 @@ function createModal() {
  * @returns {HTMLElement} The created button element.
  */
 function createButton(text, type) {
-  const button = (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("span", 'thumb-arrow', type);
+  const button = (0,_gallery_thumbs_funcs_js__WEBPACK_IMPORTED_MODULE_0__.createElementWithClass)("span", 'thumb-arrow', type);
   button.textContent = text;
   button.dataset.type = type;
   button.tabIndex = 0;
@@ -11359,9 +11220,9 @@ var __webpack_exports__ = {};
   !*** ./src/js/index.js ***!
   \*************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _partials_animations_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/animations.js */ "./src/js/partials/animations.js");
-/* harmony import */ var _helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/funcsDOM.js */ "./src/js/helpers/funcsDOM.js");
-/* harmony import */ var _modulesPack_gallery_thumbs_gallery_thumbs_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modulesPack/gallery-thumbs/gallery-thumbs.js */ "./src/js/modulesPack/gallery-thumbs/gallery-thumbs.js");
+/* harmony import */ var _helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/funcsDOM.js */ "./src/js/helpers/funcsDOM.js");
+/* harmony import */ var _modulesPack_gallery_thumbs_gallery_thumbs_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modulesPack/gallery-thumbs/gallery-thumbs-index.js */ "./src/js/modulesPack/gallery-thumbs/gallery-thumbs-index.js");
+/* harmony import */ var _partials_animations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/animations.js */ "./src/js/partials/animations.js");
 
 
 
@@ -11383,27 +11244,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const navHexagonSelector = ".hexagon-comb-block__cell-link";
 
   //checking and lighten several duplicate navigations for the .active links:
-  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.activateNavLink)(navLinkSelector, pageType, "active", linkAnchors[pageType] || "#");
-  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.activateNavLink)(navHexagonSelector, pageType, "active", linkAnchors[pageType] || "#");
+  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.activateNavLink)(navLinkSelector, pageType, "active", linkAnchors[pageType] || "#");
+  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.activateNavLink)(navHexagonSelector, pageType, "active", linkAnchors[pageType] || "#");
 
   //GSAP animation tweens
-  const totalTl = (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_0__.animatePage)();
+  const totalTl = (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_2__.animatePage)();
   //log(totalTl, "totalTl: ");
 
-  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.createMasonry)("#gallery-work", {
+  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createMasonry)("#gallery-work", {
     gap: 20
   }).then(imagesArr => {
-    return (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_0__.fadeInGallery)(imagesArr);
+    return (0,_partials_animations_js__WEBPACK_IMPORTED_MODULE_2__.fadeInGallery)(imagesArr);
   }).then(timelines => {
     Object.assign(totalTl, timelines);
     //log("total timelines: ", totalTl);
-  }).then(() => (0,_modulesPack_gallery_thumbs_gallery_thumbs_js__WEBPACK_IMPORTED_MODULE_2__.initThumbs)("#gallery-work", "./assets/img/gallery")).catch(error => {
+  })
+
+  //TODO: фильтровать из "/thumbs", "/thumbs/" в "thumbs"
+  .then(() => (0,_modulesPack_gallery_thumbs_gallery_thumbs_index_js__WEBPACK_IMPORTED_MODULE_1__.initThumbs)("#gallery-work", "thumbs")).catch(error => {
     console.error(error);
   });
 
   //listening to "resize" event to recompile the masonry gallery with the new parameters...
-  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.lockedEventListener)("resize", window, 2000)(() => {
-    (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_1__.createMasonry)("#gallery-work", {
+  (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.lockedEventListener)("resize", window, 2000)(() => {
+    (0,_helpers_funcsDOM_js__WEBPACK_IMPORTED_MODULE_0__.createMasonry)("#gallery-work", {
       gap: 20
     }).catch(error => {
       console.error(error);

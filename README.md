@@ -164,7 +164,7 @@ of `purgeCss` to remove the unused style selectors which are not found in the at
     |-- js
         |-- partials //partial js files
 
-        index.js //*.js will be bundled from here
+        gallery-thumbs-index.js //*.js will be bundled from here
 
     |-- scss
         |-- global_styles

@@ -2,10 +2,12 @@
   background-color:rgba(0,0,0,.9);
   font-size:1.2rem;
   height:100vh;
+  left:50%;
   overflow:hidden;
   padding:2.5em 5vw;
   position:fixed;
-  width:100vw;
+  transform:translateX(-50%);
+  width:min(100vw, 1440px);
   z-index:200;
 }
 
@@ -13,11 +15,11 @@
   align-items:center;
   display:flex;
   justify-content:center;
-  left:0;
   top:0;
 }
 
 .modal__bar{
+  left:0;
   padding:.5em;
   position:absolute;
   width:100%;

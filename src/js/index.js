@@ -1,8 +1,8 @@
 'use strict';
 
+import { activateNavLink, createMasonry, lockedEventListener } from "./helpers/funcsDOM.js";
+import { initThumbs } from "./modulesPack/gallery-thumbs/gallery-thumbs-index.js";
 import { animatePage, fadeInGallery } from "./partials/animations.js";
-import { createMasonry, activateNavLink, lockedEventListener } from "./helpers/funcsDOM.js";
-import { initThumbs } from "./modulesPack/gallery-thumbs/gallery-thumbs.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const pageType = document.body.dataset.type;
@@ -37,7 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
       Object.assign(totalTl, timelines);
       //log("total timelines: ", totalTl);
     })
-    .then(() => initThumbs("#gallery-work", "./assets/img/gallery"))
+
+    //TODO: фильтровать из "/thumbs", "/thumbs/" в "thumbs"
+
+    .then(() => initThumbs("#gallery-work", "thumbs"))
     .catch(error => {
       console.error(error);
     });

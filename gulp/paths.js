@@ -103,7 +103,7 @@ export const pathData = {
 export const entries = {
     js: getFilesEntries(path.resolve(pathData.srcPath, "js"), "js"),
 /*    js: {
-        index: `${ pathData.srcPath }/js/index.js`,
+        index: `${ pathData.srcPath }/js/gallery-thumbs-index.js`,
 
     },*/
 }

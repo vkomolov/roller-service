@@ -3,8 +3,9 @@
   font-size: 1.2rem;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100vw, 1440px);
   height: 100vh;
   display: flex;
   justify-content: center;
