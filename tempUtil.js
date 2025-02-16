@@ -1,18 +1,18 @@
 "use strict";
 
-import { getDataFromJSON, getFilesEntries } from "./gulp/utilFuncs.js";
+import { getDataFromJSON, getFilesEntries, getMetaTag } from "./gulp/utilFuncs.js";
 import { getMatchedFromArray } from "./src/js/helpers/funcs.js";
 
 const robotsParams = "noindex";
 const linkStyles = {
-	index: "./css/index.min.css",
-	gates: "./css/index.min.css",
-	rollers: "./css/index.min.css",
-	automation: "./css/index.min.css",
-	barriers: "./css/index.min.css",
-	awnings: "./css/index.min.css",
-	windows: "./css/index.min.css",
-	security: "./css/index.min.css",
+	index: ["./css/index.min.css"],
+	gates: ["./css/index.min.css"],
+	rollers: ["./css/index.min.css"],
+	automation: ["./css/index.min.css"],
+	barriers: ["./css/index.min.css"],
+	awnings: ["./css/index.min.css"],
+	windows: ["./css/index.min.css"],
+	security: ["./css/index.min.css"],
 }
 
 /**
@@ -80,56 +80,141 @@ const languages = Object.keys(pageJsonEntries);
 //what languages are to be canonical... checking if they exist in the const languages...
 const metaCanonical = getMatchedFromArray(languages, ["ua", "ru"]);
 
-const pagesDataRuVer = getDataFromJSON(pageJsonEntries["ru"]);
-const indexDataRuVer = pagesDataRuVer["index"];
-const indexHeadData = indexDataRuVer["head"];
+//const pagesDataRuVer = getDataFromJSON(pageJsonEntries["ru"]);
+//const indexDataRuVer = pagesDataRuVer["index"];
+//const indexHeadData = indexDataRuVer["head"];
 
-console.log(indexHeadData);
+//console.log(pagesDataRuVer);
+//console.log(pageJsonEntries);
+/**
+ *
+ * @param {Object.<string, string>} pageJsonEntries - the paths to the json files by language where:
+ ** - `key`: language ("ru", "ua"...)
+ ** - `value`: path to the json file  ("src/assets/data/pagesVersions/ru.json").
+ ** pageJsonEntries can be achieved with the function getFilesEntries("src/assets/data/pagesVersions", "json");
+ * @param {Object} initialData - initial data for the pages` content
+ * @param {string} initialData.robotsParams - the params for robots at <head>
+ * @param {Object.<string, string[]>} initialData.linkStyles - styles to be included in <head> (key - page name)
+ * @param {Object.<string, Array<Object.<string, string>>>} [initialData.linkScripts] - Optional scripts to be included in
+ * the <head>. The key is the page name, and the value is an Array of Objects where:
+ **  - `link`: the path to the script file (string),
+ **  - `loadMode`: optional (string, can be "async", "defer", or omitted).
+ * @param {string} initialData.rootUrl - the base root url at the server... example: "https://example.com"
+ * @param {string[]} initialData.metaCanonical - the list of pages to be canonical in the <head>
+ * @param {string[]} initialData.languages - the list of languages to be alternate in the <head>
+ *
+ * @returns {Object.<string, Object>} where the key is the language version: "ua", "ru", etc...
+ */
+export function getPagesContentVersions(pageJsonEntries, initialData = {}) {
+	const pagesContentVersions = {};
 
+	for (const lang of Object.keys(pageJsonEntries)) {
+		const dataByLang = getDataFromJSON(pageJsonEntries[lang]);
+		pagesContentVersions[lang] = {};
 
-/*console.log(getMetaLink({
-	type: "script",
-	dataSrc: "./js/index.bundle.js",
-	loadMode: "async",
-	some: "someStr",
-	another: "anotherStr"
-}))*/
+		for (const pageName of Object.keys(dataByLang)) {
+			const params = Object.assign(initialData, {
+				lang,
+				pageName,
+			});
 
-/*const getDataHead = (originHeadData, {
-	linkStyles: [],
-	linkScripts: [],
-	robotsParams: null,
-}) => {
-
-};*/
-
-//console.log(indexHeadData);
-//console.log("pagesDataRuVer: ", pagesDataRuVer);
-
-
-
-/*const pagesData = Object.keys(pageJsonEntries).reduce((acc, lang) => {
-	const pagesDataLangVer = getDataFromJSON(pageJsonEntries[lang]);
-	console.log("dataLangVer: ", dataLangVer);
-
-	const getDataHead = () => {
-		if (!pagesDataLangVer[pageName].hasOwnProperty("head") || !linkStyles.hasOwnProperty(pageName)) {
-			console.error(`at contentVer: no "head" found in ${lang}.json at key: ${pageName} or key: ${pageName} is not found in "linkStyles" object...`);
-			return;
+			Object.assign(pagesContentVersions[lang], {
+				[pageName]: getPageContent(dataByLang[pageName], params)
+			})
 		}
-	};
+	}
 
-	Object.keys(pagesDataLangVer).forEach(pageName => {
+	return pagesContentVersions;
+}
 
-	});
+/**
+ *
+ * @param {Object.<string, Object>} pageData - the version of the page data by language
+ * @param {Object.<string, string>} pageData.head - the data of <head>
+ * @param {Object} [pageData.header] - the data of <header> optional
+ * @param {Object} pageData.main - the data of <main>
+ * @param {Object} [pageData.footer] - the data of <footer> optional
+ * @param {Object} initialData - initial data for the pages` content
+ * @param {string} initialData.robotsParams - the params for robots at <head>
+ * @param {Object.<string, string[]>} initialData.linkStyles - styles to be included in <head> (key - page name)
+ * @param {Object.<string, Array<Object.<string, string>>>} [initialData.linkScripts] - Optional scripts to be included
+ * in the <head>. The key is the page name, and the value is an Array of Objects where:
+ * *  - `link`: the path to the script file (string),
+ * *  - `loadMode`: optional (string, can be "async", "defer", or omitted).
+ * @param {string} initialData.rootUrl - the base root url at the server... example: "https://example.com"
+ * @param {string[]} initialData.metaCanonical - the list of pages to be canonical in the <head>
+ * @param {string} initialData.lang - the language version of the data ("ru", "ua", etc...)
+ * @param {string[]} initialData.languages - the list of languages to be alternate in the <head>
+ * @param {string} initialData.pageName - the page name of the data
+ *
+ *
+ * @returns {Object}
+ */
+export function getPageContent(pageData, initialData) {
+	const pageContent = {};
+	const {
+		robotsParams,
+		linkStyles,
+		linkScripts,
+		rootUrl,
+		metaCanonical,
+		lang,
+		languages,
+		pageName
+	} = initialData;
 
-	const dataHead = getDataHead();
-	const dataHeader = {};
-	const dataMain = {};
-	const dataFooter = {};
+	for (const key of Object.keys(pageData)) {
+		if (key === "head") {
+			const headData = {
+				...pageData[key],
+				robots: robotsParams,
+				linkStyles: linkStyles[pageName].map(styleHref => {
+					return getMetaTag({ type: "stylesheet", dataSrc: styleHref });
+				}).join('\n'),
+				alternate: languages.map(lang => {
+					return `<link rel="alternate" href="${rootUrl}/${lang}/${pageName}.html" hreflang="${lang}">`;
+				}).join("\n"),
+			};
 
-	acc[lang] = Object.assign({}, dataHead, dataHeader, dataMain, dataFooter);
-	return acc;
-}, {});*/
+			if (linkScripts && linkScripts.hasOwnProperty(pageName) && linkScripts[pageName].length > 0) {
+				Object.assign(headData, {
+					linkScripts: linkScripts[pageName].map(scriptObj => {
+						const loadMode = scriptObj.loadMode || "";
 
-//console.log("pagesData: ", pagesData);
+						return getMetaTag({ type: "script", dataSrc: scriptObj.link, loadMode });
+					}).join("\n"),
+				});
+			}
+
+			// for writing canonical meta-links
+			if (metaCanonical && metaCanonical.includes(lang)) {
+				Object.assign(headData, {
+					canonical: `<link rel="canonical" href="${rootUrl}/${lang}/${pageName}.html">`,
+				})
+			}
+
+			Object.assign(pageContent, {
+				[key]: headData,
+			})
+		}
+		else {
+			Object.assign(pageContent, {
+				[key]: pageData[key],
+			})
+		}
+	}
+
+
+	return pageContent;
+}
+
+
+
+console.log(getPagesContentVersions(pageJsonEntries, {
+	robotsParams,
+	linkStyles,
+	//linkScripts,  //optional
+	rootUrl,
+	metaCanonical,
+	languages,
+}));

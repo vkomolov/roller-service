@@ -1,14 +1,14 @@
 "use strict";
 
-import TerserPlugin from "terser-webpack-plugin";
-import sortMediaQueries from "postcss-sort-media-queries";
 import autoprefixer from "autoprefixer";
-import discardUnused from "postcss-discard-unused";
 import cssnano from "cssnano";
+import discardUnused from "postcss-discard-unused";
 import normalizeWhitespace from "postcss-normalize-whitespace";
-import { entries } from "./paths.js";
-import { getDataFromJSON, getFilesEntries, getMetaTag } from "./utilFuncs.js";
+import sortMediaQueries from "postcss-sort-media-queries";
+import TerserPlugin from "terser-webpack-plugin";
 import { getMatchedFromArray } from "../src/js/helpers/funcs.js";
+import { entries } from "./paths.js";
+import { getFilesEntries, getPagesContentVersions } from "./utilFuncs.js";
 
 /////////////// END OF IMPORTS /////////////////////////
 
@@ -97,55 +97,15 @@ const metaCanonical = getMatchedFromArray(languages, ["ua", "ru"]);
 
 ////////////// END OF INITIAL SETTINGS ///////////////////////
 
-//collecting data from all jsons at 'gulp/pageVersions/'
-const processPageHead = (contentVer, pageName, lang) => {
-    if (!contentVer[pageName].hasOwnProperty("head") || !linkStyles.hasOwnProperty(pageName) || !Array.isArray(linkStyles[pageName])) {
-        console.error(`at contentVer: no "head" found in ${lang}.json at key: ${pageName} or key: ${pageName} is not found in "linkStyles" object...`);
-        return;
-    }
-
-    Object.assign(contentVer[pageName].head, {
-        robots: robotsParams,
-        linkStyles: linkStyles[pageName].map(styleHref => {
-            return getMetaTag({ type: "stylesheet", dataSrc: styleHref });
-        }).join('\n'),
-        /*linkStyles: linkStyles[pageName].map(styleHref => {
-            return `<link rel="stylesheet" href="${styleHref}">`
-        }).join('\n'),*/
-    });
-
-    if (linkScripts.hasOwnProperty(pageName) && Array.isArray(linkScripts[pageName])) {
-        contentVer[pageName].head["linkScripts"] = linkScripts[pageName].map(scriptObj => {
-            const loadMode = scriptObj.loadMode || "";
-            return getMetaTag({ type: "script", dataSrc: scriptObj.link, loadMode });
-        }).join("\n");
-    }
-
-    // for writing canonical meta-links
-    if (metaCanonical.length && metaCanonical.includes(lang)) {
-        contentVer[pageName].head.canonical = `<link rel="canonical" href="${rootUrl}/${lang}/${pageName}.html">`;
-    }
-
-    if (languages.length) {
-        contentVer[pageName].head.alternates = languages.map(lang => {
-            return `<link rel="alternate" href="${rootUrl}/${lang}/${pageName}.html" hreflang="${lang}">`;
-        }).join("\n");
-    }
-};
-const processPageHeader = () => {};
-const processPageMain = () => {};
-const processPageFooter = () => {};
-
-const pagesContent = Object.keys(pageJsonEntries).reduce((acc, lang) => {
-    const contentVer = getDataFromJSON(pageJsonEntries[lang]);
-
-    Object.keys(contentVer).forEach(pageName => {
-        processPageHead(contentVer, pageName, lang);
-    });
-
-    acc[lang] = contentVer;
-    return acc;
-}, {});
+//collecting data from all jsons at 'assets/data/pagesVersions/*.json'
+const pagesContent = getPagesContentVersions(pageJsonEntries, {
+    robotsParams,
+    linkStyles,
+    //linkScripts,  //optional
+    rootUrl,
+    metaCanonical,
+    languages,
+});
 
 //it returns the page`s data context with the language version for the gulp-file-include settings
 export const setFileIncludeSettings = (lang) => {
