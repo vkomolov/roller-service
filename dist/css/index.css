@@ -456,6 +456,10 @@ ul{
   --range_18-16_max-1280px:calc((min(max(100vw, 641px), 1280px) - 641px)*2/639 + 16px);
 }
 
+body,html{
+  scrollbar-gutter:stable;
+}
+
 body{
   font-family:Open Sans,sans-serif;
   font-weight:400;
@@ -608,14 +612,6 @@ img,object,picture,svg,video{
 .icon-link--footer{
   font-size:.8em;
 }
-
-.total-layer{
-  box-sizing:content-box;
-  overflow:hidden;
-  padding-right:17px;
-  width:100vw;
-}
-
 .total-wrapper{
   background-color:#fff;
   box-sizing:border-box;

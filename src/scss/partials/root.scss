@@ -17,6 +17,10 @@
   --range_18-16_max-1280px: #{calculate-dimension(1280, 641, 18, 16)};
 }
 
+html, body {
+  scrollbar-gutter: stable; //keeping scrollbar space to eliminate content shifting on scrollbar remove...
+}
+
 /////// STYLES ///////
 body {
   font-family: "Open Sans", sans-serif;

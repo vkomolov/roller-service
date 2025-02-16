@@ -477,6 +477,10 @@ ul {
   --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
 }
 
+html, body {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -1037,6 +1041,10 @@ ul {
   --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
 }
 
+html, body {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -1556,6 +1564,10 @@ ul {
   --range_32-23_max-640px: calc(9 * (min(max(100vw, 320px), 640px) - 320px) / 320 + 23px);
   --range_24-18_max-1280px: calc(6 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 18px);
   --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
+}
+
+html, body {
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -2010,6 +2022,10 @@ ul {
   --range_32-23_max-640px: calc(9 * (min(max(100vw, 320px), 640px) - 320px) / 320 + 23px);
   --range_24-18_max-1280px: calc(6 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 18px);
   --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
+}
+
+html, body {
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -2892,6 +2908,10 @@ ul {
   --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
 }
 
+html, body {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -3187,13 +3207,12 @@ img, svg, picture, video, object {
   font-size: 0.8em;
 }
 
-.total-layer {
+/*.total-layer {
   width: 100vw;
   padding-right: 17px;
   overflow: hidden;
   box-sizing: content-box;
-}
-
+}*/
 .total-wrapper {
   box-sizing: border-box;
   position: relative;
