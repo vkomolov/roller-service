@@ -20,7 +20,7 @@
 
 .modal__bar{
   left:0;
-  padding:.5em;
+  padding:.8em;
   position:absolute;
   width:100%;
   z-index:210;
@@ -932,7 +932,7 @@ img,object,picture,svg,video{
 
 .content-block-item__heading--benefits{
   margin-bottom:.889em;
-  max-width:12em;
+  max-width:13em;
 }
 
 .section--services{

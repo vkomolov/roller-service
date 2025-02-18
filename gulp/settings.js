@@ -88,6 +88,12 @@ const linkScripts = {
 //base root url at the server... example: "https://example.com"
 const rootUrl = "https://example.com"
 
+/**
+ * getting the file entries for all *.json with the pages` content.
+ * Each json file contains the pages` data with particular language version.
+ * Gulp automatically compiles pages for each ${lang}.json and passes them to dist/html/${lang}
+ * Gulp automatically adds language version navigation at <header> of the pages...
+ */
 const pageJsonEntries = getFilesEntries("src/assets/data/pagesVersions", "json");
 
 export const languages = Object.keys(pageJsonEntries);
@@ -97,15 +103,20 @@ const metaCanonical = getMatchedFromArray(languages, ["ua", "ru"]);
 
 ////////////// END OF INITIAL SETTINGS ///////////////////////
 
-//collecting data from all jsons at 'assets/data/pagesVersions/*.json'
-const pagesContent = getPagesContentVersions(pageJsonEntries, {
-    robotsParams,
-    linkStyles,
-    //linkScripts,  //optional
-    rootUrl,
-    metaCanonical,
-    languages,
-});
+//collecting data from 'assets/data/pagesVersions/*.json'
+const getPageData = (lang) => {
+    const pagesContent = getPagesContentVersions(pageJsonEntries, {
+        robotsParams,
+        linkStyles,
+        //linkScripts,  //optional
+        rootUrl,
+        metaCanonical,
+        languages,
+        lang
+    });
+    //console.log(`pageContent by ${lang}: `, pagesContent[lang]);
+    return pagesContent[lang];
+}
 
 //it returns the page`s data context with the language version for the gulp-file-include settings
 export const setFileIncludeSettings = (lang) => {
@@ -113,7 +124,7 @@ export const setFileIncludeSettings = (lang) => {
         prefix: "@@",
         basepath: "@file",
         context: {
-            data: pagesContent[lang],
+            data: getPageData(lang),
         }
     }
 }

@@ -5,10 +5,89 @@
       "title": "Терміновий ремонт і встановлення ролет, воріт та шлагбаумів в Києві та Київській області"
     },
     "header": {
-
+      "header__logo-heading": "Майстер-Сервіс",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд",
+      "hero_accent": "Аварійний Ремонт",
+      "hero_rest-of-heading": " ролет, воріт, маркіз та шлагбаумів",
+      "hero_text-block-p": "Досвідчені фахівці виконають роботу будь-якої складності з екстреного відкриття, ремонту та обслуговування всіх видів ролетних систем, шлагбаумів та маркіз.",
+      "hero_bidding-block-p": "Терміновий виїзд по Київу та Київській області",
+      "hero_button-request": "Зв’язок із майстром",
+      "about-us_heading": "Досвід має значення",
+      "about-us_p_1": "Наші досвідчені майстри з багаторічним стажем оперативно та якісно виправлять будь-які поломки, замінять деталі та механізми, проведуть профілактику, регулярне технічне обслуговування чи регламентні роботи.",
+      "about-us_p_2": "Понад десять років ми виконуємо завдання будь-якої складності щодо встановлення, ремонту та обслуговування ворітних, ролетних та контрольно-пропускних систем.",
+      "about-us_p_3": "Рішення має бути оптимальним та не вимагати додаткових, зайвих витрат.",
+      "about-us_p_4": "Будь-яке Ваше завдання – це простір до майстерності знаходження збалансованого рішення між зручністю, економічністю та функціональною красою.",
+      "benefits_heading": "Наші Переваги",
+      "benefits-item_1_heading": "Якість та надійність",
+      "benefits-item_1_p_1": "Для нас найважливіше — це висока якість у всіх напрямах нашої роботи.",
+      "benefits-item_1_p_2": "Завдяки використанню передових технологій та найкращих матеріалів, ми забезпечуємо надійність та тривалу експлуатацію кожного елемента нашого обладнання.",
+      "benefits-item_2_heading": "Індивідуальний підхід",
+      "benefits-item_2_p_1": "Ми усвідомлюємо, що кожен клієнт має свої особливі вимоги та побажання.",
+      "benefits-item_2_p_2": "Саме тому ми розробляємо гнучкі, персоналізовані рішення, що відповідають індивідуальним потребам кожного замовника.",
+      "benefits-item_3_heading": "Комплексний підхід",
+      "benefits-item_3_p_1": "Наша компанія надає широкий спектр послуг, починаючи з консультування та проектування, і завершуючи монтажем, налаштуванням та обслуговуванням систем.",
+      "benefits-item_3_p_2": "Ми супроводжуємо Вас на всіх етапах реалізації проекту.",
+      "benefits-item_4_heading": "Гнучка система оплати",
+      "benefits-item_4_p_1": "Ми надаємо кілька варіантів оплати, щоб зробити співпрацю з нами комфортною та доступною для кожного клієнта.",
+      "benefits-item_4_p_2": "Ви маєте змогу вибрати найбільш зручний спосіб розрахунку, який найкраще підходить для ваших отреб та фінансових можливостей.",
+      "benefits-item_5_heading": "Екстрений виїзд без вихідних",
+      "benefits-item_5_p_1": "Ми поважаємо Ваш час і завжди готові реагувати на ваші запити 24/7 (окрім часів комендантської години).",
+      "benefits-item_5_p_2": "Наш штат достатньо великий, щоб Вам не довилося чекати у черзі, а могли швидко вирішити будь-яке питання та отримати послугу майже відразу після звернення.",
+      "benefits-item_6_heading": "Кваліфіковані майстри з великим досвідом",
+      "benefits-item_6_p_1": "Майстри регулярно проходять атестацію та мають багаторічний досвід з ремонту систем автоматизації.",
+      "benefits-item_6_p_2": "Перед виїздом на об'єкт майстра проходять перевірку наявності та стану необхідного інструменту і матеріалів",
+      "benefits-item_6_p_3": "Ми постійно вдосконалюємо свої навички та стежимо за новими технологіями.",
+      "benefits-item_7_heading": "Наявність оригінальних запчастин",
+      "benefits-item_7_p_1": "Для ремонту автоматичних воріт, ролет або шлагбаумів ми використовуємо оригінальні запчастини та комплектуючі від виробника.",
+      "benefits-item_7_p_2": "На базі власного виробництва ми виготовляємо необхідні деталі та обладнання, що надають широкі додаткові можливості в реалізації Ваших потреб.",
+      "benefits-item_8_heading": "Гарантійне обслуговування",
+      "benefits-item_8_p_1": "Ми цінуємо довіру наших клієнтів та надаємо гарантійне та післягарантійне обслуговування на всі виконані роботи та встановлені деталі.",
+      "benefits-item_8_p_2": "На встановлену нову автоматику воріт, захисних ролет чи шлагбаумів додатково додається гарантія виробника.",
+      "services_heading": "Наші Послуги",
+      "services_p_1": "Широкий спектр послуг дозволяє нам формувати комплексне рішення щодо забезпечення безпеки та комфорту у Вашому будинку, офісі чи комерційному об'єкті.",
+      "services_p_2": "Ми гарантуємо якісне виконання всіх робіт, оперативний виїзд спеціалістів та індивідуальний підхід до кожного клієнта.",
+      "services_hexagon_heading": "Оберить послугу",
+      "services_hexagon_title": "Перейти до послуги",
+      "services_hexagon_gates": "Виготовлення та ремонт воріт",
+      "services_hexagon_rollers": "Монтаж та ремонт захісних ролет",
+      "services_hexagon_automation": "Автоматизація воріт та захисних ролет",
+      "services_hexagon_barriers": "Встановлення та ремонт шлагбаумів",
+      "services_hexagon_awnings": "Виготовлення, монтаж та ремонт маркіз",
+      "services_hexagon_security": "Встановлення систем охорони та відеонагляду",
+      "services_hexagon_windows": "Бронювання та ремонт вікон і дверей",
+      "partners_heading": "Наші ТОП Партнери",
+      "partners_p_1": "Ми співпрацюємо суто з надійними та відомими брендами",
+      "gallery_heading": "Наші роботи"
+    },
     "footer": {
+      "footer__logo-heading": "Майстер-Сервіс",
+      "footer__logo-text": "Аварійний ремонт та встановлення ролет, воріт, маркізів, шлагбаумів у Києві та Київській області",
+      "footer__nav-heading": "Послуги:",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     }
   },
   "gates": {
@@ -17,9 +96,38 @@
       "title": "Терміновий ремонт та встановлення воріт в Києві та Київській області"
     },
     "header": {
+      "header__logo-heading": "Майстер-Сервіс",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
+    },
     "footer": {
+      "footer__logo-heading": "Майстер-Сервіс",
+      "footer__logo-text": "Аварійний ремонт та встановлення ролет, воріт, маркіз, шлагбаумів у Києві та Київській області",
+      "footer__nav-heading": "Послуги:",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     }
   },
   "rollers": {
@@ -28,9 +136,38 @@
       "title": "Терміновий ремонт та встановлення ролет в Києві та Київській області"
     },
     "header": {
+      "header__logo-heading": "Майстер-Сервіс",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
+    },
     "footer": {
+      "footer__logo-heading": "Майстер-Сервіс",
+      "footer__logo-text": "Аварійний ремонт та встановлення ролет, воріт, маркіз, шлагбаумів у Києві та Київській області",
+      "footer__nav-heading": "Послуги:",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     }
   },
   "automation": {
@@ -39,9 +176,38 @@
       "title": "Встановлення автоматики воріт та ролет в Києві та Київській області"
     },
     "header": {
+      "header__logo-heading": "Майстер-Сервіс",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
+    },
     "footer": {
+      "footer__logo-heading": "Майстер-Сервіс",
+      "footer__logo-text": "Аварійний ремонт та встановлення ролет, воріт, маркіз, шлагбаумів у Києві та Київській області",
+      "footer__nav-heading": "Послуги:",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     }
   },
   "barriers": {
@@ -50,9 +216,38 @@
       "title": "Терміновий ремонт та встановлення шлагбаумів в Києві та Київській області"
     },
     "header": {
+      "header__logo-heading": "Майстер-Сервіс",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
+    },
     "footer": {
+      "footer__logo-heading": "Майстер-Сервіс",
+      "footer__logo-text": "Аварійний ремонт та встановлення ролет, воріт, маркіз, шлагбаумів у Києві та Київській області",
+      "footer__nav-heading": "Послуги:",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     }
   },
   "awnings": {
@@ -61,9 +256,38 @@
       "title": "Терміновий ремонт та встановлення маркіз в Києві та Київській області"
     },
     "header": {
+      "header__logo-heading": "Майстер-Сервіс",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
+    },
     "footer": {
+      "footer__logo-heading": "Майстер-Сервіс",
+      "footer__logo-text": "Аварійний ремонт та встановлення ролет, воріт, маркіз, шлагбаумів у Києві та Київській області",
+      "footer__nav-heading": "Послуги:",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     }
   },
   "windows": {
@@ -72,9 +296,38 @@
       "title": "Терміновий ремонт, та бронювання вікон в Києві та Київській області"
     },
     "header": {
+      "header__logo-heading": "Майстер-Сервіс",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
+    },
     "footer": {
+      "footer__logo-heading": "Майстер-Сервіс",
+      "footer__logo-text": "Аварійний ремонт та встановлення ролет, воріт, маркіз, шлагбаумів у Києві та Київській області",
+      "footer__nav-heading": "Послуги:",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     }
   },
   "security": {
@@ -83,9 +336,38 @@
       "title": "Терміновий ремонт та встановлення відеокамер в Києві та Київській області"
     },
     "header": {
+      "header__logo-heading": "Майстер-Сервіс",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
+    },
     "footer": {
+      "footer__logo-heading": "Майстер-Сервіс",
+      "footer__logo-text": "Аварійний ремонт та встановлення ролет, воріт, маркіз, шлагбаумів у Києві та Київській області",
+      "footer__nav-heading": "Послуги:",
+      "nav-link_main": "Про нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролети",
+      "nav-link_automation": "Автоматизація",
+      "nav-link_barriers": "Шлагбауми",
+      "nav-link_awnings": "Маркізи",
+      "nav-link_windows": "Вікна та двері",
+      "nav-link_security": "Відеонагляд"
     }
   }
 }

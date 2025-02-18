@@ -14,13 +14,19 @@ export default class BrowserSync {
      * @param {boolean} [options.open=true] - Auto open browser
      * @param {boolean} [options.notify=true] - Show BrowserSync notifications
      * @param {boolean} [options.noCacheHeaders=true] - Disable caching
+     * @param {boolean} [options.injectChanges=false] - Inject CSS/JS changes without full reload
+     * @param {boolean} [options.reloadOnRestart=true] - Reload page after server restart
+     * @param {boolean} [options.ui=false] - Disable BrowserSync UI
      */
     constructor({
                     baseDir = "dist/",
                     startPath = "index.html",
                     open = true,
                     notify = true,
-                    noCacheHeaders = true
+                    noCacheHeaders = true,
+                    injectChanges = false,
+                    reloadOnRestart = true,
+                    ui = false,
                 } = {}) {
         this.baseDir = Array.isArray(baseDir) ? baseDir : [baseDir];
         this.startPath = startPath;
@@ -29,6 +35,10 @@ export default class BrowserSync {
         this.middleware = noCacheHeaders ? [this._setNoCacheHeaders] : [];
         this.browserSync = sync.create();
         this.hasStarted = false;
+        this.injectChanges = injectChanges;
+        this.reloadOnRestart = reloadOnRestart;
+        this.ui = ui;
+
 
         // Bind methods to the current class context
         this.start = this.start.bind(this);
@@ -60,6 +70,9 @@ export default class BrowserSync {
                 middleware: this.middleware,
                 open: this.open,
                 notify: this.notify,
+                injectChanges: this.injectChanges, // Inject CSS/JS changes
+                reloadOnRestart: this.reloadOnRestart, // Reload page after restart
+                ui: this.ui, // Disable BrowserSync UI
             });
             this.hasStarted = true;
         }

@@ -5,11 +5,89 @@
       "title": "Срочный ремонт и установка роллет, ворот, шлагбаумов и видеонаблюдения в Киеве и Киевской области"
     },
     "header": {
-
+      "header__logo-heading": "Мастер-Сервис",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение",
+      "hero_accent": "Аварийный ремонт",
+      "hero_rest-of-heading": " роллет, ворот, маркиз и шлагбаумов",
+      "hero_text-block-p": "Опытные специалисты выполнят работу любой сложности по экстренному открытию, ремонту и обслуживанию всех видов роллетных систем, шлагбаумов и маркиз.",
+      "hero_bidding-block-p": "Срочный выезд по Киеву и Киевской области",
+      "hero_button-request": "Связь с мастером",
+      "about-us_heading": "Опыт имеет значение",
+      "about-us_p_1": "Наши опытные мастера с многолетним стажем оперативно и качественно исправят любые поломки, заменят детали и механизмы, проведут профилактику, регулярное техническое обслуживание или регламентные работы.",
+      "about-us_p_2": "Более десяти лет мы выполняем задачи любой сложности по установке, ремонту и обслуживанию воротных, роллетных и контрольно-пропускных систем.",
+      "about-us_p_3": "Решение должно быть оптимальным и не требовать дополнительных, лишних затрат.",
+      "about-us_p_4": "Любая Ваша задача – это пространство к мастерству нахождения сбалансированного решения между удобством, экономичностью и функциональной красотой.",
+      "benefits_heading": "Наши Преимущества",
+      "benefits-item_1_heading": "Качество и надежность",
+      "benefits-item_1_p_1": "Для нас самое важное - это высокое качество всех направлений нашей работы.",
+      "benefits-item_1_p_2": "Благодаря использованию передовых технологий и лучших материалов, мы обеспечиваем надежность и длительную эксплуатацию каждого элемента нашего оборудования.",
+      "benefits-item_2_heading": "Индивидуальный подход",
+      "benefits-item_2_p_1": "Мы отдаем себе отчет в том, что каждый клиент имеет свои особые требования и пожелания.",
+      "benefits-item_2_p_2": "Именно поэтому мы разрабатываем гибкие, персонализированные решения, отвечающие индивидуальным потребностям каждого заказчика.",
+      "benefits-item_3_heading": "Комплексный подход",
+      "benefits-item_3_p_1": "Наша компания предоставляет широкий спектр услуг, начиная с консультирования и проектирования, и завершая монтажом, настройкой и обслуживанием систем.",
+      "benefits-item_3_p_2": "Мы сопровождаем Вас на всех этапах реализации проекта.",
+      "benefits-item_4_heading": "Гибкая система оплаты",
+      "benefits-item_4_p_1": "Мы предоставляем несколько вариантов оплаты, чтобы сделать наше сотрудничество более комфортным и доступным для каждого клиента.",
+      "benefits-item_4_p_2": "Вы можете выбрать для себя наиболее удобный способ расчета, который лучше всего подходит для Ваших потребностей и финансовых возможностей.",
+      "benefits-item_5_heading": "Экстренный выезд без выходных",
+      "benefits-item_5_p_1": "Мы уважаем Ваше время и всегда готовы реагировать на ваши запросы 24/7 (кроме комендантского часа).",
+      "benefits-item_5_p_2": "Наш штат достаточно большой, и Вам не придется ждать в очереди: Вы сможете быстро решить любой вопрос и получить услугу почти сразу после обращения.",
+      "benefits-item_6_heading": "Квалифицированные и опытные мастера",
+      "benefits-item_6_p_1": "Мастера регулярно проходят аттестацию и имеют многолетний опыт ремонта систем автоматизации.",
+      "benefits-item_6_p_2": "Перед выездом на объект мастера проходят проверку наличия и состояния необходимого инструмента и материалов.",
+      "benefits-item_6_p_3": "Мы постоянно совершенствуем свои навыки и следим за новыми технологиями.",
+      "benefits-item_7_heading": "Наличие оригинальных запчастей",
+      "benefits-item_7_p_1": "Для ремонта автоматических ворот, роллет или шлагбаумов мы используем оригинальные запчасти и комплектующие от производителя.",
+      "benefits-item_7_p_2": "На базе собственного производства мы изготавливаем необходимые детали и оборудование, предоставляющие широкие дополнительные возможности в реализации Ваших потребностей.",
+      "benefits-item_8_heading": "Гарантийное обслуживание",
+      "benefits-item_8_p_1": "Мы ценим доверие наших клиентов и предоставляем гарантийное и послегарантийное обслуживание на все выполненные работы и установленные детали.",
+      "benefits-item_8_p_2": "На установленную новую автоматику ворот, защитных роллет или шлагбаумов мы дополнительно предоставляем гарантию от производителя.",
+      "services_heading": "Наши Услуги",
+      "services_p_1": "Широкий спектр услуг позволяет нам формировать комплексное решение по обеспечению безопасности и комфорта в Вашем доме, офисе или коммерческом объекте.",
+      "services_p_2": "Мы гарантируем качественное выполнение всех работ, оперативный выезд специалистов и индивидуальный подход к каждому клиенту.",
+      "services_hexagon_heading": "Выберите услугу",
+      "services_hexagon_title": "Перейти к услуге",
+      "services_hexagon_gates": "Изготовление и ремонт ворот",
+      "services_hexagon_rollers": "Монтаж и ремонт защитных роллет",
+      "services_hexagon_automation": "Автоматизация ворот и защитных роллет",
+      "services_hexagon_barriers": "Установка и ремонт шлагбаумов",
+      "services_hexagon_awnings": "Изготовление, монтаж и ремонт маркиз",
+      "services_hexagon_security": "Установка систем охраны и видеонаблюдения",
+      "services_hexagon_windows": "Бронирование и ремонт окон и дверей",
+      "partners_heading": "Наши ТОП Партнеры",
+      "partners_p_1": "Мы сотрудничаем с надежными и известными брендами",
+      "gallery_heading": "Наши работы"
+    },
     "footer": {
-
+      "footer__logo-heading": "Мастер-Сервис",
+      "footer__logo-text": "Аварийный ремонт и установка роллет, ворот, маркиз, шлагбаумов в Киеве и Киевской области",
+      "footer__nav-heading": "Услуги:",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     }
   },
   "gates": {
@@ -18,11 +96,38 @@
       "title": "Срочный ремонт и установка ворот в Киеве и Киевской области"
     },
     "header": {
-
+      "header__logo-heading": "Мастер-Сервис",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
+    },
     "footer": {
-
+      "footer__logo-heading": "Мастер-Сервис",
+      "footer__logo-text": "Аварийный ремонт и установка роллет, ворот, маркиз, шлагбаумов в Киеве и Киевской области",
+      "footer__nav-heading": "Услуги:",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     }
   },
   "rollers": {
@@ -31,11 +136,38 @@
       "title": "Срочный ремонт и установка ролет в Киеве и Киевской области"
     },
     "header": {
-
+      "header__logo-heading": "Мастер-Сервис",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
+    },
     "footer": {
-
+      "footer__logo-heading": "Мастер-Сервис",
+      "footer__logo-text": "Аварийный ремонт и установка роллет, ворот, маркиз, шлагбаумов в Киеве и Киевской области",
+      "footer__nav-heading": "Услуги:",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     }
   },
   "automation": {
@@ -44,11 +176,38 @@
       "title": "Установка автоматики на ворота и ролеты в Киеве и Киевской области"
     },
     "header": {
-
+      "header__logo-heading": "Мастер-Сервис",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
+    },
     "footer": {
-
+      "footer__logo-heading": "Мастер-Сервис",
+      "footer__logo-text": "Аварийный ремонт и установка роллет, ворот, маркиз, шлагбаумов в Киеве и Киевской области",
+      "footer__nav-heading": "Услуги:",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     }
   },
   "barriers": {
@@ -57,11 +216,38 @@
       "title": "Срочный ремонт и установка шлагбаумов в Киеве и Киевской области"
     },
     "header": {
-
+      "header__logo-heading": "Мастер-Сервис",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
+    },
     "footer": {
-
+      "footer__logo-heading": "Мастер-Сервис",
+      "footer__logo-text": "Аварийный ремонт и установка роллет, ворот, маркиз, шлагбаумов в Киеве и Киевской области",
+      "footer__nav-heading": "Услуги:",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     }
   },
   "awnings": {
@@ -70,11 +256,38 @@
       "title": "Срочный ремонт и установка маркиз и навесов в Киеве и Киевской области"
     },
     "header": {
-
+      "header__logo-heading": "Мастер-Сервис",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
+    },
     "footer": {
-
+      "footer__logo-heading": "Мастер-Сервис",
+      "footer__logo-text": "Аварийный ремонт и установка роллет, ворот, маркиз, шлагбаумов в Киеве и Киевской области",
+      "footer__nav-heading": "Услуги:",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     }
   },
   "windows": {
@@ -83,11 +296,38 @@
       "title": "Срочный ремонт и бронирование окон в Киеве и Киевской области"
     },
     "header": {
-
+      "header__logo-heading": "Мастер-Сервис",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
+    },
     "footer": {
-
+      "footer__logo-heading": "Мастер-Сервис",
+      "footer__logo-text": "Аварийный ремонт и установка роллет, ворот, маркиз, шлагбаумов в Киеве и Киевской области",
+      "footer__nav-heading": "Услуги:",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     }
   },
   "security": {
@@ -96,11 +336,38 @@
       "title": "Срочный ремонт и установка видеокамер в Киеве и Киевской области"
     },
     "header": {
-
+      "header__logo-heading": "Мастер-Сервис",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     },
-    "main": {},
+    "main": {
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
+    },
     "footer": {
-
+      "footer__logo-heading": "Мастер-Сервис",
+      "footer__logo-text": "Аварийный ремонт и установка роллет, ворот, маркиз, шлагбаумов в Киеве и Киевской области",
+      "footer__nav-heading": "Услуги:",
+      "nav-link_main": "О нас",
+      "nav-link_gates": "Ворота",
+      "nav-link_rollers": "Ролеты",
+      "nav-link_automation": "Автоматизация",
+      "nav-link_barriers": "Шлагбаумы",
+      "nav-link_awnings": "Маркизы",
+      "nav-link_windows": "Окна и Двери",
+      "nav-link_security": "Видеонаблюдение"
     }
   }
 }

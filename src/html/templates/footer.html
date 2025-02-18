@@ -4,14 +4,15 @@
         class="section__content-block section__content-block--row-right section__content-block--footer flex-gap-02-01"
         data-type="fade-in-up"
     >
+      @@if (page && data && data[page] && data[page].footer) {
       <div class="footer__contacts-block">
         <div class="footer__content-block-item">
-          <h2 class="footer__logo-heading">Майстер-Сервіс</h2>
-          <p class="footer__logo-text">Аварійний ремонт та встановлення ролет, воріт, маркізів, шлагбаумів у Києві та Київській області</p>
+          <h2 class="footer__logo-heading">@@data.@@page.footer.footer__logo-heading</h2>
+          <p class="footer__logo-text">@@data.@@page.footer.footer__logo-text</p>
         </div>
-        <div class="footer__content-block-item" aria-label="Опції зв'язку з майстром">
+        <div class="footer__content-block-item" aria-label="Communication options">
           <a href="tel:380991019368"
-             aria-label="Мобільний зв'язок з майстром"
+             aria-label="Mobile connection with the master"
              class="icon-link icon-link--footer"
              tabindex="0"
           >
@@ -24,7 +25,7 @@
             <span class="icon-link__text icon-link__text--phone">+38 (099) 101 93 68</span>
           </a>
           <a href="viber://chat?number=+380991019368"
-             aria-label="Зв'язок з майстром через Viber"
+             aria-label="Contact the master via Viber"
              class="icon-link icon-link--footer"
              tabindex="0"
           >
@@ -38,7 +39,7 @@
           </a>
           <a href="https://t.me/username"
              target="_blank"
-             aria-label="Зв'язок з майстром через Telegram"
+             aria-label="Contact the master via Telegram"
              rel="noopener noreferrer nofollow"
              class="icon-link icon-link--footer"
              tabindex="0"
@@ -55,69 +56,70 @@
       </div>
       <div class="footer__content-block">
         <div class="footer__content-block-item">
-          <h3 class="footer__nav-heading">Послуги:</h3>
-          <nav class="footer__nav" aria-label="Навігація до послуг">
+          <h3 class="footer__nav-heading">@@data.@@page.footer.footer__nav-heading</h3>
+          <nav class="footer__nav" aria-label="Navigation to services">
             <ul class="footer__nav-list">
               <li><a href="index.html"
                      class="nav-link nav-link--footer"
-                     aria-label="Перейти до сторінки 'Про нас'"
+                     aria-label="Go to main page"
                      tabindex="0"
                      data-type="index">
-                Про нас
+                @@data.@@page.footer.nav-link_main
               </a></li>
               <li><a href="gates-installation-repair.html"
                      class="nav-link nav-link--footer"
-                     aria-label="Перейти до послуг 'Ворота'"
+                     aria-label="Go to 'Gates' services"
                      tabindex="0"
                      data-type="gates">
-                Виготовлення та ремонт воріт
+                @@data.@@page.footer.nav-link_gates
               </a></li>
               <li><a href="rollers-installation-repair.html"
                      class="nav-link nav-link--footer"
-                     aria-label="Перейти до послуг 'Ролети'"
+                     aria-label="Go to 'Rollers' services"
                      tabindex="0"
                      data-type="rollers">
-                Монтаж та ремонт захісних ролет
+                @@data.@@page.footer.nav-link_rollers
               </a></li>
               <li><a href="gates-rollers-automation.html"
                      class="nav-link nav-link--footer"
-                     aria-label="Перейти до послуг 'Автоматизація'"
+                     aria-label="Go to 'Automation' services"
                      tabindex="0"
                      data-type="automation">
-                Автоматизація воріт та захисних ролет
+                @@data.@@page.footer.nav-link_automation
               </a></li>
               <li><a href="barriers-installation-repair.html"
                      class="nav-link nav-link--footer"
-                     aria-label="Перейти до послуг 'Шлагбауми'"
+                     aria-label="Go to 'Barriers' services"
                      tabindex="0"
                      data-type="barriers">
-                Встановлення та ремонт шлагбаумів
+                @@data.@@page.footer.nav-link_barriers
               </a></li>
               <li><a href="awnings-installation-repair.html"
                      class="nav-link nav-link--footer"
-                     aria-label="Перейти до послуг 'Маркізи'"
+                     aria-label="Go to 'Awnings' services"
                      tabindex="0"
                      data-type="awnings">
-                Виготовлення, монтаж та ремонт маркіз
+                @@data.@@page.header.nav-link_awnings
               </a></li>
               <li><a href="window-settings-repair.html"
                      class="nav-link nav-link--footer"
-                     aria-label="Перейти до послуг 'Вікна та двері'"
+                     aria-label="Go to 'Windows and Doors' services"
                      tabindex="0"
                      data-type="windows">
-                Бронювання та ремонт вікон і дверей
+                @@data.@@page.footer.nav-link_windows
               </a></li>
               <li><a href="security-installation-maintenance.html"
                      class="nav-link nav-link--footer"
-                     aria-label="Перейти до послуг 'Відеонагляд'"
+                     aria-label="Go to 'Video Surveillance' services"
                      tabindex="0"
                      data-type="security">
-                Встановлення систем охорони та відеонагляду
+                @@data.@@page.footer.nav-link_security
               </a></li>
             </ul>
           </nav>
         </div>
       </div>
+      }
     </div>
   </div>
 </footer>

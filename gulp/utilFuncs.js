@@ -272,7 +272,7 @@ export function getMetaTag(params = {}) {
 }
 
 /**
- *
+ * It gets the data for pages from json files and transforms their content depending on the language versions specified.
  * @param {Object.<string, string>} pageJsonEntries - the paths to the json files by language where:
  ** - `key`: language ("ru", "ua"...)
  ** - `value`: path to the json file  ("src/assets/data/pagesVersions/ru.json").
@@ -287,13 +287,18 @@ export function getMetaTag(params = {}) {
  * @param {string} initialData.rootUrl - the base root url at the server... example: "https://example.com"
  * @param {string[]} initialData.metaCanonical - the list of pages to be canonical in the <head>
  * @param {string[]} initialData.languages - the list of languages to be alternate in the <head>
- *
+ * @param {string|null} [lang=null] - optional: null or a language version ("ru" or "ua", etc...)
+ ** - if `null`, it gets the pages` data for all language versions...
+ ** - if a language version, for instance "ru", it gets the pages` data for the given language...
  * @returns {Object.<string, Object>} where the key is the language version: "ua", "ru", etc...
  */
-export function getPagesContentVersions(pageJsonEntries, initialData = {}) {
-    const pagesContentVersions = {};
-
-    for (const lang of Object.keys(pageJsonEntries)) {
+export function getPagesContentVersions(
+  pageJsonEntries,
+  initialData = {},
+  lang = null
+) {
+    const pagesContentVersions = {};  //all pages data will be assigned here...
+    const getPagesDataByLang = (lang) => {
         const dataByLang = getDataFromJSON(pageJsonEntries[lang]);
         pagesContentVersions[lang] = {};
 
@@ -307,13 +312,26 @@ export function getPagesContentVersions(pageJsonEntries, initialData = {}) {
                 [pageName]: getPageContent(dataByLang[pageName], params)
             })
         }
+    };
+
+    if (lang) {
+        if (!pageJsonEntries[lang]) {
+            throw new Error(`the given lang version ${lang} is no found in "assets/data/pagesVersions/${lang}.json"`);
+        }
+        getPagesDataByLang(lang);
+    }
+    else {
+        for (const lang of Object.keys(pageJsonEntries)) {
+            getPagesDataByLang(lang);
+        }
     }
 
     return pagesContentVersions;
 }
 
 /**
- *
+ * It receives and processes the content for a specific page based on the parameters passed.
+ * It is used for getPagesContentVersions function to process the page data of specific language versions from json files.
  * @param {Object.<string, Object>} pageData - the version of the page data by language
  * @param {Object.<string, string>} pageData.head - the data of <head>
  * @param {Object} [pageData.header] - the data of <header> optional

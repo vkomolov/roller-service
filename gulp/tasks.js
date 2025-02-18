@@ -1,58 +1,57 @@
 "use strict";
 
 import gulp from "gulp";
-import path from "path";
+import beautify from "gulp-beautify";
 
-import {
-  modes,
-  languages,
-  setFileIncludeSettings,
-  webpackConfigJs,
-  useGulpSizeConfig,
-  optimizeCss,
-  minifyCss,
-  beautifySettings
-} from "./settings.js";
-import { handleError } from "./utilFuncs.js";
-import { pathData } from "./paths.js";
+//fonts plugins
+//control plugins
+import changed, { compareContents } from "gulp-changed";
+import debug from "gulp-debug";
+
+//other plugins
+import fileInclude from "gulp-file-include";
+
+//html plugins
+import htmlClean from "gulp-htmlclean";
 
 //error handling plugins
 import plumber from "gulp-plumber";
 
-//html plugins
-import htmlClean from "gulp-htmlclean";
-import beautify from "gulp-beautify";
+//postcss environment
+import postcss from "gulp-postcss";
+import replace from "gulp-replace";
+import gulpSass from "gulp-sass";
+import size from "gulp-size";
+import zip from "gulp-zip";
+import path from "path";
 
 //styles plugins
 import * as dartSass from "sass";
-import gulpSass from "gulp-sass";
-
-//postcss environment
-import postcss from "gulp-postcss";
+import webpack from "webpack";
 
 //js plugins
 import webpackStream from "webpack-stream";
-import webpack from "webpack";
-
-//fonts plugins
-
-//control plugins
-import changed, { compareContents } from "gulp-changed";
-import debug from "gulp-debug";
-import size from "gulp-size";
-
-//other plugins
-import fileInclude from "gulp-file-include";
-import replace from "gulp-replace";
-import zip from "gulp-zip";
+import CustomGulpSVGSprite from "../modules/CustomGulpSVGSprite.js";
+import CustomGulpWebpHtml from "../modules/CustomGulpWebpHtml.js";
+import CustomImgConverter from "../modules/CustomImgConverter.js";
+import CustomImgOptimizer from "../modules/CustomImgOptimizer.js";
+import CustomPurgeCss from "../modules/CustomPurgeCss.js";
 
 //custom modules
 import CustomRenameFile from "../modules/CustomRenameFile.js";
-import CustomPurgeCss from "../modules/CustomPurgeCss.js";
-import CustomImgOptimizer from "../modules/CustomImgOptimizer.js";
-import CustomImgConverter from "../modules/CustomImgConverter.js";
-import CustomGulpWebpHtml from "../modules/CustomGulpWebpHtml.js";
-import CustomGulpSVGSprite from "../modules/CustomGulpSVGSprite.js";
+import { pathData } from "./paths.js";
+
+import {
+  beautifySettings,
+  languages,
+  minifyCss,
+  modes,
+  optimizeCss,
+  setFileIncludeSettings,
+  useGulpSizeConfig,
+  webpackConfigJs
+} from "./settings.js";
+import { handleError } from "./utilFuncs.js";
 
 /////////////// END OF IMPORTS /////////////////////////
 

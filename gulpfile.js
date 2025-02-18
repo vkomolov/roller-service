@@ -1,11 +1,11 @@
 import gulp from "gulp";
 import path from "path";
-import BrowserSync from "./modules/BrowserSync.js";
 
 import { pathData } from "./gulp/paths.js";
-import { modes, languages } from "./gulp/settings.js";
-import { cleanDist } from "./gulp/utilFuncs.js";
+import { modes } from "./gulp/settings.js";
 import tasks from "./gulp/tasks.js";
+import { cleanDist } from "./gulp/utilFuncs.js";
+import BrowserSync from "./modules/BrowserSync.js";
 
 /////////////// END OF IMPORTS /////////////////////////
 const { series, parallel, watch } = gulp;
@@ -17,7 +17,10 @@ const initBs = (lang) => {
         startPath: `/${lang}/index.html`,
         open: true,
         notify: false,
-        noCacheHeaders: true
+        noCacheHeaders: true,
+        injectChanges: true,  // Enabling change injection
+        reloadOnRestart: true,  // Reboot on restart
+        ui: false,  // Disabling UI
     });
 };
 
@@ -31,7 +34,8 @@ function watchFiles(bs) {
     watch(pathData.watch.svgIconsMono, series(pipesDev.pipeSvgSpriteMono, bs.reload));
     watch(pathData.watch.svgIconsMulti, series(pipesDev.pipeSvgSpriteMulti, bs.reload));
     watch(pathData.watch.fonts, series(pipesDev.pipeFonts, bs.reload));
-    watch(pathData.watch.data, series(pipesDev.pipeData, bs.reload));
+    //watching data, including *.json, and renewing the html files, compiled with gulp-file-include
+    watch(pathData.watch.data, series(pipesDev.pipeData, pipesDev.pipeHtml, bs.reload));
 }
 
 /**

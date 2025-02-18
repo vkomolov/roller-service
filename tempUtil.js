@@ -80,12 +80,7 @@ const languages = Object.keys(pageJsonEntries);
 //what languages are to be canonical... checking if they exist in the const languages...
 const metaCanonical = getMatchedFromArray(languages, ["ua", "ru"]);
 
-//const pagesDataRuVer = getDataFromJSON(pageJsonEntries["ru"]);
-//const indexDataRuVer = pagesDataRuVer["index"];
-//const indexHeadData = indexDataRuVer["head"];
-
-//console.log(pagesDataRuVer);
-//console.log(pageJsonEntries);
+///////////////////
 /**
  *
  * @param {Object.<string, string>} pageJsonEntries - the paths to the json files by language where:
@@ -102,13 +97,18 @@ const metaCanonical = getMatchedFromArray(languages, ["ua", "ru"]);
  * @param {string} initialData.rootUrl - the base root url at the server... example: "https://example.com"
  * @param {string[]} initialData.metaCanonical - the list of pages to be canonical in the <head>
  * @param {string[]} initialData.languages - the list of languages to be alternate in the <head>
- *
+ * @param {string|null} [lang=null] - optional: null or a language version ("ru" or "ua", etc...)
+ ** - if `null`, it gets the pages` data for all language versions...
+ ** - if a language version, for instance "ru", it gets the pages` data for the given language...
  * @returns {Object.<string, Object>} where the key is the language version: "ua", "ru", etc...
  */
-export function getPagesContentVersions(pageJsonEntries, initialData = {}) {
-	const pagesContentVersions = {};
-
-	for (const lang of Object.keys(pageJsonEntries)) {
+export function getPagesContentVersions(
+	pageJsonEntries,
+	initialData = {},
+	lang = null
+) {
+	const pagesContentVersions = {};  //all pages data will be assigned here...
+	const getPagesDataByLang = (lang) => {
 		const dataByLang = getDataFromJSON(pageJsonEntries[lang]);
 		pagesContentVersions[lang] = {};
 
@@ -121,6 +121,18 @@ export function getPagesContentVersions(pageJsonEntries, initialData = {}) {
 			Object.assign(pagesContentVersions[lang], {
 				[pageName]: getPageContent(dataByLang[pageName], params)
 			})
+		}
+	};
+
+	if (lang) {
+		if (!pageJsonEntries[lang]) {
+			throw new Error(`the given lang version ${lang} is no found in "assets/data/pagesVersions/${lang}.json"`);
+		}
+		getPagesDataByLang(lang);
+	}
+	else {
+		for (const lang of Object.keys(pageJsonEntries)) {
+			getPagesDataByLang(lang);
 		}
 	}
 
@@ -150,7 +162,7 @@ export function getPagesContentVersions(pageJsonEntries, initialData = {}) {
  *
  * @returns {Object}
  */
-export function getPageContent(pageData, initialData) {
+function getPageContent(pageData, initialData) {
 	const pageContent = {};
 	const {
 		robotsParams,
@@ -208,13 +220,16 @@ export function getPageContent(pageData, initialData) {
 	return pageContent;
 }
 
+//////////////
 
-
-console.log(getPagesContentVersions(pageJsonEntries, {
+console.log(getPagesContentVersions(
+	pageJsonEntries, {
 	robotsParams,
 	linkStyles,
 	//linkScripts,  //optional
 	rootUrl,
 	metaCanonical,
 	languages,
-}));
+},
+	"ru"
+));
