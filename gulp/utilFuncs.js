@@ -297,64 +297,52 @@ export function getPagesContentVersions(
   initialData = {},
   lang = null
 ) {
+    validateInput(pageJsonEntries, initialData);
+
     const pagesContentVersions = {};  //all pages data will be assigned here...
-    const getPagesDataByLang = (lang) => {
-        const dataByLang = getDataFromJSON(pageJsonEntries[lang]);
-        pagesContentVersions[lang] = {};
-
-        for (const pageName of Object.keys(dataByLang)) {
-            const params = Object.assign(initialData, {
-                lang,
-                pageName,
-            });
-
-            Object.assign(pagesContentVersions[lang], {
-                [pageName]: getPageContent(dataByLang[pageName], params)
-            })
-        }
-    };
 
     if (lang) {
         if (!pageJsonEntries[lang]) {
             throw new Error(`the given lang version ${lang} is no found in "assets/data/pagesVersions/${lang}.json"`);
         }
-        getPagesDataByLang(lang);
+        pagesContentVersions[lang] = getPagesDataByLang(pageJsonEntries, initialData, lang);
     }
     else {
         for (const lang of Object.keys(pageJsonEntries)) {
-            getPagesDataByLang(lang);
+            pagesContentVersions[lang] = getPagesDataByLang(pageJsonEntries, initialData, lang);
         }
     }
 
     return pagesContentVersions;
 }
 
-/**
- * It receives and processes the content for a specific page based on the parameters passed.
- * It is used for getPagesContentVersions function to process the page data of specific language versions from json files.
- * @param {Object.<string, Object>} pageData - the version of the page data by language
- * @param {Object.<string, string>} pageData.head - the data of <head>
- * @param {Object} [pageData.header] - the data of <header> optional
- * @param {Object} pageData.main - the data of <main>
- * @param {Object} [pageData.footer] - the data of <footer> optional
- * @param {Object} initialData - initial data for the pages` content
- * @param {string} initialData.robotsParams - the params for robots at <head>
- * @param {Object.<string, string[]>} initialData.linkStyles - styles to be included in <head> (key - page name)
- * @param {Object.<string, Array<Object.<string, string>>>} [initialData.linkScripts] - Optional scripts to be included
- * in the <head>. The key is the page name, and the value is an Array of Objects where:
- * *  - `link`: the path to the script file (string),
- * *  - `loadMode`: optional (string, can be "async", "defer", or omitted).
- * @param {string} initialData.rootUrl - the base root url at the server... example: "https://example.com"
- * @param {string[]} initialData.metaCanonical - the list of pages to be canonical in the <head>
- * @param {string} initialData.lang - the language version of the data ("ru", "ua", etc...)
- * @param {string[]} initialData.languages - the list of languages to be alternate in the <head>
- * @param {string} initialData.pageName - the page name of the data
- *
- *
- * @returns {Object}
- */
-function getPageContent(pageData, initialData) {
-    const pageContent = {};
+function validateInput(pageJsonEntries, initialData) {
+    if (!pageJsonEntries || typeof pageJsonEntries !== "object") {
+        throw new Error('pageJsonEntries must be an object');
+    }
+    if (!initialData || typeof initialData !== "object") {
+        throw new Error('initialData must be an object');
+    }
+}
+
+function getPagesDataByLang(pageJsonEntries, initialData, lang) {
+    const dataByLang = getDataFromJSON(pageJsonEntries[lang]);
+    const data = {};
+
+    for (const [pageName, value] of Object.entries(dataByLang)) {
+        const params = {
+            ...initialData,
+            lang,
+            pageName
+        };
+
+        data[pageName] = getPageContent(value, params);
+    }
+
+    return data;
+}
+
+function buildHeadData(auxHeadData, initialData) {
     const {
         robotsParams,
         linkStyles,
@@ -366,47 +354,47 @@ function getPageContent(pageData, initialData) {
         pageName
     } = initialData;
 
-    for (const key of Object.keys(pageData)) {
-        if (key === "head") {
-            const headData = {
-                ...pageData[key],
-                robots: robotsParams,
-                linkStyles: linkStyles[pageName].map(styleHref => {
-                    return getMetaTag({ type: "stylesheet", dataSrc: styleHref });
-                }).join('\n'),
-                alternate: languages.map(lang => {
-                    return `<link rel="alternate" href="${rootUrl}/${lang}/${pageName}.html" hreflang="${lang}">`;
-                }).join("\n"),
-            };
-
-            if (linkScripts && linkScripts.hasOwnProperty(pageName) && linkScripts[pageName].length > 0) {
-                Object.assign(headData, {
-                    linkScripts: linkScripts[pageName].map(scriptObj => {
-                        const loadMode = scriptObj.loadMode || "";
-
-                        return getMetaTag({ type: "script", dataSrc: scriptObj.link, loadMode });
-                    }).join("\n"),
-                });
-            }
-
-            // for writing canonical meta-links
-            if (metaCanonical && metaCanonical.includes(lang)) {
-                Object.assign(headData, {
-                    canonical: `<link rel="canonical" href="${rootUrl}/${lang}/${pageName}.html">`,
-                })
-            }
-
-            Object.assign(pageContent, {
-                [key]: headData,
-            })
-        }
-        else {
-            Object.assign(pageContent, {
-                [key]: pageData[key],
-            })
-        }
+    if (!linkStyles[pageName]) {
+        throw new Error(`No styles found for page: ${pageName}`);
     }
 
+    const headData = {
+        ...auxHeadData,
+        robots: robotsParams,
+        linkStyles: linkStyles[pageName].map(styleHref => {
+            return getMetaTag({ type: "stylesheet", dataSrc: styleHref });
+        }).join('\n'),
+        alternate: languages.map(lang => {
+            return `<link rel="alternate" href="${rootUrl}/${lang}/${pageName}.html" hreflang="${lang}">`;
+        }).join("\n"),
+    }
+
+    if (linkScripts?.[pageName]?.length) {
+        headData.linkScripts = linkScripts[pageName].map(scriptObj =>
+          getMetaTag({ type: "script", dataSrc: scriptObj.link, loadMode: scriptObj.loadMode || "" })
+        ).join("\n");
+    }
+
+    if (metaCanonical?.includes(lang)) {
+        headData.canonical = `<link rel="canonical" href="${rootUrl}/${lang}/${pageName}.html">`;
+    }
+
+    return headData;
+}
+
+function getPageContent(pageData, initialData) {
+    const {
+        lang,
+        languages,
+    } = initialData;
+
+    const pageContent = {};
+
+    for (const [key, value] of Object.entries(pageData)) {
+        pageContent[key] = key === "head"
+          ? buildHeadData(value, initialData)
+          : { ...value, ...(key === "main" && { lang, languages }) }
+    }
 
     return pageContent;
 }

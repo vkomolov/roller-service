@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="ua">
+
+@@if (data && data["index"] && data["index"].main) {
+<html lang="@@data.index.main.lang">
 @@include("templates/head.html", {"page": "index"})
 <body data-type="index">
 <div class="total-wrapper">
@@ -50,7 +52,6 @@
       </div>
     </div>
   </div>
-  @@if (data && data["index"] && data["index"].main) {
   <nav class="header__nav abs" aria-label="Navigation to services" aria-expanded="false">
     <div class="header__nav-list-wrapper">
       <ul class="header__nav-list">
@@ -70,42 +71,42 @@
         </a></li>
         <li><a href="rollers-installation-repair.html"
                class="nav-link"
-               aria-label="Перейти до послуг 'Ролети'"
+               aria-label="Go to 'Rollers' services"
                tabindex="0"
                data-type="rollers">
           @@data.index.main.nav-link_rollers
         </a></li>
         <li><a href="gates-rollers-automation.html"
                class="nav-link"
-               aria-label="Перейти до послуг 'Автоматизація'"
+               aria-label="Go to 'Automation' services"
                tabindex="0"
                data-type="automation">
           @@data.index.main.nav-link_automation
         </a></li>
         <li><a href="barriers-installation-repair.html"
                class="nav-link"
-               aria-label="Перейти до послуг 'Шлагбауми'"
+               aria-label="Go to 'Barriers' services"
                tabindex="0"
                data-type="barriers">
           @@data.index.main.nav-link_barriers
         </a></li>
         <li><a href="awnings-installation-repair.html"
                class="nav-link"
-               aria-label="Перейти до послуг 'Маркізи'"
+               aria-label="Go to 'Awnings' services"
                tabindex="0"
                data-type="awnings">
           @@data.index.main.nav-link_awnings
         </a></li>
         <li><a href="window-settings-repair.html"
                class="nav-link"
-               aria-label="Перейти до послуг 'Вікна та двері'"
+               aria-label="Go to 'Windows and Doors' services"
                tabindex="0"
                data-type="windows">
           @@data.index.main.nav-link_windows
         </a></li>
         <li><a href="security-installation-maintenance.html"
                class="nav-link"
-               aria-label="Перейти до послуг 'Відеонагляд'"
+               aria-label="Go to 'Video Surveillance' services"
                tabindex="0"
                data-type="security">
           @@data.index.main.nav-link_security
@@ -138,7 +139,7 @@
             class="button-request"
             data-type="general"
             onclick="window.location.href='tel:380991019368'"
-            aria-label="Мобільний зв’язок з фахівцем"
+            aria-label="Mobile communication with a specialist"
             tabindex="0">
           @@data.index.main.hero_button-request
         </button>
@@ -619,7 +620,7 @@
       </div>
     </div>
   </section>
-  }
+}
   @@include("templates/footer.html", {"page": "index"})
 </div>
 

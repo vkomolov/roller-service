@@ -105,17 +105,24 @@ const metaCanonical = getMatchedFromArray(languages, ["ua", "ru"]);
 
 //collecting data from 'assets/data/pagesVersions/*.json'
 const getPageData = (lang) => {
-    const pagesContent = getPagesContentVersions(pageJsonEntries, {
-        robotsParams,
-        linkStyles,
-        //linkScripts,  //optional
-        rootUrl,
-        metaCanonical,
-        languages,
-        lang
-    });
-    //console.log(`pageContent by ${lang}: `, pagesContent[lang]);
-    return pagesContent[lang];
+    try {
+        const pagesContent = getPagesContentVersions(pageJsonEntries, {
+            robotsParams,
+            linkStyles,
+            //linkScripts,  //optional
+            rootUrl,
+            metaCanonical,
+            languages,
+            lang
+        });
+        //console.log(`pageContent by ${lang}: `, pagesContent[lang]);
+        return pagesContent[lang];
+    }
+    catch (error) {
+        console.error(`Failed to process data for lang ${lang}: ${error.message}`);
+        return {}
+    }
+
 }
 
 //it returns the page`s data context with the language version for the gulp-file-include settings
