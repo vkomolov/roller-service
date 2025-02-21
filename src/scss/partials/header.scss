@@ -39,7 +39,7 @@
 
   /* tablet (portrait): (max-width: 1024px) */
   @include maxTabletPortrait {
-    font-size: 0.81em; //16px from font-size: 18px;
+    font-size: 0.8em; //16px from font-size: 18px;
   }
 
   /* mobile (portrait wide): (max-width: 640px) */
@@ -165,6 +165,7 @@
       width: 100%;
       max-width: $maxContentWidth;
       margin: 0 auto;
+      padding: 3em 2.2em .5em;
 
       @include flex-box($flex-box-row-right-wrap...);
 
@@ -175,14 +176,19 @@
     }
 
     .header__nav-list {
-      padding: 3em 2.2em .5em;
+
+      /* tablet (portrait): (max-width: 1024px) */
+      @include maxTabletPortrait {
+        font-size: 0.8em;
+      }
+
 
       /* mobile (landscape): (max-width: 768px)*/
       @include maxMobileLandscape {
         max-width: 20em;
         padding-bottom: 1em;
         padding-left: 1em;
-        padding-top: 4em;
+        padding-top: 1em;
 
         @include flex-box($flex-box-col-right-wrap...);
         column-gap: 0.5em;

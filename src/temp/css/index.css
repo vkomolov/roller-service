@@ -2102,7 +2102,7 @@ img, svg, picture, video, object {
 }
 @media (max-width: 1024px) {
   .header {
-    font-size: 0.81em;
+    font-size: 0.8em;
   }
 }
 @media (max-width: 640px) {
@@ -2237,6 +2237,7 @@ img, svg, picture, video, object {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+  padding: 3em 2.2em 0.5em;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
@@ -2249,17 +2250,22 @@ img, svg, picture, video, object {
   }
 }
 .header__nav.abs .header__nav-list {
-  padding: 3em 2.2em 0.5em;
+  /* tablet (portrait): (max-width: 1024px) */
   /* mobile (landscape): (max-width: 768px)*/
   /* mobile (portrait wide): (max-width: 640px) */
   /* mobile (medium): (max-width: 375px) */
+}
+@media (max-width: 1024px) {
+  .header__nav.abs .header__nav-list {
+    font-size: 0.8em;
+  }
 }
 @media (max-width: 768px) {
   .header__nav.abs .header__nav-list {
     max-width: 20em;
     padding-bottom: 1em;
     padding-left: 1em;
-    padding-top: 4em;
+    padding-top: 1em;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
