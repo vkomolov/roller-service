@@ -21,12 +21,15 @@ root folder.
 
 ### Notes
 The modal window works as follows:
-- by clicking on the selected image in the gallery, the image index in the array of placed images is determined.
-- if the path to the image contains `"path/tofile/thumbs"`, then the path is modified by removing the `"thumbs"` 
-directory from the path.
+By clicking on the image in the galley, the full-screen modal opens with the original image of the same name, as the
+image in the "thumbs" directory, which is used for the thumbs gallery.
+- by clicking on the selected image in the gallery, the index of the image in the array of placed images is determined.
+- if the path to the image contains `"path/tofile/thumbs"`, then a new path is modified by removing the `"/thumbs/"` 
+from the path string.
   <br>Therefore, the name of the image file in the `"path/tofile/"` directory and in the `"path/tofile/thumbs"` 
 directory must be the same.
   <br>If the image file is not found in the `"path/tofile/"` directory, then a minified version of the image is used 
 in the modal window at the origin path: `"path/tofile/thumbs"`.
 
-The dimension ratio for the images at modal view: w/h = 1.954; max dimensions: (1290px : 660px);
+- The dimension ratio of the modal view: w/h = 1.9545; max dimensions: (1290px : 660px);
+- The width of the "thumbs/" images: 480px, height: any;

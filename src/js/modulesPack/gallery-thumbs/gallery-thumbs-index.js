@@ -88,7 +88,6 @@ function initModal(mediaArr, params) {
 	};
 
 const handleClick = ({ target }) => {
-	console.log("clicked in modal...")
 	const { type } = target.dataset;
 	if (type && actions[type]) {
 		actions[type]();

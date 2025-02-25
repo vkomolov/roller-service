@@ -10596,7 +10596,6 @@ function initModal(mediaArr, params) {
   const handleClick = ({
     target
   }) => {
-    console.log("clicked in modal...");
     const {
       type
     } = target.dataset;
@@ -10984,11 +10983,15 @@ const pageAnimations = {
             burgerHidden.classList.remove("opened");
             burgerFixed.classList.remove("opened");
             //lockScroll(true);
+            document.documentElement.style.scrollbarGutter = "initial";
+            document.body.style.scrollbarGutter = "initial";
             document.body.style.overflow = "auto";
           } else {
             burgerHidden.classList.add("opened");
             burgerFixed.classList.add("opened");
             //lockScroll(false);
+            document.documentElement.style.scrollbarGutter = "stable";
+            document.body.style.scrollbarGutter = "stable";
             document.body.style.overflow = "hidden";
           }
           if (isExpanded) {

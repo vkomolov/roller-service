@@ -2,7 +2,7 @@
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-import { setAttributes, lockScroll } from "../helpers/funcsDOM.js";
+import { setAttributes } from "../helpers/funcsDOM.js";
 
 ///////////////// REGISTER GSAP PLUGINS /////////////
 gsap.registerPlugin(ScrollTrigger);
@@ -249,12 +249,18 @@ const pageAnimations = {
             burgerHidden.classList.remove("opened");
             burgerFixed.classList.remove("opened");
             //lockScroll(true);
+            document.documentElement.style.scrollbarGutter = "initial";
+            document.body.style.scrollbarGutter = "initial";
+
             document.body.style.overflow = "auto";
           }
           else {
             burgerHidden.classList.add("opened");
             burgerFixed.classList.add("opened");
             //lockScroll(false);
+            document.documentElement.style.scrollbarGutter = "stable";
+            document.body.style.scrollbarGutter = "stable";
+
             document.body.style.overflow = "hidden";
           }
 

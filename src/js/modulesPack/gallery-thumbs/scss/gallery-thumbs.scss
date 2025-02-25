@@ -13,7 +13,6 @@
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 200;
   padding: 2.5em 5vw;
-  overflow: hidden;
 
   /* tablet (portrait): (max-width: 1024px) */
   @media (max-width: 1024px) {
@@ -65,21 +64,25 @@
 .media-container {
   box-sizing: border-box;
   max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
+  height: 100%;
 
   .picture-item {
-    width: 100%;
     opacity: 0;
     transition: opacity 1s ease;
+  }
+
+  img, picture {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
   }
 }
 
 .thumb-arrow {
   font-size: 1em;
   display: flex;
-  width: 1.5em;
-  height: 1.5em;
+  width: max(1.5em, 28px);
+  height: max(1.5em, 28px);
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -103,8 +106,8 @@
     position: absolute;
     top: 20%;
     right: 1%;
-    width: 1.5em;
-    height: 1.5em;
+    width: max(1.5em, 28px);
+    height: max(1.5em, 28px);
   }
 
   &.prev {

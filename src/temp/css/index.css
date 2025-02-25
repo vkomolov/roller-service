@@ -477,10 +477,9 @@ ul {
   --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
 }
 
-html, body {
-  scrollbar-gutter: stable;
-}
-
+/*html, body {
+  scrollbar-gutter: stable; //keeping scrollbar space to eliminate content shifting on scrollbar remove...
+}*/
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -521,6 +520,7 @@ h2, h3, h4, h5 {
 
 img, svg, picture, video, object {
   width: 100%;
+  max-width: 100%;
 }
 
 .section {
@@ -669,7 +669,6 @@ img, svg, picture, video, object {
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 200;
   padding: 2.5em 5vw;
-  overflow: hidden;
   /* tablet (portrait): (max-width: 1024px) */
   /* mobile (portrait wide): (max-width: 640px) */
 }
@@ -723,20 +722,23 @@ img, svg, picture, video, object {
 .media-container {
   box-sizing: border-box;
   max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
+  height: 100%;
 }
 .media-container .picture-item {
-  width: 100%;
   opacity: 0;
   transition: opacity 1s ease;
+}
+.media-container img, .media-container picture {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
 .thumb-arrow {
   font-size: 1em;
   display: flex;
-  width: 1.5em;
-  height: 1.5em;
+  width: max(1.5em, 28px);
+  height: max(1.5em, 28px);
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -758,8 +760,8 @@ img, svg, picture, video, object {
   position: absolute;
   top: 20%;
   right: 1%;
-  width: 1.5em;
-  height: 1.5em;
+  width: max(1.5em, 28px);
+  height: max(1.5em, 28px);
 }
 /**
  * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
@@ -1041,10 +1043,9 @@ ul {
   --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
 }
 
-html, body {
-  scrollbar-gutter: stable;
-}
-
+/*html, body {
+  scrollbar-gutter: stable; //keeping scrollbar space to eliminate content shifting on scrollbar remove...
+}*/
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -1085,6 +1086,7 @@ h2, h3, h4, h5 {
 
 img, svg, picture, video, object {
   width: 100%;
+  max-width: 100%;
 }
 
 /**
@@ -1566,10 +1568,9 @@ ul {
   --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
 }
 
-html, body {
-  scrollbar-gutter: stable;
-}
-
+/*html, body {
+  scrollbar-gutter: stable; //keeping scrollbar space to eliminate content shifting on scrollbar remove...
+}*/
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -1610,6 +1611,7 @@ h2, h3, h4, h5 {
 
 img, svg, picture, video, object {
   width: 100%;
+  max-width: 100%;
 }
 
 .section {
@@ -2024,10 +2026,9 @@ ul {
   --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
 }
 
-html, body {
-  scrollbar-gutter: stable;
-}
-
+/*html, body {
+  scrollbar-gutter: stable; //keeping scrollbar space to eliminate content shifting on scrollbar remove...
+}*/
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -2068,6 +2069,7 @@ h2, h3, h4, h5 {
 
 img, svg, picture, video, object {
   width: 100%;
+  max-width: 100%;
 }
 
 .header-layer {
@@ -2914,10 +2916,9 @@ ul {
   --range_18-16_max-1280px: calc(2 * (min(max(100vw, 641px), 1280px) - 641px) / 639 + 16px);
 }
 
-html, body {
-  scrollbar-gutter: stable;
-}
-
+/*html, body {
+  scrollbar-gutter: stable; //keeping scrollbar space to eliminate content shifting on scrollbar remove...
+}*/
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -2958,6 +2959,7 @@ h2, h3, h4, h5 {
 
 img, svg, picture, video, object {
   width: 100%;
+  max-width: 100%;
 }
 
 .section {
