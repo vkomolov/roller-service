@@ -1,6 +1,6 @@
 'use strict';
 
-import { activateNavLink, createMasonry, lockedEventListener } from "./helpers/funcsDOM.js";
+import { activateNavLink, createMasonry, initLangSwitcher, lockedEventListener } from "./helpers/funcsDOM.js";
 import { initThumbs } from "./modulesPack/gallery-thumbs/gallery-thumbs-index.js";
 import { animatePage, fadeInGallery } from "./partials/animations.js";
 
@@ -19,9 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinkSelector = ".nav-link";
   const navHexagonSelector = ".hexagon-comb-block__cell-link";
 
+
   //checking and lighten several duplicate navigations for the .active links:
   activateNavLink(navLinkSelector, pageType, "active", linkAnchors[pageType] || "#");
-  activateNavLink(navHexagonSelector, pageType, "active", linkAnchors[pageType] || "#")
+  activateNavLink(navHexagonSelector, pageType, "active", linkAnchors[pageType] || "#");
 
   //GSAP animation tweens
   const totalTl = animatePage();
@@ -44,6 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(error => {
       console.error(error);
     });
+
+  //initializing optional language versions interaction
+  initLangSwitcher({
+    langSwitcherSelector: "#lang-switcher",
+    iconLangSelector: ".lang-switcher__lang-icon",
+    langActiveSelector: ".active",
+    langListSelector: "#lang-list",
+    langOptionArr: ["ua", "ru"],
+    dataSetParam: "lang"
+  });
 
   //listening to "resize" event to recompile the masonry gallery with the new parameters...
   lockedEventListener("resize", window, 2000)(() => {

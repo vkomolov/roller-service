@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using
  *    `em` units.
@@ -2202,6 +2203,65 @@ img, svg, picture, video, object {
 }
 .social-icons-wrapper__social-icon:hover {
   transform: scale(1.1);
+}
+
+#lang-switcher {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+}
+#lang-switcher:hover #lang-list {
+  transform: translateY(0);
+}
+#lang-switcher:hover .lang-switcher__lang-dropdown {
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s; /* Убираем задержку при показе */
+}
+
+.lang-switcher__lang-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none; /* Отключаем взаимодействие при скрытии */
+  transition: visibility 0s 0.5s; /* Задержка 0.2s перед скрытием */
+}
+
+#lang-list {
+  padding: 0.6em 0;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.6em;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.lang-switcher__lang-icon {
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 50%;
+  background-color: #918578;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.lang-switcher__lang-icon:not(.active):hover {
+  background-color: rgb(204, 82, 0);
+  transform: translateY(-3px);
+}
+.lang-switcher__lang-icon.active {
+  background-color: rgb(255, 133, 2);
+}
+.lang-switcher__lang-icon span {
+  font-weight: 700;
 }
 
 .header__nav {

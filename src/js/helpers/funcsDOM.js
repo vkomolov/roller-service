@@ -52,7 +52,7 @@ export function migrateElement({ target, parentFrom, parentTo }) {
  * removeClickListener();
  */
 export function lockedEventListener(event, listenerOwner, delay = 300) {
-  if (window !== listenerOwner && document !== listenerOwner && !(document.contains(listenerOwner))) {
+  if (window !== listenerOwner && document !== listenerOwner && !(document.body.contains(listenerOwner))) {
     throw new Error("Provided listenerOwner at lockedEventListener() is not a valid DOM element...");
   }
 
@@ -101,7 +101,7 @@ export function lockedEventListener(event, listenerOwner, delay = 300) {
  * );
  */
 export function customTargetStyleOnScroll(target, trigger, classActivation, scrollOwner = window, scrollTimeLimit = 300) {
-  if (!document.contains(target) || !document.contains(trigger)) {
+  if (!document.body.contains(target) || !document.body.contains(trigger)) {
     throw new Error("at initTopAppearanceOnScroll(): the given target or trigger are not found in DOM...");
   }
 
@@ -192,7 +192,7 @@ export function getImagesLoaded(container, options = {}) {
         reject(new Error("imagesLoaded library is not loaded. Please ensure it is included before using getImagesLoaded."));
         return;
       }
-      if (!container || !document.contains(container)) {
+      if (!container || !document.body.contains(container)) {
         reject(new Error("The given container is not found in the DOM."));
         return;
       }
@@ -390,3 +390,96 @@ export function activateNavLink(navLinkSelector, pageType, activeClass, anchorLi
   }
 }
 
+/**
+ * Initializes a language switcher component.
+ * @param {Object} params - Configuration object.
+ * @param {string} [params.langSwitcherSelector="#lang-switcher"] - Selector for the root container.
+ * @param {string} [params.iconLangSelector=".lang-switcher__lang-icon"] - Selector for language icons.
+ * @param {string} [params.langActiveSelector=".active"] - Selector for active language element.
+ * @param {string} [params.langListSelector="#listbox"] - Selector for options container.
+ * @param {string[]} [params.langOptionArr=["ua","ru"]] - Supported language codes.
+ * @param {string} [params.dataSetParam="lang"] - Dataset parameter name.
+ * @returns {void} Returns early if any critical elements are missing.
+ */
+export function initLangSwitcher(params = {}) {
+  const {
+    langSwitcherSelector = "#lang-switcher",
+    iconLangSelector = ".lang-switcher__lang-icon",
+    langActiveSelector = ".active",
+    langListSelector = "#listbox",
+    langOptionArr = ["ua", "ru"],
+    dataSetParam = "lang"
+  } = params;
+
+  const notFoundError = (selector, addition="") => {
+    console.error(
+      `at initLangSwitcher: the given selector: ${selector} is not found in DOM`,
+      addition
+    );
+  }
+
+  const url = window.location.href;
+  const langSwitcher = document.querySelector(langSwitcherSelector);
+
+  if (!langSwitcher) {
+    notFoundError(langSwitcherSelector);
+    return;
+  }
+
+  const langActiveElement = langSwitcher.querySelector(`${iconLangSelector}${langActiveSelector}`);
+  const langActive = langActiveElement?.dataset[dataSetParam];
+
+  if (!langActive) {
+    notFoundError(`${iconLangSelector}${langActiveSelector}`, `or data-${dataSetParam} has no value...`);
+    return;
+  }
+
+  if (!Array.isArray(langOptionArr) || !langOptionArr.length) {
+    console.error(`at initLangSwitcher: the given array of language versions is not Array or empty: ${langOptionArr}`);
+    return;
+  }
+
+  const langVerArr = langOptionArr.filter(lang => lang !== langActive);
+
+  const langList = langSwitcher.querySelector(langListSelector);
+
+  if (!langList) {
+    notFoundError(langListSelector);
+    return;
+  }
+
+  const optionListElems = langVerArr.map((langVer) => {
+    const listElem = document.createElement("li");
+    listElem.classList.add(getSelectorName(iconLangSelector));
+    listElem.setAttribute("role", "option");
+    listElem.setAttribute(`data-${dataSetParam}`, langVer);
+
+    const spanElem = document.createElement("span");
+    spanElem.textContent = langVer;
+    listElem.appendChild(spanElem);
+
+    return listElem;
+  });
+
+  langList.append(...optionListElems);
+
+  const handleClick = ({ target }) => {
+    const clickedLang = target.closest(iconLangSelector).dataset[dataSetParam];
+    window.location.replace(url.replace(`/${langActive}/`, `/${clickedLang}/`));
+  };
+
+  langList.addEventListener("click", handleClick);
+
+}
+
+/**
+ * Removes the "." and "#" characters from the beginning of the selector and returns its name.
+ * @param {string} selector - Selector (example: ".class", "#id", "tag").
+ * @returns {string} Selector name without symbols "." и "#".
+ */
+export function getSelectorName(selector) {
+  // Regular expression for ".selector", "#selector", "selector"
+  const regex = /^[.#]?([\w-]+)$/;
+  const match = selector.match(regex);
+  return match ? match[1] : selector; // If not matched, return original selector
+}
