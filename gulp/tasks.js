@@ -194,6 +194,15 @@ const tasks = {
         .pipe(debug({ title: "file is piped:" }))
         .pipe(dest(pathData.build.data));
     },
+    pipeUtils() {
+      return src(pathData.src.utils, { encoding: false })
+        .pipe(plumber({
+          errorHandler: handleError("Error at pipeUtils...")
+        }))
+        .pipe(changed(pathData.build.utils))
+        .pipe(debug({ title: "utils file is piped:" }))
+        .pipe(dest(pathData.build.utils));
+    }
   },
   [modes.build]: {
     pipeHtml() {
@@ -324,6 +333,14 @@ const tasks = {
           errorHandler: handleError("Error at pipeData...")
         }))
         .pipe(dest(pathData.build.data));
+    },
+    pipeUtils() {
+      return src(pathData.src.utils, { encoding: false })
+        .pipe(plumber({
+          errorHandler: handleError("Error at pipeUtils...")
+        }))
+        .pipe(debug({ title: "utils file is piped:" }))
+        .pipe(dest(pathData.build.utils));
     },
     pipeZipProject() {
       return src(pathData.src.zipProject, {})

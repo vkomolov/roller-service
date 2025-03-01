@@ -18,88 +18,99 @@ const srcPath = path.resolve(curWD, "src");
 const distPath = path.resolve(curWD, "dist");
 const tempPath = path.resolve(srcPath, "temp");
 export const pathData = {
-    rootFolder,
-    srcPath,
-    distPath,
-    tempPath,
-    ftp: "",
-    src: {
-        html: path.join(srcPath, "html", "*.html"),
-        styles: path.join(srcPath, "scss", "*.scss"),
-        js: path.join(srcPath, "js", "*.js"),
-        img: [
-            path.join(srcPath, "assets", "img", "**", "*.{jpg,jpeg,png,svg,gif,webp,avif,ico}"),
-            `!${ path.join(srcPath, "assets", "img", "svgIcons", "mono", "**", "*") }`,
-            `!${ path.join(srcPath, "assets", "img", "svgIcons", "multi", "**", "*") }`
-        ],
-        svgIconsMono: [
-            path.join(srcPath, "assets", "img", "svgIcons", "mono", "**", "*.svg")
-        ],
-        svgIconsMulti: [
-            path.join(srcPath, "assets", "img", "svgIcons", "multi", "**", "*.svg")
-        ],
-        fonts: path.join(srcPath, "assets", "fonts", "**", "*.{eot,woff,woff2,ttf,otf}"),
-        data: path.join(srcPath, "assets", "data", "**", "*.{json, pdf, xml}"),
-        zipProject: [
-            `!${path.resolve(curWD, "node_modules")}`,
-            `!${path.resolve(curWD, "node_modules", "**", ".*")}`, // Exclude hidden files that start with "."
-            `!${path.resolve(curWD, "node_modules", "**", "*")}`,
+	rootFolder,
+	srcPath,
+	distPath,
+	tempPath,
+	ftp: "",
+	src: {
+		html: path.join(srcPath, "html", "*.html"),
+		styles: path.join(srcPath, "scss", "*.scss"),
+		js: path.join(srcPath, "js", "*.js"),
+		img: [
+			path.join(srcPath, "assets", "img", "**", "*.{jpg,jpeg,png,svg,gif,webp,avif,ico}"),
+			`!${ path.join(srcPath, "assets", "img", "svgIcons", "mono", "**", "*") }`,
+			`!${ path.join(srcPath, "assets", "img", "svgIcons", "multi", "**", "*") }`
+		],
+		svgIconsMono: [
+			path.join(srcPath, "assets", "img", "svgIcons", "mono", "**", "*.svg")
+		],
+		svgIconsMulti: [
+			path.join(srcPath, "assets", "img", "svgIcons", "multi", "**", "*.svg")
+		],
+		fonts: path.join(srcPath, "assets", "fonts", "**", "*.{eot,woff,woff2,ttf,otf}"),
+		data: path.join(srcPath, "assets", "data", "**", "*.{json, pdf, xml}"),
+		utils: [
+			path.join(srcPath, "*"),
+			path.join(srcPath, ".*"),
+			`!${ path.join(srcPath, "/*/") }`
+		],
+		zipProject: [
+			`!${ path.resolve(curWD, "node_modules") }`,
+			`!${ path.resolve(curWD, "node_modules", "**", ".*") }`, // Exclude hidden files that start with "."
+			`!${ path.resolve(curWD, "node_modules", "**", "*") }`,
 
-            `!${path.resolve(curWD, ".git")}`,
-            `!${path.resolve(curWD, ".git", "**", ".*")}`,
-            `!${path.resolve(curWD, ".git", "**", "*")}`,
+			`!${ path.resolve(curWD, ".git") }`,
+			`!${ path.resolve(curWD, ".git", "**", ".*") }`,
+			`!${ path.resolve(curWD, ".git", "**", "*") }`,
 
-            `!${path.resolve(curWD, ".idea")}`,
-            `!${path.resolve(curWD, ".idea", "**", ".*")}`,
-            `!${path.resolve(curWD, ".idea", "**", "*")}`,
+			`!${ path.resolve(curWD, ".idea") }`,
+			`!${ path.resolve(curWD, ".idea", "**", ".*") }`,
+			`!${ path.resolve(curWD, ".idea", "**", "*") }`,
 
-            path.resolve(curWD, "**", "*"),
-            path.resolve(curWD, "**", ".*"),
-        ]
-    },
-    build: {
-        html: distPath,
-        styles: path.join(distPath, "css"),
-        js: path.join(distPath, "js"),
-        img: path.join(distPath, "assets", "img"),
-        svgIcons: path.join(distPath, "assets", "img", "svgIcons"),
-        fonts: path.join(distPath, "assets", "fonts"),
-        data: path.join(distPath, "assets", "data"),
-        zipProject: path.resolve(curWD, "zip"),
-    },
-    watch: {
-        htmlNested: [
-            `${ srcPath }/html/**/*.html`,
-        ],
-        stylesNested: [
-            `${ srcPath }/scss/**/*.scss`,
-            `${ srcPath }/js/modulesPack/**/scss/*.scss`,
-        ],
-        jsNested: [
-            `${ srcPath }/js/**/*.js`,
-            `${ srcPath }/js/modulesPack/**/*.js`,
-        ],
-        img: [
-            `${ srcPath }/assets/img/**/*.{jpg,jpeg,png,svg,gif,webp,avif,ico}`,
-            `!${ srcPath }/assets/img/svgIcons/mono/**/*`,
-            `!${ srcPath }/assets/img/svgIcons/multi/**/*`
-        ],
-        svgIconsMono: [
-            `${ srcPath }/assets/img/svgIcons/mono/**/*.svg`
-        ],
-        svgIconsMulti: [
-            `${ srcPath }/assets/img/svgIcons/multi/**/*.svg`
-        ],
-        fonts: `${ srcPath }/assets/fonts/**/*.{eot,woff,woff2,ttf,otf}`,
-        data: `${ srcPath }/assets/data/**/*.{json, pdf, xml}`,
-    },
-    clean: [
-        distPath,
-        path.resolve(curWD, "zip"),
-        //path.resolve(curWD, "zip", `${ rootFolder }.zip`),
-        tempPath,
-    ],
+			path.resolve(curWD, "**", "*"),
+			path.resolve(curWD, "**", ".*"),
+		]
+	},
+	build: {
+		html: distPath,
+		styles: path.join(distPath, "css"),
+		js: path.join(distPath, "js"),
+		img: path.join(distPath, "assets", "img"),
+		svgIcons: path.join(distPath, "assets", "img", "svgIcons"),
+		fonts: path.join(distPath, "assets", "fonts"),
+		data: path.join(distPath, "assets", "data"),
+		utils: distPath,
+		zipProject: path.resolve(curWD, "zip"),
+	},
+	watch: {
+		htmlNested: [
+			`${ srcPath }/html/**/*.html`,
+		],
+		stylesNested: [
+			`${ srcPath }/scss/**/*.scss`,
+			`${ srcPath }/js/modulesPack/**/scss/*.scss`,
+		],
+		jsNested: [
+			`${ srcPath }/js/**/*.js`,
+			`${ srcPath }/js/modulesPack/**/*.js`,
+		],
+		img: [
+			`${ srcPath }/assets/img/**/*.{jpg,jpeg,png,svg,gif,webp,avif,ico}`,
+			`!${ srcPath }/assets/img/svgIcons/mono/**/*`,
+			`!${ srcPath }/assets/img/svgIcons/multi/**/*`
+		],
+		svgIconsMono: [
+			`${ srcPath }/assets/img/svgIcons/mono/**/*.svg`
+		],
+		svgIconsMulti: [
+			`${ srcPath }/assets/img/svgIcons/multi/**/*.svg`
+		],
+		fonts: `${ srcPath }/assets/fonts/**/*.{eot,woff,woff2,ttf,otf}`,
+		data: `${ srcPath }/assets/data/**/*.{json, pdf, xml}`,
+		utils: [
+			path.join(srcPath, "*"),
+			path.join(srcPath, ".*"),
+			`!${ path.join(srcPath, "/*/") }`
+		],
+	},
+	clean: [
+		distPath,
+		path.resolve(curWD, "zip"),
+		//path.resolve(curWD, "zip", `${ rootFolder }.zip`),
+		tempPath,
+	],
 }
 export const entries = {
-    js: getFilesEntries(path.resolve(pathData.srcPath, "js"), "js"),
+	js: getFilesEntries(path.resolve(pathData.srcPath, "js"), "js"),
 }

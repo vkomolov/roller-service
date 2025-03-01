@@ -1,0 +1,8 @@
+# Правило для страниц вида /ru/somePage → /ru/somePage.html
+/*/:lang/*  /:lang/:path.html 200
+
+# Правило для главной страницы языка: /ua/ → /ua/index.html
+/:lang/      /:lang/index.html 200
+
+# Дополнительно: редирект с корня
+/            /ua/              302
