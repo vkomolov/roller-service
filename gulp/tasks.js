@@ -10,6 +10,7 @@ import debug from "gulp-debug";
 
 //other plugins
 import fileInclude from "gulp-file-include";
+import filter from "gulp-filter";
 
 //html plugins
 import htmlClean from "gulp-htmlclean";
@@ -22,7 +23,6 @@ import postcss from "gulp-postcss";
 import replace from "gulp-replace";
 import gulpSass from "gulp-sass";
 import size from "gulp-size";
-import zip from "gulp-zip";
 import path from "path";
 
 //styles plugins
@@ -35,7 +35,6 @@ import CustomGulpSVGSprite from "../modules/CustomGulpSVGSprite.js";
 import CustomGulpWebpHtml from "../modules/CustomGulpWebpHtml.js";
 import CustomImgConverter from "../modules/CustomImgConverter.js";
 import CustomImgOptimizer from "../modules/CustomImgOptimizer.js";
-import CustomPurgeCss from "../modules/CustomPurgeCss.js";
 
 //custom modules
 import CustomRenameFile from "../modules/CustomRenameFile.js";
@@ -57,6 +56,7 @@ import { handleError } from "./utilFuncs.js";
 
 const { src, dest } = gulp;
 const sass = gulpSass(dartSass);
+const filterFiles = filter(file => !file.isDirectory());
 
 const imgRegex = /<img(?:.|\n|\r)*?>/g;
 
@@ -195,10 +195,11 @@ const tasks = {
         .pipe(dest(pathData.build.data));
     },
     pipeUtils() {
-      return src(pathData.src.utils, { encoding: false })
+      return src(pathData.src.utils, { encoding: false, dot: true })
         .pipe(plumber({
           errorHandler: handleError("Error at pipeUtils...")
         }))
+        .pipe(filterFiles)
         .pipe(changed(pathData.build.utils))
         .pipe(debug({ title: "utils file is piped:" }))
         .pipe(dest(pathData.build.utils));
@@ -231,13 +232,15 @@ const tasks = {
         /*.pipe(size(useGulpSizeConfig({
           title: "Before sass: "
         })))*/
-        .pipe(sass.sync({}, () => {
-        }).on('error', sass.logError))
-        //!!! scss files must have the same name as the corresponding HTML file!!!
-        .pipe(new CustomPurgeCss(pathData.build.html))  //to filter ${basename}.css selectors not used in ${basename}.html
-        .pipe(size(useGulpSizeConfig({
+        .pipe(sass.sync({}, () => {}).on('error', sass.logError))
+
+        //! CustomPurgeCss could be used in mono language version of the project with the one language version of the page...
+        //! scss file must have the same name as the corresponding HTML file!!!
+        //.pipe(new CustomPurgeCss(pathData.build.html))  //to filter ${basename}.css selectors not used in ${basename}.html
+/*        .pipe(size(useGulpSizeConfig({
           title: "After PurgeCss: "
-        })))
+        })))*/
+
         .pipe(postcss(optimizeCss)) //to optimize *.css
         .pipe(size(useGulpSizeConfig({
           title: "After optimizeCss: "
@@ -335,20 +338,13 @@ const tasks = {
         .pipe(dest(pathData.build.data));
     },
     pipeUtils() {
-      return src(pathData.src.utils, { encoding: false })
+      return src(pathData.src.utils, { encoding: false, dot: true })
         .pipe(plumber({
           errorHandler: handleError("Error at pipeUtils...")
         }))
+        .pipe(filterFiles)
         .pipe(debug({ title: "utils file is piped:" }))
         .pipe(dest(pathData.build.utils));
-    },
-    pipeZipProject() {
-      return src(pathData.src.zipProject, {})
-        .pipe(plumber({
-          errorHandler: handleError("Error at pipeZipProject...")
-        }))
-        .pipe(zip(`${pathData.rootFolder}.project.zip`))
-        .pipe(dest(pathData.build.zipProject));
     },
   }
 };

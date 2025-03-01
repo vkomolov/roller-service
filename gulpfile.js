@@ -36,7 +36,6 @@ function watchFiles(bs) {
 	watch(pathData.watch.fonts, series(pipesDev.pipeFonts, bs.reload));
 	//watching data, including *.json, and renewing the html files, compiled with gulp-file-include
 	watch(pathData.watch.data, series(pipesDev.pipeData, pipesDev.pipeHtml, bs.reload));
-	watch(pathData.watch.utils, series(pipesDev.pipeUtils, bs.reload));
 }
 
 /**
@@ -47,9 +46,6 @@ function watchFiles(bs) {
 function runPipes(mode, cb) {
 	if (mode in modes) {
 		const task = tasks[mode];
-		const zipProject = () => {
-			return task.pipeZipProject ? task.pipeZipProject() : Promise.resolve();
-		}
 
 		series(
 			distClean,
@@ -62,9 +58,8 @@ function runPipes(mode, cb) {
 				task.pipeSvgSpriteMono,
 				task.pipeSvgSpriteMulti,
 				task.pipeData,
-				task.pipeUtils
+				task.pipeUtils,
 			),
-			zipProject,
 		)(cb);
 	}
 	else {

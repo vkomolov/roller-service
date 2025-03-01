@@ -43,24 +43,7 @@ export const pathData = {
 		utils: [
 			path.join(srcPath, "*"),
 			path.join(srcPath, ".*"),
-			`!${ path.join(srcPath, "/*/") }`
 		],
-		zipProject: [
-			`!${ path.resolve(curWD, "node_modules") }`,
-			`!${ path.resolve(curWD, "node_modules", "**", ".*") }`, // Exclude hidden files that start with "."
-			`!${ path.resolve(curWD, "node_modules", "**", "*") }`,
-
-			`!${ path.resolve(curWD, ".git") }`,
-			`!${ path.resolve(curWD, ".git", "**", ".*") }`,
-			`!${ path.resolve(curWD, ".git", "**", "*") }`,
-
-			`!${ path.resolve(curWD, ".idea") }`,
-			`!${ path.resolve(curWD, ".idea", "**", ".*") }`,
-			`!${ path.resolve(curWD, ".idea", "**", "*") }`,
-
-			path.resolve(curWD, "**", "*"),
-			path.resolve(curWD, "**", ".*"),
-		]
 	},
 	build: {
 		html: distPath,
@@ -71,7 +54,6 @@ export const pathData = {
 		fonts: path.join(distPath, "assets", "fonts"),
 		data: path.join(distPath, "assets", "data"),
 		utils: distPath,
-		zipProject: path.resolve(curWD, "zip"),
 	},
 	watch: {
 		htmlNested: [
@@ -98,11 +80,6 @@ export const pathData = {
 		],
 		fonts: `${ srcPath }/assets/fonts/**/*.{eot,woff,woff2,ttf,otf}`,
 		data: `${ srcPath }/assets/data/**/*.{json, pdf, xml}`,
-		utils: [
-			path.join(srcPath, "*"),
-			path.join(srcPath, ".*"),
-			`!${ path.join(srcPath, "/*/") }`
-		],
 	},
 	clean: [
 		distPath,
