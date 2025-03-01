@@ -572,31 +572,31 @@ img,object,picture,svg,video{
   font-family:Open Sans;
   font-style:normal;
   font-weight:400;
-  src:url(../assets/fonts/OpenSans/OpenSans-Regular.woff2) format("woff2"), url(../assets/fonts/OpenSans/OpenSans-Regular.woff) format("woff"), url(../assets/fonts/OpenSans/OpenSans-Regular.ttf) format("truetype");
+  src:url(/assets/fonts/OpenSans/OpenSans-Regular.woff2) format("woff2"), url(/assets/fonts/OpenSans/OpenSans-Regular.woff) format("woff"), url(/assets/fonts/OpenSans/OpenSans-Regular.ttf) format("truetype");
 }
 @font-face{
   font-family:Open Sans;
   font-style:normal;
   font-weight:600;
-  src:url(../assets/fonts/OpenSans/OpenSans-SemiBold.woff2) format("woff2"), url(../assets/fonts/OpenSans/OpenSans-SemiBold.woff) format("woff"), url(../assets/fonts/OpenSans/OpenSans-SemiBold.ttf) format("truetype");
+  src:url(/assets/fonts/OpenSans/OpenSans-SemiBold.woff2) format("woff2"), url(/assets/fonts/OpenSans/OpenSans-SemiBold.woff) format("woff"), url(/assets/fonts/OpenSans/OpenSans-SemiBold.ttf) format("truetype");
 }
 @font-face{
   font-family:Ubuntu;
   font-style:normal;
   font-weight:700;
-  src:url(../assets/fonts/Ubuntu/Ubuntu-Bold.woff2) format("woff2"), url(../assets/fonts/Ubuntu/Ubuntu-Bold.woff) format("woff"), url(../assets/fonts/Ubuntu/Ubuntu-Bold.ttf) format("truetype");
+  src:url(/assets/fonts/Ubuntu/Ubuntu-Bold.woff2) format("woff2"), url(/assets/fonts/Ubuntu/Ubuntu-Bold.woff) format("woff"), url(/assets/fonts/Ubuntu/Ubuntu-Bold.ttf) format("truetype");
 }
 @font-face{
   font-family:Jost;
   font-style:normal;
   font-weight:400;
-  src:url(../assets/fonts/Jost/Jost-Regular.woff2) format("woff2"), url(../assets/fonts/Jost/Jost-Regular.woff) format("woff"), url(../assets/fonts/Jost/Jost-Regular.ttf) format("truetype");
+  src:url(/assets/fonts/Jost/Jost-Regular.woff2) format("woff2"), url(/assets/fonts/Jost/Jost-Regular.woff) format("woff"), url(/assets/fonts/Jost/Jost-Regular.ttf) format("truetype");
 }
 @font-face{
   font-family:Jost;
   font-style:normal;
   font-weight:700;
-  src:url(../assets/fonts/Jost/Jost-Bold.woff2) format("woff2"), url(../assets/fonts/Jost/Jost-Bold.woff) format("woff"), url(../assets/fonts/Jost/Jost-Bold.ttf) format("truetype");
+  src:url(/assets/fonts/Jost/Jost-Bold.woff2) format("woff2"), url(/assets/fonts/Jost/Jost-Bold.woff) format("woff"), url(/assets/fonts/Jost/Jost-Bold.ttf) format("truetype");
 }
 .section--footer{
   background-attachment:fixed;
@@ -881,36 +881,36 @@ img,object,picture,svg,video{
   font-size:1.8em;
 }
 .section--hero[aria-labelledby=index]{
-  background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/hero_professional_1440.webp") 1x, url("../assets/img/heroSection/hero_professional_1440.jpg") 1x);
-  background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/hero_professional_1440.webp") 1x, url("../assets/img/heroSection/hero_professional_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/hero_professional_1440.webp") 1x, url("/assets/img/heroSection/hero_professional_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/hero_professional_1440.webp") 1x, url("/assets/img/heroSection/hero_professional_1440.jpg") 1x);
 }
 .section--hero[aria-labelledby=gates]{
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/gates-automatic_1440.webp") 1x, url("../assets/img/heroSection/gates-automatic_1440.jpg") 1x);
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/gates-automatic_1440.webp") 1x, url("../assets/img/heroSection/gates-automatic_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/gates-automatic_1440.webp") 1x, url("/assets/img/heroSection/gates-automatic_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/gates-automatic_1440.webp") 1x, url("/assets/img/heroSection/gates-automatic_1440.jpg") 1x);
 }
 .section--hero[aria-labelledby=rollers]{
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/security_shutters_roll-up_1440.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up_1440.jpg") 1x);
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/security_shutters_roll-up_1440.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/security_shutters_roll-up_1440.webp") 1x, url("/assets/img/heroSection/security_shutters_roll-up_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/security_shutters_roll-up_1440.webp") 1x, url("/assets/img/heroSection/security_shutters_roll-up_1440.jpg") 1x);
 }
 .section--hero[aria-labelledby=automation]{
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/garage_gate_automation_1440.webp") 1x, url("../assets/img/heroSection/garage_gate_automation_1440.jpg") 1x);
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/garage_gate_automation_1440.webp") 1x, url("../assets/img/heroSection/garage_gate_automation_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/garage_gate_automation_1440.webp") 1x, url("/assets/img/heroSection/garage_gate_automation_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/garage_gate_automation_1440.webp") 1x, url("/assets/img/heroSection/garage_gate_automation_1440.jpg") 1x);
 }
 .section--hero[aria-labelledby=barriers]{
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/barrier_automatic_1440.webp") 1x, url("../assets/img/heroSection/barrier_automatic_1440.jpg") 1x);
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/barrier_automatic_1440.webp") 1x, url("../assets/img/heroSection/barrier_automatic_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/barrier_automatic_1440.webp") 1x, url("/assets/img/heroSection/barrier_automatic_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/barrier_automatic_1440.webp") 1x, url("/assets/img/heroSection/barrier_automatic_1440.jpg") 1x);
 }
 .section--hero[aria-labelledby=awnings]{
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/awnings_automatic_1440.webp") 1x, url("../assets/img/heroSection/awnings_automatic_1440.jpg") 1x);
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/awnings_automatic_1440.webp") 1x, url("../assets/img/heroSection/awnings_automatic_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/awnings_automatic_1440.webp") 1x, url("/assets/img/heroSection/awnings_automatic_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/awnings_automatic_1440.webp") 1x, url("/assets/img/heroSection/awnings_automatic_1440.jpg") 1x);
 }
 .section--hero[aria-labelledby=windows]{
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/window_settings_1440.webp") 1x, url("../assets/img/heroSection/window_settings_1440.jpg") 1x);
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/window_settings_1440.webp") 1x, url("../assets/img/heroSection/window_settings_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/window_settings_1440.webp") 1x, url("/assets/img/heroSection/window_settings_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/window_settings_1440.webp") 1x, url("/assets/img/heroSection/window_settings_1440.jpg") 1x);
 }
 .section--hero[aria-labelledby=security]{
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/surveillance_1440.webp") 1x, url("../assets/img/heroSection/surveillance_1440.jpg") 1x);
-  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/surveillance_1440.webp") 1x, url("../assets/img/heroSection/surveillance_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/surveillance_1440.webp") 1x, url("/assets/img/heroSection/surveillance_1440.jpg") 1x);
+  background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/surveillance_1440.webp") 1x, url("/assets/img/heroSection/surveillance_1440.jpg") 1x);
 }
 
 .section__content-layer--hero{
@@ -1178,17 +1178,17 @@ img,object,picture,svg,video{
 }
 @media (min-width:1025px){
   .section--footer{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), -webkit-image-set(url("../assets/img/footerSection/professional_1440.webp") 1x, url("../assets/img/footerSection/professional_1440.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), image-set(url("../assets/img/footerSection/professional_1440.webp") 1x, url("../assets/img/footerSection/professional_1440.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), -webkit-image-set(url("/assets/img/footerSection/professional_1440.webp") 1x, url("/assets/img/footerSection/professional_1440.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), image-set(url("/assets/img/footerSection/professional_1440.webp") 1x, url("/assets/img/footerSection/professional_1440.jpg") 1x);
   }}
 @media (min-width:1281px){
   .section--services{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/servicesSection/window_roller_shutters_1440.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_1440.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/servicesSection/window_roller_shutters_1440.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_1440.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("/assets/img/servicesSection/window_roller_shutters_1440.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_1440.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/servicesSection/window_roller_shutters_1440.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_1440.jpg") 1x);
   }
   .section--roller-automation{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.jpg") 1x);
   }}
 @media (max-width:1280px){
   .section{
@@ -1212,12 +1212,12 @@ img,object,picture,svg,video{
     width:31.25vw;
   }
   .section--services{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/servicesSection/window_roller_shutters_1280.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_1280.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/servicesSection/window_roller_shutters_1280.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_1280.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("/assets/img/servicesSection/window_roller_shutters_1280.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_1280.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/servicesSection/window_roller_shutters_1280.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_1280.jpg") 1x);
   }
   .section--roller-automation{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.jpg") 1x);
   }}
 @media (max-width:1024px){
   .modal{
@@ -1230,44 +1230,44 @@ img,object,picture,svg,video{
     font-size:.8em;
   }
   .section--footer{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), -webkit-image-set(url("../assets/img/footerSection/professional_1024.webp") 1x, url("../assets/img/footerSection/professional_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), image-set(url("../assets/img/footerSection/professional_1024.webp") 1x, url("../assets/img/footerSection/professional_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), -webkit-image-set(url("/assets/img/footerSection/professional_1024.webp") 1x, url("/assets/img/footerSection/professional_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), image-set(url("/assets/img/footerSection/professional_1024.webp") 1x, url("/assets/img/footerSection/professional_1024.jpg") 1x);
   }
   .button-request{
     font-size:1.185rem;
     width:270px;
   }
   .section--hero[aria-labelledby=index]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/hero_professional_1024.webp") 1x, url("../assets/img/heroSection/hero_professional_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/hero_professional_1024.webp") 1x, url("../assets/img/heroSection/hero_professional_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/hero_professional_1024.webp") 1x, url("/assets/img/heroSection/hero_professional_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/hero_professional_1024.webp") 1x, url("/assets/img/heroSection/hero_professional_1024.jpg") 1x);
   }
   .section--hero[aria-labelledby=gates]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/gates-automatic_1024.webp") 1x, url("../assets/img/heroSection/gates-automatic_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/gates-automatic_1024.webp") 1x, url("../assets/img/heroSection/gates-automatic_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/gates-automatic_1024.webp") 1x, url("/assets/img/heroSection/gates-automatic_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/gates-automatic_1024.webp") 1x, url("/assets/img/heroSection/gates-automatic_1024.jpg") 1x);
   }
   .section--hero[aria-labelledby=rollers]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/security_shutters_roll-up_1024.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/security_shutters_roll-up_1024.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/security_shutters_roll-up_1024.webp") 1x, url("/assets/img/heroSection/security_shutters_roll-up_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/security_shutters_roll-up_1024.webp") 1x, url("/assets/img/heroSection/security_shutters_roll-up_1024.jpg") 1x);
   }
   .section--hero[aria-labelledby=automation]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/garage_gate_automation_1024.webp") 1x, url("../assets/img/heroSection/garage_gate_automation_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/garage_gate_automation_1024.webp") 1x, url("../assets/img/heroSection/garage_gate_automation_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/garage_gate_automation_1024.webp") 1x, url("/assets/img/heroSection/garage_gate_automation_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/garage_gate_automation_1024.webp") 1x, url("/assets/img/heroSection/garage_gate_automation_1024.jpg") 1x);
   }
   .section--hero[aria-labelledby=barriers]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/barrier_automatic_1024.webp") 1x, url("../assets/img/heroSection/barrier_automatic_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/barrier_automatic_1024.webp") 1x, url("../assets/img/heroSection/barrier_automatic_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/barrier_automatic_1024.webp") 1x, url("/assets/img/heroSection/barrier_automatic_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/barrier_automatic_1024.webp") 1x, url("/assets/img/heroSection/barrier_automatic_1024.jpg") 1x);
   }
   .section--hero[aria-labelledby=awnings]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/awnings_automatic_1024.webp") 1x, url("../assets/img/heroSection/awnings_automatic_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/awnings_automatic_1024.webp") 1x, url("../assets/img/heroSection/awnings_automatic_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/awnings_automatic_1024.webp") 1x, url("/assets/img/heroSection/awnings_automatic_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/awnings_automatic_1024.webp") 1x, url("/assets/img/heroSection/awnings_automatic_1024.jpg") 1x);
   }
   .section--hero[aria-labelledby=windows]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/window_settings_1024.webp") 1x, url("../assets/img/heroSection/window_settings_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/window_settings_1024.webp") 1x, url("../assets/img/heroSection/window_settings_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/window_settings_1024.webp") 1x, url("/assets/img/heroSection/window_settings_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/window_settings_1024.webp") 1x, url("/assets/img/heroSection/window_settings_1024.jpg") 1x);
   }
   .section--hero[aria-labelledby=security]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("../assets/img/heroSection/surveillance_1024.webp") 1x, url("../assets/img/heroSection/surveillance_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("../assets/img/heroSection/surveillance_1024.webp") 1x, url("../assets/img/heroSection/surveillance_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), -webkit-image-set(url("/assets/img/heroSection/surveillance_1024.webp") 1x, url("/assets/img/heroSection/surveillance_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.8) 35%, rgba(40,32,23,0) 85%), image-set(url("/assets/img/heroSection/surveillance_1024.webp") 1x, url("/assets/img/heroSection/surveillance_1024.jpg") 1x);
   }
   .section__content-block--pair{
     justify-content:flex-end;
@@ -1301,8 +1301,8 @@ img,object,picture,svg,video{
     z-index:-1;
   }
   .section--services{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/servicesSection/window_roller_shutters_1024.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/servicesSection/window_roller_shutters_1024.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("/assets/img/servicesSection/window_roller_shutters_1024.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/servicesSection/window_roller_shutters_1024.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_1024.jpg") 1x);
   }
   .section__bidding-block--services{
     margin-top:0;
@@ -1311,8 +1311,8 @@ img,object,picture,svg,video{
     max-width:28em;
   }
   .section--roller-automation{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.jpg") 1x);
   }}
 @media (max-width:768px){
   .modal__bar.modal__bar--arrow{
@@ -1385,8 +1385,8 @@ img,object,picture,svg,video{
     padding-right:var(--range_32-23_max-640px);
   }
   .section--footer{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), -webkit-image-set(url("../assets/img/footerSection/professional_640.webp") 1x, url("../assets/img/footerSection/professional_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), image-set(url("../assets/img/footerSection/professional_640.webp") 1x, url("../assets/img/footerSection/professional_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), -webkit-image-set(url("/assets/img/footerSection/professional_640.webp") 1x, url("/assets/img/footerSection/professional_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), image-set(url("/assets/img/footerSection/professional_640.webp") 1x, url("/assets/img/footerSection/professional_640.jpg") 1x);
   }
   .section__content-block--footer{
     align-items:flex-start !important;
@@ -1416,36 +1416,36 @@ img,object,picture,svg,video{
     font-size:1.6em;
   }
   .section--hero[aria-labelledby=index]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.6), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/hero_professional_640.webp") 1x, url("../assets/img/heroSection/hero_professional_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.6), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/hero_professional_640.webp") 1x, url("../assets/img/heroSection/hero_professional_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.6), rgba(40,32,23,.5)), -webkit-image-set(url("/assets/img/heroSection/hero_professional_640.webp") 1x, url("/assets/img/heroSection/hero_professional_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.6), rgba(40,32,23,.5)), image-set(url("/assets/img/heroSection/hero_professional_640.webp") 1x, url("/assets/img/heroSection/hero_professional_640.jpg") 1x);
   }
   .section--hero[aria-labelledby=gates]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/gates-automatic_640.webp") 1x, url("../assets/img/heroSection/gates-automatic_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/gates-automatic_640.webp") 1x, url("../assets/img/heroSection/gates-automatic_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("/assets/img/heroSection/gates-automatic_640.webp") 1x, url("/assets/img/heroSection/gates-automatic_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("/assets/img/heroSection/gates-automatic_640.webp") 1x, url("/assets/img/heroSection/gates-automatic_640.jpg") 1x);
   }
   .section--hero[aria-labelledby=rollers]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/security_shutters_roll-up_640.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/security_shutters_roll-up_640.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("/assets/img/heroSection/security_shutters_roll-up_640.webp") 1x, url("/assets/img/heroSection/security_shutters_roll-up_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("/assets/img/heroSection/security_shutters_roll-up_640.webp") 1x, url("/assets/img/heroSection/security_shutters_roll-up_640.jpg") 1x);
   }
   .section--hero[aria-labelledby=automation]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/garage_gate_automation_640.webp") 1x, url("../assets/img/heroSection/garage_gate_automation_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/garage_gate_automation_640.webp") 1x, url("../assets/img/heroSection/garage_gate_automation_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("/assets/img/heroSection/garage_gate_automation_640.webp") 1x, url("/assets/img/heroSection/garage_gate_automation_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("/assets/img/heroSection/garage_gate_automation_640.webp") 1x, url("/assets/img/heroSection/garage_gate_automation_640.jpg") 1x);
   }
   .section--hero[aria-labelledby=barriers]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/barrier_automatic_640.webp") 1x, url("../assets/img/heroSection/barrier_automatic_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/barrier_automatic_640.webp") 1x, url("../assets/img/heroSection/barrier_automatic_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("/assets/img/heroSection/barrier_automatic_640.webp") 1x, url("/assets/img/heroSection/barrier_automatic_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("/assets/img/heroSection/barrier_automatic_640.webp") 1x, url("/assets/img/heroSection/barrier_automatic_640.jpg") 1x);
   }
   .section--hero[aria-labelledby=awnings]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/awnings_automatic_640.webp") 1x, url("../assets/img/heroSection/awnings_automatic_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/awnings_automatic_640.webp") 1x, url("../assets/img/heroSection/awnings_automatic_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("/assets/img/heroSection/awnings_automatic_640.webp") 1x, url("/assets/img/heroSection/awnings_automatic_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("/assets/img/heroSection/awnings_automatic_640.webp") 1x, url("/assets/img/heroSection/awnings_automatic_640.jpg") 1x);
   }
   .section--hero[aria-labelledby=windows]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/window_settings_640.webp") 1x, url("../assets/img/heroSection/window_settings_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/window_settings_640.webp") 1x, url("../assets/img/heroSection/window_settings_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("/assets/img/heroSection/window_settings_640.webp") 1x, url("/assets/img/heroSection/window_settings_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("/assets/img/heroSection/window_settings_640.webp") 1x, url("/assets/img/heroSection/window_settings_640.jpg") 1x);
   }
   .section--hero[aria-labelledby=security]{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("../assets/img/heroSection/surveillance_640.webp") 1x, url("../assets/img/heroSection/surveillance_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("../assets/img/heroSection/surveillance_640.webp") 1x, url("../assets/img/heroSection/surveillance_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), -webkit-image-set(url("/assets/img/heroSection/surveillance_640.webp") 1x, url("/assets/img/heroSection/surveillance_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.7), rgba(40,32,23,.5)), image-set(url("/assets/img/heroSection/surveillance_640.webp") 1x, url("/assets/img/heroSection/surveillance_640.jpg") 1x);
   }
   .section__heading-block--hero{
     text-align:center;
@@ -1476,8 +1476,8 @@ img,object,picture,svg,video{
     margin-top:1em;
   }
   .section--services{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/servicesSection/window_roller_shutters_640.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/servicesSection/window_roller_shutters_640.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("/assets/img/servicesSection/window_roller_shutters_640.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/servicesSection/window_roller_shutters_640.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_640.jpg") 1x);
   }
   .section__bidding-block--services p{
     display:inline;
@@ -1492,8 +1492,8 @@ img,object,picture,svg,video{
     font-size:1.15em;
   }
   .section--roller-automation{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640.jpg") 1x);
   }}
 @media (max-width:480px){
   .scrolledNav__contacts-block{
@@ -1503,8 +1503,8 @@ img,object,picture,svg,video{
     margin-bottom:.25em;
   }
   .section--services{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/servicesSection/window_roller_shutters_480.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_480.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/servicesSection/window_roller_shutters_480.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_480.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("/assets/img/servicesSection/window_roller_shutters_480.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_480.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/servicesSection/window_roller_shutters_480.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_480.jpg") 1x);
   }
   .hexagon-comb-block{
     padding-bottom:calc(var(--p)*2.8);
@@ -1537,8 +1537,8 @@ img,object,picture,svg,video{
     --_y:229.5%;
   }
   .section--roller-automation{
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x);
-    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), -webkit-image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x);
+    background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x);
   }}
 @media (max-width:375px){
   .header__nav.abs .header__nav-list-wrapper{

@@ -58,8 +58,6 @@ import { handleError } from "./utilFuncs.js";
 const { src, dest } = gulp;
 const sass = gulpSass(dartSass);
 
-//regex to the sources in *.html to add nesting to the paths at the task: pipeHtml
-const sourcePathRegex = /(src|srcset|href)=["']((?!https?:\/\/|\/)[^"']+)["']/g;
 const imgRegex = /<img(?:.|\n|\r)*?>/g;
 
 /**
@@ -100,8 +98,7 @@ const tasks = {
   [modes.dev]: {
     pipeHtml() {
       return Promise.all(languages.map(lang => {
-        const tempHtmlPath = path.join(pathData.tempPath, "html", lang);
-        const nesting = path.relative(tempHtmlPath, pathData.tempPath);
+        const tempHtmlPath = path.join(pathData.tempPath, lang);
 
         return src(pathData.src.html)
           .pipe(plumber({
@@ -109,22 +106,12 @@ const tasks = {
           }))
           .pipe(fileInclude(setFileIncludeSettings(lang)))
           .pipe(changed(tempHtmlPath, { hasChanged: compareContents }))
-          .pipe(debug({ title: "*.html watched to be changed and piped:" }))
+          .pipe(debug({ title: "*.html has been changed or new:" }))
           .pipe(dest(tempHtmlPath))
           .pipe(
             //removes extra spaces and line breaks inside a tag <img>
             replace(imgRegex, function (match) {
               return match.replace(/\r?\n|\r/g, "").replace(/\s{2,}/g, " ");
-            })
-          )
-          .pipe(
-            //adding nesting to the relative paths to the images, styles and scripts in *.html
-            replace(sourcePathRegex, function(match, attr, url) {
-              if (url.includes(":") || (!url.includes("/") && url.endsWith(".html"))) {
-                return match;
-              }
-              const nestedPath = path.join(nesting, url).replace(/\\/g, "/");
-              return `${attr}="${nestedPath}"`;
             })
           )
           .pipe(new CustomGulpWebpHtml(pathData.distPath, "2x"))
@@ -137,13 +124,7 @@ const tasks = {
         .pipe(plumber({
           errorHandler: handleError("Error at pipeStyles...")
         }))
-        /*                .pipe(size(useGulpSizeConfig({
-                            title: "Before sass: "
-                        })))*/
         .pipe(sass.sync({}, () => {}).on('error', sass.logError))
-        /*                .pipe(size(useGulpSizeConfig({
-                            title: "After sass: "
-                        })))*/
         .pipe(changed(`${pathData.tempPath}/css/`, { hasChanged: compareContents }))
         .pipe(debug({ title: "*.scss is piped:" }))
         .pipe(dest(`${pathData.tempPath}/css/`))
@@ -174,12 +155,6 @@ const tasks = {
         .pipe(debug({ title: "image is piped:" }))
         .pipe(dest(pathData.build.img)) //storing initial images before conversion
         .pipe(new CustomImgConverter(["jpg", "jpeg", "png"], "webp", {
-          //resize: { width: 400 },   //optional size of the picture at conversion
-          /*
-                              params: {   //it is optional if toOptimize = true; it is redundant if toOptimize = false
-                                  quality: 75,
-                                },
-                              */
           toOptimize: false,   //by default: false
           toSkipOthers: false, //streaming other formats without touch; by default: false
         }))
@@ -223,9 +198,6 @@ const tasks = {
   [modes.build]: {
     pipeHtml() {
       return Promise.all(languages.map(lang => {
-        const tempHtmlPath = path.join(pathData.tempPath, "html", lang);
-        const nesting = path.relative(tempHtmlPath, pathData.tempPath);
-
         return src(pathData.src.html)
           .pipe(plumber({
             errorHandler: handleError("Error at pipeHtml...")
@@ -235,16 +207,6 @@ const tasks = {
             //removes extra spaces and line breaks inside a tag <img>
             replace(imgRegex, function (match) {
               return match.replace(/\r?\n|\r/g, "").replace(/\s{2,}/g, " ");
-            })
-          )
-          .pipe(
-            //adding nesting to the relative paths to the images, styles and scripts in *.html
-            replace(sourcePathRegex, function(match, attr, url) {
-              if (url.includes(":") || (!url.includes("/") && url.endsWith(".html"))) {
-                return match;
-              }
-              const nestedPath = path.join(nesting, url).replace(/\\/g, "/");
-              return `${attr}="${nestedPath}"`;
             })
           )
           .pipe(new CustomGulpWebpHtml(pathData.distPath, "2x"))

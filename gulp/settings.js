@@ -19,14 +19,14 @@ export const modes = {
 }
 const robotsParams = "noindex";
 const linkStyles = {
-    index: ["./css/index.min.css"],
-    gates: ["./css/index.min.css"],
-    rollers: ["./css/index.min.css"],
-    automation: ["./css/index.min.css"],
-    barriers: ["./css/index.min.css"],
-    awnings: ["./css/index.min.css"],
-    windows: ["./css/index.min.css"],
-    security: ["./css/index.min.css"],
+    index: ["/css/index.min.css"],
+    gates: ["/css/index.min.css"],
+    rollers: ["/css/index.min.css"],
+    automation: ["/css/index.min.css"],
+    barriers: ["/css/index.min.css"],
+    awnings: ["/css/index.min.css"],
+    windows: ["/css/index.min.css"],
+    security: ["/css/index.min.css"],
 }
 
 /**
@@ -37,49 +37,49 @@ const linkStyles = {
 const linkScripts = {
 /*    index: [
         {
-            link: "./js/index.bundle.js", //this property must exist in linkScripts
+            link: "/js/index.bundle.js", //this property must exist in linkScripts
             loadMode: "async"   //"differ" this property may not exist in linkScripts
         },
     ],*/
 /*    gates: [
         {
-            link: "./js/index.bundle.js", //this property must exist in linkScripts
+            link: "/js/index.bundle.js", //this property must exist in linkScripts
             loadMode: "async"   //"differ" this property may not exist in linkScripts
         },
     ],*/
 /*    rollers: [
         {
-            link: "./js/index.bundle.js", //this property must exist in linkScripts
+            link: "/js/index.bundle.js", //this property must exist in linkScripts
             loadMode: "async"   //"differ" this property may not exist in linkScripts
         },
     ],*/
 /*    automation: [
         {
-            link: "./js/index.bundle.js", //this property must exist in linkScripts
+            link: "/js/index.bundle.js", //this property must exist in linkScripts
             loadMode: "async"   //"differ" this property may not exist in linkScripts
         },
     ],*/
 /*    barriers: [
         {
-            link: "./js/index.bundle.js", //this property must exist in linkScripts
+            link: "/js/index.bundle.js", //this property must exist in linkScripts
             loadMode: "async"   //"differ" this property may not exist in linkScripts
         },
     ],*/
 /*    awnings: [
         {
-            link: "./js/index.bundle.js", //this property must exist in linkScripts
+            link: "/js/index.bundle.js", //this property must exist in linkScripts
             loadMode: "async"   //"differ" this property may not exist in linkScripts
         },
     ],*/
 /*    windows: [
         {
-            link: "./js/index.bundle.js", //this property must exist in linkScripts
+            link: "/js/index.bundle.js", //this property must exist in linkScripts
             loadMode: "async"   //"differ" this property may not exist in linkScripts
         },
     ],*/
 /*    security: [
         {
-            link: "./js/index.bundle.js", //this property must exist in linkScripts
+            link: "/js/index.bundle.js", //this property must exist in linkScripts
             loadMode: "async"   //"differ" this property may not exist in linkScripts
         },
     ],*/

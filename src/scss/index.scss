@@ -352,8 +352,8 @@
     background-image:
       linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
       image-set(
-          url("../assets/img/heroSection/hero_professional_1440.webp") 1x,
-          url("../assets/img/heroSection/hero_professional_1440.jpg") 1x
+          url("/assets/img/heroSection/hero_professional_1440.webp") 1x,
+          url("/assets/img/heroSection/hero_professional_1440.jpg") 1x
       );
 
     /* tablet (portrait): (max-width: 1024px) */
@@ -361,8 +361,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
         image-set(
-            url("../assets/img/heroSection/hero_professional_1024.webp") 1x,
-            url("../assets/img/heroSection/hero_professional_1024.jpg") 1x
+            url("/assets/img/heroSection/hero_professional_1024.webp") 1x,
+            url("/assets/img/heroSection/hero_professional_1024.jpg") 1x
         );
 
       //retina can be included
@@ -370,8 +370,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
               image-set(
-                url("../assets/img/heroSection/hero_professional_1024@2x.webp") 2x,
-                url("../assets/img/heroSection/hero_professional_1024@2x.jpg") 2x
+                url("/assets/img/heroSection/hero_professional_1024@2x.webp") 2x,
+                url("/assets/img/heroSection/hero_professional_1024@2x.jpg") 2x
             );
           }*/
     }
@@ -381,8 +381,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .6), rgba(40, 32, 23, .5)),
         image-set(
-            url("../assets/img/heroSection/hero_professional_640.webp") 1x,
-            url("../assets/img/heroSection/hero_professional_640.jpg") 1x
+            url("/assets/img/heroSection/hero_professional_640.webp") 1x,
+            url("/assets/img/heroSection/hero_professional_640.jpg") 1x
         );
 
       //retina can be included
@@ -390,8 +390,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
               image-set(
-                url("../assets/img/heroSection/hero_professional_640@2x.webp") 2x,
-                url("../assets/img/heroSection/hero_professional_640@2x.jpg") 2x
+                url("/assets/img/heroSection/hero_professional_640@2x.webp") 2x,
+                url("/assets/img/heroSection/hero_professional_640@2x.jpg") 2x
             );
           }*/
     }
@@ -401,8 +401,8 @@
     background-image:
       linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
       image-set(
-          url("../assets/img/heroSection/gates-automatic_1440.webp") 1x,
-          url("../assets/img/heroSection/gates-automatic_1440.jpg") 1x
+          url("/assets/img/heroSection/gates-automatic_1440.webp") 1x,
+          url("/assets/img/heroSection/gates-automatic_1440.jpg") 1x
       );
 
     /* tablet (portrait): (max-width: 1024px) */
@@ -410,8 +410,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
         image-set(
-            url("../assets/img/heroSection/gates-automatic_1024.webp") 1x,
-            url("../assets/img/heroSection/gates-automatic_1024.jpg") 1x
+            url("/assets/img/heroSection/gates-automatic_1024.webp") 1x,
+            url("/assets/img/heroSection/gates-automatic_1024.jpg") 1x
         );
 
       //retina can be included
@@ -419,8 +419,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
               image-set(
-                url("../assets/img/heroSection/gates-automatic_1024@2x.webp") 2x,
-                url("../assets/img/heroSection/gates-automatic_1024@2x.jpg") 2x
+                url("/assets/img/heroSection/gates-automatic_1024@2x.webp") 2x,
+                url("/assets/img/heroSection/gates-automatic_1024@2x.jpg") 2x
             );
           }*/
     }
@@ -430,8 +430,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .5)),
         image-set(
-            url("../assets/img/heroSection/gates-automatic_640.webp") 1x,
-            url("../assets/img/heroSection/gates-automatic_640.jpg") 1x
+            url("/assets/img/heroSection/gates-automatic_640.webp") 1x,
+            url("/assets/img/heroSection/gates-automatic_640.jpg") 1x
         );
 
       //retina can be included
@@ -439,8 +439,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
               image-set(
-                url("../assets/img/heroSection/gates-automatic_640@2x.webp") 2x,
-                url("../assets/img/heroSection/gates-automatic_640@2x.jpg") 2x
+                url("/assets/img/heroSection/gates-automatic_640@2x.webp") 2x,
+                url("/assets/img/heroSection/gates-automatic_640@2x.jpg") 2x
             );
           }*/
     }
@@ -450,8 +450,8 @@
     background-image:
       linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
       image-set(
-          url("../assets/img/heroSection/security_shutters_roll-up_1440.webp") 1x,
-          url("../assets/img/heroSection/security_shutters_roll-up_1440.jpg") 1x
+          url("/assets/img/heroSection/security_shutters_roll-up_1440.webp") 1x,
+          url("/assets/img/heroSection/security_shutters_roll-up_1440.jpg") 1x
       );
 
     /* tablet (portrait): (max-width: 1024px) */
@@ -459,8 +459,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
         image-set(
-            url("../assets/img/heroSection/security_shutters_roll-up_1024.webp") 1x,
-            url("../assets/img/heroSection/security_shutters_roll-up_1024.jpg") 1x
+            url("/assets/img/heroSection/security_shutters_roll-up_1024.webp") 1x,
+            url("/assets/img/heroSection/security_shutters_roll-up_1024.jpg") 1x
         );
 
       //retina can be included
@@ -468,8 +468,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
               image-set(
-                url("../assets/img/heroSection/security_shutters_roll-up_1024@2x.webp") 2x,
-                url("../assets/img/heroSection/security_shutters_roll-up_1024@2x.jpg") 2x
+                url("/assets/img/heroSection/security_shutters_roll-up_1024@2x.webp") 2x,
+                url("/assets/img/heroSection/security_shutters_roll-up_1024@2x.jpg") 2x
             );
           }*/
     }
@@ -479,8 +479,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .5)),
         image-set(
-            url("../assets/img/heroSection/security_shutters_roll-up_640.webp") 1x,
-            url("../assets/img/heroSection/security_shutters_roll-up_640.jpg") 1x
+            url("/assets/img/heroSection/security_shutters_roll-up_640.webp") 1x,
+            url("/assets/img/heroSection/security_shutters_roll-up_640.jpg") 1x
         );
 
       //retina can be included
@@ -488,8 +488,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
               image-set(
-                url("../assets/img/heroSection/security_shutters_roll-up_640@2x.webp") 2x,
-                url("../assets/img/heroSection/security_shutters_roll-up_640@2x.jpg") 2x
+                url("/assets/img/heroSection/security_shutters_roll-up_640@2x.webp") 2x,
+                url("/assets/img/heroSection/security_shutters_roll-up_640@2x.jpg") 2x
             );
           }*/
     }
@@ -499,8 +499,8 @@
     background-image:
       linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
       image-set(
-          url("../assets/img/heroSection/garage_gate_automation_1440.webp") 1x,
-          url("../assets/img/heroSection/garage_gate_automation_1440.jpg") 1x
+          url("/assets/img/heroSection/garage_gate_automation_1440.webp") 1x,
+          url("/assets/img/heroSection/garage_gate_automation_1440.jpg") 1x
       );
 
     //retina can be included
@@ -508,8 +508,8 @@
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/garage_gate_automation_1440@2x.webp") 2x,
-              url("../assets/img/heroSection/garage_gate_automation_1440@2x.jpg") 2x
+              url("/assets/img/heroSection/garage_gate_automation_1440@2x.webp") 2x,
+              url("/assets/img/heroSection/garage_gate_automation_1440@2x.jpg") 2x
           );
         }*/
 
@@ -518,8 +518,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
         image-set(
-            url("../assets/img/heroSection/garage_gate_automation_1024.webp") 1x,
-            url("../assets/img/heroSection/garage_gate_automation_1024.jpg") 1x
+            url("/assets/img/heroSection/garage_gate_automation_1024.webp") 1x,
+            url("/assets/img/heroSection/garage_gate_automation_1024.jpg") 1x
         );
 
       //retina can be included
@@ -527,8 +527,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
               image-set(
-                url("../assets/img/heroSection/garage_gate_automation_1024@2x.webp") 2x,
-                url("../assets/img/heroSection/garage_gate_automation_1024@2x.jpg") 2x
+                url("/assets/img/heroSection/garage_gate_automation_1024@2x.webp") 2x,
+                url("/assets/img/heroSection/garage_gate_automation_1024@2x.jpg") 2x
             );
           }*/
     }
@@ -538,8 +538,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .5)),
         image-set(
-            url("../assets/img/heroSection/garage_gate_automation_640.webp") 1x,
-            url("../assets/img/heroSection/garage_gate_automation_640.jpg") 1x
+            url("/assets/img/heroSection/garage_gate_automation_640.webp") 1x,
+            url("/assets/img/heroSection/garage_gate_automation_640.jpg") 1x
         );
 
       //retina can be included
@@ -547,8 +547,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
               image-set(
-                url("../assets/img/heroSection/garage_gate_automation_640@2x.webp") 2x,
-                url("../assets/img/heroSection/garage_gate_automation_640@2x.jpg") 2x
+                url("/assets/img/heroSection/garage_gate_automation_640@2x.webp") 2x,
+                url("/assets/img/heroSection/garage_gate_automation_640@2x.jpg") 2x
             );
           }*/
     }
@@ -558,8 +558,8 @@
     background-image:
       linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
       image-set(
-          url("../assets/img/heroSection/barrier_automatic_1440.webp") 1x,
-          url("../assets/img/heroSection/barrier_automatic_1440.jpg") 1x
+          url("/assets/img/heroSection/barrier_automatic_1440.webp") 1x,
+          url("/assets/img/heroSection/barrier_automatic_1440.jpg") 1x
       );
 
     //retina can be included
@@ -567,8 +567,8 @@
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/barrier_automatic_1440@2x.webp") 2x,
-              url("../assets/img/heroSection/barrier_automatic_1440@2x.jpg") 2x
+              url("/assets/img/heroSection/barrier_automatic_1440@2x.webp") 2x,
+              url("/assets/img/heroSection/barrier_automatic_1440@2x.jpg") 2x
           );
         }*/
 
@@ -577,8 +577,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
         image-set(
-            url("../assets/img/heroSection/barrier_automatic_1024.webp") 1x,
-            url("../assets/img/heroSection/barrier_automatic_1024.jpg") 1x
+            url("/assets/img/heroSection/barrier_automatic_1024.webp") 1x,
+            url("/assets/img/heroSection/barrier_automatic_1024.jpg") 1x
         );
 
       //retina can be included
@@ -586,8 +586,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
               image-set(
-                url("../assets/img/heroSection/barrier_automatic_1024@2x.webp") 2x,
-                url("../assets/img/heroSection/barrier_automatic_1024@2x.jpg") 2x
+                url("/assets/img/heroSection/barrier_automatic_1024@2x.webp") 2x,
+                url("/assets/img/heroSection/barrier_automatic_1024@2x.jpg") 2x
             );
           }*/
     }
@@ -597,8 +597,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .5)),
         image-set(
-            url("../assets/img/heroSection/barrier_automatic_640.webp") 1x,
-            url("../assets/img/heroSection/barrier_automatic_640.jpg") 1x
+            url("/assets/img/heroSection/barrier_automatic_640.webp") 1x,
+            url("/assets/img/heroSection/barrier_automatic_640.jpg") 1x
         );
 
       //retina can be included
@@ -606,8 +606,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
               image-set(
-                url("../assets/img/heroSection/barrier_automatic_640@2x.webp") 2x,
-                url("../assets/img/heroSection/barrier_automatic_640@2x.jpg") 2x
+                url("/assets/img/heroSection/barrier_automatic_640@2x.webp") 2x,
+                url("/assets/img/heroSection/barrier_automatic_640@2x.jpg") 2x
             );
           }*/
     }
@@ -617,8 +617,8 @@
     background-image:
       linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
       image-set(
-          url("../assets/img/heroSection/awnings_automatic_1440.webp") 1x,
-          url("../assets/img/heroSection/awnings_automatic_1440.jpg") 1x
+          url("/assets/img/heroSection/awnings_automatic_1440.webp") 1x,
+          url("/assets/img/heroSection/awnings_automatic_1440.jpg") 1x
       );
 
     //retina can be included
@@ -626,8 +626,8 @@
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/awnings_automatic_1440@2x.webp") 2x,
-              url("../assets/img/heroSection/awnings_automatic_1440@2x.jpg") 2x
+              url("/assets/img/heroSection/awnings_automatic_1440@2x.webp") 2x,
+              url("/assets/img/heroSection/awnings_automatic_1440@2x.jpg") 2x
           );
         }*/
 
@@ -636,8 +636,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
         image-set(
-            url("../assets/img/heroSection/awnings_automatic_1024.webp") 1x,
-            url("../assets/img/heroSection/awnings_automatic_1024.jpg") 1x
+            url("/assets/img/heroSection/awnings_automatic_1024.webp") 1x,
+            url("/assets/img/heroSection/awnings_automatic_1024.jpg") 1x
         );
 
       //retina can be included
@@ -645,8 +645,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
               image-set(
-                url("../assets/img/heroSection/awnings_automatic_1024@2x.webp") 2x,
-                url("../assets/img/heroSection/awnings_automatic_1024@2x.jpg") 2x
+                url("/assets/img/heroSection/awnings_automatic_1024@2x.webp") 2x,
+                url("/assets/img/heroSection/awnings_automatic_1024@2x.jpg") 2x
             );
           }*/
     }
@@ -656,8 +656,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .5)),
         image-set(
-            url("../assets/img/heroSection/awnings_automatic_640.webp") 1x,
-            url("../assets/img/heroSection/awnings_automatic_640.jpg") 1x
+            url("/assets/img/heroSection/awnings_automatic_640.webp") 1x,
+            url("/assets/img/heroSection/awnings_automatic_640.jpg") 1x
         );
 
       //retina can be included
@@ -665,8 +665,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
               image-set(
-                url("../assets/img/heroSection/awnings_automatic_640@2x.webp") 2x,
-                url("../assets/img/heroSection/awnings_automatic_640@2x.jpg") 2x
+                url("/assets/img/heroSection/awnings_automatic_640@2x.webp") 2x,
+                url("/assets/img/heroSection/awnings_automatic_640@2x.jpg") 2x
             );
           }*/
     }
@@ -676,8 +676,8 @@
     background-image:
       linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
       image-set(
-          url("../assets/img/heroSection/window_settings_1440.webp") 1x,
-          url("../assets/img/heroSection/window_settings_1440.jpg") 1x
+          url("/assets/img/heroSection/window_settings_1440.webp") 1x,
+          url("/assets/img/heroSection/window_settings_1440.jpg") 1x
       );
 
     //retina can be included
@@ -685,8 +685,8 @@
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/window_settings_1440@2x.webp") 2x,
-              url("../assets/img/heroSection/window_settings_1440@2x.jpg") 2x
+              url("/assets/img/heroSection/window_settings_1440@2x.webp") 2x,
+              url("/assets/img/heroSection/window_settings_1440@2x.jpg") 2x
           );
         }*/
 
@@ -695,8 +695,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
         image-set(
-            url("../assets/img/heroSection/window_settings_1024.webp") 1x,
-            url("../assets/img/heroSection/window_settings_1024.jpg") 1x
+            url("/assets/img/heroSection/window_settings_1024.webp") 1x,
+            url("/assets/img/heroSection/window_settings_1024.jpg") 1x
         );
 
       //retina can be included
@@ -704,8 +704,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
               image-set(
-                url("../assets/img/heroSection/window_settings_1024@2x.webp") 2x,
-                url("../assets/img/heroSection/window_settings_1024@2x.jpg") 2x
+                url("/assets/img/heroSection/window_settings_1024@2x.webp") 2x,
+                url("/assets/img/heroSection/window_settings_1024@2x.jpg") 2x
             );
           }*/
     }
@@ -715,8 +715,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .5)),
         image-set(
-            url("../assets/img/heroSection/window_settings_640.webp") 1x,
-            url("../assets/img/heroSection/window_settings_640.jpg") 1x
+            url("/assets/img/heroSection/window_settings_640.webp") 1x,
+            url("/assets/img/heroSection/window_settings_640.jpg") 1x
         );
 
       //retina can be included
@@ -724,8 +724,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
               image-set(
-                url("../assets/img/heroSection/window_settings_640@2x.webp") 2x,
-                url("../assets/img/heroSection/window_settings_640@2x.jpg") 2x
+                url("/assets/img/heroSection/window_settings_640@2x.webp") 2x,
+                url("/assets/img/heroSection/window_settings_640@2x.jpg") 2x
             );
           }*/
     }
@@ -735,8 +735,8 @@
     background-image:
       linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
       image-set(
-          url("../assets/img/heroSection/surveillance_1440.webp") 1x,
-          url("../assets/img/heroSection/surveillance_1440.jpg") 1x
+          url("/assets/img/heroSection/surveillance_1440.webp") 1x,
+          url("/assets/img/heroSection/surveillance_1440.jpg") 1x
       );
 
     //retina can be included
@@ -744,8 +744,8 @@
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/surveillance_1440@2x.webp") 2x,
-              url("../assets/img/heroSection/surveillance_1440@2x.jpg") 2x
+              url("/assets/img/heroSection/surveillance_1440@2x.webp") 2x,
+              url("/assets/img/heroSection/surveillance_1440@2x.jpg") 2x
           );
         }*/
 
@@ -754,8 +754,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .8) 35%, rgba(40, 32, 23, 0) 85%),
         image-set(
-            url("../assets/img/heroSection/surveillance_1024.webp") 1x,
-            url("../assets/img/heroSection/surveillance_1024.jpg") 1x
+            url("/assets/img/heroSection/surveillance_1024.webp") 1x,
+            url("/assets/img/heroSection/surveillance_1024.jpg") 1x
         );
 
       //retina can be included
@@ -763,8 +763,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
               image-set(
-                url("../assets/img/heroSection/surveillance_1024@2x.webp") 2x,
-                url("../assets/img/heroSection/surveillance_1024@2x.jpg") 2x
+                url("/assets/img/heroSection/surveillance_1024@2x.webp") 2x,
+                url("/assets/img/heroSection/surveillance_1024@2x.jpg") 2x
             );
           }*/
     }
@@ -774,8 +774,8 @@
       background-image:
         linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .5)),
         image-set(
-            url("../assets/img/heroSection/surveillance_640.webp") 1x,
-            url("../assets/img/heroSection/surveillance_640.jpg") 1x
+            url("/assets/img/heroSection/surveillance_640.webp") 1x,
+            url("/assets/img/heroSection/surveillance_640.jpg") 1x
         );
 
       //retina can be included
@@ -783,8 +783,8 @@
             background-image:
               linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
               image-set(
-                url("../assets/img/heroSection/surveillance_640@2x.webp") 2x,
-                url("../assets/img/heroSection/surveillance_640@2x.jpg") 2x
+                url("/assets/img/heroSection/surveillance_640@2x.webp") 2x,
+                url("/assets/img/heroSection/surveillance_640@2x.jpg") 2x
             );
           }*/
     }
@@ -1024,8 +1024,8 @@
       //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
       image-set(
-          url("../assets/img/servicesSection/window_roller_shutters_1440.webp") 1x,
-          url("../assets/img/servicesSection/window_roller_shutters_1440.jpg") 1x
+          url("/assets/img/servicesSection/window_roller_shutters_1440.webp") 1x,
+          url("/assets/img/servicesSection/window_roller_shutters_1440.jpg") 1x
       );
 
     //retina can be included
@@ -1034,8 +1034,8 @@
             linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
             //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
             image-set(
-                url("../assets/img/servicesSection/window_roller_shutters_1440@2x.webp") 2x,
-                url("../assets/img/servicesSection/window_roller_shutters_1440@2x.jpg") 2x
+                url("/assets/img/servicesSection/window_roller_shutters_1440@2x.webp") 2x,
+                url("/assets/img/servicesSection/window_roller_shutters_1440@2x.jpg") 2x
             );
         }*/
   }
@@ -1046,8 +1046,8 @@
       //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
       image-set(
-          url("../assets/img/servicesSection/window_roller_shutters_1280.webp") 1x,
-          url("../assets/img/servicesSection/window_roller_shutters_1280.jpg") 1x
+          url("/assets/img/servicesSection/window_roller_shutters_1280.webp") 1x,
+          url("/assets/img/servicesSection/window_roller_shutters_1280.jpg") 1x
       );
 
     //retina can be included
@@ -1056,8 +1056,8 @@
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                  url("../assets/img/servicesSection/window_roller_shutters_1280@2x.webp") 2x,
-                  url("../assets/img/servicesSection/window_roller_shutters_1280@2x.jpg") 2x
+                  url("/assets/img/servicesSection/window_roller_shutters_1280@2x.webp") 2x,
+                  url("/assets/img/servicesSection/window_roller_shutters_1280@2x.jpg") 2x
               );
             }*/
   }
@@ -1068,8 +1068,8 @@
       //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
       image-set(
-          url("../assets/img/servicesSection/window_roller_shutters_1024.webp") 1x,
-          url("../assets/img/servicesSection/window_roller_shutters_1024.jpg") 1x
+          url("/assets/img/servicesSection/window_roller_shutters_1024.webp") 1x,
+          url("/assets/img/servicesSection/window_roller_shutters_1024.jpg") 1x
       );
 
     //retina can be included
@@ -1078,8 +1078,8 @@
             linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
             //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
             image-set(
-              url("../assets/img/servicesSection/window_roller_shutters_1024@2x.webp") 2x,
-              url("../assets/img/servicesSection/window_roller_shutters_1024@2x.jpg") 2x
+              url("/assets/img/servicesSection/window_roller_shutters_1024@2x.webp") 2x,
+              url("/assets/img/servicesSection/window_roller_shutters_1024@2x.jpg") 2x
           );
         }*/
   }
@@ -1090,8 +1090,8 @@
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
       //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       image-set(
-          url("../assets/img/servicesSection/window_roller_shutters_640.webp") 1x,
-          url("../assets/img/servicesSection/window_roller_shutters_640.jpg") 1x
+          url("/assets/img/servicesSection/window_roller_shutters_640.webp") 1x,
+          url("/assets/img/servicesSection/window_roller_shutters_640.jpg") 1x
       );
 
     //retina can be included
@@ -1100,8 +1100,8 @@
             linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
             //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
             image-set(
-              url("../assets/img/servicesSection/window_roller_shutters_640@2x.webp") 2x,
-              url("../assets/img/servicesSection/window_roller_shutters_640@2x.jpg") 2x
+              url("/assets/img/servicesSection/window_roller_shutters_640@2x.webp") 2x,
+              url("/assets/img/servicesSection/window_roller_shutters_640@2x.jpg") 2x
           );
         }*/
   }
@@ -1112,8 +1112,8 @@
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
         //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       image-set(
-          url("../assets/img/servicesSection/window_roller_shutters_480.webp") 1x,
-          url("../assets/img/servicesSection/window_roller_shutters_480.jpg") 1x
+          url("/assets/img/servicesSection/window_roller_shutters_480.webp") 1x,
+          url("/assets/img/servicesSection/window_roller_shutters_480.jpg") 1x
       );
 
     //retina can be included
@@ -1122,8 +1122,8 @@
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                  url("../assets/img/servicesSection/window_roller_shutters_480@2x.webp") 2x,
-                  url("../assets/img/servicesSection/window_roller_shutters_480@2x.jpg") 2x
+                  url("/assets/img/servicesSection/window_roller_shutters_480@2x.webp") 2x,
+                  url("/assets/img/servicesSection/window_roller_shutters_480@2x.jpg") 2x
               );
             }*/
   }
@@ -1241,16 +1241,6 @@
     --_s: 1.1;
     z-index: 1;
     cursor: default;
-
-/*    &:hover {
-      &:before {
-        top: 0;
-      }
-
-      .hexagon-comb-block__cell-title {
-        opacity: 1;
-      }
-    }*/
 
     &:before {
       //top: -100%;
@@ -1379,8 +1369,8 @@
       //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
       image-set(
-          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.webp") 1x,
-          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.jpg") 1x
+          url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.webp") 1x,
+          url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.jpg") 1x
       );
 
     //retina can be included
@@ -1389,8 +1379,8 @@
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440@2x.webp") 2x,
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440@2x.jpg") 2x
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440@2x.webp") 2x,
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440@2x.jpg") 2x
                 );
             }*/
   }
@@ -1401,8 +1391,8 @@
       //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
       image-set(
-          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.webp") 1x,
-          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.jpg") 1x
+          url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.webp") 1x,
+          url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.jpg") 1x
       );
 
     //retina can be included
@@ -1411,8 +1401,8 @@
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280@2x.webp") 2x,
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280@2x.jpg") 2x
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280@2x.webp") 2x,
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280@2x.jpg") 2x
                 );
             }*/
   }
@@ -1423,8 +1413,8 @@
       //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
       image-set(
-          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.webp") 1x,
-          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.jpg") 1x
+          url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.webp") 1x,
+          url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.jpg") 1x
       );
 
     //retina can be included
@@ -1433,8 +1423,8 @@
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024@2x.webp") 2x,
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024@2x.jpg") 2x
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024@2x.webp") 2x,
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024@2x.jpg") 2x
                 );
             }*/
   }
@@ -1445,8 +1435,8 @@
       //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
       image-set(
-          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640.webp") 1x,
-          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640.jpg") 1x
+          url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640.webp") 1x,
+          url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640.jpg") 1x
       );
 
     //retina can be included
@@ -1455,8 +1445,8 @@
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640@2x.webp") 2x,
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640@2x.jpg") 2x
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640@2x.webp") 2x,
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640@2x.jpg") 2x
                 );
             }*/
   }
@@ -1467,8 +1457,8 @@
       //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
       linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
       image-set(
-          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x,
-          url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x
+          url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x,
+          url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x
       );
 
     //retina can be included
@@ -1477,8 +1467,8 @@
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.webp") 2x,
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.jpg") 2x
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.webp") 2x,
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.jpg") 2x
                 );
             }*/
   }

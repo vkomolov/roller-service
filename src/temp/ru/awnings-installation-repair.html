@@ -1,13 +1,169 @@
 <!doctype html>
 
-@@if (data && data["awnings"] && data["awnings"].main) {
 
-<html lang="@@data.awnings.main.lang">
-@@include("templates/head.html", {"page": "awnings"})
+
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
+    <meta name="description" content="Срочный ремонт и установка маркиз и навесов в Киеве и Киевской области. Профессиональная работа и оперативный сервис. Заказывайте сейчас!">
+    <meta name="robots" content="noindex">
+
+    
+      <link rel="canonical" href="https://example.com/ru/awnings.html">
+    
+
+    
+      <link rel="alternate" href="https://example.com/ru/awnings.html" hreflang="ru">
+<link rel="alternate" href="https://example.com/ua/awnings.html" hreflang="ua">
+    
+
+    <title>Срочный ремонт и установка маркиз и навесов в Киеве и Киевской области</title>
+
+    
+    <link rel="stylesheet" href="/css/index.min.css" >
+    
+
+    
+  
+  <link rel="shortcut icon" sizes="24x24" href="/assets/img/24_7_24x24.ico" type="image/x-icon">
+  <link rel="shortcut icon" sizes="32x32" href="/assets/img/24_7_32x32.ico" type="image/x-icon">
+  <link rel="shortcut icon" sizes="48x48" href="/assets/img/24_7_48x48.ico" type="image/x-icon">
+</head>
 
 <body data-type="awnings">
 <div class="total-wrapper">
-  @@include("templates/header.html", {"page": "awnings"})
+  <div class="header-layer">
+    
+    <header class="header" role="banner">
+        <h2 class="header__logo-heading">Мастер-Сервис</h2>
+        <div class="header__contacts-wrapper" aria-label="Communication options">
+            <div class="header__contacts-block">
+                <a href="tel:380991019368"
+                   aria-label="Mobile connection with the master"
+                   class="icon-link"
+                   tabindex="0"
+                >
+                    <div class="icon-link__phone-icon">
+                        <svg viewBox="0 0 24 25">
+                            <title>phone icon</title>
+                            <use xlink:href="/assets/img/svgIcons/sprite.mono.svg#phone"></use>
+                        </svg>
+                    </div>
+                    <span class="icon-link__text icon-link__text--phone">+38 (099) 101 93 68</span>
+                </a>
+                <div class="social-icons-wrapper">
+                    <a href="viber://chat?number=+380991019368"
+                       aria-label="Contact the master via Viber"
+                       class="social-icons-wrapper__social-icon"
+                       tabindex="0"
+                    >
+                        <svg viewBox="0 0 48 48">
+                            <title>viber icon</title>
+                            <use xlink:href="/assets/img/svgIcons/sprite.multi.svg#viber"></use>
+                        </svg>
+                    </a>
+                    <a href="https://t.me/username"
+                       target="_blank"
+                       aria-label="Contact the master via Telegram"
+                       rel="noopener noreferrer nofollow"
+                       class="social-icons-wrapper__social-icon"
+                       tabindex="0"
+                    >
+                        <svg viewBox="0 0 240 240">
+                            <title>telegram icon</title>
+                            <use xlink:href="/assets/img/svgIcons/sprite.multi.svg#telegram"></use>
+                        </svg>
+                    </a>
+                    <div id="lang-switcher" role="combobox" aria-haspopup="listbox">
+                        <div class="lang-switcher__lang-icon active"
+                             role="button"
+                             aria-expanded="false"
+                             aria-controls="lang-list"
+                             data-lang="ru">
+                            <span>ru</span>
+                        </div>
+                        <div class="lang-switcher__lang-dropdown">
+                            <ul id="lang-list" role="listbox"></ul>
+                        </div>
+                    </div>
+                    <button
+                        class="burger_nav hidden"
+                        aria-label="Navigation to services"
+                        aria-expanded="false"
+                        tabindex="0">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav class="header__nav" aria-label="Navigation to services">
+            <ul class="header__nav-list">
+                <li><a href="./index.html"
+                       class="nav-link"
+                       aria-label="Go to main page"
+                       tabindex="0"
+                       data-type="index">
+                    О нас
+                </a></li>
+                <li><a href="./gates-installation-repair.html"
+                       class="nav-link"
+                       aria-label="Go to 'Gates' services"
+                       tabindex="0"
+                       data-type="gates">
+                    Ворота
+                </a></li>
+                <li><a href="./rollers-installation-repair.html"
+                       class="nav-link"
+                       aria-label="Go to 'Rollers' services"
+                       tabindex="0"
+                       data-type="rollers">
+                    Роллеты
+                </a></li>
+                <li><a href="./gates-rollers-automation.html"
+                       class="nav-link"
+                       aria-label="Go to 'Automation' services"
+                       tabindex="0"
+                       data-type="automation">
+                    Автоматизация
+                </a></li>
+                <li><a href="./barriers-installation-repair.html"
+                       class="nav-link"
+                       aria-label="Go to 'Barriers' services"
+                       tabindex="0"
+                       data-type="barriers">
+                    Шлагбаумы
+                </a></li>
+                <li><a href="./awnings-installation-repair.html"
+                       class="nav-link"
+                       aria-label="Go to 'Awnings' services"
+                       tabindex="0"
+                       data-type="awnings">
+                    Маркизы
+                </a></li>
+                <li><a href="./window-settings-repair.html"
+                       class="nav-link"
+                       aria-label="Go to 'Windows and Doors' services"
+                       tabindex="0"
+                       data-type="windows">
+                    Окна и Двери
+                </a></li>
+                <li><a href="./security-installation-maintenance.html"
+                       class="nav-link"
+                       aria-label="Go to 'Video Surveillance' services"
+                       tabindex="0"
+                       data-type="security">
+                    Видеокамеры
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+    
+</div>
+
 
   <div id="scrolledNav">
     <div class="scrolledNav__contacts-block">
@@ -63,56 +219,56 @@
                aria-label="Go to main page"
                tabindex="0"
                data-type="index">
-          @@data.awnings.main.nav-link_main
+          О нас
         </a></li>
         <li><a href="./gates-installation-repair.html"
                class="nav-link"
                aria-label="Go to 'Gates' services"
                tabindex="0"
                data-type="gates">
-          @@data.awnings.main.nav-link_gates
+          Ворота
         </a></li>
         <li><a href="./rollers-installation-repair.html"
                class="nav-link"
                aria-label="Go to 'Rollers' services"
                tabindex="0"
                data-type="rollers">
-          @@data.awnings.main.nav-link_rollers
+          Роллеты
         </a></li>
         <li><a href="./gates-rollers-automation.html"
                class="nav-link"
                aria-label="Go to 'Automation' services"
                tabindex="0"
                data-type="automation">
-          @@data.awnings.main.nav-link_automation
+          Автоматизация
         </a></li>
         <li><a href="./barriers-installation-repair.html"
                class="nav-link"
                aria-label="Go to 'Barriers' services"
                tabindex="0"
                data-type="barriers">
-          @@data.awnings.main.nav-link_barriers
+          Шлагбаумы
         </a></li>
         <li><a href="./awnings-installation-repair.html"
                class="nav-link"
                aria-label="Go to 'Awnings' services"
                tabindex="0"
                data-type="awnings">
-          @@data.awnings.main.nav-link_awnings
+          Маркизы
         </a></li>
         <li><a href="./window-settings-repair.html"
                class="nav-link"
                aria-label="Go to 'Windows and Doors' services"
                tabindex="0"
                data-type="windows">
-          @@data.awnings.main.nav-link_windows
+          Окна и Двери
         </a></li>
         <li><a href="./security-installation-maintenance.html"
                class="nav-link"
                aria-label="Go to 'Video Surveillance' services"
                tabindex="0"
                data-type="security">
-          @@data.awnings.main.nav-link_security
+          Видеокамеры
         </a></li>
       </ul>
     </div>
@@ -121,13 +277,13 @@
     <div class="section__content-layer section__content-layer--hero">
       <div class="section__heading-block section__heading-block--hero">
         <h1 id="awnings">
-          <span class="accent">@@data.awnings.main.hero_accent</span>
-          <span class="rest-of-heading">@@data.awnings.main.hero_rest-of-heading</span>
+          <span class="accent">Установка маркиз</span>
+          <span class="rest-of-heading">ремонт и обслуживание</span>
         </h1>
       </div>
       <div class="section__content-block section__content-block--row-left flex-gap-02-02">
         <div class="section__text-block section__text-block--hero">
-          <p>@@data.awnings.main.hero_text-block-p</p>
+          <p>Опытные специалисты выполняют работу любой сложности по установке, обслуживанию и ремонту механических или автоматических маркиз и навесов.</p>
         </div>
         <div class="section__img-wrapper section__img-wrapper--hero">
           <img src="/assets/img/heroSection/24_7.png"
@@ -137,14 +293,14 @@
         </div>
       </div>
       <div class="section__bidding-block section__bidding-block--hero">
-        <p>@@data.awnings.main.hero_bidding-block-p</p>
+        <p>Срочный выезд в Киеве и Киевской области</p>
         <button
             class="button-request"
             data-type="general"
             onclick="window.location.href='tel:380991019368'"
             aria-label="Mobile communication with a specialist"
             tabindex="0">
-          @@data.awnings.main.hero_button-request
+          Связь с мастером
         </button>
       </div>
     </div>
@@ -160,13 +316,13 @@
         </div>
         <div class="section__text-block section__text-block--pair" data-anime="fade-in-right">
           <div class="section__heading-block section__heading-block--separation">
-            <h2>@@data.awnings.main.about-us_heading</h2>
+            <h2>Установка и ремонт маркиз</h2>
             <hr>
           </div>
-          <p>@@data.awnings.main.about-us_p_1</p>
-          <p>@@data.awnings.main.about-us_p_2</p>
-          <p class="section__text-separ">@@data.awnings.main.about-us_p_3</p>
-          <p>@@data.awnings.main.about-us_p_4</p>
+          <p>Наши опытные мастера с многолетним опытом быстро и качественно выполнят установку маркиз, проведут их ремонт или изготовление под индивидуальные нужды. Мы занимаемся как установкой новых систем, так и их обслуживанием в Киеве и Киевской области.</p>
+          <p>У нас более десяти лет опыта в сфере установки и ремонта маркиз и навесов, что позволяет нам уверенно браться за любые задачи и обеспечивать высокий уровень качества работы.</p>
+          <p class="section__text-separ">Наши решения всегда оптимальны, экономичны и эффективны, что позволяет минимизировать затраты для наших клиентов.</p>
+          <p>Каждый проект для нас – это возможность найти сбалансированное решение, сочетающее удобство, экономию и эстетическую красоту маркиз и навесов, которые мы устанавливаем или ремонтируем.</p>
         </div>
       </div>
     </div>
@@ -175,22 +331,22 @@
     <div class="section__content-layer">
       <div class="section__content-block section__content-block--row-between section__content-block--pair img-right">
         <div class="section__text-block section__text-block--pair" data-anime="fade-in-left">
-          <p class="section__text-separ">@@data.awnings.main.service_p_1</p>
+          <p class="section__text-separ">На базе собственного производства в Киеве и Киевской области мы производим и устанавливаем различные типы маркиз и солнцезащитных конструкций:</p>
           <ul class="section__text-list">
-            <li>@@data.awnings.main.service-1_li_1</li>
-            <li>@@data.awnings.main.service-1_li_2</li>
-            <li>@@data.awnings.main.service-1_li_3</li>
+            <li>складывающиеся или стационарные маркизы;</li>
+            <li>маркизы закрытого (кассетные) или открытого типа;</li>
+            <li>маркизы механические (ручные) или с автоматическим или дистанционным управлением от сети 220В;</li>
           </ul>
-          <p>@@data.awnings.main.service_p_2</p>
+          <p>В зависимости от назначения мы производим:</p>
           <ul class="section__text-list">
-            <li>@@data.awnings.main.service-2_li_1</li>
-            <li>@@data.awnings.main.service-2_li_2</li>
-            <li>@@data.awnings.main.service-2_li_3</li>
-            <li>@@data.awnings.main.service-2_li_4</li>
-            <li>@@data.awnings.main.service-2_li_5</li>
+            <li>вертикальные маркизы;</li>
+            <li>террасные маркизы;</li>
+            <li>локтевые маркизы;</li>
+            <li>ковшовые маркизы;</li>
+            <li>маркизы “падающий локоть”;</li>
           </ul>
-          <p>@@data.awnings.main.service_p_3</p>
-          <p>@@data.awnings.main.service_p_4</p>
+          <p>Мы используем акриловую ткань с полимерным покрытием, которая отталкивает воду и обладает антистатическими и маслоотталкивающими свойствами, что позволяет ткани не удерживать пыль, влагу и загрязнение, а также оставаться чистой и привлекательной в течение длительного времени.</p>
+          <p>Датчики ветра, солнца и дождя могут автоматически контролировать положение маркизы, обеспечивая оптимальный уровень защиты.</p>
         </div>
         <div class="section__img-wrapper section__img-wrapper--pair" data-anime="fade-in-right">
           <img src="/assets/img/awningsSection/awnings_installation_service.png"
@@ -207,20 +363,20 @@
           >
         </div>
         <div class="section__text-block section__text-block--pair" data-anime="fade-in-right">
-          <p class="section__text-separ">@@data.awnings.main.service-2_p_1</p>
-          <p>@@data.awnings.main.service-2_p_2</p>
-          <p>@@data.awnings.main.service-2_p_3</p>
-          <p class="section__text-separ">@@data.awnings.main.service-2_p_4</p>
-          <p>@@data.awnings.main.service-2_p_5</p>
-          <p>@@data.awnings.main.service-2_p_6</p>
-          <p>@@data.awnings.main.service-2_p_7</p>
+          <p class="section__text-separ">Для того чтобы монтаж маркизы был качественным и надежным, а эксплуатация удобной и безопасной, необходимо учитывать множество факторов еще до выполнения заказа.</p>
+          <p>Поэтому для уяснения деталей заказа мы присылаем опытного технического специалиста, который на объекте осмотрит место монтажа, изучит материал будущего крепления маркиз (кирпич, бетон и т.д.), учтет Ваши пожелания и предложит наиболее адекватное и сбалансированное решение.</p>
+          <p>Монтаж маркиз будет производиться квалифицированными мастерами, которые быстро и качественно выполнят установку маркизы и проведут настройки автоматики, датчиков и дистанционного управления.</p>
+          <p class="section__text-separ">В Киеве и Киевской области мы также готовы помочь с ремонтом любого типа уже установленных маркиз и автоматики.</p>
+          <p>Мастера с многолетним опытом ремонта аналогичных систем оперативно и профессионально устранят неисправность конструкции маркизы, заменят изношенные механизмы, наладят и настроят автоматику.</p>
+          <p>Всегда к Вашим услугам наши менеджеры, которые будут координировать выполнение Вашего заказа.</p>
+          <p>Он поможет Вам сделать взвешенный и продуманный выбор конструкции маркиз, материалов, автоматики и, возможно, дистанционного управления.</p>
           <button
               class="button-request"
               data-type="awnings"
               onclick="window.location.href='tel:380991019368'"
               aria-label="Mobile communication with a specialist"
               tabindex="0">
-            @@data.awnings.main.service_button-request
+            Связь с мастером
           </button>
         </div>
       </div>
@@ -229,7 +385,7 @@
   <section class="section" id="benefitsSection" aria-labelledby="benefits-group">
     <div class="section__content-layer">
       <div class="section__heading-block section__heading-block--separation" data-anime="fade-in-left">
-        <h2 id="benefits-group">@@data.awnings.main.benefits_heading</h2>
+        <h2 id="benefits-group">Наши Преимущества</h2>
         <hr>
       </div>
       <div class="section__img-wrapper section__img-wrapper--benefits" data-anime="scale-in">
@@ -251,11 +407,11 @@
               <img src="/assets/img/svgIcons/quality.svg" alt="high quality icon">
             </div>
             <h5 class="content-block-item__heading content-block-item__heading--benefits">
-              @@data.awnings.main.benefits-item_1_heading
+              Качество и надежность
             </h5>
             <div class="content-block-item__text-block">
-              <p>@@data.awnings.main.benefits-item_1_p_1</p>
-              <p>@@data.awnings.main.benefits-item_1_p_2</p>
+              <p>Для нас основным приоритетом является обеспечение высокого качества на всех этапах производства, установки и ремонта маркиз и солнцезащитных конструкций.</p>
+              <p>Благодаря внедрению современных технологий и использованию только лучших материалов, мы обеспечиваем надежность и длительную эксплуатацию каждого элемента нашего оборудования.</p>
             </div>
           </div>
           <div class="content-block-item content-block-item--benefits" data-anime="fade-in-right">
@@ -263,12 +419,12 @@
               <img src="/assets/img/svgIcons/personal.svg" alt="personal approach benefits icon">
             </div>
             <h5 class="content-block-item__heading content-block-item__heading--benefits">
-              @@data.awnings.main.benefits-item_2_heading
+              Индивидуальный подход
             </h5>
             <div class="content-block-item__text-block">
-              <p>@@data.awnings.main.benefits-item_2_p_1</p>
-              <p>@@data.awnings.main.benefits-item_2_p_2</p>
-              <p>@@data.awnings.main.benefits-item_2_p_3</p>
+              <p>Мы понимаем, что клиент имеет свои уникальные пожелания и требования к маркизам и солнцезащитным навесам.</p>
+              <p>А каждый объект имеет свои особенности, такие как направление ветров, расположение солнца и характеристики стен, на которых планируется установка маркиз.</p>
+              <p>Все это требует отдельной и детальной разработки проекта с учетом всех факторов для достижения максимальной эффективности и долговечности конструкции.</p>
             </div>
           </div>
         </div>
@@ -278,11 +434,11 @@
               <img src="/assets/img/svgIcons/complex.svg" alt="complex approach benefits icon">
             </div>
             <h5 class="content-block-item__heading content-block-item__heading--benefits">
-              @@data.awnings.main.benefits-item_3_heading
+              Комплексный подход
             </h5>
             <div class="content-block-item__text-block">
-              <p>@@data.awnings.main.benefits-item_3_p_1</p>
-              <p>@@data.awnings.main.benefits-item_3_p_2</p>
+              <p>Наша компания предлагает комплекс услуг, включающих консультирование, разработку проекта, а также изготовление, установку и обслуживание маркиз.</p>
+              <p>Мы обеспечиваем поддержку на каждом этапе реализации вашего проекта, гарантируя качество и точность выполнения всех работ.</p>
             </div>
           </div>
           <div class="content-block-item content-block-item--benefits" data-anime="fade-in-right">
@@ -290,11 +446,11 @@
               <img src="/assets/img/svgIcons/payment.svg" alt="flexible payment benefits icon">
             </div>
             <h5 class="content-block-item__heading content-block-item__heading--benefits">
-              @@data.awnings.main.benefits-item_4_heading
+              Гибкая система оплаты
             </h5>
             <div class="content-block-item__text-block">
-              <p>@@data.awnings.main.benefits-item_4_p_1</p>
-              <p>@@data.awnings.main.benefits-item_4_p_2</p>
+              <p>Мы предлагаем различные варианты оплаты, чтобы сотрудничество с нами было удобным и доступным для каждого клиента.</p>
+              <p>Вы можете выбрать тот способ расчета, который наиболее соответствует Вашим потребностям и финансовым возможностям.</p>
             </div>
           </div>
         </div>
@@ -304,11 +460,11 @@
               <img src="/assets/img/svgIcons/24_7_icon.svg" alt="24/7 working hours benefits icon">
             </div>
             <h5 class="content-block-item__heading content-block-item__heading--benefits">
-              @@data.awnings.main.benefits-item_5_heading
+              Экстренный выезд без выходных
             </h5>
             <div class="content-block-item__text-block">
-              <p>@@data.awnings.main.benefits-item_5_p_1</p>
-              <p>@@data.awnings.main.benefits-item_5_p_2</p>
+              <p>Мы ценим Ваше время и всегда готовы реагировать на Ваши запросы в режиме 24/7 (кроме комендантского часа).</p>
+              <p>Наш коллектив достаточно велик, чтобы Вы не тратили время на ожидания, а могли получить услугу сразу после обращения и быстро решать все вопросы, связанные с установкой, ремонтом или обслуживанием маркиз.</p>
             </div>
           </div>
           <div class="content-block-item content-block-item--benefits" data-anime="fade-in-right">
@@ -316,11 +472,11 @@
               <img src="/assets/img/svgIcons/proff_icon.svg" alt="professional benefits icon">
             </div>
             <h5 class="content-block-item__heading content-block-item__heading--benefits">
-              @@data.awnings.main.benefits-item_6_heading
+              Квалифицированные мастера с большим опытом
             </h5>
             <div class="content-block-item__text-block">
-              <p>@@data.awnings.main.benefits-item_6_p_1</p>
-              <p>@@data.awnings.main.benefits-item_6_p_2</p>
+              <p>Наши мастера регулярно аттестуются и имеют многолетний опыт в установке и ремонте маркиз.</p>
+              <p>Мы постоянно совершенствуем свои навыки и следим за новейшими тенденциями на рынке маркиз, чтобы обеспечить наивысшее качество наших услуг.</p>
             </div>
           </div>
         </div>
@@ -330,11 +486,11 @@
               <img src="/assets/img/svgIcons/spare_parts_icon.svg" alt="spare parts benefits icon">
             </div>
             <h5 class="content-block-item__heading content-block-item__heading--benefits">
-              @@data.awnings.main.benefits-item_7_heading
+              Наличие оригинальных запчастей
             </h5>
             <div class="content-block-item__text-block">
-              <p>@@data.awnings.main.benefits-item_7_p_1</p>
-              <p>@@data.awnings.main.benefits-item_7_p_2</p>
+              <p>Для ремонта и обслуживания маркиз мы используем только оригинальные запчасти и комплектующие от проверенных производителей.</p>
+              <p>На нашем собственном производстве мы производим необходимые детали и конструкции, позволяющие предложить дополнительные возможности для удовлетворения Ваших потребностей.</p>
             </div>
           </div>
           <div class="content-block-item content-block-item--benefits" data-anime="fade-in-right">
@@ -342,11 +498,11 @@
               <img src="/assets/img/svgIcons/warranty_icon.svg" alt="warranty benefits icon">
             </div>
             <h5 class="content-block-item__heading content-block-item__heading--benefits">
-              @@data.awnings.main.benefits-item_8_heading
+              Гарантийное обслуживание
             </h5>
             <div class="content-block-item__text-block">
-              <p>@@data.awnings.main.benefits-item_8_p_1</p>
-              <p>@@data.awnings.main.benefits-item_8_p_2</p>
+              <p>Мы высоко ценим доверие наших клиентов и предоставляем гарантийное и послегарантийное обслуживание на все выполненные работы и установленные маркизы.</p>
+              <p>На новоустановленные автоматические маркизы дополнительно распространяется гарантия от производителя.</p>
             </div>
           </div>
         </div>
@@ -356,22 +512,22 @@
   <section class="section section--services" aria-labelledby="services-group">
     <div class="section__content-layer">
       <div class="section__heading-block section__heading-block--separation" data-anime="fade-in-left">
-        <h2 id="services-group">@@data.awnings.main.services_heading</h2>
+        <h2 id="services-group">Наши Услуги</h2>
         <hr>
       </div>
       <div class="section__content-block section__content-block--row-left flex-gap-02-01">
         <div class="section__text-block section__text-block--services" data-anime="fade-in-up">
-          <p>@@data.awnings.main.services_p_1</p>
-          <p>@@data.awnings.main.services_p_2</p>
+          <p>Наш широкий ассортимент услуг позволяет предложить комплексные решения для создания безопасности и комфорта в Вашем жилье, офисе или на коммерческом объекте.</p>
+          <p>Мы обеспечиваем высококачественное выполнение работ, быстрый выезд специалистов и индивидуальный подход к каждому клиенту.</p>
         </div>
       </div>
       <div class="section__content-block section__content-block--row-right flex-gap-02-01">
         <div class="section__bidding-block section__bidding-block--services">
-          <p>@@data.awnings.main.services_hexagon_heading</p>
+          <p>Выберите услугу</p>
           <nav class="hexagon-comb-block" aria-label="Services navigation" data-anime="scale-in">
             <a href="./gates-installation-repair.html"
                class="hexagon-comb-block__cell-link"
-               title="@@data.awnings.main.services_hexagon_title"
+               title="Перейти к услуге"
                aria-label="Navigate to gates installation services"
                tabindex="0"
                data-type="gates" >
@@ -380,11 +536,11 @@
                   loading="lazy"
                   alt="gates installation services"
               >
-              <span class="hexagon-comb-block__cell-title">@@data.awnings.main.services_hexagon_gates</span>
+              <span class="hexagon-comb-block__cell-title">Изготовление и ремонт ворот</span>
             </a>
             <a href="./rollers-installation-repair.html"
                class="hexagon-comb-block__cell-link"
-               title="@@data.awnings.main.services_hexagon_title"
+               title="Перейти к услуге"
                aria-label="Navigate to roller shutters installation services"
                tabindex="0"
                data-type="rollers" >
@@ -393,11 +549,11 @@
                   loading="lazy"
                   alt="shutters installation services"
               >
-              <span class="hexagon-comb-block__cell-title">@@data.awnings.main.services_hexagon_rollers</span>
+              <span class="hexagon-comb-block__cell-title">Монтаж и ремонт защитных роллет</span>
             </a>
             <a href="./gates-rollers-automation.html"
                class="hexagon-comb-block__cell-link"
-               title="@@data.awnings.main.services_hexagon_title"
+               title="Перейти к услуге"
                aria-label="Navigate to roller automation services"
                tabindex="0"
                data-type="automation" >
@@ -406,11 +562,11 @@
                   loading="lazy"
                   alt="roller automation services"
               >
-              <span class="hexagon-comb-block__cell-title">@@data.awnings.main.services_hexagon_automation</span>
+              <span class="hexagon-comb-block__cell-title">Автоматизация ворот и защитных роллет</span>
             </a>
             <a href="./barriers-installation-repair.html"
                class="hexagon-comb-block__cell-link"
-               title="@@data.awnings.main.services_hexagon_title"
+               title="Перейти к услуге"
                aria-label="Navigate to barrier installation services"
                tabindex="0"
                data-type="barriers" >
@@ -419,11 +575,11 @@
                   loading="lazy"
                   alt="barrier installation services"
               >
-              <span class="hexagon-comb-block__cell-title">@@data.awnings.main.services_hexagon_barriers</span>
+              <span class="hexagon-comb-block__cell-title">Установка и ремонт шлагбаумов</span>
             </a>
             <a href="./awnings-installation-repair.html"
                class="hexagon-comb-block__cell-link"
-               title="@@data.awnings.main.services_hexagon_title"
+               title="Перейти к услуге"
                aria-label="Navigate to awnings installation services"
                tabindex="0" data-type="awnings">
               <img
@@ -431,11 +587,11 @@
                   loading="lazy"
                   alt="awnings installation services"
               >
-              <span class="hexagon-comb-block__cell-title">@@data.awnings.main.services_hexagon_awnings</span>
+              <span class="hexagon-comb-block__cell-title">Изготовление, монтаж и ремонт маркиз</span>
             </a>
             <a href="./security-installation-maintenance.html"
                class="hexagon-comb-block__cell-link"
-               title="@@data.awnings.main.services_hexagon_title"
+               title="Перейти к услуге"
                aria-label="Navigate to surveillance installation services"
                tabindex="0"
                data-type="security" >
@@ -444,11 +600,11 @@
                   alt="surveillance installation services"
                   loading="lazy"
               >
-              <span class="hexagon-comb-block__cell-title">@@data.awnings.main.services_hexagon_security</span>
+              <span class="hexagon-comb-block__cell-title">Установка систем охраны и видеонаблюдения</span>
             </a>
             <a href="./window-settings-repair.html"
                class="hexagon-comb-block__cell-link"
-               title="@@data.awnings.main.services_hexagon_title"
+               title="Перейти к услуге"
                aria-label="Navigate to window hardening services"
                tabindex="0"
                data-type="windows">
@@ -457,7 +613,7 @@
                   alt="window hardening services"
                   loading="lazy"
               >
-              <span class="hexagon-comb-block__cell-title">@@data.awnings.main.services_hexagon_windows</span>
+              <span class="hexagon-comb-block__cell-title">Бронирование и ремонт окон и дверей</span>
             </a>
           </nav>
         </div>
@@ -467,9 +623,9 @@
   <section class="section" aria-labelledby="brands-group">
     <div class="section__content-layer">
       <div class="section__heading-block section__heading-block--separation" data-anime="fade-in-left">
-        <h2 id="brands-group">@@data.awnings.main.partners_heading</h2>
+        <h2 id="brands-group">Наши ТОП Партнеры</h2>
         <hr>
-        <p class="sub-p">@@data.awnings.main.partners_p_1</p>
+        <p class="sub-p">Мы сотрудничаем исключительно с надежными и известными брендами</p>
       </div>
       <div class="logo-wrapper" data-anime="fade-in-up">
         <div class="logo-wrapper__item">
@@ -586,7 +742,7 @@
   <section class="section bg-darker" aria-labelledby="gallery-group">
     <div class="section__content-layer">
       <div class="section__heading-block section__heading-block--separation" data-anime="fade-in-left">
-        <h2 id="gallery-group">@@data.index.main.gallery_heading</h2>
+        <h2 id="gallery-group">Наши работы</h2>
         <hr>
       </div>
       <div id="gallery-work">
@@ -750,9 +906,133 @@
       </div>
     </div>
   </section>
-}
 
-  @@include("templates/footer.html", {"page": "awnings"})
+
+  <footer class="section section--footer" >
+  <div class="section__content-layer">
+    <div
+        class="section__content-block section__content-block--row-right section__content-block--footer flex-gap-02-01"
+        data-type="fade-in-up"
+    >
+      
+      <div class="footer__contacts-block">
+        <div class="footer__content-block-item">
+          <h2 class="footer__logo-heading">Мастер-Сервис</h2>
+          <p class="footer__logo-text">Аварийный ремонт и установка роллет, ворот, маркиз, шлагбаумов в Киеве и Киевской области</p>
+        </div>
+        <div class="footer__content-block-item" aria-label="Communication options">
+          <a href="tel:380991019368"
+             aria-label="Mobile connection with the master"
+             class="icon-link icon-link--footer"
+             tabindex="0"
+          >
+            <div class="icon-link__phone-icon">
+              <svg viewBox="0 0 24 25">
+                <title>phone icon</title>
+                <use xlink:href="/assets/img/svgIcons/sprite.mono.svg#phone"></use>
+              </svg>
+            </div>
+            <span class="icon-link__text icon-link__text--phone">+38 (099) 101 93 68</span>
+          </a>
+          <a href="viber://chat?number=+380991019368"
+             aria-label="Contact the master via Viber"
+             class="icon-link icon-link--footer"
+             tabindex="0"
+          >
+            <div class="icon-link__social-icon">
+              <svg viewBox="0 0 48 48">
+                <title>viber icon</title>
+                <use xlink:href="/assets/img/svgIcons/sprite.multi.svg#viber"></use>
+              </svg>
+            </div>
+            <span class="icon-link__text icon-link__text--social-icon">+38 (099) 101 93 68</span>
+          </a>
+          <a href="https://t.me/username"
+             target="_blank"
+             aria-label="Contact the master via Telegram"
+             rel="noopener noreferrer nofollow"
+             class="icon-link icon-link--footer"
+             tabindex="0"
+          >
+            <div class="icon-link__social-icon">
+              <svg viewBox="0 0 240 240">
+                <title>telegram icon</title>
+                <use xlink:href="/assets/img/svgIcons/sprite.multi.svg#telegram"></use>
+              </svg>
+            </div>
+            <span class="icon-link__text icon-link__text--social-icon">+38 (099) 101 93 68</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer__content-block">
+        <div class="footer__content-block-item">
+          <h3 class="footer__nav-heading">Услуги:</h3>
+          <nav class="footer__nav" aria-label="Navigation to services">
+            <ul class="footer__nav-list">
+              <li><a href="./index.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Go to main page"
+                     tabindex="0"
+                     data-type="index">
+                О нас
+              </a></li>
+              <li><a href="./gates-installation-repair.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Go to 'Gates' services"
+                     tabindex="0"
+                     data-type="gates">
+                Ворота
+              </a></li>
+              <li><a href="./rollers-installation-repair.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Go to 'Rollers' services"
+                     tabindex="0"
+                     data-type="rollers">
+                Роллеты
+              </a></li>
+              <li><a href="./gates-rollers-automation.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Go to 'Automation' services"
+                     tabindex="0"
+                     data-type="automation">
+                Автоматизация
+              </a></li>
+              <li><a href="./barriers-installation-repair.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Go to 'Barriers' services"
+                     tabindex="0"
+                     data-type="barriers">
+                Шлагбаумы
+              </a></li>
+              <li><a href="./awnings-installation-repair.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Go to 'Awnings' services"
+                     tabindex="0"
+                     data-type="awnings">
+                Маркизы
+              </a></li>
+              <li><a href="./window-settings-repair.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Go to 'Windows and Doors' services"
+                     tabindex="0"
+                     data-type="windows">
+                Окна и Двери
+              </a></li>
+              <li><a href="./security-installation-maintenance.html"
+                     class="nav-link nav-link--footer"
+                     aria-label="Go to 'Video Surveillance' services"
+                     tabindex="0"
+                     data-type="security">
+                Видеонаблюдение
+              </a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</footer>
 </div>
 
 <!-- SCRIPTS -->

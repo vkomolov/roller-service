@@ -1,5 +1,4 @@
 import gulp from "gulp";
-import path from "path";
 
 import { pathData } from "./gulp/paths.js";
 import { modes } from "./gulp/settings.js";
@@ -13,7 +12,8 @@ const { series, parallel, watch } = gulp;
 const initBs = (lang) => {
     return new BrowserSync({
         //first priority: "dist/html/", then "dist/" for assets/css or assets/img...
-        baseDir: [path.resolve(pathData.distPath, "html"), pathData.distPath],
+        //baseDir: [path.resolve(pathData.distPath, "html"), pathData.distPath],
+        baseDir: pathData.distPath,
         startPath: `/${lang}/index.html`,
         open: true,
         notify: false,

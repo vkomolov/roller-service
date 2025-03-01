@@ -380,31 +380,31 @@ ul {
   font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Open Sans";
   font-weight: 600;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("/assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("/assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
 /* retina display (2x) */
 /* large desktop: (min-width: 1921px) */
@@ -568,31 +568,31 @@ img, svg, picture, video, object {
   font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Open Sans";
   font-weight: 600;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("/assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("/assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
 @keyframes popup {
   0% {
@@ -946,31 +946,31 @@ ul {
   font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Open Sans";
   font-weight: 600;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("/assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("/assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
 /* retina display (2x) */
 /* large desktop: (min-width: 1921px) */
@@ -1471,31 +1471,31 @@ ul {
   font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Open Sans";
   font-weight: 600;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("/assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("/assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
 /* retina display (2x) */
 /* large desktop: (min-width: 1921px) */
@@ -1659,31 +1659,31 @@ img, svg, picture, video, object {
   font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Open Sans";
   font-weight: 600;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("/assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("/assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
 @keyframes popup {
   0% {
@@ -1929,31 +1929,31 @@ ul {
   font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Open Sans";
   font-weight: 600;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("/assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("/assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
 /* retina display (2x) */
 /* large desktop: (min-width: 1921px) */
@@ -2878,31 +2878,31 @@ ul {
   font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Open Sans";
   font-weight: 600;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("/assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("/assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
 /* retina display (2x) */
 /* large desktop: (min-width: 1921px) */
@@ -3066,31 +3066,31 @@ img, svg, picture, video, object {
   font-family: "Open Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-Regular.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-Regular.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Open Sans";
   font-weight: 600;
   font-style: normal;
-  src: url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("../assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
+  src: url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff2") format("woff2"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.woff") format("woff"), url("/assets/fonts/OpenSans/OpenSans-SemiBold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Ubuntu";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("../assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff2") format("woff2"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.woff") format("woff"), url("/assets/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 400;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("../assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Regular.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Regular.woff") format("woff"), url("/assets/fonts/Jost/Jost-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Jost";
   font-weight: 700;
   font-style: normal;
-  src: url("../assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("../assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("../assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Jost/Jost-Bold.woff2") format("woff2"), url("/assets/fonts/Jost/Jost-Bold.woff") format("woff"), url("/assets/fonts/Jost/Jost-Bold.ttf") format("truetype");
 }
 @keyframes popup {
   0% {
@@ -3166,39 +3166,39 @@ img, svg, picture, video, object {
 }
 @media (min-width: 1025px) {
   .section--footer {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.5), rgba(40, 32, 23, 0.8) 60%), image-set(url("../assets/img/footerSection/professional_1440.webp") 1x, url("../assets/img/footerSection/professional_1440.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.5), rgba(40, 32, 23, 0.8) 60%), image-set(url("/assets/img/footerSection/professional_1440.webp") 1x, url("/assets/img/footerSection/professional_1440.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
-                url("../assets/img/footerSection/professional_1440@2x.webp") 2x,
-                url("../assets/img/footerSection/professional_1440@2x.jpg") 2x
+                url("/assets/img/footerSection/professional_1440@2x.webp") 2x,
+                url("/assets/img/footerSection/professional_1440@2x.jpg") 2x
             );
         }*/
   }
 }
 @media (max-width: 1024px) {
   .section--footer {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.5), rgba(40, 32, 23, 0.8) 60%), image-set(url("../assets/img/footerSection/professional_1024.webp") 1x, url("../assets/img/footerSection/professional_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.5), rgba(40, 32, 23, 0.8) 60%), image-set(url("/assets/img/footerSection/professional_1024.webp") 1x, url("/assets/img/footerSection/professional_1024.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
-              url("../assets/img/footerSection/professional_1024@2x.webp") 2x,
-              url("../assets/img/footerSection/professional_1024@2x.jpg") 2x
+              url("/assets/img/footerSection/professional_1024@2x.webp") 2x,
+              url("/assets/img/footerSection/professional_1024@2x.jpg") 2x
           );
         }*/
   }
 }
 @media (max-width: 640px) {
   .section--footer {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.5), rgba(40, 32, 23, 0.8) 60%), image-set(url("../assets/img/footerSection/professional_640.webp") 1x, url("../assets/img/footerSection/professional_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.5), rgba(40, 32, 23, 0.8) 60%), image-set(url("/assets/img/footerSection/professional_640.webp") 1x, url("/assets/img/footerSection/professional_640.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/footerSection/professional_640@2x.webp") 2x,
-              url("../assets/img/footerSection/professional_640@2x.jpg") 2x
+              url("/assets/img/footerSection/professional_640@2x.webp") 2x,
+              url("/assets/img/footerSection/professional_640@2x.jpg") 2x
           );
         }*/
   }
@@ -3594,106 +3594,106 @@ img, svg, picture, video, object {
   }
 }
 .section--hero[aria-labelledby=index] {
-  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/hero_professional_1440.webp") 1x, url("../assets/img/heroSection/hero_professional_1440.jpg") 1x);
+  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/hero_professional_1440.webp") 1x, url("/assets/img/heroSection/hero_professional_1440.jpg") 1x);
   /* tablet (portrait): (max-width: 1024px) */
   /* mobile (portrait wide): (max-width: 640px) */
 }
 @media (max-width: 1024px) {
   .section--hero[aria-labelledby=index] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/hero_professional_1024.webp") 1x, url("../assets/img/heroSection/hero_professional_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/hero_professional_1024.webp") 1x, url("/assets/img/heroSection/hero_professional_1024.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
-              url("../assets/img/heroSection/hero_professional_1024@2x.webp") 2x,
-              url("../assets/img/heroSection/hero_professional_1024@2x.jpg") 2x
+              url("/assets/img/heroSection/hero_professional_1024@2x.webp") 2x,
+              url("/assets/img/heroSection/hero_professional_1024@2x.jpg") 2x
           );
         }*/
   }
 }
 @media (max-width: 640px) {
   .section--hero[aria-labelledby=index] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.6), rgba(40, 32, 23, 0.5)), image-set(url("../assets/img/heroSection/hero_professional_640.webp") 1x, url("../assets/img/heroSection/hero_professional_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.6), rgba(40, 32, 23, 0.5)), image-set(url("/assets/img/heroSection/hero_professional_640.webp") 1x, url("/assets/img/heroSection/hero_professional_640.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/hero_professional_640@2x.webp") 2x,
-              url("../assets/img/heroSection/hero_professional_640@2x.jpg") 2x
+              url("/assets/img/heroSection/hero_professional_640@2x.webp") 2x,
+              url("/assets/img/heroSection/hero_professional_640@2x.jpg") 2x
           );
         }*/
   }
 }
 .section--hero[aria-labelledby=gates] {
-  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/gates-automatic_1440.webp") 1x, url("../assets/img/heroSection/gates-automatic_1440.jpg") 1x);
+  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/gates-automatic_1440.webp") 1x, url("/assets/img/heroSection/gates-automatic_1440.jpg") 1x);
   /* tablet (portrait): (max-width: 1024px) */
   /* mobile (portrait wide): (max-width: 640px) */
 }
 @media (max-width: 1024px) {
   .section--hero[aria-labelledby=gates] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/gates-automatic_1024.webp") 1x, url("../assets/img/heroSection/gates-automatic_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/gates-automatic_1024.webp") 1x, url("/assets/img/heroSection/gates-automatic_1024.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
-              url("../assets/img/heroSection/gates-automatic_1024@2x.webp") 2x,
-              url("../assets/img/heroSection/gates-automatic_1024@2x.jpg") 2x
+              url("/assets/img/heroSection/gates-automatic_1024@2x.webp") 2x,
+              url("/assets/img/heroSection/gates-automatic_1024@2x.jpg") 2x
           );
         }*/
   }
 }
 @media (max-width: 640px) {
   .section--hero[aria-labelledby=gates] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("../assets/img/heroSection/gates-automatic_640.webp") 1x, url("../assets/img/heroSection/gates-automatic_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("/assets/img/heroSection/gates-automatic_640.webp") 1x, url("/assets/img/heroSection/gates-automatic_640.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/gates-automatic_640@2x.webp") 2x,
-              url("../assets/img/heroSection/gates-automatic_640@2x.jpg") 2x
+              url("/assets/img/heroSection/gates-automatic_640@2x.webp") 2x,
+              url("/assets/img/heroSection/gates-automatic_640@2x.jpg") 2x
           );
         }*/
   }
 }
 .section--hero[aria-labelledby=rollers] {
-  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/security_shutters_roll-up_1440.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up_1440.jpg") 1x);
+  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/security_shutters_roll-up_1440.webp") 1x, url("/assets/img/heroSection/security_shutters_roll-up_1440.jpg") 1x);
   /* tablet (portrait): (max-width: 1024px) */
   /* mobile (portrait wide): (max-width: 640px) */
 }
 @media (max-width: 1024px) {
   .section--hero[aria-labelledby=rollers] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/security_shutters_roll-up_1024.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/security_shutters_roll-up_1024.webp") 1x, url("/assets/img/heroSection/security_shutters_roll-up_1024.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
-              url("../assets/img/heroSection/security_shutters_roll-up_1024@2x.webp") 2x,
-              url("../assets/img/heroSection/security_shutters_roll-up_1024@2x.jpg") 2x
+              url("/assets/img/heroSection/security_shutters_roll-up_1024@2x.webp") 2x,
+              url("/assets/img/heroSection/security_shutters_roll-up_1024@2x.jpg") 2x
           );
         }*/
   }
 }
 @media (max-width: 640px) {
   .section--hero[aria-labelledby=rollers] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("../assets/img/heroSection/security_shutters_roll-up_640.webp") 1x, url("../assets/img/heroSection/security_shutters_roll-up_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("/assets/img/heroSection/security_shutters_roll-up_640.webp") 1x, url("/assets/img/heroSection/security_shutters_roll-up_640.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/security_shutters_roll-up_640@2x.webp") 2x,
-              url("../assets/img/heroSection/security_shutters_roll-up_640@2x.jpg") 2x
+              url("/assets/img/heroSection/security_shutters_roll-up_640@2x.webp") 2x,
+              url("/assets/img/heroSection/security_shutters_roll-up_640@2x.jpg") 2x
           );
         }*/
   }
 }
 .section--hero[aria-labelledby=automation] {
-  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/garage_gate_automation_1440.webp") 1x, url("../assets/img/heroSection/garage_gate_automation_1440.jpg") 1x);
+  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/garage_gate_automation_1440.webp") 1x, url("/assets/img/heroSection/garage_gate_automation_1440.jpg") 1x);
   /*    @include mediaRetina2x {
         background-image:
           linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
           image-set(
-            url("../assets/img/heroSection/garage_gate_automation_1440@2x.webp") 2x,
-            url("../assets/img/heroSection/garage_gate_automation_1440@2x.jpg") 2x
+            url("/assets/img/heroSection/garage_gate_automation_1440@2x.webp") 2x,
+            url("/assets/img/heroSection/garage_gate_automation_1440@2x.jpg") 2x
         );
       }*/
   /* tablet (portrait): (max-width: 1024px) */
@@ -3701,38 +3701,38 @@ img, svg, picture, video, object {
 }
 @media (max-width: 1024px) {
   .section--hero[aria-labelledby=automation] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/garage_gate_automation_1024.webp") 1x, url("../assets/img/heroSection/garage_gate_automation_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/garage_gate_automation_1024.webp") 1x, url("/assets/img/heroSection/garage_gate_automation_1024.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
-              url("../assets/img/heroSection/garage_gate_automation_1024@2x.webp") 2x,
-              url("../assets/img/heroSection/garage_gate_automation_1024@2x.jpg") 2x
+              url("/assets/img/heroSection/garage_gate_automation_1024@2x.webp") 2x,
+              url("/assets/img/heroSection/garage_gate_automation_1024@2x.jpg") 2x
           );
         }*/
   }
 }
 @media (max-width: 640px) {
   .section--hero[aria-labelledby=automation] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("../assets/img/heroSection/garage_gate_automation_640.webp") 1x, url("../assets/img/heroSection/garage_gate_automation_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("/assets/img/heroSection/garage_gate_automation_640.webp") 1x, url("/assets/img/heroSection/garage_gate_automation_640.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/garage_gate_automation_640@2x.webp") 2x,
-              url("../assets/img/heroSection/garage_gate_automation_640@2x.jpg") 2x
+              url("/assets/img/heroSection/garage_gate_automation_640@2x.webp") 2x,
+              url("/assets/img/heroSection/garage_gate_automation_640@2x.jpg") 2x
           );
         }*/
   }
 }
 .section--hero[aria-labelledby=barriers] {
-  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/barrier_automatic_1440.webp") 1x, url("../assets/img/heroSection/barrier_automatic_1440.jpg") 1x);
+  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/barrier_automatic_1440.webp") 1x, url("/assets/img/heroSection/barrier_automatic_1440.jpg") 1x);
   /*    @include mediaRetina2x {
         background-image:
           linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
           image-set(
-            url("../assets/img/heroSection/barrier_automatic_1440@2x.webp") 2x,
-            url("../assets/img/heroSection/barrier_automatic_1440@2x.jpg") 2x
+            url("/assets/img/heroSection/barrier_automatic_1440@2x.webp") 2x,
+            url("/assets/img/heroSection/barrier_automatic_1440@2x.jpg") 2x
         );
       }*/
   /* tablet (portrait): (max-width: 1024px) */
@@ -3740,38 +3740,38 @@ img, svg, picture, video, object {
 }
 @media (max-width: 1024px) {
   .section--hero[aria-labelledby=barriers] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/barrier_automatic_1024.webp") 1x, url("../assets/img/heroSection/barrier_automatic_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/barrier_automatic_1024.webp") 1x, url("/assets/img/heroSection/barrier_automatic_1024.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
-              url("../assets/img/heroSection/barrier_automatic_1024@2x.webp") 2x,
-              url("../assets/img/heroSection/barrier_automatic_1024@2x.jpg") 2x
+              url("/assets/img/heroSection/barrier_automatic_1024@2x.webp") 2x,
+              url("/assets/img/heroSection/barrier_automatic_1024@2x.jpg") 2x
           );
         }*/
   }
 }
 @media (max-width: 640px) {
   .section--hero[aria-labelledby=barriers] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("../assets/img/heroSection/barrier_automatic_640.webp") 1x, url("../assets/img/heroSection/barrier_automatic_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("/assets/img/heroSection/barrier_automatic_640.webp") 1x, url("/assets/img/heroSection/barrier_automatic_640.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/barrier_automatic_640@2x.webp") 2x,
-              url("../assets/img/heroSection/barrier_automatic_640@2x.jpg") 2x
+              url("/assets/img/heroSection/barrier_automatic_640@2x.webp") 2x,
+              url("/assets/img/heroSection/barrier_automatic_640@2x.jpg") 2x
           );
         }*/
   }
 }
 .section--hero[aria-labelledby=awnings] {
-  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/awnings_automatic_1440.webp") 1x, url("../assets/img/heroSection/awnings_automatic_1440.jpg") 1x);
+  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/awnings_automatic_1440.webp") 1x, url("/assets/img/heroSection/awnings_automatic_1440.jpg") 1x);
   /*    @include mediaRetina2x {
         background-image:
           linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
           image-set(
-            url("../assets/img/heroSection/awnings_automatic_1440@2x.webp") 2x,
-            url("../assets/img/heroSection/awnings_automatic_1440@2x.jpg") 2x
+            url("/assets/img/heroSection/awnings_automatic_1440@2x.webp") 2x,
+            url("/assets/img/heroSection/awnings_automatic_1440@2x.jpg") 2x
         );
       }*/
   /* tablet (portrait): (max-width: 1024px) */
@@ -3779,38 +3779,38 @@ img, svg, picture, video, object {
 }
 @media (max-width: 1024px) {
   .section--hero[aria-labelledby=awnings] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/awnings_automatic_1024.webp") 1x, url("../assets/img/heroSection/awnings_automatic_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/awnings_automatic_1024.webp") 1x, url("/assets/img/heroSection/awnings_automatic_1024.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
-              url("../assets/img/heroSection/awnings_automatic_1024@2x.webp") 2x,
-              url("../assets/img/heroSection/awnings_automatic_1024@2x.jpg") 2x
+              url("/assets/img/heroSection/awnings_automatic_1024@2x.webp") 2x,
+              url("/assets/img/heroSection/awnings_automatic_1024@2x.jpg") 2x
           );
         }*/
   }
 }
 @media (max-width: 640px) {
   .section--hero[aria-labelledby=awnings] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("../assets/img/heroSection/awnings_automatic_640.webp") 1x, url("../assets/img/heroSection/awnings_automatic_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("/assets/img/heroSection/awnings_automatic_640.webp") 1x, url("/assets/img/heroSection/awnings_automatic_640.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/awnings_automatic_640@2x.webp") 2x,
-              url("../assets/img/heroSection/awnings_automatic_640@2x.jpg") 2x
+              url("/assets/img/heroSection/awnings_automatic_640@2x.webp") 2x,
+              url("/assets/img/heroSection/awnings_automatic_640@2x.jpg") 2x
           );
         }*/
   }
 }
 .section--hero[aria-labelledby=windows] {
-  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/window_settings_1440.webp") 1x, url("../assets/img/heroSection/window_settings_1440.jpg") 1x);
+  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/window_settings_1440.webp") 1x, url("/assets/img/heroSection/window_settings_1440.jpg") 1x);
   /*    @include mediaRetina2x {
         background-image:
           linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
           image-set(
-            url("../assets/img/heroSection/window_settings_1440@2x.webp") 2x,
-            url("../assets/img/heroSection/window_settings_1440@2x.jpg") 2x
+            url("/assets/img/heroSection/window_settings_1440@2x.webp") 2x,
+            url("/assets/img/heroSection/window_settings_1440@2x.jpg") 2x
         );
       }*/
   /* tablet (portrait): (max-width: 1024px) */
@@ -3818,38 +3818,38 @@ img, svg, picture, video, object {
 }
 @media (max-width: 1024px) {
   .section--hero[aria-labelledby=windows] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/window_settings_1024.webp") 1x, url("../assets/img/heroSection/window_settings_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/window_settings_1024.webp") 1x, url("/assets/img/heroSection/window_settings_1024.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
-              url("../assets/img/heroSection/window_settings_1024@2x.webp") 2x,
-              url("../assets/img/heroSection/window_settings_1024@2x.jpg") 2x
+              url("/assets/img/heroSection/window_settings_1024@2x.webp") 2x,
+              url("/assets/img/heroSection/window_settings_1024@2x.jpg") 2x
           );
         }*/
   }
 }
 @media (max-width: 640px) {
   .section--hero[aria-labelledby=windows] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("../assets/img/heroSection/window_settings_640.webp") 1x, url("../assets/img/heroSection/window_settings_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("/assets/img/heroSection/window_settings_640.webp") 1x, url("/assets/img/heroSection/window_settings_640.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/window_settings_640@2x.webp") 2x,
-              url("../assets/img/heroSection/window_settings_640@2x.jpg") 2x
+              url("/assets/img/heroSection/window_settings_640@2x.webp") 2x,
+              url("/assets/img/heroSection/window_settings_640@2x.jpg") 2x
           );
         }*/
   }
 }
 .section--hero[aria-labelledby=security] {
-  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/surveillance_1440.webp") 1x, url("../assets/img/heroSection/surveillance_1440.jpg") 1x);
+  background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/surveillance_1440.webp") 1x, url("/assets/img/heroSection/surveillance_1440.jpg") 1x);
   /*    @include mediaRetina2x {
         background-image:
           linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
           image-set(
-            url("../assets/img/heroSection/surveillance_1440@2x.webp") 2x,
-            url("../assets/img/heroSection/surveillance_1440@2x.jpg") 2x
+            url("/assets/img/heroSection/surveillance_1440@2x.webp") 2x,
+            url("/assets/img/heroSection/surveillance_1440@2x.jpg") 2x
         );
       }*/
   /* tablet (portrait): (max-width: 1024px) */
@@ -3857,26 +3857,26 @@ img, svg, picture, video, object {
 }
 @media (max-width: 1024px) {
   .section--hero[aria-labelledby=security] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("../assets/img/heroSection/surveillance_1024.webp") 1x, url("../assets/img/heroSection/surveillance_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.8) 35%, rgba(40, 32, 23, 0) 85%), image-set(url("/assets/img/heroSection/surveillance_1024.webp") 1x, url("/assets/img/heroSection/surveillance_1024.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7) 35%, rgba(40, 32, 23, 0) 85%),
             image-set(
-              url("../assets/img/heroSection/surveillance_1024@2x.webp") 2x,
-              url("../assets/img/heroSection/surveillance_1024@2x.jpg") 2x
+              url("/assets/img/heroSection/surveillance_1024@2x.webp") 2x,
+              url("/assets/img/heroSection/surveillance_1024@2x.jpg") 2x
           );
         }*/
   }
 }
 @media (max-width: 640px) {
   .section--hero[aria-labelledby=security] {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("../assets/img/heroSection/surveillance_640.webp") 1x, url("../assets/img/heroSection/surveillance_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.7), rgba(40, 32, 23, 0.5)), image-set(url("/assets/img/heroSection/surveillance_640.webp") 1x, url("/assets/img/heroSection/surveillance_640.jpg") 1x);
     /*    @include mediaRetina2x {
           background-image:
             linear-gradient(to right, rgba(40, 32, 23, .7), rgba(40, 32, 23, .7)),
             image-set(
-              url("../assets/img/heroSection/surveillance_640@2x.webp") 2x,
-              url("../assets/img/heroSection/surveillance_640@2x.jpg") 2x
+              url("/assets/img/heroSection/surveillance_640@2x.webp") 2x,
+              url("/assets/img/heroSection/surveillance_640@2x.jpg") 2x
           );
         }*/
   }
@@ -4109,70 +4109,70 @@ img, svg, picture, video, object {
 }
 @media (min-width: 1281px) {
   .section--services {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("../assets/img/servicesSection/window_roller_shutters_1440.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_1440.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("/assets/img/servicesSection/window_roller_shutters_1440.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_1440.jpg") 1x);
     /*        @include mediaRetina2x {
               background-image:
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/servicesSection/window_roller_shutters_1440@2x.webp") 2x,
-                    url("../assets/img/servicesSection/window_roller_shutters_1440@2x.jpg") 2x
+                    url("/assets/img/servicesSection/window_roller_shutters_1440@2x.webp") 2x,
+                    url("/assets/img/servicesSection/window_roller_shutters_1440@2x.jpg") 2x
                 );
             }*/
   }
 }
 @media (max-width: 1280px) {
   .section--services {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("../assets/img/servicesSection/window_roller_shutters_1280.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_1280.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("/assets/img/servicesSection/window_roller_shutters_1280.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_1280.jpg") 1x);
     /*        @include mediaRetina2x {
               background-image:
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                  url("../assets/img/servicesSection/window_roller_shutters_1280@2x.webp") 2x,
-                  url("../assets/img/servicesSection/window_roller_shutters_1280@2x.jpg") 2x
+                  url("/assets/img/servicesSection/window_roller_shutters_1280@2x.webp") 2x,
+                  url("/assets/img/servicesSection/window_roller_shutters_1280@2x.jpg") 2x
               );
             }*/
   }
 }
 @media (max-width: 1024px) {
   .section--services {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("../assets/img/servicesSection/window_roller_shutters_1024.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("/assets/img/servicesSection/window_roller_shutters_1024.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_1024.jpg") 1x);
     /*        @include mediaRetina2x {
               background-image:
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                  url("../assets/img/servicesSection/window_roller_shutters_1024@2x.webp") 2x,
-                  url("../assets/img/servicesSection/window_roller_shutters_1024@2x.jpg") 2x
+                  url("/assets/img/servicesSection/window_roller_shutters_1024@2x.webp") 2x,
+                  url("/assets/img/servicesSection/window_roller_shutters_1024@2x.jpg") 2x
               );
             }*/
   }
 }
 @media (max-width: 640px) {
   .section--services {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("../assets/img/servicesSection/window_roller_shutters_640.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("/assets/img/servicesSection/window_roller_shutters_640.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_640.jpg") 1x);
     /*        @include mediaRetina2x {
               background-image:
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                  url("../assets/img/servicesSection/window_roller_shutters_640@2x.webp") 2x,
-                  url("../assets/img/servicesSection/window_roller_shutters_640@2x.jpg") 2x
+                  url("/assets/img/servicesSection/window_roller_shutters_640@2x.webp") 2x,
+                  url("/assets/img/servicesSection/window_roller_shutters_640@2x.jpg") 2x
               );
             }*/
   }
 }
 @media (max-width: 480px) {
   .section--services {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("../assets/img/servicesSection/window_roller_shutters_480.webp") 1x, url("../assets/img/servicesSection/window_roller_shutters_480.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("/assets/img/servicesSection/window_roller_shutters_480.webp") 1x, url("/assets/img/servicesSection/window_roller_shutters_480.jpg") 1x);
     /*        @include mediaRetina2x {
               background-image:
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                  url("../assets/img/servicesSection/window_roller_shutters_480@2x.webp") 2x,
-                  url("../assets/img/servicesSection/window_roller_shutters_480@2x.jpg") 2x
+                  url("/assets/img/servicesSection/window_roller_shutters_480@2x.webp") 2x,
+                  url("/assets/img/servicesSection/window_roller_shutters_480@2x.jpg") 2x
               );
             }*/
   }
@@ -4284,15 +4284,6 @@ img, svg, picture, video, object {
   --_s: 1.1;
   z-index: 1;
   cursor: default;
-  /*    &:hover {
-        &:before {
-          top: 0;
-        }
-
-        .hexagon-comb-block__cell-title {
-          opacity: 1;
-        }
-      }*/
 }
 .hexagon-comb-block__cell-link.active:before {
   background-color: rgba(101, 92, 82, 0.7);
@@ -4422,70 +4413,70 @@ img, svg, picture, video, object {
 }
 @media (min-width: 1281px) {
   .section--roller-automation {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440.jpg") 1x);
     /*        @include mediaRetina2x {
               background-image:
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440@2x.webp") 2x,
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1440@2x.jpg") 2x
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440@2x.webp") 2x,
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1440@2x.jpg") 2x
                 );
             }*/
   }
 }
 @media (max-width: 1280px) {
   .section--roller-automation {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280.jpg") 1x);
     /*        @include mediaRetina2x {
               background-image:
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280@2x.webp") 2x,
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1280@2x.jpg") 2x
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280@2x.webp") 2x,
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1280@2x.jpg") 2x
                 );
             }*/
   }
 }
 @media (max-width: 1024px) {
   .section--roller-automation {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024.jpg") 1x);
     /*        @include mediaRetina2x {
               background-image:
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024@2x.webp") 2x,
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_1024@2x.jpg") 2x
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024@2x.webp") 2x,
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_1024@2x.jpg") 2x
                 );
             }*/
   }
 }
 @media (max-width: 640px) {
   .section--roller-automation {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640.jpg") 1x);
     /*        @include mediaRetina2x {
               background-image:
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640@2x.webp") 2x,
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_640@2x.jpg") 2x
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640@2x.webp") 2x,
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_640@2x.jpg") 2x
                 );
             }*/
   }
 }
 @media (max-width: 480px) {
   .section--roller-automation {
-    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x, url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x);
+    background-image: linear-gradient(to right, rgba(40, 32, 23, 0.4), rgba(40, 32, 23, 0.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x);
     /*        @include mediaRetina2x {
               background-image:
                 linear-gradient(to right, rgba(40, 32, 23, .4), rgba(40, 32, 23, .7)),
                 //linear-gradient(to right, rgba(40, 32, 23, .4) 35%, rgba(40, 32, 23, .7) 85%),
                 image-set(
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.webp") 2x,
-                    url("../assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.jpg") 2x
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.webp") 2x,
+                    url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480@2x.jpg") 2x
                 );
             }*/
   }

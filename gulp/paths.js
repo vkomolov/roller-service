@@ -58,7 +58,7 @@ export const pathData = {
         ]
     },
     build: {
-        html: path.join(distPath, "html"),
+        html: distPath,
         styles: path.join(distPath, "css"),
         js: path.join(distPath, "js"),
         img: path.join(distPath, "assets", "img"),
@@ -102,13 +102,4 @@ export const pathData = {
 }
 export const entries = {
     js: getFilesEntries(path.resolve(pathData.srcPath, "js"), "js"),
-/*    js: {
-        index: `${ pathData.srcPath }/js/gallery-thumbs-index.js`,
-
-    },*/
-}
-
-/////// DEV
-function log(it, text = "value: ") {
-    console.log(text, it);
 }
