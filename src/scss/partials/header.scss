@@ -39,7 +39,7 @@
 
   /* tablet (portrait): (max-width: 1024px) */
   @include maxTabletPortrait {
-    font-size: 0.8em; //16px from font-size: 18px;
+    font-size: 0.78em;
   }
 
   /* mobile (portrait wide): (max-width: 640px) */
@@ -231,8 +231,9 @@
 
       @include flex-box($flex-box-row-right-wrap...);
 
-      /* mobile (medium): (max-width: 375px) */
-      @include maxMobileMedium {
+      /* mobile (portrait wide): (max-width: 640px) */
+      @include maxMobilePortraitWide {
+        font-size: 1.1em;
         justify-content: center;
       }
     }
@@ -241,15 +242,13 @@
 
       /* tablet (portrait): (max-width: 1024px) */
       @include maxTabletPortrait {
-        font-size: 0.8em;
+        font-size: 0.78em;
       }
-
 
       /* mobile (landscape): (max-width: 768px)*/
       @include maxMobileLandscape {
         max-width: 20em;
         padding-bottom: 1em;
-        padding-left: 1em;
         padding-top: 1em;
 
         @include flex-box($flex-box-col-right-wrap...);
@@ -258,13 +257,13 @@
 
       /* mobile (portrait wide): (max-width: 640px) */
       @include maxMobilePortraitWide {
-        padding-top: 7em;
+        align-items: center;
+        padding-top: 0;
       }
 
       /* mobile (medium): (max-width: 375px) */
       @include maxMobileMedium {
-        padding-top: 10em;
-        padding-right: 1.3em;
+        padding-top: 1.5em;
       }
     }
   }
@@ -278,7 +277,6 @@
 
   @include flex-box($flex-box-row-center-wrap...);
   gap: 0.5em .75em;
-
 }
 
 .nav-link {

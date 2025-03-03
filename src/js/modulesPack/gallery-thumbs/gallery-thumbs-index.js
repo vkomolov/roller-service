@@ -1,6 +1,10 @@
 "use strict";
 
+import TouchSweep from "touchsweep";
+
 import { createElementWithClass, replaceFilePath } from "./gallery-thumbs-funcs.js";
+
+//const TouchSweep = TouchSweepModule.default;
 
 //////// END OF IMPORTS //////////////////
 
@@ -71,6 +75,7 @@ export function initThumbs(gallerySelector, thumbsFolder = "thumbs") {
  */
 function initModal(mediaArr, params) {
 	let currentIndex = null;
+	let swipeListenersAdded = false; // Flag to check if the swipe listeners have already been added
 	const modalData = createModal();
 	const {
 		modal ,
@@ -87,18 +92,37 @@ function initModal(mediaArr, params) {
 		ArrowRight: getNext,
 	};
 
-const handleClick = ({ target }) => {
+
+//! swipe handler TouchSweep
+	const touchThreshold = 20;
+	// adding TouchSweep to modal
+	const touchSweepHandler = new TouchSweep.default(modal, {}, touchThreshold);
+
+	const handleClick = ({ target }) => {
 	const { type } = target.dataset;
 	if (type && actions[type]) {
 		actions[type]();
 	}
 };
 
+
 	return (clickedIndex) => {
 		if (!document.body.contains(modal)) {
 			document.body.appendChild(modal);
 		}
 		cycleThumbs(clickedIndex);
+
+
+		if (!swipeListenersAdded) {
+			// Adding swipe events when a modal is first opened
+			modal.addEventListener("swipeleft", getPrev);
+			modal.addEventListener("swiperight", getNext);
+
+			swipeListenersAdded = true; // Set the flag that listeners have been added
+		} else {
+			// If the swipe listeners have already been added, simply enable swipe processing
+			touchSweepHandler.bind();
+		}
 
 		modal.addEventListener("click", handleClick);
 		document.addEventListener("keydown", handleKey);
@@ -121,9 +145,12 @@ const handleClick = ({ target }) => {
 	}
 
 	function handleEscape() {
+		touchSweepHandler.unbind(); //remove all previously attached event listeners in TouchSweep
+
 		modal.removeEventListener("click", handleClick);
-		modal.remove();
 		document.removeEventListener("keydown", handleKey);
+
+		modal.remove();
 		document.body.style.overflow = "auto";
 	}
 

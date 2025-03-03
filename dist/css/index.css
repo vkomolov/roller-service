@@ -1227,7 +1227,7 @@ img,object,picture,svg,video{
     background:linear-gradient(90deg, #282017 35%, rgba(65,57,48,0) 75%);
   }
   .header,.header__nav.abs .header__nav-list{
-    font-size:.8em;
+    font-size:.78em;
   }
   .section--footer{
     background-image:linear-gradient(90deg, rgba(40,32,23,.5), rgba(40,32,23,.8) 60%), -webkit-image-set(url("/assets/img/footerSection/professional_1024.webp") 1x, url("/assets/img/footerSection/professional_1024.jpg") 1x);
@@ -1341,7 +1341,6 @@ img,object,picture,svg,video{
     justify-content:center;
     max-width:20em;
     padding-bottom:1em;
-    padding-left:1em;
     padding-top:1em;
   }
   .burger_nav.hidden{
@@ -1373,8 +1372,13 @@ img,object,picture,svg,video{
     flex-direction:column;
     font-size:1em;
   }
+  .header__nav.abs .header__nav-list-wrapper{
+    font-size:1.1em;
+    justify-content:center;
+  }
   .header__nav.abs .header__nav-list{
-    padding-top:7em;
+    align-items:center;
+    padding-top:0;
   }
   .section{
     padding-bottom:64px;
@@ -1541,12 +1545,8 @@ img,object,picture,svg,video{
     background-image:linear-gradient(90deg, rgba(40,32,23,.4), rgba(40,32,23,.7)), image-set(url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480.webp") 1x, url("/assets/img/rollerShuttersAutomation/roller_shutters_automation_480.jpg") 1x);
   }}
 @media (max-width:375px){
-  .header__nav.abs .header__nav-list-wrapper{
-    justify-content:center;
-  }
   .header__nav.abs .header__nav-list{
-    padding-right:1.3em;
-    padding-top:10em;
+    padding-top:1.5em;
   }
   .scrolledNav__contacts-block{
     align-items:center;

@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "gsap": "^3.12.5",
-    "imagesloaded": "^5.0.0"
+    "imagesloaded": "^5.0.0",
+    "touchsweep": "^2.2.0"
   }
 }
