@@ -1056,7 +1056,7 @@ img,object,picture,svg,video{
   width:var(--cell-width);
 }
 .hexagon-comb-block__cell-link:before{
-  background:hsla(0,0%,86%,.8);
+  background:hsla(0,0%,86%,.7);
   content:"";
   display:block;
   height:100%;
@@ -1397,7 +1397,7 @@ img,object,picture,svg,video{
   }
   .header__nav.abs .header__nav-list{
     align-items:center;
-    padding-top:0;
+    padding-top:3em;
   }
   .total-wrapper{
     font-size:.938rem;
@@ -1550,7 +1550,7 @@ img,object,picture,svg,video{
   }}
 @media (max-width:375px){
   .header__nav.abs .header__nav-list{
-    padding-top:1.5em;
+    padding-top:5em;
   }
   .scrolledNav__contacts-block{
     align-items:center;

@@ -253,12 +253,12 @@
       /* mobile (portrait wide): (max-width: 640px) */
       @include media.maxMobilePortraitWide {
         align-items: center;
-        padding-top: 0;
+        padding-top: 3em;
       }
 
       /* mobile (medium): (max-width: 375px) */
       @include media.maxMobileMedium {
-        padding-top: 1.5em;
+        padding-top: 5em;
       }
     }
   }
