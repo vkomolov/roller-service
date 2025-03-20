@@ -31,6 +31,161 @@ const i = {
   scaleIn: "[data-anime=scale-in]",
 };
 
+const navMenuFixed = document.querySelector(i.navMenuHidden);
+const burgerHidden = document.querySelector(i.burgerHidden);
+const burgerFixed = document.querySelector(i.burgerFixed);
+const burgerAll = document.querySelectorAll(i.burgerBase);
+
+const navMenuAnime = gsap.to(navMenuFixed, {
+  top: 0,
+  duration: .8,
+  ease: "back.out(0.8)",
+  paused: true,
+});
+
+const getHeroAnimation = () => {
+  const tlHero = gsap.timeline();
+
+  tlHero.to(i.headingAccentHero, {
+    opacity: 1,
+    duration: 2,
+    delay: 0.3,
+  });
+  tlHero.from(i.headingAccentHero, {
+    x: 80,
+    duration: 0.8,
+    ease: "circ.out"
+  }, "<");
+  tlHero.to(i.headingHeroRest, {
+    opacity: 1,
+    duration: 2,
+  }, "<");
+  tlHero.from(i.headingHeroRest, {
+    x: -80,
+    duration: 0.8,
+    ease: "circ.out"
+  }, "<");
+  tlHero.to(i.textBlockHero, {
+    opacity: 1,
+    duration: 2,
+  }, "-=1.5");
+  tlHero.from(i.textBlockHero, {
+    y: 80,
+    duration: 0.8,
+    ease: "circ.out"
+  }, "<");
+  tlHero.to(i.biddingBlockHero, {
+    opacity: 1,
+    duration: 2,
+  }, "<+0.3");
+  tlHero.from(i.biddingBlockHero, {
+    y: 40,
+    duration: 0.8,
+    ease: "circ.out"
+  }, "<");
+  tlHero.to(i.iconWrapperHero, {
+    scale: 1,
+    duration: 1.5,
+    ease: "elastic.out"
+  }, "<+0.2");
+
+  return tlHero;
+}
+
+const initScrolledNavigation = () => {
+  gsap.to(i.scrolledNav, {
+    top: 0,
+    duration: 1.2,
+    ease: "back.out(0.8)",
+    delay: 0.5,
+    scrollTrigger: {
+      trigger: i.benefitsSection,
+      start: "top 10%",
+      //end: "bottom 85%",
+      toggleActions: "play none none reverse",
+      //markers: true,
+      /**
+       * preventOverlaps vs fastScrollEnd - should be chosen on of them
+       */
+      preventOverlaps: true, //prevent overlapping animations at several trigger animations
+      //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
+    }
+  });
+}
+
+const burgerClickHandler = (e) => {
+  //if clicked out of the burger-menu range then to check if the burger is opened and reverse the animation...
+  if (!(e.target.closest(i.burgerBase))) {
+    const isNavActive = navMenuFixed.getAttribute("aria-expanded") === "true";
+    if (isNavActive) {
+      // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
+      setAttributes([burgerHidden, burgerFixed, navMenuFixed], {
+        "aria-expanded": !isNavActive,
+      });
+
+      burgerHidden.classList.remove("opened");
+      burgerFixed.classList.remove("opened");
+
+      /// animation of hiding the fixed navigation menu with top: -100%;
+      navMenuAnime.reverse();
+
+      //returning scroll to the page...
+      //lockScroll(true);
+      document.body.style.overflow = "auto";
+    }
+  }
+};
+
+const burgerInitListener = (burger) => {
+  burger.addEventListener("click", (e) => {
+    const burgerMenu = e.target.closest(i.burgerBase);
+
+    if (burgerMenu) {
+      e.preventDefault();
+      const isExpanded = burger.getAttribute("aria-expanded") === "true";
+
+      // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
+      setAttributes([burgerHidden, burgerFixed, navMenuFixed], {
+        "aria-expanded": !isExpanded,
+      });
+
+      if (isExpanded) {
+        burgerHidden.classList.remove("opened");
+        burgerFixed.classList.remove("opened");
+        //lockScroll(true);
+        document.documentElement.style.scrollbarGutter = "initial";
+        document.body.style.scrollbarGutter = "initial";
+
+        document.body.style.overflow = "auto";
+      }
+      else {
+        burgerHidden.classList.add("opened");
+        burgerFixed.classList.add("opened");
+        //lockScroll(false);
+        document.documentElement.style.scrollbarGutter = "stable";
+        document.body.style.scrollbarGutter = "stable";
+
+        document.body.style.overflow = "hidden";
+      }
+
+      if (isExpanded) {
+        navMenuAnime.reverse();
+      }
+      else {
+        navMenuAnime.play();
+      }
+    }
+  });
+};
+
+const initBurgerMenu = () => {
+  //// animation of the fixed navigation menu
+  document.addEventListener("click", burgerClickHandler);
+
+  //adding listener to the burger buttons...
+  burgerAll.forEach(burgerInitListener);
+}
+
 /// ANIMATION PARAMS
 const pageAnimations = {
   index: () => {
@@ -42,50 +197,7 @@ const pageAnimations = {
     const tlData = {};
 
     ///////////// SECTION HERO ANIMATION /////////////////
-    const tlHero = gsap.timeline();
-
-    tlHero.to(i.headingAccentHero, {
-      opacity: 1,
-      duration: 2,
-      delay: 0.3,
-    });
-    tlHero.from(i.headingAccentHero, {
-      x: 80,
-      duration: 0.8,
-      ease: "circ.out"
-    }, "<");
-    tlHero.to(i.headingHeroRest, {
-      opacity: 1,
-      duration: 2,
-    }, "<");
-    tlHero.from(i.headingHeroRest, {
-      x: -80,
-      duration: 0.8,
-      ease: "circ.out"
-    }, "<");
-    tlHero.to(i.textBlockHero, {
-      opacity: 1,
-      duration: 2,
-    }, "-=1.5");
-    tlHero.from(i.textBlockHero, {
-      y: 80,
-      duration: 0.8,
-      ease: "circ.out"
-    }, "<");
-    tlHero.to(i.biddingBlockHero, {
-      opacity: 1,
-      duration: 2,
-    }, "<+0.3");
-    tlHero.from(i.biddingBlockHero, {
-      y: 40,
-      duration: 0.8,
-      ease: "circ.out"
-    }, "<");
-    tlHero.to(i.iconWrapperHero, {
-      scale: 1,
-      duration: 1.5,
-      ease: "elastic.out"
-    }, "<+0.2");
+    const tlHero = getHeroAnimation();
 
     if (hasRealAnimations(tlHero)) {
       tlData["tlHero"] = tlHero;
@@ -103,8 +215,8 @@ const pageAnimations = {
         delay: 0.2,
       },
       {
-        x: -80,
-        y: 80,
+        x: -60,
+        y: 40,
         duration: 1,
         ease: "circ.out",
       });
@@ -123,8 +235,8 @@ const pageAnimations = {
         delay: 0.2,
       },
       {
-        x: 80,
-        y: 80,
+        x: 60,
+        y: 40,
         duration: 1,
         ease: "circ.out",
       });
@@ -163,7 +275,7 @@ const pageAnimations = {
       delay: 0.2,
     },
       {
-      y: 80,
+      y: 40,
       duration: 1,
       ease: "circ.out",
     }
@@ -174,106 +286,10 @@ const pageAnimations = {
     ///////////////// SEPARATE TWEENS ////////////////////
 
     ///////////// SCROLLED NAVIGATION ANIMATION //////////
-    gsap.to(i.scrolledNav, {
-      top: 0,
-      duration: 1.2,
-      ease: "back.out(0.8)",
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: i.benefitsSection,
-        start: "top 10%",
-        //end: "bottom 85%",
-        toggleActions: "play none none reverse",
-        //markers: true,
-        /**
-         * preventOverlaps vs fastScrollEnd - should be chosen on of them
-         */
-        preventOverlaps: true, //prevent overlapping animations at several trigger animations
-        //fastScrollEnd: true, // stop previous animation if the scrollTrigger starts animation again...
-      }
-    });
+    initScrolledNavigation();
 
     //////////// BURGER MENU OPEN ANIMATION /////////////
-    const navMenuFixed = document.querySelector(i.navMenuHidden);
-    const burgerHidden = document.querySelector(i.burgerHidden);
-    const burgerFixed = document.querySelector(i.burgerFixed);
-    const burgerAll = document.querySelectorAll(i.burgerBase);
-    //// animation of the fixed navigation menu
-    const navMenuAnime = gsap.to(navMenuFixed, {
-      top: 0,
-      duration: .8,
-      ease: "back.out(0.8)",
-      paused: true,
-    });
-
-
-    document.addEventListener("click", (e) => {
-
-      //if clicked out of the burger-menu range then to check if the burger is opened and reverse the animation...
-      if (!(e.target.closest(i.burgerBase))) {
-        const isNavActive = navMenuFixed.getAttribute("aria-expanded") === "true";
-        if (isNavActive) {
-          // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
-          setAttributes([burgerHidden, burgerFixed, navMenuFixed], {
-            "aria-expanded": !isNavActive,
-          });
-
-          burgerHidden.classList.remove("opened");
-          burgerFixed.classList.remove("opened");
-
-          /// animation of hiding the fixed navigation menu with top: -100%;
-          navMenuAnime.reverse();
-
-          //returning scroll to the page...
-          //lockScroll(true);
-          document.body.style.overflow = "auto";
-        }
-      }
-    });
-
-    //adding listener to the burger buttons...
-    burgerAll.forEach(burger => {
-      burger.addEventListener("click", (e) => {
-        const burgerMenu = e.target.closest(i.burgerBase);
-
-        if (burgerMenu) {
-          e.preventDefault();
-          const isExpanded = burger.getAttribute("aria-expanded") === "true";
-
-          // Changing aria-expanded for both burger menu buttons and the fixed navigation menu
-          setAttributes([burgerHidden, burgerFixed, navMenuFixed], {
-            "aria-expanded": !isExpanded,
-          });
-
-          if (isExpanded) {
-            burgerHidden.classList.remove("opened");
-            burgerFixed.classList.remove("opened");
-            //lockScroll(true);
-            document.documentElement.style.scrollbarGutter = "initial";
-            document.body.style.scrollbarGutter = "initial";
-
-            document.body.style.overflow = "auto";
-          }
-          else {
-            burgerHidden.classList.add("opened");
-            burgerFixed.classList.add("opened");
-            //lockScroll(false);
-            document.documentElement.style.scrollbarGutter = "stable";
-            document.body.style.scrollbarGutter = "stable";
-
-            document.body.style.overflow = "hidden";
-          }
-
-          if (isExpanded) {
-            navMenuAnime.reverse();
-          }
-          else {
-            navMenuAnime.play();
-          }
-        }
-      });
-    });
-
+    initBurgerMenu();
 
     return tlData;
   }
@@ -412,7 +428,13 @@ function getScrollTimelineTwoTweens(elem, triggerElem, gsapToParams = {}, gsapFr
  * @param {string} [nextAnimePos="<"] - The position for the second tween, indicating when the animation should start relative to the first.
  * @return {Object} - An object containing timelines with unique keys.
  */
-function getAllScrollTwoTweens(elemsArr, triggerElem, propKey = "tlKey", gsapToParams = {}, gsapFromParams = {}, nextAnimePos = "<") {
+function getAllScrollTwoTweens(
+  elemsArr,
+  triggerElem,
+  propKey = "tlKey",
+  gsapToParams = {},
+  gsapFromParams = {},
+  nextAnimePos = "<") {
   const tlObj = {};
   let trigger = null;
 
@@ -446,10 +468,4 @@ function getAllScrollTwoTweens(elemsArr, triggerElem, propKey = "tlKey", gsapToP
   });
 
   return tlObj;
-}
-
-
-/////// DEV
-function log(it, text = "value: ") {
-  console.log(text, it);
 }
